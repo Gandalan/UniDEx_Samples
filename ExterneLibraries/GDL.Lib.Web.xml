@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.Lib.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Gandalan.Library.Web.RESTRoutinen">
+            <summary>
+            Klasse für den HTTP-Datentransfer per REST an unsere WebAPIs. Ermöglicht das Senden 
+            und Empfangen von Objekten. Die Übermittlung erfolgt mit JSON serialisierten Objekten.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Web.RESTRoutinen.BaseUrl">
+            <summary>
+            Stammadresse der Web-API. Die Resource-Parameter der einzelnen Übertragungsmethoden 
+            werden angehängt. Beispiel: http://192.168.217.10/neurosAPI/api/
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Web.RESTRoutinen.Proxy">
+            <summary>
+            Proxy-Informationen (optional)
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Web.RESTRoutinen.AdditionalHeaders">
+            <summary>
+            Liste der zusätzlich zu übermittelnden Header. Werden bei jeder Anfrage mitgeschickt, 
+            z.B. für Authentifizierungs-Header
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Web.RESTRoutinen.Get``1(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Holt ein Objekt per HTTP GET 
+            </summary>
+            <typeparam name="T">Typsierungsparameter</typeparam>
+            <param name="url">Relative URL, bezogen auf die BaseUrl</param>
+            <returns>Objektinstanz</returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.RESTRoutinen.Post``1(System.String,System.Object,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Sendet ein Objekt per HTTP POST an die angegebene URL, i.d.R. um es zu speichern 
+            </summary>
+            <typeparam name="T">Typisierungsparameter</typeparam>
+            <param name="url">Relative URL, bezogen auf die BaseUrl</param>
+            <param name="data">zu sendendes Objekt</param>
+            <returns>deserialisierte Antwort (i.d.R. sollte das das gespeicherte Objekt in seiner Endfassung sein)</returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.RESTRoutinen.Put``1(System.String,System.Object,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Sendet ein Objekt per HTTP PUT an die angegebene URL, i.d.R. um es anzulegen
+            </summary>
+            <typeparam name="T">Typisierungsparameter</typeparam>
+            <param name="url">Relative URL, bezogen auf die BaseUrl</param>
+            <param name="data">zu sendendes Objekt</param>
+            <returns>deserialisierte Antwort (i.d.R. sollte das das gespeicherte Objekt in seiner Endfassung sein)</returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.RESTRoutinen.Delete(System.String)">
+            <summary>
+            Löscht ein Objekt per HTTP DELETE an die angegebene URL
+            </summary>
+            <param name="url">Relative URL, bezogen auf die BaseUrl</param>
+            <returns>Antwort des Servers als String</returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.RESTRoutinen.Delete``1(System.String,System.Object,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Löscht ein Objekt per HTTP DELETE an die angegebene URL
+            </summary>
+            <param name="url">Relative URL, bezogen auf die BaseUrl</param>
+            <param name="data"></param>
+            <returns>Antwort des Servers als String</returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.RESTRoutinen.createWebClient">
+            <summary>
+            Erstellt und konfiguriert eine neue WebClient-Instanz 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Gandalan.Library.Web.WebRoutinen.TempProxyWasUsed">
+            <summary>
+            Ist TRUE, wenn für den Internetzugang ein temporär erstellter WebProxy mit den Systemeinstellungen verwendet wurde.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Web.WebRoutinen.OperationResultMessage">
+            <summary>
+            Rückgabewert der letzten Webaktion.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinen.IsWebServerAvailable(System.String,System.Int32)">
+            <summary>
+            Es wird geprüft, ob der Webserver erreichbar ist.
+            </summary>
+            <param name="webAdresse">[Optional] Als Standardadresse wird der Wert aus 'WebPropertiesBase.DefaultBaseUrlServer' verwendet.</param>
+            <param name="timeout">[Optional] Zeitspanne in Millisekunden bis zum Überschreiten des Zeitlimits.</param>
+            <returns>Fehlermeldung, falls der WebServer nicht erreichbar ist, sonst einen Leerstring</returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinen.GeneralWebRequestOld(Gandalan.Library.Web.WebModies,Gandalan.Library.Web.IUpdateParameterItem,Gandalan.Library.BaseLibrary.SystemGeber,System.Object)">
+            <summary>
+            Fragt Informationen vom GandalanWebServer ab.
+            </summary>
+            <param name="mode"></param>
+            <param name="systemGeber"></param>
+            <param name="updateParameter"></param>
+            <param name="tag">Übergabe vom WebModus abhängigen Zusatzinformationen.(Beispiel: Systemgeber bei 'BestellungenAbholen' / optionaler DateiName bei Abfrage 'AktuellerStand')</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinen.ExistProjectUpdates(Gandalan.Library.BaseLibrary.ProjectNamen,System.DateTime,System.String)">
+            <summary>
+            Es wird eine Liste mit verfügbaren Updateversionen für das übergebene Projekt erstellt.
+            </summary>
+            <param name="projectName">Name des Projektes, für das die Updates geprüft werden sollen</param>
+            <param name="projectStand">Projektstand der aktuellen Version.</param>
+            <param name="projectVersion">[Optional] Versionsnummer des aktuellen Projektes.</param>
+            <returns>Eine Liste der zur Verfügung stehenden Updates. Mit Stand/Versionsnummer/Versionstyp.</returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinen.ExistProjectUpdate(Gandalan.Library.Web.IUpdateParameterItem)">
+            <summary>
+            Es wird geprüft, ob für die übergeben Projektversion ein neues Update zur Verfügung steht.
+            </summary>
+            <param name="projectData">Die akt. Projectdaten. Ist eine neuere Version vorhanden, werden hier die neuen Updatedaten zurückgegeben.</param>
+            <returns>TRUE, wenn eine neuere Programmversion zur Verfügung steht.</returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinen.Upload(Gandalan.Library.Web.WebModies,System.String,System.String,System.Boolean,System.Boolean,Gandalan.Library.Web.IUpdateParameterItem,Gandalan.Library.BaseLibrary.SystemGeber,System.Object)">
+            <summary>
+            Lädt eine Datei auf den Websever hoch.
+            </summary>
+            <param name="mode"></param>
+            <param name="sourcePath">Die Datei, die hochgeladen werden soll.</param>
+            <param name="destinationPath">Der Dateiname der Datei auf dem Webserver. Standardmäßig wird der Name der Quelldatei verwendet.</param>
+            <param name="useVersionierung">Wenn TRUE, wird der Name der Zieldatei um Datum + Uhrzeit der letzten Änderung der Quelldatei erweitert.</param>
+            <param name="updateParameter"></param>
+            <param name="addMaskingExtension"></param>
+            <param name="systemGeber"></param>
+            <param name="tag">Übergabe vom WebModus abhängigen Zusatzinformationen.(Beispiel: Releasewert bei 'ArtikelUpdate')</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinen.Download(Gandalan.Library.Web.WebModies,System.String,System.String,Gandalan.Library.Web.IUpdateParameterItem,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Lädt eine Datei vom Websever herunter.
+            </summary>
+            <param name="mode"></param>
+            <param name="sourcePath">Die Datei, die hochgeladen werden soll.</param>
+            <param name="destinationPath">Der Dateiname der der Datei auf dem Webserver. Standardmäßig wird der Name der Quelldatei verwendet.</param>
+            <param name="updateParameter"></param>
+            <param name="addTrackItem"></param>
+            <param name="addMaskingExtension"></param>
+            <param name="tag">Übergabe vom WebModus abhängigen Zusatzinformationen.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinen.CheckProxy">
+            <summary>
+            Prüft an Hand der Property 'ProxyProperties.Instance.UseProxy' ob ein Proxy verwendet werden soll und wenn ja wird einer erstellt.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinen.ClearErrors">
+            <summary>
+            Löscht das im Speicher befindliche Fehlerprotokoll.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Web.WebRoutinenOld.TempProxyWasUsed">
+            <summary>
+            Ist TRUE, wenn für den Internetzugang ein temporär erstellter WebProxy mit den Systemeinstellungen verwendet wurde.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinenOld.GeneralWebRequest(Gandalan.Library.Web.WebModies,System.String@,Gandalan.Library.BaseLibrary.SystemGeber,Gandalan.Library.Web.IUpdateParameterItem,System.Object)">
+            <summary>
+            Fragt Informationen vom GandalanWebServer ab.
+            </summary>
+            <param name="result">Die abgefragten Informationen</param>
+            <param name="tag">Übergabe vom WebModus abhängigen Zusatzinformationen.(Beispiel: Produzent bei 'BestellungenAbholen')</param>
+            <param name="mode"></param>
+            <param name="produzent"></param>
+            <param name="updateParameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinenOld.Upload(Gandalan.Library.Web.WebModies,System.String@,System.String,System.String,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Lädt eine Datei auf den Websever hoch.
+            </summary>
+            <param name="mode"></param>
+            <param name="result">Rückmeldung über den Status des Hochladevorgangs.</param>
+            <param name="sourcePath">Die Datei, die hochgeladen werden soll.</param>
+            <param name="destinationPath">Der Dateiname der der Datei auf dem Webserver. Standardmäßig wird der Name der Quelldatei verwendet.</param>
+            <param name="useVersionierung">Wenn TRUE, wird der Name der Zieldatei um Datum + Uhrzeit der letzten Änderung der Quelldatei erweitert.</param>
+            <param name="addMaskingExtension"></param>
+            <param name="tag">Übergabe vom WebModus abhängigen Zusatzinformationen.(Beispiel: Produzent bei 'BestellungenAbholen')</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinenOld.Download(Gandalan.Library.Web.WebModies,System.String@,System.String,System.String,Gandalan.Library.Web.IUpdateParameterItem,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Lädt eine Datei vom Websever herunter.
+            </summary>
+            <param name="mode"></param>
+            <param name="result">Rückmeldung über den Status des Hochladevorgangs.</param>
+            <param name="sourcePath">Die Datei, die hochgeladen werden soll.</param>
+            <param name="destinationPath">Der Dateiname der der Datei auf dem Webserver. Standardmäßig wird der Name der Quelldatei verwendet.</param>
+            <param name="updateParameter"></param>
+            <param name="addTrackItem"></param>
+            <param name="addMaskingExtension"></param>
+            <param name="tag">Übergabe vom WebModus abhängigen Zusatzinformationen.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Web.WebRoutinenOld.ClearErrors">
+            <summary>
+            Löscht das im Speicher befindliche Fehlerprotokoll.
+            </summary>
+        </member>
+    </members>
+</doc>

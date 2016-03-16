@@ -1,0 +1,846 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.IDAS.Data.IBOS2</name>
+    </assembly>
+    <members>
+        <member name="T:Gandalan.IDAS.Data.NeherSystem.Artikel.farben">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farben.farbe">
+            <remarks/>
+        </member>
+        <member name="T:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.farbcode">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.bezeichnung">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.kuerzel">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.isstandardfarbe">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.sortorderindex">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.preisgruppe">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.rgbtextfarbe">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.rgb_a">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.rgb_r">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.rgb_g">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.rgb_b">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.farbkuerzel">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.preis">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.farbenFarbe.preisstaffel2">
+            <remarks/>
+        </member>
+        <member name="T:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikel">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikel.version">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikel.stand">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikel.farben">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikel.artikeldaten">
+            <remarks/>
+        </member>
+        <member name="T:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.id">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.artikelschluessel">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.artikeltyp">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.merkmal1">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.merkmal2">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.bezeichnung">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.einheit">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.iskundenspezifischerartikel">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.canhassonderfarbe">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.mengestaffel2">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.vemenge">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.maxmenge">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.profillaengemm">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.gewichtinkg">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.iszuschnitt">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.zubehoerpreis">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.zubehoerpreisstaffel2">
+            <remarks/>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.NeherSystem.Artikel.nehersystemartikelArtikeldatenArtikel.farben">
+            <remarks/>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.NeherSystem.Etiketten.EtikettenBaustein.konfigVariablenErsetzen(System.String,Gandalan.IDAS.Data.Models.Komponente)">
+            <summary>
+            Ersetzt Platzhalter der Form $Breite$ durch den Wert der Konfig-Variablen diesen Namens. Ohne Angabe eines Komponentennamens 
+            wird die Konfig der Überkompolnente verwendet, bei Verwendung der Syntax $Unter.Name.Breite$ die entsprechende Unterkomponente
+            </summary>
+            <param name="vorlage">zu parsender String</param>
+            <param name="komp">Komponente, die die Werte enthält</param>
+            <returns>geparster String</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.NeherSystem.Etiketten.EtikettenBaustein.funktionsaufrufeErsetzen(System.String,Gandalan.IDAS.Data.Belege.BelegPosition,System.Collections.Generic.List{Gandalan.IDAS.Data.Models.Komponente})">
+            <summary>
+            
+            @GetBelegSaldo()@ - ruft die Methode in der BelegPositionBase auf
+            @Modell.GetBearbeitungen()@ - ruft die Methode in der Komponente auf
+            @Modell["MR_1"].ZugehoerigerKatalogArtikel.KatalogNummer@ - ruft die Methode in der Komponente auf
+            </summary>
+            <param name="vorlage"></param>
+            <param name="pos"></param>
+            <param name="bauteileDieDieRegelnErfuellen"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gandalan.IDAS.Data.NeherSystem.IndividualVariante">
+            <summary>
+            Informationen zu einer individuellen Variante
+            </summary>
+        </member>
+        <member name="T:Gandalan.IDAS.Data.NeherSystem.IndividualVariantenListe">
+            <summary>
+            Listet die individuellen Varianten aus Neher\Daten\gSQL\Stammdaten\individuelle_Varianten
+            </summary>
+        </member>
+        <member name="T:Gandalan.IDAS.Data.Models.Komponente">
+            <summary>
+            Das Herzstück von IDAS: eine QuellKomponente, besteht immer entweder aus einem Bauteil
+            oder aus einer oder mehreren Unterkomponenten
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.EindeutigerName">
+            <summary>
+            Eindeutiger Name der Komponente als voller Pfad - Name.Name.Name.Name...
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.StammKomponenteName">
+            <summary>
+            Eindeutiger Name der Komponente als voller Pfad - Name.Name.Name.Name...
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.IstGueltigesBauteil">
+            <summary>
+            Liefert true, wenn es ein Bauteil gibt und das eine Länge > 0 hat oder ein Rotationskörper ist
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Zusammenfuegen(Gandalan.IDAS.Data.Models.Komponente,System.Boolean,Gandalan.IDAS.Data.Models.Komponente,System.Boolean)">
+            <summary>
+            Verbindet zwei BauteileNachKategorie an ihren Innenpunkten
+            </summary>
+            <param suchWort="p1">Erstes Profil</param>
+            <param suchWort="far1">Soll near oder far-Punkt verwendet werden</param>
+            <param suchWort="p2">Zweites Profil</param>
+            <param suchWort="far2">Soll near oder far-Punkt verwendet werden</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Zusammenfuegen(Gandalan.IDAS.Data.Models.Komponente,System.String,System.Double,Gandalan.IDAS.Data.Models.Komponente,System.String,System.Double)">
+            <summary>
+            Fügt zwei BauteileNachKategorie an beliebigen OP zusammen
+            </summary>
+            <param suchWort="p1">Erstes Profil</param>
+            <param suchWort="bezugsPunkt1">Names des Bezugspunktes in Profil 1</param>
+            <param suchWort="z1">Z-Koordinate für den ersten Bezugspunkt</param>
+            <param suchWort="p2">Zweites Profil</param>
+            <param suchWort="bezugsPunkt2">Names des Bezugspunktes in Profil 2</param>
+            <param suchWort="z2">Z-Koordinate für den zweiten Bezugspunkt</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Zusammenfuegen(Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition,Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition)">
+            <summary>
+            Fügt zwei BauteileNachKategorie an beliebigen OP zusammen
+            </summary>
+            <param suchWort="p1">Erstes Profil</param>
+            <param suchWort="bezugsPunkt1">Names des Bezugspunktes in Profil 1</param>
+            <param suchWort="z1">Z-Koordinate für den ersten Bezugspunkt</param>
+            <param suchWort="p2">Zweites Profil</param>
+            <param suchWort="bezugsPunkt2">Names des Bezugspunktes in Profil 2</param>
+            <param suchWort="z2">Z-Koordinate für den zweiten Bezugspunkt</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetUnterKomponenteByPath(Gandalan.IDAS.Data.Models.Komponente,System.String)">
+            <summary>
+            Sucht im Baum einer Komponente nach einem bestimmten Pfad. Der Pfad enthält an letzter 
+            Stelle immer den Namen eines OP, der für die Suche ignoriert wird.
+            
+            Beispiel: SP_1.RP_1.IP liefert die Komponnente RP_1!
+            </summary>
+            <param name="stamm">Suchbeginn</param>
+            <param name="path">Pfad mit OP-Angabe</param>
+            <returns>Suchergebnis</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Zusammenfuegen(Gandalan.IDAS.Data.Models.Komponente,System.String,System.Boolean,Gandalan.IDAS.Data.Models.Komponente,System.String,System.Boolean)">
+            <summary>
+            Fügt zwei BauteileNachKategorie an beliebigen OP zusammen
+            </summary>
+            <param suchWort="p1">Erstes Profil</param>
+            <param suchWort="bezugsPunkt1">Names des Bezugspunktes in Profil 1</param>
+            <param suchWort="far1">Z-Koordinate für den ersten Bezugspunkt ermitteln: near oder far</param>
+            <param suchWort="p2">Zweites Profil</param>
+            <param suchWort="bezugsPunkt2">Names des Bezugspunktes in Profil 2</param>
+            <param suchWort="far2">Z-Koordinate für den zweiten Bezugspunkt ermitteln: near oder far</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.ZusammenfuegenX(Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition,Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition)">
+            <summary>
+            Fügt zwei BauteileNachKategorie an beliebigen OP zusammen. Dabei wird nur die X-Achse berücksichtigt
+            </summary>
+            <param suchWort="p1">Erstes Profil</param>
+            <param suchWort="bezugsPunkt1">Names des Bezugspunktes in Profil 1</param>
+            <param suchWort="z1">Z-Koordinate für den ersten Bezugspunkt</param>
+            <param suchWort="p2">Zweites Profil</param>
+            <param suchWort="bezugsPunkt2">Names des Bezugspunktes in Profil 2</param>
+            <param suchWort="z2">Z-Koordinate für den zweiten Bezugspunkt</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.ZusammenfuegenY(Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition,Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition)">
+            <summary>
+            Fügt zwei BauteileNachKategorie an beliebigen OP zusammen. Dabei wird nur die X-Achse berücksichtigt
+            </summary>
+            <param suchWort="p1">Erstes Profil</param>
+            <param suchWort="bezugsPunkt1">Names des Bezugspunktes in Profil 1</param>
+            <param suchWort="z1">Z-Koordinate für den ersten Bezugspunkt</param>
+            <param suchWort="p2">Zweites Profil</param>
+            <param suchWort="bezugsPunkt2">Names des Bezugspunktes in Profil 2</param>
+            <param suchWort="z2">Z-Koordinate für den zweiten Bezugspunkt</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.ZusammenfuegenZ(Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition,Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition)">
+            <summary>
+            Fügt zwei BauteileNachKategorie an beliebigen OP zusammen. Dabei wird nur die X-Achse berücksichtigt
+            </summary>
+            <param suchWort="p1">Erstes Profil</param>
+            <param suchWort="bezugsPunkt1">Names des Bezugspunktes in Profil 1</param>
+            <param suchWort="z1">Z-Koordinate für den ersten Bezugspunkt</param>
+            <param suchWort="p2">Zweites Profil</param>
+            <param suchWort="bezugsPunkt2">Names des Bezugspunktes in Profil 2</param>
+            <param suchWort="z2">Z-Koordinate für den zweiten Bezugspunkt</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Anfuegen(System.String,Gandalan.IDAS.Data.ZPosition,Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition)">
+            <summary>
+            Fügt der aktuellen QuellKomponente eine andere an. Die Verbindung ist nicht dauerhaft (dazu dient Verkleben)
+            </summary>
+            <param suchWort="bezugsPunkt1"></param>
+            <param suchWort="pos1"></param>
+            <param suchWort="p2"></param>
+            <param suchWort="bezugsPunkt2"></param>
+            <param suchWort="pos2"></param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AnfuegenX(System.String,Gandalan.IDAS.Data.ZPosition,Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition)">
+            <summary>
+            Fügt der aktuellen QuellKomponente eine andere an. Die Verbindung ist nicht dauerhaft (dazu dient Verkleben)
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AnfuegenY(System.String,Gandalan.IDAS.Data.ZPosition,Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition)">
+            <summary>
+            Fügt der aktuellen QuellKomponente eine andere an. Die Verbindung ist nicht dauerhaft (dazu dient Verkleben)
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AnfuegenZ(System.String,Gandalan.IDAS.Data.ZPosition,Gandalan.IDAS.Data.Models.Komponente,System.String,Gandalan.IDAS.Data.ZPosition)">
+            <summary>
+            Fügt der aktuellen QuellKomponente eine andere an. Die Verbindung ist nicht dauerhaft (dazu dient Verkleben)
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Versatz(System.Double,System.Double,System.Double)">
+            <summary>
+            Absoluter Versatz
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Versatz(Gandalan.IDAS.Data.Models.Komponente,System.Double,System.Double,System.Double)">
+            <summary>
+            Versatz realtiv zu anderer Komponente
+            </summary>
+            <param name="achse"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.VersatzX(Gandalan.IDAS.Data.Models.Komponente,System.Double)">
+            <summary>
+            Versetzt die Komponente entlang der Z-Achse eine anderen Komponente um einen Betrag
+            </summary>
+            <param name="achse">Komponente, die die Achse bildet</param>
+            <param name="betrag">Betrag des Versatzes</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.VersatzY(Gandalan.IDAS.Data.Models.Komponente,System.Double)">
+            <summary>
+            Versetzt die Komponente entlang der Z-Achse eine anderen Komponente um einen Betrag
+            </summary>
+            <param name="achse">Komponente, die die Achse bildet</param>
+            <param name="betrag">Betrag des Versatzes</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.VersatzZ(Gandalan.IDAS.Data.Models.Komponente,System.Double)">
+            <summary>
+            Versetzt die Komponente entlang der Z-Achse eine anderen Komponente um einen Betrag
+            </summary>
+            <param name="achse">Komponente, die die Achse bildet</param>
+            <param name="betrag">Betrag des Versatzes</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.VersatzX(System.Double)">
+            <summary>
+            Versetzt die Komponente um einen Betrag auf der X-Achse
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.VersatzY(System.Double)">
+            <summary>
+            Versetzt die Komponente um einen Betrag auf der Y-Achse
+            </summary>
+            <param name="y"></param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.VersatzZ(System.Double)">
+            <summary>
+            Versetzt die Komponente um einen Betrag auf der Z-Achse
+            </summary>
+            <param name="z"></param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.versatzAnAchse(Gandalan.Mathe.Vektor3,System.Double)">
+            <summary>
+            Versetzt die Komponente entlang eines Richtungsvektors um einen Betrag
+            </summary>
+            <param name="diff">Richtungsvektor (Einheitsvektor!)</param>
+            <param name="betrag">Betrag</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.versatzAbsolut(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Versetzt die Komponente um einen Betragsvektor
+            </summary>
+            <param name="diff"></param>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.InnenPunktFar">
+            <summary>
+            Der Innenpunkt, also Ursprungsvektor auf den Endpunkt des Gehrungsschnittes auf
+            der dem Ursprung abgewandten Seite
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.InnenPunktNear">
+            <summary>
+            Der Innenpunkt, also Ursprungsvektor auf den Endpunkt des Gehrungsschnittes auf
+            der dem Ursprung zugewandten Seite
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.IsHorizontal">
+            <summary>
+            Gibt zurück, ob das Profil horizontal ausgerichtet ist.
+            </summary>		
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.IsVertikal">
+            <summary>
+            Gibt zurück, ob das Profil vertikal ausgerichtet ist.
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetLokaleZAchse">
+            <summary>
+            Ermittelt den Richtungsvektor zwischen Ursprung des Teils und Ende des Teils als Einheitsvektor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.BrauchtUpdate">
+            <summary>
+            Wird gesetzt, wenn ein Sonder-Update gefeuert werden muss, z.B. nach einer Drehung, um die Unterkomponenten wieder 
+            zu re-positionieren
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.ResetDrehungen(System.Boolean)">
+            <summary>
+            Löscht alle Drehungen, die auf die Komponente und ggf. ihre verklebten Unterkomponenten angewandt wurden
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetArtikelListe">
+            <summary>
+            Gets the artikel liste.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AddNewBearbeitung(System.String)">
+            <summary>
+            Erzeugt eine Bearbeitung und fügt sie ein
+            </summary>
+            <param name="name">Bearbeitungsname</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AddNewBearbeitung(System.String,System.String)">
+            <summary>
+            Erzeugt eine Bearbeitung und fügt sie ein
+            </summary>
+            <param name="name">Bearbeitungsname</param>
+            <param name="variablenName">Name der Variablen im Skript</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AddNewBearbeitung(System.String,System.String,System.Boolean)">
+            <summary>
+            Erzeugt eine Bearbeitung und fügt sie ein
+            </summary>
+            <param name="name">Bearbeitungsname</param>
+            <param name="erbeDrehungen">sollen Drehungen an die neue Komponente vererbt werden</param>
+            <param name="variablenName">Name der Variablen im Skript</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.BearbeitungsBezugSetzen(System.String,Gandalan.IDAS.Data.Models.Komponente)">
+            <summary>
+            Verknüpft die Bearbeitung an die Zielkomponente. Sie bleibt der eigenen Komponente zugehörig, 
+            wird aber im Ziel ausgeführt
+            </summary>
+            <param name="name"></param>
+            <param name="ziel"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.BauteileNachKategorie">
+            <summary>
+            BauteileNachKategorie nach Kategorie
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.Bauteile">
+            <summary>
+            BauteileNachKategorie nach Kategorie
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.BauteilKategorien">
+            <summary>
+            Unterkategorien mit ihren Kompononenten
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.RefreshBauteilKategorien">
+            <summary>
+            Aktualisiert die Kategorien für die Unterkomponenten
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AddKomponente(Gandalan.IDAS.Data.Models.Komponente,System.Boolean)">
+            <summary>
+            Verknüpft eine QuellKomponente als Unterkomponente
+            </summary>
+            <param suchWort="unterKomponente"></param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AddNewKomponente(System.String)">
+            <summary>
+            Erzeugt eine neue QuellKomponente anhand des Namens und fügt sie als
+            Unterkomponente ein
+            </summary>
+            <param name="name">Quellomponente/Vorlage</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AddNewKomponente(System.String,System.String)">
+            <summary>
+            Erzeugt eine neue QuellKomponente anhand des Namens und fügt sie als
+            Unterkomponente ein
+            </summary>
+            <param name="name">QuellKomponente/Vorlage</param>
+            <param name="variablenName">Name der Variablen im Skript</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AddNewKomponente(System.String,System.String,System.Boolean)">
+            <summary>
+            Erzeugt eine neue QuellKomponente anhand des Namens und fügt sie als
+            Unterkomponente ein
+            </summary>
+            <param name="name">QuellKomponente/Vorlage</param>
+            <param name="erbeDrehungen">sollen Drehungen an die neue Komponente vererbt werden</param>
+            <param name="variablenName">Name der Variablen im Skript</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AddNewBauteil(System.String)">
+            <summary>
+            Erzeugt ein Bauteil und fügt es ein
+            </summary>
+            <param name="name">Bauteilname</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AddNewBauteil(System.String,System.String)">
+            <summary>
+            Erzeugt ein Bauteil und fügt es ein
+            </summary>
+            <param name="name">Bauteilname</param>
+            <param name="variablenName">Name der Variablen im Skript</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.AddNewBauteil(System.String,System.String,System.Boolean)">
+            <summary>
+            Erzeugt ein Bauteil und fügt es ein
+            </summary>
+            <param name="name">Bauteilname</param>
+            <param name="erbeDrehungen">sollen Drehungen an die neue Komponente vererbt werden</param>
+            <param name="variablenName">Name der Variablen im Skript</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.ContainsKomponente(System.String)">
+            <summary>
+            Prüft, ob eine benannte QuellKomponente vorhanden ist
+            </summary>
+            <param name="name"></param>
+            <returns>true, wenn eine Komponente des Namens vorhanden ist</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetKomponenteByName(System.String)">
+            <summary>
+            Sucht die angegebene QuellKomponente anhand des Namens. Die Suche erfolgt mit dem exakten Namen, 
+            immer case-sensitive 
+            </summary>
+            <param name="suchWort">Name der zu suchenden Komponente</param>
+            <returns>Wenn gefunden, Komponente - sonst null</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetKomponenteByName(System.String,System.Boolean)">
+            <summary>
+            Sucht die angegebene QuellKomponente anhand des Namens. Die Suche erfolgt wahlweise mit dem exakten 
+            Namen oder dem Anfang des Namens, immer case-sensitive 
+            </summary>
+            <param name="suchWort">Name der zu suchenden Komponente</param>
+            <param name="searchStarting">wenn true, wird der Anfang des Namens verglichen (Teilwortsuche)</param>
+            <returns>Wenn gefunden, Komponente - sonst null</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetKomponenteByGuid(System.Guid)">
+            <summary>
+            Sucht die angegebene Komponente anhand der GUID. 
+            </summary>
+            <param name="guid">GUID der zu suchenden Komponente</param>        
+            <returns>Wenn gefunden, Komponente - sonst null</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetKomponentenByName(System.String)">
+            <summary>
+            Gibt alle Komponenten zurück, deren Name mit dem Suchwort beginnt
+            </summary>
+            <param name="suchWort">Suchwort</param>
+            <returns>Liste der passenden Komponenten</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetNewKomponente(System.String)">
+            <summary>
+            Erzeugt eine neue Unterkomponente mit dem entsprechenden Namen anhand der
+            gleichnamigen Vorlage (also eigentlich eine Kopie der QuellKomponente). Der 
+            Name wird automagisch erzeugt, die Drehungen der erzeugenden Komponente werden 
+            nicht übernommen.
+            </summary>
+            <param name="stammKomponenteName">Name der einzufügenden Stammkomponente</param>
+            <returns>neu erzeugte QuellKomponente</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetNewKomponente(System.String,System.String)">
+            <summary>
+            Erzeugt eine neue Unterkomponente mit dem entsprechenden Namen anhand der
+            gleichnamigen Vorlage (also eigentlich eine Kopie der QuellKomponente). Die 
+            Drehungen der erzeugenden Komponente werden nicht übernommen.
+            </summary>
+            <param name="stammKomponenteName">Name der einzufügenden Stammkomponente</param>
+            <param name="variablenName">Name der neuen Unterkomponente</param>
+            <returns>neu erzeugte QuellKomponente</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetNewKomponente(System.String,System.String,System.Boolean)">
+            <summary>
+            Erzeugt eine neue Unterkomponente mit dem entsprechenden Namen anhand der
+            gleichnamigen Vorlage (also eigentlich eine Kopie der QuellKomponente)
+            </summary>
+            <param name="stammKomponenteName">Name der einzufügenden Stammkomponente</param>
+            <param name="variablenName">Name der neuen Unterkomponente</param>
+            <param name="erbeDrehungen">Wenn true, werden alle Drehungen der erzeugenden Komponente auch auf die neue Komponente angewandt</param>
+            <returns>neu erzeugte QuellKomponente</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.RemoveKomponente(Gandalan.IDAS.Data.Models.Komponente)">
+            <summary>
+            Entfernt eine Unterkomponente
+            </summary>
+            <param name="unterKomponente"></param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.RemoveKomponente(System.String)">
+            <summary>
+            Entfernt eine Unterkomponente
+            </summary>
+            <param name="komponenteName"></param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.RemoveKomponenten(System.Collections.Generic.List{Gandalan.IDAS.Data.Models.Komponente})">
+            <summary>
+            Entfernt alle Unterkomponenten, die in der Liste aufgeführt sind
+            </summary>
+            <param name="liste"></param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Replace(Gandalan.IDAS.Data.Models.Komponente,Gandalan.IDAS.Data.Models.Komponente)">
+            <summary>
+            Tauscht eine QuellKomponente gegen die andere aus
+            </summary>
+            <param name="alt">zu ersetzende Komponente</param>
+            <param name="neu">neue Komponente</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Replace(Gandalan.IDAS.Data.Models.Komponente,System.String)">
+            <summary>
+            Ersetzt eine Unterkomponente durch ein neues Bauteil
+            </summary>
+            <param name="alt">zu ersetzende Komponente</param>
+            <param name="bauteilNeu">neue Komponente</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetNewBauteil(System.String)">
+            <summary>
+            Erstellt eine Komponente aus einem Bauteil
+            </summary>
+            <param name="bauteilName">Name des Bauteils</param>
+            <returns>erzeugte Komponente</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetNewBauteil(System.String,System.String)">
+            <summary>
+            Erstellt eine Komponente aus einem Bauteil und benennt die Komponente entsprechend dem 
+            angegebenen Variablennamen
+            </summary>
+            <param name="bauteilName">Name des Bauteils</param>
+            <param name="variablenName">Name der Komponenten-Variable</param>
+            <returns>erzeugte Komponente</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetNewBauteil(System.String,System.String,System.Boolean)">
+            <summary>
+            Erstellt eine Komponente aus einem Bauteil
+            </summary>
+            <param name="bauteilName">Name des Bauteils</param>
+            <param name="variablenName">Name der Komponenten-Variable</param>
+            <param name="erbeDrehungen">Gibt an, ob die neue Komponente alle Drehungen der erzeugenden Komponente annehmen soll</param>
+            <returns>erzeugte Komponente</returns>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.Item(System.String)">
+            <summary>
+            Gibt die angegebene Unterkomponente zurück
+            </summary>
+            <param name="name">Name der Komponente</param>
+            <returns>Unterkomponente oder null, wenn diese nicht existiert</returns>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.IstBauteil">
+            <summary>
+            true, wenn diese Komponente ein Bauteil ist
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.IstBearbeitung">
+            <summary>
+            true, wenn diese Komponente eine Bearbeitung ist
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.IstStammkomponente">
+            <summary>
+            true, wenn diese Komponente eine Stammkomponente (also keine Unterkomponente) ist
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.IstSichtbar">
+            <summary>
+            Gibt an, ob die Komponente gerendert werden soll
+            </summary>
+        </member>
+        <member name="F:Gandalan.IDAS.Data.Models.Komponente._laenge">
+            <summary>
+            Extrusionslänge des Bauteils
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.ZuschnittLaenge">
+            <summary>
+            Zuschnittlänge. Kann vom Anwender korrigiert werden, Korrektur hat fürs Modell dann aber keine Auswirkung
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.IstTransparent">
+            <summary>
+            Gibt an, ob das Objekt transparent angezeigt werden soll
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Models.Komponente.ObjectNeedsUpdate">
+            <summary>
+            Gibt an, ob das Objekt für die Darstellung neu gerendert werden muss
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.CloneDeep(System.Boolean)">
+            <summary>
+            Kopiert die Komponente mit allen Eigenschaften des Originals
+            </summary>
+            <param name="cloneWithId">Gibt an, ob die KomponenteId auch mit kopiert werden soll</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.GetOpVektor(System.String,System.Double)">
+            <summary>
+            Ermittelt die Position eines OP im Raum. Die Z-Koordinate muss mitgegeben werden.
+            </summary>
+            <param suchWort="suchWort">Name des OP</param>
+            <param suchWort="z">Bezug in Z-Richtung</param>
+            <returns>Ursprungsvektor auf den OP</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.ToString">
+            <summary>
+            Liefert den Namen des Teils für die Anzeige zurück
+            </summary>
+            <returns>Namenstext</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Construct(Gandalan.IDAS.Data.Models.IDASEntities)">
+            <summary>
+            Führt die Konstruktionslogik des BauteileNachKategorie aus (z.B. zusammensetzen
+            von mehreren Unterteilen usw.)
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Update(System.String)">
+            <summary>
+            Re-Positioniert die Teile nach Änderungen
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Validate(System.String)">
+            <summary>
+            Re-Positioniert die Teile nach Änderungen
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.ExecuteBearbeitungenSkript(System.String)">
+            <summary>
+            Re-Positioniert die Teile nach Änderungen
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.Komponente.Reconstruct(System.String)">
+            <summary>
+            Führt die Plausibilitätsprüfung für das QuellKomponente aus
+            </summary>
+            <returns>true/false, je nachdem, ob das QuellKomponente OK ist oder nicht</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.KonturElement.MittelPunktSenkrechte">
+            <summary>
+            Berechnet den Schnittpunkt der Senkrechten auf dem Mittelpunkt in X-Richtung durch den Kreisbogen
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.KonturElement.Radius">
+            <summary>
+            Radius des Kreisbogens anhand von Mittel- und Anfangspunkt berechnen
+            </summary>
+            <returns>Radius</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Models.KonturElement.Sehne">
+            <summary>
+            Berechnet die Sehne des Kreisbogens zwischen Anfangs- und Endpunkt
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Gandalan.IDAS.Data.Scripts.IDASScript">
+            <summary>
+            Verknüpft Skriptcode mit einer QuellKomponente. Alle Skripte innerhalb der Anwendung werden
+            von IDASScript abgeleitet.
+            </summary>
+        </member>
+        <member name="P:Gandalan.IDAS.Data.Scripts.IDASScript.Me">
+            <summary>
+            Zugriff auf die QuellKomponente, die das Skript ausführt
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Scripts.IDASScript.ExecuteConstruct">
+            <summary>
+            Führt das Skript aus
+            </summary>
+            <returns>Skript-Ergebnis</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Scripts.IDASScript.ExecuteUpdate(System.String)">
+            <summary>
+            Führt das Skript aus
+            </summary>
+            <returns>Skript-Ergebnis</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Scripts.IDASScript.ExecuteValidate(System.String)">
+            <summary>
+            Führt das Skript aus
+            </summary>
+            <returns>Skript-Ergebnis</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Scripts.IDASScript.ExecuteReconstruct(System.String)">
+            <summary>
+            Führt das Skript aus
+            </summary>
+            <returns>Skript-Ergebnis</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Scripts.IDASScript.ExecuteBearbeitungen(System.String)">
+            <summary>
+            Führt das Skript aus
+            </summary>
+            <returns>Skript-Ergebnis</returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.Scripts.IDASScript.SetContext(Gandalan.IDAS.Data.Models.Komponente)">
+            <summary>
+            Teilt dem Skript mit, welche Komponenteninstanz zu diesem Skript gehört. Ist
+            im Skript selbst als Variable "anlage" verfügbar.
+            </summary>
+            <param suchWort="cont">QuellKomponente, die das Skript aufruft</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.NeherLogik.ST3.FluegelLogik.ermittleVerfuegbareLaenge(Gandalan.IDAS.Data.Models.Komponente)">
+            <summary>
+            Ermittelt, welche Länge für die Verteilung der Flügel überhaupt zur Verfügung steht. Bei der Laufschiene 
+            ist das die BM-Breite, weil die LS sich automatisch doppelt so lang macht. Beim Rahmen ist das abhängig 
+            von BM-Breite oder BM-Breite2, je nachdem, was angegeben wurde.
+            </summary>
+            <param name="anlage"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Gandalan.IDAS.Data.NeherLogik.ST3.Konstanten.StatikGriffleistenAbAnlagenHoehe">
+            <summary>
+            Schwellwert, ab dem Statik-Griffleisten eingefügt werden
+            </summary>
+        </member>
+        <member name="F:Gandalan.IDAS.Data.NeherLogik.ST3.Konstanten.FluegelUeberstand_Unten">
+            <summary>
+            Überstand Flügel in MR-Profil unten oder LS-Profil unten (Normalfall)
+            </summary>
+        </member>
+        <member name="F:Gandalan.IDAS.Data.NeherLogik.ST3.Konstanten.FluegelUeberstand_Oben">
+            <summary>
+            Überstand Flügel in MR-Profil oben oder LS-Profil oben (Normalfall)
+            </summary>
+        </member>
+        <member name="F:Gandalan.IDAS.Data.NeherLogik.ST3.Konstanten.FluegelUeberstand_Oben_109040">
+            <summary>
+            Sonderfall: Überstand Flügel in MR-Profil oben oder LS-Profil oben, wenn 109040 verwendet wird
+            </summary>
+        </member>
+        <member name="F:Gandalan.IDAS.Data.NeherLogik.ST3.Konstanten.FluegelUeberstand_Seitl">
+            <summary>
+            Überstand des Flügels seitlich nach außen in MR-Profil
+            </summary>
+        </member>
+        <member name="F:Gandalan.IDAS.Data.NeherLogik.ST3.Konstanten.EntwaesserungVersatzProFlaeche">
+            <summary>
+            Versatz der Entw.-Löcher von Lauf zu Lauf
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Data.NeherLogik.ST4.FluegelLogik.ermittleVerfuegbareLaenge(Gandalan.IDAS.Data.Models.Komponente)">
+            <summary>
+            Ermittelt, welche Länge für die Verteilung der Flügel überhaupt zur Verfügung steht. Bei der Laufschiene 
+            ist das die BM-Breite, weil die LS sich automatisch doppelt so lang macht. Beim Rahmen ist das abhängig 
+            von BM-Breite oder BM-Breite2, je nachdem, was angegeben wurde.
+            </summary>
+            <param name="anlage"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

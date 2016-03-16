@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.IDAS.ThreeDLibs</name>
+    </assembly>
+    <members>
+        <member name="M:Gandalan.IDAS.ThreeDLibs.EyeshotLib.Get3DObjects(Gandalan.IDAS.Data.Models.Komponente)">
+            <summary>
+            Hilfsmethode, die die 3D-Objekthierarchie für das QuellKomponente und seine Unterbauteile
+            zurückgibt.
+            </summary>
+            <returns>Liste der 3D-Objekte</returns>
+        </member>
+        <member name="P:Gandalan.IDAS.ThreeDLibs.EyeshotObject.GehrungsPlanes">
+            <summary>
+            Zum testen!!
+            </summary>
+        </member>
+    </members>
+</doc>

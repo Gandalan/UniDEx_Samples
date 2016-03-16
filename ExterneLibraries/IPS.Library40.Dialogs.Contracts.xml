@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.Dialogs.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:IPS.Library.Dialogs.Contracts.ICommonFileDialogIndexedControls">
+            <summary>
+            Specifies a property, event and method that indexed controls need
+            to implement.
+            </summary>
+            
+            <remarks>
+            not sure where else to put this, so leaving here for now.
+            </remarks>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Contracts.IDialogControlHost">
+            <summary>
+            Indicates that the implementing class is a dialog that can host
+            customizable dialog controls (subclasses of DialogControl).
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Contracts.TaskDialogStandardButton">
+            <summary>
+            Identifies one of the standard buttons that 
+            can be displayed via TaskDialog.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons">
+            <summary>
+            Provides standard combinations of standard buttons in the TaskDialog.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.None">
+            <summary>
+            No buttons.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.Cancel">
+            <summary>
+            A button labeled "Cancel".
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.Ok">
+            <summary>
+            A button labeled "Ok".
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.OkClose">
+            <summary>
+            Two buttons labeled "Ok" and "Close".
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.OkCancel">
+            <summary>
+            Two  buttons labeled "Ok" and "Cancel".
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.OkCancelRetry">
+            <summary>
+            Three buttons labeled "Ok", "Retry", and "Cancel".
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.Yes">
+            <summary>
+            A button labeled "Yes".
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.YesNo">
+            <summary>
+            Two buttons labeled "Yes" and "No".
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.YesNoCancel">
+            <summary>
+            Three buttons labeled "Yes", "No", and "Cancel.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.RetryCancel">
+            <summary>
+            Two buttons labeled "Retry" and "Cancel".
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardButtons.Close">
+            <summary>
+            A single button labeled "Close".
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Contracts.TaskDialogStandardIcon">
+            <summary>
+            Specifies the icon displayed in a task dialog.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardIcon.Warning">
+            <summary>
+            Displays the warning icon.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardIcon.Error">
+            <summary>
+            Displays the error icon.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardIcon.Information">
+            <summary>
+            Displays the Information icon.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.TaskDialogStandardIcon.SecurityShieldUserAccount">
+            <summary>
+            Displays the User Account Control shield.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Contracts.RedirectionCapabilities">
+            <summary>
+            Specifies the redirection capabilities for known folders. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.RedirectionCapabilities.None">
+            <summary>
+            Redirection capability is unknown.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.RedirectionCapabilities.AllowAll">
+            <summary>
+            The known folder can be redirected.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.RedirectionCapabilities.Redirectable">
+            <summary>
+            The known folder can be redirected. 
+            Currently, redirection exists only for 
+             common and user folders; fixed and virtual folders 
+            cannot be redirected.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.RedirectionCapabilities.DenyAll">
+            <summary>
+            Redirection is not allowed.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.RedirectionCapabilities.DenyPolicyRedirected">
+            <summary>
+            The folder cannot be redirected because it is 
+            already redirected by group policy.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.RedirectionCapabilities.DenyPolicy">
+            <summary>
+            The folder cannot be redirected because the policy 
+            prohibits redirecting this folder.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.RedirectionCapabilities.DenyPermissions">
+            <summary>
+            The folder cannot be redirected because the calling 
+            application does not have sufficient permissions.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Contracts.DefinitionOptions">
+            <summary>
+            Specifies behaviors for known folders.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.DefinitionOptions.None">
+            <summary>
+            No behaviors are defined.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.DefinitionOptions.LocalRedirectOnly">
+            <summary>
+            Prevents a per-user known folder from being 
+            redirected to a network location.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.DefinitionOptions.Roamable">
+            <summary>
+            The known folder can be roamed through PC-to-PC synchronization.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.DefinitionOptions.Precreate">
+            <summary>
+            Creates the known folder when the user first logs on.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Contracts.FolderCategory">
+            <summary>
+            Specifies the categories for known folders.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.FolderCategory.None">
+            <summary>
+            The folder category is not specified.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.FolderCategory.Virtual">
+            <summary>
+            The folder is a virtual folder. Virtual folders are not part 
+            of the file system. For example, Control Panel and 
+            Printers are virtual folders. A number of properties 
+            such as folder path and redirection do not apply to this category.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.FolderCategory.Fixed">
+            <summary>
+            The folder is fixed. Fixed file system folders are not 
+            managed by the Shell and are usually given a permanent 
+            path when the system is installed. For example, the 
+            Windows and Program Files folders are fixed folders. 
+            A number of properties such as redirection do not apply 
+            to this category.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.FolderCategory.Common">
+            <summary>
+            The folder is a common folder. Common folders are 
+            used for sharing data and settings 
+            accessible by all users of a system. For example, 
+            all users share a common Documents folder as well 
+            as their per-user Documents folder.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.Contracts.FolderCategory.PerUser">
+            <summary>
+            Each user has their own copy of the folder. Per-user folders 
+            are those stored under each user's profile and 
+            accessible only by that user.
+            </summary>
+        </member>
+    </members>
+</doc>

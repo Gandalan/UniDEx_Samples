@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.BaseClass.Collections</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.BaseClass.Collections.DictionaryExt`2.ToString">
+            <summary>
+            Wandelt den Inhalt der Liste in eine Zeichenkette mit folgenden Aufbau um:
+            "Key[ItemSplitChar]Value[EntrySplitChar]"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Collections.DictionaryExt`2.FillList(System.String)">
+            <summary>
+            Die Liste wird aus einer Zeichenkette mit folgenden Aufbau gefüllt:
+            "Key[ItemSplitChar]Value[EntrySplitChar]"
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Collections.DictionaryExtString`1.FillList(System.String)">
+            <summary>
+            Die Liste wird aus einer Zeichenkette mit folgenden Aufbau gefüllt:
+            "Key[ItemSplitChar]Value[EntrySplitChar]"
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Collections.SortedListExt`2.ToString">
+            <summary>
+            Wandelt den Inhalt der Liste in eine Zeichenkette mit folgenden Aufbau um:
+            "Key[ItemSplitChar]Value[EntrySplitChar]"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Collections.SortedListExt`2.FillList(System.String,IPS.Library.BaseClass.Collections.SortedListExt{`0,`1}.ConvertKeyDelegate,IPS.Library.BaseClass.Collections.SortedListExt{`0,`1}.ConvertValueDelegate)">
+            <summary>
+            Die Liste wird aus einer Zeichenkette mit folgenden Aufbau gefüllt:
+            "Key[ItemSplitChar]Value[EntrySplitChar]"
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Collections.SortedListExt.ReadOnly">
+            <summary>
+            Liefert eine geklonte Version der Originalliste zurück, damit keine Veränderungen am Original vorgenommen werden können.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.BaseClass.Comparer.StringComparer">
+            <summary>
+            Ein Textvergleicher, der als Rückgabe die prozentuale Übereinstimmung zurück gibt. 
+            Es können dabei mehrere verschiedene Einstellungen vorgenommen werden.
+            Alle Prozentangaben, egal ob Rückgabe oder Festlegen, 100 Prozent = 1
+            
+            Beim Vergleichen wird ganz normal von vorne angefangen. Jede Übereinstimmung ist 100 Prozent.
+            Diese werden beim Debuggen in der Matrix gespeichert und anschließend zusammengezählt und die Prozente
+            dann von ersten Zeichenfolgen (die Länge) berechnet.
+            
+            Es gibt für beide Zeichenfolgen zwei seperate Indexe, die beide seperat hochgezählt werden, bzw. der zweite Index auch springen kann,
+            wenn ein Zeichen an der falschen Stelle ist.
+            
+            Wenn ein Zeichen nicht vorhanden ist, wird als nächstes gesucht, wo sich das zusuchende Zeichen als nächstes befinden.
+            Dabei wird die aktuelle Position als Ausgangspunkt genommen. Das näher gelegene Zeichen hat gewonnen und wird als neuer Index für
+            die 2. Zeichenfolge genommen. Die Prozente für die aktuelle Position berechnen sich aus dem Abstand der aktuellen Position, mit dem 
+            gefundenem Zeichen, welches am nächsten liegt. Als Basislänge, wird wieder die Länge von der ersten Zeichenkette verwendet. Dies Lässt sich
+            aber mit den 2 Eigenschaften zum Sortieren ändern.
+            
+            Wenn nach einander mehrere Zeichen nicht an der richtigen Position sind, wird ein extra Zähler hochgezählt,
+            der die Anzahl der falschen Zeichen misst und dann von der bereits errechneten Übereinstimmung nochmal ein Prozentsatz abgezogen.
+            Wenn PutBack auf true ist, wird wenn ein Zeichen wieder an der richtigen Position ist, der bereits falschen Zeichen zurück auf 0 gesetzt.
+            
+            Mit MaxAway lässt sich einstellen, weit ein Zeichen von der aktuellen Position entfernt sein darf, bzw. wieviel Prozent für ein zeichen
+            mind. erreicht werden müssen. Ist dies kleiner, hat die aktuelle Position 0 Prozent.
+            
+            Die neue aktuelle Position für die zweite Zeichenfolge ist dann das gerade eben gefundene Zeichen. 
+            Wurde keins gefunden, bleibt die Position unverändert.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Comparer.StringComparer.LastMatrix">
+            <summary>
+            Gibt die letzte Matrix mit den Prozenten zurück für Debugzwecke.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Comparer.StringComparer.RemoveDoubleWhitespaces">
+            <summary>
+            Gibt zurück, ob doppelte oder mehrmals hintereinander vorkommende Leerzeichen entfernt werden sollen, oder legt dies fest.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Comparer.StringComparer.PutBack">
+            <summary>
+            Gibt zurück, ob nach dem ein oder mehrere Zeichen falsch gewesen sind und anschließend wieder ein richtiges Zeichen, ob dann der Zähler mit den Anzahl der falschen Zeichen zurückgesetzt werden soll, oder legt dies fest.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Comparer.StringComparer.SortVars">
+            <summary>
+            Gibt zurück, ob die beiden übergebenen Zeichenfolgen nach ihrer Länge sortiert bzw. getauscht werden sollen oder legt dies fest. 
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Comparer.StringComparer.LongerVarFirst">
+            <summary>
+            Gibt zurück, ob die längere Zeichenfolge als erste Zeichenfolge nach dem sortieren bzw. tauschen festgelegt werden soll, oder legt die Eigenschaft fest.
+            Wenn SortVars nicht auf true gesetzt ist, hat diese Eigenschaft keine Auswirkung.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Comparer.StringComparer.MaxAway">
+            <summary>
+            Gibt die Prozente zurück, wie weit maximal ein zu suchendes Zeichen von dem Orginal entfernt sein darf oder legt dieses fest.
+            Eine weitere Einschränkung ist, wie oft bereits vorangegangen Zeichen nicht der Position von der anderen Zeichenfolge gestanden hat.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Comparer.StringComparer.IgnoreCase">
+            <summary>
+            Gibt zurück, ob Groß- und Kleinschreibung berücksichtigt werden soll, oder legt es fest.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Comparer.StringComparer._IgnoreCase">
+            <summary>
+            Unterscheidung zwischen Groß und Kleinschreibung
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Comparer.StringComparer._MaxAway">
+            <summary>
+            Der Abstand in Prozent, die ein zu suchendes Zeichen maximal von der aktuellen Position entfernt sein darf.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Comparer.StringComparer._SortVars">
+            <summary>
+            Wenn true, werden die zwei übergebenen Strings bei Bedarf getauscht, dass die Längere Zeichenfolge als erstes Argument und die kürzere als zweites Argument.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Comparer.StringComparer._LongerVarFirst">
+            <summary>
+            Wenn true und wenn _sortVars true, dann wird beim Tauschen der Zeichenfolgen die Längere Zeichenfolge zuerst genommen.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Comparer.StringComparer._PutBack">
+            <summary>
+            Wenn auf true gesetzt wurde, wird nach dem Fehler aufgetreten sind und das aktuelle Zeichen wieder stimmt, die Fehleranzahl zurückgesetzt.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Comparer.StringComparer._RemoveDoubleWhitespaces">
+            <summary>
+            Entfernt überschüssige Leerzeichen.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Comparer.StringComparer._Lastmatrix">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Comparer.StringComparer.#ctor">
+            <summary>
+            Erstellt eine neue StringComparer-Klasse.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Comparer.StringComparer.GetEqualPercent(System.String,System.String)">
+            <summary>
+            Vergleicht zwei Strings auf Gleichheit und gibt die Ähnlichkeit in Prozent zurück.
+            </summary>
+            <param name="string1">Die 1. Zeichenfolge</param>
+            <param name="string2">Die 2. Zeichenfolge</param>
+            <returns>Die Ähnlichkeit der beiden Zeichenfolgen in Prozent (100% = 1)</returns>
+        </member>
+        <member name="T:IPS.Library.BaseClass.Comparer.NoneComparingComparer">
+             <summary>
+            mit dem Aufruf von "new SortedList(new NoneComparingComparer())" erreicht man, dass die angehängten Objecte nicht sortiert werden.
+            ACHTUNG!! Die Verwendung dieses Comparers bewirkt dann aber auch, dass Einträge mit gleichem Schlüssel mehrfach in der Liste enthalten sind und diese dann auch nicht hintereinander stehen!
+            Die Methoden für den direkten Zugriff auf und die Suche nach Schlüsselwerten funktioniert auch nicht mehr!
+             </summary>
+        </member>
+        <member name="T:IPS.Library.BaseClass.Comparer.NoneComparingComparer`1">
+             <summary>
+            mit dem Aufruf von "new SortedList|KTyp,VTyp|(new NoneComparingComparer|KTyp|())" erreicht man, dass die angehängten Objecte nicht sortiert werden.
+            ACHTUNG!! Die Verwendung dieses Comparers bewirkt dann aber auch, dass Einträge mit gleichem Schlüssel mehrfach in der Liste enthalten sind und diese dann auch nicht hintereinander stehen!
+            Die Methoden für den direkten Zugriff auf und die Suche nach Schlüsselwerten funktioniert auch nicht mehr!
+             </summary>
+             <typeparam name="T"></typeparam>
+        </member>
+    </members>
+</doc>

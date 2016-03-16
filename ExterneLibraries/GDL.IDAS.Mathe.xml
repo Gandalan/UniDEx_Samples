@@ -1,0 +1,656 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.IDAS.Mathe</name>
+    </assembly>
+    <members>
+        <member name="T:Gandalan.Mathe.BogenmassHelper">
+            <summary>
+            Hilfroutinen für die Umrechnung von Grad- in Bogenmaß und umgekehrt
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.BogenmassHelper.BogenMass(System.Double)">
+            <summary>
+            Rechnet den Wert im Gradmaß um ins Bogenmaß
+            </summary>
+            <param name="grad">Wert im Gradmaß</param>
+            <returns>Wert im Bogenmaß</returns>
+        </member>
+        <member name="M:Gandalan.Mathe.BogenmassHelper.GradMass(System.Double)">
+            <summary>
+            Rechnet den Wert im Bogenmaß um ins Gradmaß
+            </summary>
+            <param name="bogen">Winkelangabe im Bogenmaß</param>
+            <returns>Wert im Gradmaß</returns>
+        </member>
+        <member name="T:Gandalan.Mathe.Box">
+            <summary>
+            Box beschreibt einen Quader
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Box.Max">
+            <summary>
+            Größter Punkt der Box
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Box.Min">
+            <summary>
+            Kleinster Punkt der Box
+            </summary>
+        </member>
+        <member name="T:Gandalan.Mathe.Vektor3">
+            <summary>
+            Dreidmensionaler Vektor (X, Y, Z)
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.x">
+            <summary>
+            Die X-Komponente
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.y">
+            <summary>
+            Die Y-Komponente
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.z">
+            <summary>
+            Die Z-Komponente
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Erzeugt einen Vektor3 aus den drei Komponenten
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.#ctor(System.Drawing.PointF)">
+            <summary>
+            Erzeugt einen Vektor3 aus einem 2D-Punkt
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.#ctor(System.Double[])">
+            <summary>
+            Erzeugt einen Vektor aus einem Array von doubles
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.#ctor(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Erzeugt einen Vektor3 aus einem existierenden Vektor3
+            </summary>
+        </member>
+        <member name="P:Gandalan.Mathe.Vektor3.Array">
+            <summary>
+            Setzen und Rückgabe der Komponenten als Array
+            </summary>
+        </member>
+        <member name="P:Gandalan.Mathe.Vektor3.Betrag">
+            <summary>
+            Betrag (also Länge oder Absolutwert)
+            </summary>
+        </member>
+        <member name="P:Gandalan.Mathe.Vektor3.X">
+            <summary>
+            X-Komponente
+            </summary>
+        </member>
+        <member name="P:Gandalan.Mathe.Vektor3.Y">
+            <summary>
+            Y-Komponente
+            </summary>
+        </member>
+        <member name="P:Gandalan.Mathe.Vektor3.Z">
+            <summary>
+            Z-Komponente
+            </summary>
+        </member>
+        <member name="P:Gandalan.Mathe.Vektor3.Item(System.Int32)">
+            <summary>
+            Index-Zugriff auf die Komponenten: [0] -> X, [1] -> Y and [2] -> Z
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_Subtraction(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Skalare Subtraktion
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_UnaryNegation(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Negation - invertiert die Richtung des Vektors (unäres Minus)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_Inequality(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Ungleichheit
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_Multiply(Gandalan.Mathe.Vektor3,System.Double)">
+            <summary>
+            Skalarprodukt
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_Multiply(System.Double,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Skalarprodukt (kommutativ)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_Division(Gandalan.Mathe.Vektor3,System.Double)">
+            <summary>
+            Skalardivision
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_Addition(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Skalare Addition
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_UnaryPlus(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Unäres Plus (gibt nur Eingabe zurück, der Vollständigkeit halber)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_LessThan(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Vergleichsoperator - vergleich die Mächtigkeit der Vektoren
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_LessThanOrEqual(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Vergleichsoperator - vergleich die Mächtigkeit der Vektoren
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_Equality(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Gleicheitsoperator
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_GreaterThan(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Vergleichsoperator - vergleich die Mächtigkeit der Vektoren
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.op_GreaterThanOrEqual(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Vergleichsoperator - vergleich die Mächtigkeit der Vektoren
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.Abstand(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Abstand (via Pythagoras)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.Einheitsvektor(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Einheitsvektor: Normalvektor
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.KreuzProdukt(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Kreuzprodukt - ACHTUNG! NICHT KOMMUTATIV!
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.MischProdukt(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Mischprodukt der Vektoren - ACHTUNG! NICHT KOMMUTATIV!
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.PunktProdukt(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Punktprodukt - liefert das skalare Produkt der beiden Vektoren
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereX(Gandalan.Mathe.Vektor3,System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die X-Achse
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereY(Gandalan.Mathe.Vektor3,System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die Y-Achse
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereZ(Gandalan.Mathe.Vektor3,System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die Z-Achse
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.Winkel(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Winkel (via Punktprodukt und Einheitsvektor)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.Abstand(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Abstand (via Pythagoras)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.Einheitsvektor">
+            <summary>
+            Einheitsvektor: Normalvektor
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.KreuzProdukt(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Kreuzprodukt - ACHTUNG! NICHT KOMMUTATIV!
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.MischProdukt(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Mischprodukt der Vektoren - ACHTUNG! NICHT KOMMUTATIV!
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.PunktProdukt(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Punktprodukt - liefert das skalare Produkt der beiden Vektoren
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereX(System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die X-Achse
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereXGrad(System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die Z-Achse (Angabe im Gradmaß)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereXGrad(Gandalan.Mathe.Vektor3,System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die Z-Achse (Angabe im Gradmaß)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereY(System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die Y-Achse
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereYGrad(System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die Z-Achse (Angabe im Gradmaß)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereYGrad(Gandalan.Mathe.Vektor3,System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die Z-Achse (Angabe im Gradmaß)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereZ(System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die Z-Achse (Angabe im Bogenmaß)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereZGrad(System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die Z-Achse (Angabe im Gradmaß)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.RotiereZGrad(Gandalan.Mathe.Vektor3,System.Double)">
+            <summary>
+            Rotiert den Vektor3 um die Z-Achse (Angabe im Gradmaß)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.Winkel(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Winkel (via Punktprodukt und Einheitsvektor)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.KomponentenPotenzieren(Gandalan.Mathe.Vektor3,System.Double)">
+            <summary>
+            The individual multiplication to a power of a Vektor3's components
+            </summary>
+            <param name="v1">The vector whose scalar components to multiply by a power</param>
+            <param name="power">The power by which to multiply the components</param>
+            <returns>The multiplied Vektor3</returns>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.KomponentenQuadrieren(Gandalan.Mathe.Vektor3)">
+            <summary>
+            The Vektor3's components squared
+            </summary>
+            <param name="v1">The vector whose scalar components are to square</param>
+            <returns>The squared Vektor3</returns>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.KomponentenSumme(Gandalan.Mathe.Vektor3)">
+            <summary>
+            The sum of a Vektor3's components
+            </summary>
+            <param name="v1">The vector whose scalar components to sum</param>
+            <returns>The sum of the Vectors X, Y and Z components</returns>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.KomponentenWurzel(Gandalan.Mathe.Vektor3)">
+            <summary>
+            The individual square root of a Vektor3's components
+            </summary>
+            <param name="v1">The vector whose scalar components to square root</param>
+            <returns>The rooted Vektor3</returns>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.QuadratischeKomponentenSumme(Gandalan.Mathe.Vektor3)">
+            <summary>
+            The sum of a Vektor3's squared components
+            </summary>
+            <param name="v1">The vector whose scalar components to square and sum</param>
+            <returns>The sum of the Vectors X^2, Y^2 and Z^2 components</returns>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.KomponentenPotenzieren(System.Double)">
+            <summary>
+            The individual multiplication to a power of this Vektor3's components
+            </summary>
+            <param name="power">The power by which to multiply the components</param>
+            <returns>The multiplied Vektor3</returns>
+            <implementation>
+            <see cref="M:Gandalan.Mathe.Vektor3.KomponentenPotenzieren(Gandalan.Mathe.Vektor3,System.Double)"/>
+            The Components.KomponentenPotenzieren(Vektor3, double) function has been used to prevent code duplication
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.KomponentenQuadrieren">
+            <summary>
+            The Vektor3's components squared
+            </summary>
+            <returns>The squared Vektor3</returns>
+            <implementation>
+            <see cref="M:Gandalan.Mathe.Vektor3.KomponentenWurzel(Gandalan.Mathe.Vektor3)"/>
+            The Components.KomponentenQuadrieren(Vektor3) function has been used to prevent code duplication
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.KomponentenSumme">
+            <summary>
+            The sum of this Vektor3's components
+            </summary>
+            <returns>The sum of the Vectors X, Y and Z components</returns>
+            <implementation>
+            <see cref="M:Gandalan.Mathe.Vektor3.KomponentenSumme(Gandalan.Mathe.Vektor3)"/>
+            The Components.KomponentenSumme(Vektor3) function has been used to prevent code duplication
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.KomponentenWurzel">
+            <summary>
+            The individual square root of this Vektor3's components
+            </summary>
+            <returns>The rooted Vektor3</returns>
+            <implementation>
+            <see cref="M:Gandalan.Mathe.Vektor3.KomponentenWurzel(Gandalan.Mathe.Vektor3)"/>
+            The Components.KomponentenWurzel(Vektor3) function has been used to prevent code duplication
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.QuadratischeKomponentenSumme">
+            <summary>
+            The sum of this Vektor3's squared components
+            </summary>
+            <returns>The sum of the Vectors X^2, Y^2 and Z^2 components</returns>
+            <implementation>
+            <see cref="M:Gandalan.Mathe.Vektor3.QuadratischeKomponentenSumme(Gandalan.Mathe.Vektor3)"/>
+            The Components.QuadratischeKomponentenSumme(Vektor3) function has been used to prevent code duplication
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.CompareTo(Gandalan.Mathe.Vektor3)">
+            <summary>
+            compares the magnitude of this instance against the magnitude of the supplied vector
+            </summary>
+            <param name="other">The vector to compare this instance with</param>
+            <returns>
+            -1: The magnitude of this instance is less than the others magnitude
+            0: The magnitude of this instance equals the magnitude of the other
+            1: The magnitude of this instance is greater than the magnitude of the other
+            </returns>
+            <implementation>
+            Implemented to fulfil the IComparable interface
+            </implementation>
+            <Acknowledgement>This code is adapted from Exocortex - Ben Houston </Acknowledgement>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.CompareTo(System.Object)">
+            <summary>
+            compares the magnitude of this instance against the magnitude of the supplied vector
+            </summary>
+            <param name="other">The vector to compare this instance with</param>
+            <returns>
+            -1: The magnitude of this instance is less than the others magnitude
+            0: The magnitude of this instance equals the magnitude of the other
+            1: The magnitude of this instance is greater than the magnitude of the other
+            </returns>
+            <implementation>
+            Implemented to fulfil the IComparable interface
+            </implementation>
+            <exception cref="T:System.ArgumentException">
+            Throws an exception if the type of object to be compared is not known to this class
+            </exception>
+            <Acknowledgement>This code is adapted from Exocortex - Ben Houston </Acknowledgement>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.Equals(System.Object)">
+            <summary>
+            Comparator
+            </summary>
+            <param name="other">The other object (which should be a vector) to compare to</param>
+            <returns>Truth if two vectors are equal within a tolerence</returns>
+            <implementation>
+            Checks if the object argument is a Vektor3 object
+            Uses the equality operator function to avoid code duplication
+            Required in order to implement comparator operations (i.e. ==, !=)
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.Equals(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Comparator
+            </summary>
+            <param name="other">The other Vektor3 to compare to</param>
+            <returns>Truth if two vectors are equal within a tolerence</returns>
+            <implementation>
+            Uses the equality operator function to avoid code duplication
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.GetHashCode">
+            <summary>
+            Get the hashcode
+            </summary>
+            <returns>Hashcode for the object instance</returns>
+            <implementation>
+            Required in order to implement comparator operations (i.e. ==, !=)
+            </implementation>
+            <Acknowledgement>This code is adapted from CSOpenGL - Lucas Viñas Livschitz </Acknowledgement>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.ToString">
+            <summary>
+            Textual description of the Vektor3
+            </summary>
+            <Implementation>
+            Uses ToString(string, IFormatProvider) to avoid code duplication
+            </Implementation>
+            <returns>Text (String) representing the vector</returns>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            Textual description of the Vektor3
+            </summary>
+            <param name="format">Formatting string: 'x','y','z' or '' followed by standard numeric format string characters valid for a double precision floating point</param>
+            <param name="formatProvider">The culture specific fromatting provider</param>
+            <returns>Text (String) representing the vector</returns>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.ToVerbString">
+            <summary>
+            Verbose textual description of the Vektor3
+            </summary>
+            <returns>Text (string) representing the vector</returns>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.IsBackFace(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Checks if a face normal vector represents back face
+            Checks if a face is visible, given the line of sight
+            </summary>
+            <param name="normal">
+            The vector representing the face normal Vektor3
+            </param>
+            <param name="lineOfSight">
+            The unit vector representing the direction of sight from a virtual camera
+            </param>
+            <returns>Truth if the vector (as a normal) represents a back face</returns>
+            <implementation>
+            Uses the PunktProdukt function in the check to avoid code duplication
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.IsPerpendicular(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)">
+            <summary>
+            Checks if two Vectors are perpendicular
+            Checks if two Vectors are orthogonal
+            Checks if one Vektor3 is the normal of the other
+            </summary>
+            <param name="v1">
+            The vector to be checked for orthogonality
+            </param>
+            <param name="v2">
+            The vector to be checked for orthogonality to
+            </param>
+            <returns>Truth if the two Vectors are perpendicular</returns>
+            <implementation>
+            Uses the PunktProdukt function in the check to avoid code duplication
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.IsUnitVector(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Checks if a vector a unit vector
+            Checks if the Vektor3 has been normalized
+            Checks if a vector has a magnitude of 1
+            </summary>
+            <param name="v1">
+            The vector to be checked for Normalization
+            </param>
+            <returns>Truth if the vector is a unit vector</returns>
+            <implementation>
+            <see cref="P:Gandalan.Mathe.Vektor3.Betrag"/>
+            Uses the Betrag property in the check to avoid code duplication
+            Within a tolerence
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.IsBackFace(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Checks if a face normal vector represents back face
+            Checks if a face is visible, given the line of sight
+            </summary>
+            <param name="lineOfSight">
+            The unit vector representing the direction of sight from a virtual camera
+            </param>
+            <returns>Truth if the vector (as a normal) represents a back face</returns>
+            <implementation>
+            <see cref="M:Gandalan.Mathe.Vektor3.IsBackFace(Gandalan.Mathe.Vektor3,Gandalan.Mathe.Vektor3)"/>
+            Uses the isBackFace(Vektor3, Vektor3) function in the check to avoid code duplication
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.IsPerpendicular(Gandalan.Mathe.Vektor3)">
+            <summary>
+            Checks if two Vectors are perpendicular
+            Checks if two Vectors are orthogonal
+            Checks if one Vektor3 is the Normal of the other
+            </summary>
+            <param name="other">
+            The vector to be checked for orthogonality
+            </param>
+            <returns>Truth if the two Vectors are perpendicular</returns>
+            <implementation>
+            Uses the isPerpendicualr(Vektor3, Vektor3) function in the check to avoid code duplication
+            </implementation>
+        </member>
+        <member name="M:Gandalan.Mathe.Vektor3.IsUnitVector">
+            <summary>
+            Checks if the vector a unit vector
+            Checks if the Vektor3 has been normalized
+            Checks if the vector has a magnitude of 1
+            </summary>
+            <returns>Truth if this vector is a unit vector</returns>
+            <implementation>
+            <see cref="M:Gandalan.Mathe.Vektor3.IsUnitVector(Gandalan.Mathe.Vektor3)"/>
+            Uses the isUnitVector(Vektor3) property in the check to avoid code duplication
+            Within a tolerence
+            </implementation>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.Ursprung">
+            <summary>
+            Kartesischer Ursprung
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.XAchse">
+            <summary>
+            Kartesische X-Achse
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.YAchse">
+            <summary>
+            Kartesische Y-Achse
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.ZAchse">
+            <summary>
+            Kartesische Z-Achse
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.ARGUMENT_LENGTH">
+            <summary>
+            Exception message additional information text
+            Used when adding length (number of components in an array) information of the given argument into an error message
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.ARGUMENT_TYPE">
+            <summary>
+            Exception message additional information text
+            Used when adding type information of the given argument into an error message
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.ARGUMENT_VALUE">
+            <summary>
+            Exception message additional information text
+            Used when adding value information of the given argument into an error message
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.INTERPOLATION_RANGE">
+            <summary>
+            Exception message descriptive text
+            Used when interpolation is attempted with a control parameter not between 0 and 1
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.NEGATIVE_MAGNITUDE">
+            <summary>
+            Exception message descriptive text
+            Used when attempting to set a Vectors magnitude to a negative value
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.NON_VECTOR_COMPARISON">
+            <summary>
+            Exception message descriptive text
+            Used when attempting to compare a Vektor3 to an object which is not a type of Vektor3
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.NORMALIZE_0">
+            <summary>
+            Exception message descriptive text
+            Used for a divide by zero event caused by the normalization of a vector with magnitude 0
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.ORAGIN_VECTOR_MAGNITUDE">
+            <summary>
+            Exception message descriptive text
+            Used when attempting to set a Vectors magnitude where the Vektor3 represents the Ursprung
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.THREE_COMPONENTS">
+            <summary>
+            Exception message descriptive text
+            Used for a failure for an array argument to have three components when three are needed
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.Toleranz">
+            <summary>
+            The tolerence used when determining the equality of two vectors
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.Epsilon">
+            <summary>
+            The smallest positive (non-zero) vector possible (based on the double precision floating point structure)
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.MaxValue">
+            <summary>
+            The largest vector possible (based on the double precision floating point structure)
+            </summary>
+        </member>
+        <member name="F:Gandalan.Mathe.Vektor3.MinValue">
+            <summary>
+            The smallest vector possible (based on the double precision floating point structure)
+            </summary>
+        </member>
+    </members>
+</doc>

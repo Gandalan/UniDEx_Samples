@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.UI.Controls</name>
+    </assembly>
+    <members>
+        <member name="F:Gandalan.Windows.Controls.AppHosting.AppControl.components">
+            <summary> 
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.AppHosting.AppControl.Dispose(System.Boolean)">
+            <summary> 
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.AppHosting.AppControl.InitializeComponent">
+            <summary> 
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="F:Gandalan.Windows.Controls.AppHosting.AppWindowControl.components">
+            <summary> 
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.AppHosting.AppWindowControl.Dispose(System.Boolean)">
+            <summary> 
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.AppHosting.AppWindowControl.InitializeComponent">
+            <summary> 
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="F:Gandalan.Windows.Controls.AppHosting.AppWindowDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.AppHosting.AppWindowDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.AppHosting.AppWindowDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.Windows.Controls.HandbuchLinkControl.components">
+            <summary> 
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.HandbuchLinkControl.Dispose(System.Boolean)">
+            <summary> 
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.HandbuchLinkControl.InitializeComponent">
+            <summary> 
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="T:Gandalan.Windows.Controls.RoundPanel">
+            <summary>
+            Panel mit gerundeten Ecken
+            </summary>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.RoundPanel.#ctor">
+            <summary>
+            Erzeugt die Control
+            </summary>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.RoundPanel.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Zeichnet die Control
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.RoundPanel.Rundung">
+            <summary>
+            Ausmaß der Rundung
+            </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.RoundPanel.Alpha">
+            <summary>
+            Alpha-Transparenz des Panels
+            </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.RoundPanel.PanelColor">
+            <summary>
+            Farbe des Panels
+            </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.AlwaysDropDown">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.AlwaysHoverChange">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.CalculateSplitRect">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.ClickedImage">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.DisabledImage">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.DoubleClickedEnabled">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.FillSplitHeight">
+            <summary>
+            Gets or sets a value indicating whether [fill split height].
+            </summary>
+            <value><combo>true</combo> if [fill split height]; otherwise, <combo>false</combo>.</value>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.FocusedImage">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.HoverImage">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.NormalImage">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.SplitHeight">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Gandalan.Windows.Controls.SplitButton.SplitWidth">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Gandalan.Windows.Controls.SplitButton.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.SplitButton.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param suchWort="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.SplitButton.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.UI.Controls.ChecklisteItem.components">
+            <summary> 
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Controls.ChecklisteItem.Dispose(System.Boolean)">
+            <summary> 
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Gandalan.UI.Controls.ChecklisteItem.InitializeComponent">
+            <summary> 
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="F:Gandalan.UI.Controls.Controls.InfoProviderPanel.components">
+            <summary> 
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Controls.Controls.InfoProviderPanel.Dispose(System.Boolean)">
+            <summary> 
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Gandalan.UI.Controls.Controls.InfoProviderPanel.InitializeComponent">
+            <summary> 
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="T:Gandalan.UI.Controls.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Controls.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Controls.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Controls.Properties.Resources.accept">
+            <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Controls.Properties.Resources.bullet_orange">
+            <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Controls.Properties.Resources.bullet_white">
+            <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Controls.Properties.Resources.DefaultIcon">
+            <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Controls.Properties.Resources.exclamation">
+            <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Controls.Properties.Resources.Hilfe_16x16px">
+            <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Controls.Properties.Resources.hourglass">
+            <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="F:Gandalan.IDAS.Dialogs.BaseDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Dialogs.BaseDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Dialogs.BaseDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Gandalan.IDAS.Dialogs.ErrorReportBuilder">
+            <summary>
+            Zusammenfassung für ErrorReport.
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Dialogs.ErrorReportBuilder.BuildDump(System.Exception)">
+            <summary>
+            Erzeugt aus einer Exception eine String-Form für den Fehlerbericht
+            </summary>
+            <param name="ex">Exception</param>
+            <returns>Aufbereitete Form</returns>
+        </member>
+        <member name="F:Gandalan.IDAS.Dialogs.ExceptionDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Dialogs.ExceptionDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Dialogs.ExceptionDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.IDAS.Dialogs.FortschrittDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Dialogs.FortschrittDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.IDAS.Dialogs.FortschrittDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

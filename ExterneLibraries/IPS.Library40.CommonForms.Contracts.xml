@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.CommonForms.Contracts</name>
+    </assembly>
+    <members>
+        <member name="P:IPS.Library.CommonForms.Contracts.IKeyEditorBaseItem.ItemID">
+            <summary>
+            Wert.über den das Object eindeutig in der Datenbank identifiziert werden kann.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.CommonForms.Contracts.IBaseForm.MainForm">
+            <summary>
+            Das Hauptformular, zu dem mehrere SubForms gehören können.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.CommonForms.Contracts.IBaseForm.IsFormShowing">
+            <summary>
+            Liefert TRUE zurück, während das Formular für die Anzeige vorbereitet wird.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.CommonForms.Contracts.IBaseForm.IsFormShown">
+            <summary>
+            Liefert TRU zurück, wenn das Formular komplett angezeigt wird.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.IBaseForm.IsFormEmpty">
+            <summary>
+            Stellt anhand vorgegebener Controls fest, ob das Formular leer ist, oder nicht.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.IBaseForm.IsChangingData(System.Boolean)">
+            <summary>
+            Ist TRUE, wenn die Daten initialisert (IsInitData == TRUE), oder gerade verändert werden (lesen,anzeigen,rücksetzen,speicher,...)
+            Es wird auch der aktuelle Status des Elternformulares geprüft (sofern vorhanden)
+            </summary>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.IBaseForm.CanFormEventHandled(IPS.Library.WinForm.Contracts.IFormEventArgs)">
+            <summary>
+            Es wird ermittelt, ab das akt. FormEvent von dem SubForm verarbeitet werden kann, oder ob es an das übergeordnete Formular übergeben wird.
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.IBaseForm.SetCurrentFormStatus(IPS.Library.WinForm.FormStates,System.Boolean)">
+            <summary>
+            Setzt den Status des ObjectRecords.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.IBaseForm.IsFormStateActive(IPS.Library.WinForm.FormStates)">
+            <summary>
+            Stellt fest, ob der übergebene ObjectStatus momentan aktive ist. Er muss nicht der akt. Status sein.
+            </summary>
+            <param name="formState"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.IBaseForm.SetCharCounterControl(IPS.Library.WinForm.Contracts.Controls.ICharCounterIPS)">
+            <summary>
+            Setzt bei allen Controls mit der Schnittstelle "ICharCounter" das CharCounterControl, wenn die Eigenschaft 'CharCounterUsed' == TRUE ist.
+            </summary>
+            <param name="charCounterControl"></param>
+        </member>
+        <member name="P:IPS.Library.CommonForms.Contracts.ISubForm.HostControl">
+            <summary>
+            Enthält das Control, daß das aktuelle SubForm enthält (hosted)
+            </summary>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.ISubForm.ClearMask(System.Boolean)">
+            <summary>
+            Es erfolgt eine komplette Initialisierung. 
+            Die Maske wird initialisiert und und für den zugehörigen Record die ClearAll()-Methode aufgerufen.
+            </summary>
+            <param name="saveData"></param>
+        </member>
+        <member name="P:IPS.Library.CommonForms.Contracts.UebersichtsListe.IUebersichtsListeSubForm`2.ToolTipTextNewItem">
+            <summary>
+            Hier kann eine alternative Bezeichnung für das Wort 'anlegen' im Tooltiptext des New-Buttons hinterlegt werden. 
+            </summary>
+        </member>
+        <member name="P:IPS.Library.CommonForms.Contracts.UebersichtsListe.IUebersichtsListeSubForm`2.ToolTipTextDeleteItem">
+            <summary>
+            Hier kann eine alternative Bezeichnung für das Wort 'löschen' im Tooltiptext des Delete-Buttons hinterlegt werden. 
+            </summary>
+        </member>
+        <member name="P:IPS.Library.CommonForms.Contracts.UebersichtsListe.IUebersichtsListeSubForm`2.AllowDeleteAllRows">
+            <summary>
+            Bestimmt, ob alle Einträge der Liste gelöscht werden dürfen.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.CommonForms.Contracts.UebersichtsListe.IUebersichtsListeSubForm`2.AllowLoadData">
+            <summary>
+            Legt fest, ob externe Daten in die Liste geladen werden dürfen, oder nicht.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.UebersichtsListe.IUebersichtsListeSubForm`2.DisplayUserContentInStatusStrip(System.String,System.String)">
+            <summary>
+            Zeigt den übergebene Inhalt im mittleren Bereich der Statusbar an.
+            </summary>
+            <param name="content"></param>
+            <param name="toolTip"></param>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.UebersichtsListe.IUebersichtsListeSubForm`2.RefreshStatus(System.Boolean)">
+            <summary>
+            Es werden die Daten der Statusleiste (Zähler, Statistik (sofern vorhanden) aktualisiert.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.UebersichtsListe.IUebersichtsListeSubForm`2.LoadData">
+            <summary>
+            Lädt die letzten Daten aus dem benutzerspezifischen Datenordner, sofern vorhanden.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.TextEditor.ITextEditor.InsertStringContent(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Fügt den übergeben String an der akt. Cursorposition ein (_insertPosition == -1), oder an der übergebene Position.
+            </summary>
+            <param name="content"></param>
+            <param name="insertPosition"></param>
+            <param name="insertASCIIContent"></param>
+        </member>
+        <member name="M:IPS.Library.CommonForms.Contracts.TextEditor.ITextEditor.InsertImageContent(System.Drawing.Image,System.Int32)">
+            <summary>
+            Fügt das übergebene Bild an der akt. Cursorposition ein (_insertPosition == -1), oder an der übergebene Position.
+            </summary>
+            <param name="image">Das einzufügende Bild</param>
+            <param name="insertPosition">Die Position, an der das Bild eingefügt werden soll (-1 == akt. Kursorposition)</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.DataBase</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.DataBase.DBServerDataBase.SetDBData(IPS.Library.DataBase.Contracts.IDBServerData)">
+            <summary>
+            Auser dem Wert 'DBCatalog' werden alle anderen Daten aus dem Quellobjekt übernommen.
+            </summary>
+            <param name="sourceData"></param>
+        </member>
+        <member name="M:IPS.Library.DataBase.CommonDataRoutinen.GetObjectID``1(IPS.Library.CommonContracts.IID{``0},``0)">
+            <summary>
+            Prüft, ob value != NULL ist und  giebt dann den Wert von value.ID zurück.
+            Andernfalls den Wert von defaultValue.
+            </summary>
+            <typeparam name="TID"></typeparam>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.CommonDataRoutinen.IsObjectIDsEquals(System.Object,System.Object)">
+            <summary>
+            Vergleicht zwei Objecte mittels Equals() auf Gleichheit. Wenn beide null sind, wirde ebenfalls TRUE zurückgeliefert!
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.CommonDataRoutinen.IsObjectIDValid(System.Object)">
+            <summary>
+            Kontrolliert, ob der Wert != NULL, vom Typ Guid und != Guid.Empty ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.CommonDataRoutinen.ClearDataSource(System.Object)">
+            <summary>
+            Ermittelt den Typ der übergebene DataSource und ruft die entsprechende Clear()-Methode auf.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.CommonDataBaseRoutinen.GetDataBaseFilePath(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Erzeugt einen vollständigen Dateinamen für die Datenbankdatei.
+            </summary>
+            <param name="dataBaseName">Name der Datenbank</param>
+            <param name="fromServerSide">Wenn TRUE, wird das Verzeichnis aus Sicht des SQL-Servers verwendet.</param>
+            <param name="addFileNameExtension">Wenn TRUE wird an den DB-Namen noch die 'CommonDBProperties.DataBaseFileNameExtension' angefügt (Standard ist '_Data')</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.CommonDataBaseRoutinen.ValidateConnectionString(System.String,System.String)">
+            <summary>
+            Es wird ein evetuell vorhandener Platzhalter für das DB-Password im Connectionstring durch das echte Password ersetzt.
+            </summary>
+            <param name="connectionString"></param>
+            <param name="passWord">[Optional] Das zu verwendende Passwort. [Standard == CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.CommonDataBaseRoutinen.GetValidDBItemName(System.String,System.Boolean)">
+            <summary>
+            Liefert einen gültigen Objektnamen für ein SQL-Statement zurück.
+            Beispiel:  Test14 --> [Test14]
+            </summary>
+            <param name="name"></param>
+            <param name="replaceMinus">Wenn TRUE, werden Bindestriche '-' in Unterstriche '_' umgewandelt.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.AdminDBTableStatic.CreateTable(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.Boolean)">
+            <summary>
+            Erstellt eine Tabelle in der Datenbank.
+            </summary>
+            <param name="dataEntityObject"></param>
+            <param name="onlyIfNotExist">Wenn TRU, wird die Tabelle nur erstellt, wenn sie noch nicht existiert.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

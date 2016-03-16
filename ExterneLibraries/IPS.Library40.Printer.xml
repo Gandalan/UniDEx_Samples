@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.Printer</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.Printer.PrinterRoutinen.ReadInstalledPrintersName">
+            <summary>
+            Liest alle im System verfügbaren Druckernamen in die Auflistung 'InstalledPrinterNames' ein.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Printer.PrinterRoutinen.IsPrinterInstalled(System.String)">
+            <summary>
+            Es wird geprüft, ob der übergebene Druckername in der Auflistung der installierten Druckernamen enthalten ist.
+            Die Prüfung erfolgt CaseInsensitive.
+            </summary>
+            <param name="printerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Printer.PrinterRoutinen.ReadDefaultPrinterName">
+            <summary>
+            Den Namen des als Standard def. Druckers aus der Registry lesen.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Printer.PrinterRoutinen.SetPrinterNameAsDefault(System.String)">
+            <summary>
+            Versucht den übergebenen Drucker als Standartdrucker im System einzustellen.
+            </summary>
+            <param name="printerName"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

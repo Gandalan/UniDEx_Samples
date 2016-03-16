@@ -1,0 +1,539 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.DialogBox</name>
+    </assembly>
+    <members>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.CbtHookAction">
+            <summary>
+            CBT hook actions.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.CbtEventArgs">
+            <summary>
+            Class used for WH_CBT hook event arguments.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.CbtEventArgs.wParam">
+            wParam parameter.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.CbtEventArgs.lParam">
+            lParam parameter.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.CbtEventArgs.className">
+            Window class name.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.CbtEventArgs.IsDialog">
+            True if it is a dialog window.
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.CbtHook">
+            <summary>
+            Class to expose the windows WH_CBT hook mechanism.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.CbtHook.CbtEventHandler">
+            <summary>
+            WH_CBT hook delegate method.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.DialogBox.Win32API.Hook.CbtHook.WindowCreate">
+            <summary>
+            WH_CBT create event.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.DialogBox.Win32API.Hook.CbtHook.WindowDestroye">
+            <summary>
+            WH_CBT destroy event.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.DialogBox.Win32API.Hook.CbtHook.WindowActivate">
+            <summary>
+            WH_CBT activate event.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Win32API.Hook.CbtHook.#ctor">
+            <summary>
+            Construct a WH_CBT hook.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Win32API.Hook.CbtHook.#ctor(IPS.Library.DialogBox.Win32API.Hook.WindowsHook.HookProc)">
+            <summary>
+            Construct a WH_CBT hook giving a hook filter delegate method.
+            </summary>
+            <param name="func">Hook filter event.</param>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.HookEventArgs">
+            Class used for hook event arguments.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookEventArgs.code">
+            Event code parameter.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookEventArgs.wParam">
+            wParam parameter.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookEventArgs.lParam">
+            lParam parameter.
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.HookType">
+            Hook Types.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_JOURNALRECORD">
+            <value>0</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_JOURNALPLAYBACK">
+            <value>1</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_KEYBOARD">
+            <value>2</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_GETMESSAGE">
+            <value>3</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_CALLWNDPROC">
+            <value>4</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_CBT">
+            <value>5</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_SYSMSGFILTER">
+            <value>6</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_MOUSE">
+            <value>7</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_HARDWARE">
+            <value>8</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_DEBUG">
+            <value>9</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_SHELL">
+            <value>10</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_FOREGROUNDIDLE">
+            <value>11</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_CALLWNDPROCRET">
+            <value>12</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_KEYBOARD_LL">
+            <value>13</value>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.HookType.WH_MOUSE_LL">
+            <value>14</value>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.WindowsHook">
+            <summary>
+            Class to expose the windows hook mechanism.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.WindowsHook.HookProc">
+            <summary>
+            Hook delegate method.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.WindowsHook.HookEventHandler">
+            <summary>
+            Hook delegate method.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.DialogBox.Win32API.Hook.WindowsHook.HookInvoke">
+            <summary>
+            Hook invoke event.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Win32API.Hook.WindowsHook.#ctor(IPS.Library.DialogBox.Win32API.Hook.HookType)">
+            <summary>
+            Construct a HookType hook.
+            </summary>
+            <param name="hook">Hook type.</param>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Win32API.Hook.WindowsHook.#ctor(IPS.Library.DialogBox.Win32API.Hook.HookType,IPS.Library.DialogBox.Win32API.Hook.WindowsHook.HookProc)">
+            <summary>
+            Construct a HookType hook giving a hook filter delegate method.
+            </summary>
+            <param name="hook">Hook type</param>
+            <param name="func">Hook filter event.</param>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Win32API.Hook.WindowsHook.Install">
+            <summary>
+            Install the hook. 
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Win32API.Hook.WindowsHook.Uninstall">
+            <summary>
+            Uninstall the hook.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.WndProcRetEventArgs">
+            Class used for WH_CALLWNDPROCRET hook event arguments.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.WndProcRetEventArgs.wParam">
+            wParam parameter.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.WndProcRetEventArgs.lParam">
+            lParam parameter.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.WndProcRetEventArgs.cw">
+            CWPRETSTRUCT structure.
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.CwPRetStruct">
+            <summary>
+            CWPRETSTRUCT structure.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.CwPRetStruct.lResult">
+            Return value.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.CwPRetStruct.lParam">
+            lParam parameter.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.CwPRetStruct.wParam">
+            wParam parameter.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.CwPRetStruct.message">
+            Specifies the message.
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.Hook.CwPRetStruct.hwnd">
+            Handle to the window that processed the message.
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.WndProcRetHook">
+            <summary>
+            Class to expose the windows WH_CALLWNDPROCRET hook mechanism.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.Hook.WndProcRetHook.WndProcEventHandler">
+            <summary>
+            WH_CALLWNDPROCRET hook delegate method.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.DialogBox.Win32API.Hook.WndProcRetHook.WndProcRet">
+            <summary>
+            Window procedure event.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Win32API.Hook.WndProcRetHook.#ctor(System.IntPtr)">
+            <summary>
+            Construct a WH_CALLWNDPROCRET hook.
+            </summary>
+            <param name="wndHooked">
+            Handle of the window to be hooked. IntPtr.Zero to hook all window.
+            </param>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Win32API.Hook.WndProcRetHook.#ctor(System.IntPtr,IPS.Library.DialogBox.Win32API.Hook.WindowsHook.HookProc)">
+            <summary>
+            Construct a WH_CALLWNDPROCRET hook giving a hook filter delegate method.
+            </summary>
+            <param name="wndHooked">
+            Handle of the window to be hooked. IntPtr.Zero to hook all window.
+            </param>
+            <param name="func">Hook filter event.</param>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.RECT">
+            <summary>
+            Rectangle parameters exposed as a structure.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.RECT.left">
+            <summary>
+            Rectangle members.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.RECT.top">
+            <summary>
+            Rectangle members.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.RECT.right">
+            <summary>
+            Rectangle members.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.DialogBox.Win32API.RECT.bottom">
+            <summary>
+            Rectangle members.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.API">
+            <summary>
+            Utility functions.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.Win32API.API.TrueScreenRect">
+            <summary>
+            Get true multiscreen size.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Win32API.USER32">
+            <summary>
+            Class to expose USER32 API functions.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect">
+            <summary>
+            Wrap the MessageBoxIndirect API.  This brings a few things to the ballgame, including
+            the ability to set custom icons and display buttons in any language.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.MessageBoxExModality">
+            <summary>
+            Possible modalitites of a message box.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.POINT">
+            <summary>
+            Standard Windows point
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.HELPINFO">
+            <summary>
+            From winuser.h
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.HELPINFO.UnmarshalFrom(System.IntPtr)">
+            <summary>
+            Unmarshal the helpinfo out of the given intptr, which is presumably the lParam received
+            in a WM_HELP message.
+            </summary>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.MSGBOXPARAMS">
+            <summary>
+            From winuser.h
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.MsgBoxCallback">
+            <summary>
+            Delegate declaration for a callback that gets called when the help button is pushed.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect._MessageBoxIndirect(IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.MSGBOXPARAMS@)">
+            <summary>
+            The actual MessageBoxIndirect API declaration.
+            </summary>
+            <param name="msgboxParams"></param>
+            <returns></returns>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.Text">
+            <summary>
+            The messagebox text.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.Caption">
+            <summary>
+            The messagebox caption.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.UserIcon">
+            <summary>
+            The id of the custom icon in the unmanaged resource.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.Owner">
+            <summary>
+            Owner window.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.Instance">
+            <summary>
+            Instance handle used to load a custom icon resource.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.LanguageID">
+            <summary>
+            The language id for messagebox buttons.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.ContextHelpID">
+            <summary>
+            The help context id that gets passed around in the HELPINFO instance when help is invoked.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.Callback">
+            <summary>
+            The help button callback (if any).
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.Buttons">
+            <summary>
+            Standard messagebox button choices.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.ShowHelp">
+            <summary>
+            Whether or not we want a help button on our messagebox.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.Icon">
+            <summary>
+            Any Windows-standard icons we might want to display.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.DefaultButton">
+            <summary>
+            Standard messagebox default button.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.Options">
+            <summary>
+            Standard messagebox options.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.Modality">
+            <summary>
+            Indicate the modality of the message box (sysmodal/appmodal/taskmodal).
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.BuildStyle">
+            <summary>
+            Turn all of the style-related properties set on the class into a uint suitable for passing to the API.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.Show">
+            <summary>
+            Pose the messagebox and return the result.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.String)">
+            Displays a message box with specified text.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.IntPtr,System.String)">
+            Displays a message box in front of the specified object and with the specified text.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.String,System.String)">
+            Displays a message box with specified text and caption.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.IntPtr,System.String,System.String)">
+            Displays a message box in front of the specified object and with the specified text and caption.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.String,System.String,System.Windows.Forms.MessageBoxButtons)">
+            Displays a message box with specified text, caption, and buttons.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.IntPtr,System.String,System.String,System.Windows.Forms.MessageBoxButtons)">
+            Displays a message box in front of the specified object and with the specified text, caption, and buttons.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)">
+            Displays a message box with specified text, caption, buttons, and icon.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.IntPtr,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)">
+            Displays a message box in front of the specified object and with the specified text, caption, buttons, and icon.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton)">
+            Displays a message box with the specified text, caption, buttons, icon, and default button.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.IntPtr,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton)">
+            Displays a message box in front of the specified object and with the specified text, caption, buttons, icon, and default button.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Windows.Forms.MessageBoxOptions)">
+            Displays a message box with the specified text, caption, buttons, icon, default button, and options.
+        </member>
+        <member name="M:IPS.Library.DialogBox.MessageBox.MessageBoxIndirect.#ctor(System.IntPtr,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Windows.Forms.MessageBoxOptions)">
+            Displays a message box in front of the specified object and with the specified text, caption, buttons, icon, default button, and options.
+        </member>
+        <member name="T:IPS.Library.DialogBox.Dialog.DlgBox">
+            <summary>
+            Class to display a CommonDialog or modal Form centered on the owner.
+            </summary>
+            <example>
+            This example display the default print dialog box in the center of the parent.
+            <code>
+            PrintDialog printDlg = new PrintDialog();
+            if (DlgBox.ShowDialog(printDlg, parent) == DialogResult.OK)
+              printDocument.Print();
+            </code>
+            </example>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.DlgBox.ShowDialog(System.Windows.Forms.CommonDialog,System.Windows.Forms.IWin32Window,System.Boolean)">
+            <summary>
+            Show a command dialog box at the center of the owner window.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.DlgBox.ShowDialog(System.Windows.Forms.Form,System.Windows.Forms.IWin32Window,System.Boolean)">
+            <summary>
+            Show a form dialog box at the center of the owner window.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.DlgBox.Show(System.Windows.Forms.Form,System.Windows.Forms.IWin32Window,System.Boolean,System.Boolean)">
+            <summary>
+            Show a form at the center of the owner window.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.DialogBox.Dialog.MsgBox">
+            <summary>
+            Class to display a MessageBox centered on the owner.
+            </summary>
+            <remarks>
+            Same methods as the standard MessageBox.
+            </remarks>
+            <example>
+            This example display a "Hello" message box centered on the owner.
+            <code>
+            MsgBox.Show("Hello");
+            </code>
+            </example>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.String)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.Windows.Forms.IWin32Window,System.String)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.String,System.String)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Windows.Forms.MessageBoxOptions)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DialogBox.Dialog.MsgBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Windows.Forms.MessageBoxOptions)">
+            <summary>
+            See MSDN MessageBox() method.
+            </summary>
+        </member>
+    </members>
+</doc>

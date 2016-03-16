@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.CommonContracts</name>
+    </assembly>
+    <members>
+        <member name="P:IPS.Library.CommonContracts.ITraceState.ChangedProperties">
+            <summary>
+            Liste mit den Eigenschftsnamen, deren Wert sich geändert hat.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.CommonContracts.IChanged.SuspendSetChanged">
+            <summary>
+            Tritt ein, wenn sich der Wert einer Eigenschaft geändert hat (sofern implemnetiert)
+            </summary>
+        </member>
+        <member name="T:IPS.Library.CommonContracts.ISetDefault">
+            <summary>
+            Interfacedefinition für die Methode 'SetDefaultValues()'.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.CommonContracts.RefreshPropertyEventArgs.CalledFormsName">
+            <summary>
+            Eine Liste der Formularnamen der Formulare, welche den Aufruf an ein anderes Formular weiterleiten.
+            </summary>
+        </member>
+    </members>
+</doc>

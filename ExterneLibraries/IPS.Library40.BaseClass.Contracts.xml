@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.BaseClass.Contracts</name>
+    </assembly>
+    <members>
+        <member name="F:IPS.Library.BaseClass.Constanten.BaseConstanten.MaxValidEnumValue">
+            <summary>
+            Gibt den höchsten Wert einer Enumkonstanter an, bis zu der die Konstanten in Tabellen übernommen werden.
+            Konstanten, die einen höheren Wert haben, werden nicht mit übernommen.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Contracts.IBenutzerBase.WindowsNameKomplett">
+            <summary>
+            Der vollständige Windowsname inkl. Domain.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Contracts.IBenutzerBase.Passwort">
+            <summary>
+            Wird als Hashcode abgelegt
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Contracts.IItemsPseudonym.GetSingleItemArticleNominativ(System.Boolean)">
+            <summary>
+            Gibt in Abhängigkeit vom Geschlecht den Artikel für ein einzahliges Substantiv (Nomen) zurück.
+            </summary>
+            <param name="startWithUpperChar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Contracts.IItemsPseudonym.GetSingleItemEndChar">
+            <summary>
+            Gibt in Abhängigkeit vom Geschlecht den Schlussbuchstaben für Wörter zurück.
+            Beispiel: 'r' bei 'neuer Eintrag' oder 's' bei 'neues Fenster'.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Contracts.IMessageBusItem.Subscribers">
+            <summary>
+            Eine Liste der Namen der Subscriber, die die Message verarbeitet haben.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.Contracts.IMessageBusSubscriber.Messages">
+            <summary>
+            Eine Liste der Messages, die der Subscriber verarbeiten kann.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.BaseProperties.IsDemoVersion">
+            <summary>
+            Muss auf TRUE gesetzt werden, wenn im Programmcode Demofunktionalität berücksichtigt werden soll.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.BaseProperties.ProgramID">
+            <summary>
+            Stellt eine, beim Ersten Aufruf erzeugte, eindeutige ID (GUID) zur Verfügung, die während der gesamten Laufzeit des Programms gleich bleibt.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.BaseProperties.LeaveFormAutomatc">
+            <summary>
+            Wenn TRUE, kann ein Toolwindow nach dem Verlassen des letzten Eingabefeldes autom. geschlossen werden.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.BaseProperties.UserAccountActive">
+            <summary>
+            Wenn TRUE, ist beim Programmstart eine Benutzeranmeldung notwendig.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.BaseProperties.MaxCountDemoItems">
+            <summary>
+            Die amx. Anzahl Einträge, die bei einer Demoversion verwaltetet werden dürfen.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.BaseProperties.IsOperatingSystemNT">
+            <summary>
+            wenn true, dann erfolgt in der Methode "ShowDebugMessage" eine Ausgabe von Text auf die Console.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.BaseProperties.UserNameSystemFull">
+            <summary>
+            Der Domainname und der Username vom Windowssystem
+            Bsp.: MyDomain\Hans Meiser
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.BaseProperties.ProjectVersionDataCurrent">
+            <summary>
+            Enthält die Versionsdaten der aktuellen Programmversion.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.BaseProperties.MainWindowHandle">
+            <summary>
+            Das Handle des Hauptfensters des Programmes, das als Standardparent für alle Unterfenster dient.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseProperties.ClearCommonDirectories">
+            <summary>
+            Es werden alle Standardverzeichnisse auf eine leere Zeichenkette gesetzt, damit sie beim nächsten Aufruf neu initialisiert werden.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseProperties.GetApplicationDataRoteDirectoryOriginal">
+            <summary>
+            Liefert das Originalverzeichnis für die Ablage von programmbezogenen Anwenderdaten zurück.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

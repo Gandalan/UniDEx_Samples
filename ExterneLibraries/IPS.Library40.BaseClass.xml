@@ -1,0 +1,2633 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.BaseClass</name>
+    </assembly>
+    <members>
+        <member name="P:IPS.Library.BaseClass.BaseObject.BaseObject`3.SuspendWorking">
+            <summary>
+            Wenn TRUE, haben Änderungen an den Eigenschaften keine Auswirkungen auf die StatusProperties (Changed, IsNew,...).
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.IsBaseDataValid">
+            <summary>
+            Diese Methode kontroliert nur die wirklich notwendigen Basisdaten eines Objectes auf ihre Gültigkeit.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.IsExtendedDataValid">
+            <summary>
+            Diese Methode kontroliert die erweiterten Daten eines Objectes auf ihre Gültigkeit.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.GetInvalidReason">
+            <summary>
+            Liefert eine Kurzbeschreibung, warum der Record als ungültig erkannt wird.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.FillObject(`0,System.Boolean)">
+            <summary>
+            Es werden alle Daten aus dem übergebenen Object auf das aktuelle Object übertragen.
+            </summary>
+            <param name="sourceObject"></param>
+            <param name="callFinishMethod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.UpdateData(`0,System.Boolean)">
+            <summary>
+            Es werden die ContentDaten aus dem übergebene Object auf das aktuelle Object übertragen, sofern das übergeben Object gültig ist (IsValid() == TRUE).
+            </summary>
+            <param name="sourceObject"></param>
+            <param name="callFinishMethod"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.SaveObject(System.Boolean)">
+            <summary>
+            Die geänderten Daten werden persistiert.
+            </summary>
+            <param name="callFinishMethod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.RejectChanges(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="callFinishMethod"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.CanDeleteObject">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.DeleteObject(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="callFinishMethod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.Clone">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.CloneObject(`1,System.Boolean,System.Boolean)">
+            <summary>
+            Erstellt einen typisierten Clone des Objectes.
+            </summary>
+            <param name="newParentObject"></param>
+            <param name="deepClone">Bestimmt, ob auch Listen und Objecte geclont werden sollen.</param>
+            <param name="callFinishMethode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObject`3.pOnChangingProperty(System.String,System.Object,System.Object)">
+            <summary>
+            Diese Methode wird aufgerufen, bevor der Wert der Property geändert wird.
+            </summary>
+            <param name="propertyName">Name der property, deren Wert sich ändert.</param>
+            <param name="oldValue">Alter Wert.</param>
+            <param name="newValue">Neuer Wert.</param>
+        </member>
+        <member name="T:IPS.Library.BaseClass.BaseObject.BaseObjectRoutinen`1">
+            <summary>
+            Allgemeine statische Routinen für die Arbeit mit Objecten vom Typ "BaseObject".
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseObject.BaseObjectRoutinen`1.GetObjectStateColor(IPS.Library.BaseClass.Contracts.IBaseObject)">
+            <summary>
+            Liefert die Farbe für den akt. Objektstatus zurück.
+            </summary>
+            <param name="baseObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseRoutinen.#ctor(System.Boolean)">
+            <summary>
+            Dieser Instanzaufruf ist nur für UnitTest vorgesehen, es wird keine pInitObjects()-Methode aufgerufen!!
+            </summary>
+            <param name="dummy"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseRoutinen.CancelCurrentAction">
+             <summary>
+            Diese methode dient dazu, aien gerade laufende Action abzubrechen.
+             </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminEnum.GetValidNames``1(System.Boolean,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Liefert ein Stringarray mit allen Name, deren Value grösser/gleich _minValue und kleiner/gleich _maxValue ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminEnum.GetValidItems``1(``0,System.Int32,System.Int32)">
+            <summary>
+            Liefert ein Objectarray mit allen Enumitems, deren Value kleiner BaseConstanten.EnumValueUnknown ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminEnum.ValidateEnumValue(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Konvertiert einen Enumwert in einen formatierten String.
+            </summary>
+            <param name="value"></param>
+            <param name="convertChars">Wenn TRUE, Wird die Methode 'StartWithUpperChar()' auf das Ergebnis angewandt.</param>
+            <param name="translateValue">Wenn TRUE, Wird die Methode 'ConvertToGermanUmlauts()' auf das Ergebnis angewandt.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.CommonBaseRoutinen.SetStartParameterProgram(System.String[])">
+            <summary>
+            Verarbeitet die beim Programmstart übergebenen Startparameter.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.CommonBaseRoutinen.GetBits(System.Int32)">
+            <summary>
+            Liefert für den übergeben 32-Bit-integer-Wert den dualen Wert als String zurück.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.CommonBaseRoutinen.GetUniqueValues``1(IPS.Library.BaseClass.Collections.UniqueKeyList{``0},IPS.Library.BaseClass.Collections.ListExt{``0})">
+            <summary>
+            Liefert eine Auflistung, in der jeder Wert aus der übergebenen Liste nur einmal in der Ergebnissliste enthalten ist, mit der Anzahl, wie oft ein Wert vorkommt.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.CommonBaseRoutinen.TranslateItemToGerman(System.Object,System.Boolean)">
+            <summary>
+            Es wird versucht für den übergebenen Begriff eine deutsche Übersetzung zu finden.
+            </summary>
+            <param name="item"></param>
+            <param name="getShortCut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.CommonBaseRoutinen.GetSelectedValue(System.Object,System.String)">
+            <summary>
+            liefert den Wert des ausgewählten Objectes zurück.
+            </summary>
+            <param name="value"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.CommonBaseRoutinen.SwitchPosition(IPS.Library.BaseClass.Enums.Positions)">
+            <summary>
+            Liefert zur übergebenen Position das Gegenstück zurück. (Bsp. Left return Right/Top return Bottom)
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.CommonBaseRoutinen.BuildKeyValueString(System.Char,System.Char,System.Collections.Generic.KeyValuePair{System.Object,System.Object}[])">
+            <summary>
+            Erstellt eine Zeichenkette aus Schlüssel-Wert-Paaren, die durch ein definiertes Zeichen getrennt sind.
+            Beispiel: SD:05|WS:test|0KL:48yDx
+            </summary>
+            <param name="keyValueSplitChar">Trennzeichen zwichen Schlüssel/Wert.</param>
+            <param name="itemSplitChar">Trennzeichen zwischen mehreren Schlüssel-Wert-Paaren.</param>
+            <param name="items">Die zu verkettenden Schlüssel-Wert-Paare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.CommonBaseRoutinen.ConvertKeyValueString(System.String,System.Char,System.Char)">
+            <summary>
+            Konvertiert eine Zeichenkette mit Schlüssel-Wert-Paaren in eine Auflistung vom Typ KeyValuePair.
+            </summary>
+            <param name="value">Die zu konvertierende Zeichenkette mit den Schlüssel-Wert-Paaren.</param>
+            <param name="keyValueSplitChar">Trennzeichen zwichen Schlüssel/Wert.</param>
+            <param name="itemSplitChar">Trennzeichen zwischen mehreren Schlüssel-Wert-Paaren.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.CommonBaseRoutinen.GetFormPosition(System.Windows.Forms.Form,System.Windows.Forms.Form)">
+            <summary>
+            Zentriert das Kindformular in Bezug zum Elternformular und liefert die berechnete Position zurück.
+            </summary>
+            <param name="masterForm">Elternformular innerhalb dessen das Kindformular zentriert werden soll.</param>
+            <param name="subForm">Kindformular, das innerhalb des Elternfomulares zentriert werden soll.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminGUID.GetNewGuid">
+            <summary>
+            Erstellt eine neue GUID
+            </summary>
+            <returns>
+            GUID
+            </returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminGUID.NewSequentialID">
+            <summary>
+            Erstellt eine GUID die größer ist als ein je auf dieser
+            Maschine erstellte GUID
+            </summary>
+            <returns>
+            GUID
+            </returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminGUID.IsValidGuid(System.String)">
+            <summary>
+            Determines whether the specified guid is a valid GUID.
+            </summary>
+            <param name="guid">The GUID.</param>
+            <returns>
+            	<c>true</c> if the specified guid is GUID; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminGUID.IsValidGuid(System.Guid)">
+            <summary>
+            Determines whether the specified guid is a valid GUID.
+            </summary>
+            <param name="guid">The GUID.</param>
+            <returns>
+            	<c>true</c> if the specified guid is GUID; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminClipbaord.AddToClipboard(System.Object,System.Boolean)">
+            <summary>
+            Legt Daten in der Zwischenablage des Systems ab und gibt an, ob die Daten
+            nach Beenden der Anwendung in der Zwischenablage beibehalten werden sollen.
+            </summary>
+            <param name="data">Die in der Zwischenablage abzulegenden Daten.</param>
+            <param name="copy">true, wenn die Daten nach dem Beenden dieser Anwendung in der Zwischenablage beibehalten werden sollen, andernfalls false.</param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminClipbaord.AddDataToClipboard(System.String,System.Object)">
+            <summary>
+            Fügt der Zwischenablage Daten im angegebenen Format hinzu.
+            </summary>
+            <param name="format">Das Format der abzulegenden Daten. (Ein Wert von WinForms.DataFormats)</param>
+            <param name="data">Die in der Zwischenablage abzulegenden Daten.</param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminClipbaord.ReadFromClipboard(System.String,System.Boolean)">
+            <summary>
+            Ruft die Daten im angegebenen Format ab, die sich gegenwärtig in der Zwischenablage des Systems befinden.
+            </summary>
+            <param name="dataFormat">Das Format der abzurufenden Daten.  (Ein Wert von WinForms.DataFormats)</param>
+            <param name="checkAutoConvert">true, wenn die Daten in das angegebene Format konvertiert werden sollen, andernfalls false.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminClipbaord.IsClipboardEmpty(System.String,System.Boolean)">
+            <summary>
+            Prüft, on Daten in dem gewünschten Format in der Zwischenablage zur Verfügung stehen.
+            </summary>
+            <param name="dataFormat">Das Format der zu prüfenden Daten.  (Ein Wert von WinForms.DataFormats)</param>
+            <param name="checkAutoConvert">true, wenn die Daten in das angegebene Format konvertierbar sein sollen, andernfalls false.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminObjects.IsObjectsEquals(System.Object,System.Object)">
+            <summary>
+            Vergleicht zwei Objecte mittels Equals() auf Gleichheit. Wenn beide null sind, wirde ebenfalls TRUE zurückgeliefert!
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminObjects.IsObjectIDValid(System.Object)">
+            <summary>
+            Kontrolliert, ob der Wert != NULL, vom Typ Guid und != Guid.Empty ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminObjects.GetObjectOriginalTypeNameLower(System.Object)">
+            <summary>
+            Liefert den original Objecttype.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminObjects.GetObjectTypeNameLower(System.Object,System.Boolean)">
+            <summary>
+            Liefert den Objecttype ohne die event. vorhandene Zeichenkette "IPS", wenn _removeIPS = FALSE ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.AdminObjects.GetUniqueObjectID">
+            <summary>
+            Erstelt eine eindeutige ID zum eindeutigen Identifizieren von Objekten.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StopWatch.Start(System.String)">
+            <summary>
+            Startet die Stoppuhr.
+            </summary>
+            <param name="name">Bezeichnung für die akt. laufende Stoppuhr. Wird im Protokoll mit angegeben.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StopWatch.Stop">
+            <summary>
+            Stoppt die aktuelle Stoppuhr.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StopWatch.ShowZwischenZeit(System.String,System.Boolean)">
+            <summary>
+            Trägt die Zeispanne seit der letzten Zwischenzeit in's Protokoll (sofern aktiv) ein.
+            </summary>
+            <param name="message">Zusatzinfo für die Zwischenzeit</param>
+            <param name="addEmptyLine"><summary>"TRUE, wenn im Protokoll eine Leerzeile angefügt werden soll."</summary></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StopWatch.GetZwischenZeit(System.Boolean,System.Boolean)">
+            <summary>
+            Gibt die Zeitspanne seit dem Start bzw. seit der letzten Zwischenzeit zurück.
+            </summary>
+            <param name="absolute">Wenn TRUE, wird die Zeitspanne seit dem Start ermittelt, andernfalls seit der letzten Zwischenzeitermittlung.</param>
+            <param name="zurücksetzen">Wenn TRUE, wird die akt. Zwischenzeit als letzte Zwischenzeit gespeichert.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StopWatch.GetDauer">
+            <summary>
+            Gibt die Zeitspanne seit dem Start der Stoppuhr zurück.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StopWatch.ShowDauer(System.Boolean,System.String,System.Boolean)">
+            <summary>
+            Trägt die Zeitspanne seit der letzten Zwischenzeit in's Protokoll (sofern aktiv) ein.
+            </summary>
+            <param name="zuruecksetzen">Wenn TRUE, wird die akt. Zwischenzeit als letzte Zwischenzeit gespeichert.</param>
+            <param name="message">Zusatzinfo, die mit ausgegeben wird.</param>
+            <param name="addEmptyLine"><summary>"TRUE, wenn im Protokoll eine Leerzeile angefügt werden soll."</summary></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemInformationWinAPI.GetManagedmentInformation(System.String,System.String,System.String)">
+            <summary>
+            Gibt Infos vom System zurueck
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SortMethods.Sort``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.ComponentModel.ListSortDirection)">
+            <summary>
+             Example: Sort(cities, c => c.Name);
+            </summary>
+            <typeparam name="TType"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <param name="values"></param>
+            <param name="selector"></param>
+            <param name="sortDirection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SortMethods.GetSortOrderShortCut(System.Windows.Forms.SortOrder)">
+            <summary>
+            Ermittelt die Abkürzung für die übergebene SortOrder.
+            </summary>
+            <param name="sortOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Charts.ChartParameterObject.GetAvailableVariants">
+            <summary>
+            Liefert für den aktuellen Charttyp die verfügbaren Varianten.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Charts.ChartParameterObject.GetAvailableVariantNames">
+            <summary>
+            Liefert für den aktuellen Charttyp die verfügbaren Variantennamen zurück.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Charts.ChartParameterObject.GetAvailableVariants(IPS.Library.BaseClass.Charts.ChartTypen)">
+            <summary>
+            Liefert die für den übergebenen Chartyp verfügbaren Varianten zurück.
+            </summary>
+            <param name="chartTyp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Charts.ChartParameterObject.GetAvailableVariantNames(IPS.Library.BaseClass.Charts.ChartTypen)">
+            <summary>
+            Liefert die für den übergebenen Chartyp verfügbaren Variantennamen zurück.
+            </summary>
+            <param name="chartTyp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Charts.ChartParameterObject.GetDefaultVariant(IPS.Library.BaseClass.Charts.ChartTypen)">
+            <summary>
+            Liefert für den übergebenen Chartyp die Standardvariante zurück. (1. Eintrag in der Auflistung)
+            </summary>
+            <param name="chartTyp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Charts.ChartParameterObject.SetAvailableVariants(IPS.Library.BaseClass.Charts.ChartVarianten[])">
+            <summary>
+            Setzt für den aktuellen Charttyp die verfügbaren Varianten.
+            </summary>
+            <param name="availableVariants"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Charts.ChartParameterObject.SetAvailableVariants(IPS.Library.BaseClass.Charts.ChartTypen,IPS.Library.BaseClass.Charts.ChartVarianten[])">
+            <summary>
+            Setzt für den übergebenen Charttyp die verfügbaren Varianten.
+            </summary>
+            <param name="chartTyp"></param>
+            <param name="availableVariants"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Charts.ChartParameterObject.ExistChartVariants">
+            <summary>
+            Prüft, ob für den aktuellen Charttyp Varianten existieren.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Charts.ChartParameterObject.ExistChartVariants(IPS.Library.BaseClass.Charts.ChartTypen)">
+            <summary>
+            Prüft, ob für den übergebenen Charttyp Varianten existieren.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ItemsPseudonym.GetSingleItemArticleNominativ(System.Boolean)">
+            <summary>
+            Gibt in Abhängigkeit vom Geschlecht den Artikel für ein einzahliges Substantiv (Nomen) zurück.
+            </summary>
+            <param name="startWithUpperChar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ItemsPseudonym.GetSingleItemEndChar">
+            <summary>
+            Gibt in Abhängigkeit vom Geschlecht den Schlussbuchstaben für Wörter zurück.
+            Beispiel: 'r' bei 'neuer Eintrag' oder 's' bei 'neues Fenster'.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:IPS.Library.BaseClass.FileSystem.Status">
+            <summary>
+            Gibt den Status der ISO-Image Erstellung aus
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.Status.Running">
+            <summary>
+            Erstellung läuft
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.Status.InvalidHandle">
+            <summary>
+            Ungültiger Handle
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.Status.NoDevice">
+            <summary>
+            Die Quelle ist kein Medium (CD/DVD)
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.Status.NotEnoughMemory">
+            <summary>
+            Nicht genügend Speicherplatz vorhanden
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.Status.LimitExceeded">
+            <summary>
+            Ziel überschreitet FAT32 Größenlimit von 4 GB (4096 MB)
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.Status.NotReady">
+            <summary>
+            Das Gerät ist nicht bereit
+            </summary>
+        </member>
+        <member name="T:IPS.Library.BaseClass.FileSystem.EventIsoArgs">
+            <summary>
+            Beinhaltet zusätzliche Daten für Event
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.FileSystem.EventIsoArgs.WrittenSize">
+            <summary>
+            Bereits geschriebene Bytes
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.FileSystem.EventIsoArgs.ProgressPercent">
+            <summary>
+            Fortschritt in Prozenten
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.FileSystem.EventIsoArgs.ElapsedTime">
+            <summary>
+            Laufzeit
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.FileSystem.EventIsoArgs.Message">
+            <summary>
+            Nachricht
+            </summary>
+        </member>
+        <member name="T:IPS.Library.BaseClass.FileSystem.Win32">
+            <summary>
+            Stellt die Funktionalität bereit, mit Windowsmethoden 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.Win32.GENERIC_READ">
+            <summary>
+            Lesezugriff
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.Win32.FILE_SHARE_READ">
+            <summary>
+             Gibt an, dass nachfolgende öffnen Vorgänge auf das Objekt nur erfolgreich sind, wenn ein Lesezugriff angefordert wird
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.Win32.OPEN_EXISTING">
+            <summary>
+            Öffnet die Datei. Wird fehlschlagen, wenn die Datei nicht existiert
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.Win32.FILE_ATTRIBUTE_NORMAL">
+            <summary>
+            Gibt an, dass die Datei keine anderen Attribute hat, dieses Attribut ist nur gültig wenn es allein verwendet wird
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.Win32.CreateFile(System.String,System.UInt32,System.UInt32,System.IntPtr,System.UInt32,System.UInt32,System.IntPtr)">
+            <summary>
+            Gibt ein Handle zurück, das genutzt werden kann, um auf eine Datei oder ein Gerät
+            auf unterschiedlichste Art und Weise zuzugreifen
+            </summary>
+            <param name="lpFileName">Der Name der Datei oder des Gerätes, das erstellt oder geöffnet werden soll</param>
+            <param name="dwDesiredAccess">Der Zugriff auf die angeforderte Datei oder des Gerätes</param>
+            <param name="dwShareMode">Der angeforderte Austausch-Modus der Datei oder des Geräts</param>
+            <param name="lpSecurityAttributes">Zeiger der auf ein Sicherheits-Attribut zeigt</param>
+            <param name="dwCreationDisposition">Eine Aktion, die auf eine Datei oder ein Gerät durchgeführt wird, wenn es vorhanden ist oder nicht vorhanden ist</param>
+            <param name="dwFlagsAndAttributes">Datei/Gerät-Attribut, am häufigsten wird FILE_ATTRIBUTE_NORMAL genutzt</param>
+            <param name="hTemplateFile">Ein Handle auf eine Vorlagen-Datei (beim öffnen spielt dieser Parameter keine Rolle)</param>
+            <returns>Wenn die Methode erfolgreich ausgeführt werden konnte, gibt es einen gültigen Handle auf eine Datei oder ein Gerät zurück</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.Win32.CreateFile(System.String)">
+            <summary>
+            Erstellt das Handle vom Medium
+            </summary>
+            <param name="device">Medium (CD/DVD)</param>
+            <returns>Handle des Mediums</returns>
+        </member>
+        <member name="T:IPS.Library.BaseClass.FileSystem.IsoFromMedia">
+            <summary>
+            Ermöglicht ISO-Images von Medien (CD/DVD) anzulegen
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.IsoFromMedia.bgCreator">
+            <summary>
+            BackgroundWorker für das erstellen der ISO-Datei
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.IsoFromMedia.streamReader">
+            <summary>
+            Lesender FileStream
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.IsoFromMedia.streamWriter">
+            <summary>
+            Schreibender FileStream
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.IsoFromMedia.BUFFER">
+            <summary>
+            128 KB Blockgröße
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.IsoFromMedia.LIMIT">
+            <summary>
+            Maximal 4 GB Größe pro Datei auf FAT32-System
+            </summary>
+        </member>
+        <member name="E:IPS.Library.BaseClass.FileSystem.IsoFromMedia.OnProgress">
+            <summary>
+            Wird ausgelöst, wenn ein Fortschritt stattfindet
+            </summary>
+        </member>
+        <member name="E:IPS.Library.BaseClass.FileSystem.IsoFromMedia.OnMessage">
+            <summary>
+            Wird ausgelöst, wenn eine Meldung beim erstellen auftaucht
+            </summary>
+        </member>
+        <member name="E:IPS.Library.BaseClass.FileSystem.IsoFromMedia.OnFinish">
+            <summary>
+            Wird ausgelöst, wenn die Erstellung fertig ist
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.FileSystem.IsoFromMedia.PathToIso">
+            <summary>
+            Pfad zu der ISO-Datei
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.FileSystem.IsoFromMedia.MediumSize">
+            <summary>
+            Größe des Mediums
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.FileSystem.IsoFromMedia.Handle">
+            <summary>
+            Handle vom Medium
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.IsoFromMedia.#ctor">
+            <summary>
+            Konstruktor
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.IsoFromMedia.bgCreator_DoWork(System.Object,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Startet den Thread mit dem erstellen der ISO-Datei
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.IsoFromMedia.bgCreator_RunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
+            <summary>
+            Wenn die Erstellung abgeschlossen ist
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.IsoFromMedia.CreateIsoFromMedia(System.String,System.String)">
+            <summary>
+            Erstellt ein ISO-Image von einem Medium (CD/DVD)
+            </summary>
+            <param name="source">CD/DVD</param>
+            <param name="destination">Pfad, wohin die ISO-Datei abgelegt werden soll</param>
+            <returns>
+            Running = Erstellung läuft
+            InvalidHandle = Ungültiger Handle
+            NoDevice = Die Quelle ist kein Medium (CD/DVD)
+            NotEnoughMemory = Nicht genügend Speicherplatz vorhanden
+            LimitExceeded = Ziel überschreitet FAT32 Größe von 4 GB (4096 MB)
+            NotReady = Das Gerät ist nicht bereit
+            </returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.IsoFromMedia.Stop">
+            <summary>
+            Beendet die Erstellung des Images und löscht zugleich das Image
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.IsoFromMedia.CloseAll">
+            <summary>
+            Schließt alle Streams und Handles und gibt Ressourcen frei
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.IsoFromMedia.GetMediumLength(System.String)">
+            <summary>
+            Größe des Mediums (CD/DVD)
+            </summary>
+            <param name="drive">Quell-Laufwerk.</param>
+            <returns>Größe in Bytes</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.IsoFromMedia.CheckNTFS(System.String)">
+            <summary>
+            Zeigt an, ob das Dateisystem NTFS ist
+            </summary>
+            <param name="destination">Pfad zu der ISO-Datei</param>
+            <returns>True, wenn NTFS</returns>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.CommonFileSystemProperties.KiloByte">
+            <summary>[1024] Anzahl der Bytes in einem Kilobyte</summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.CommonFileSystemProperties.MegaByte">
+            <summary>[1.048.576] Anzahl der Bytes in einem Megabyte</summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.FileSystem.CommonFileSystemProperties.GigaByte">
+            <summary>[1.073.741.824] Anzahl der Bytes in einem Gigabyte</summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.IsDirectoryNameValid(System.String)">
+            <summary>
+            Es wird geprüft, ob der übergebene Verzeichnisname nicht leer ist und keine ungültigen Zeichen enthält.
+            </summary>
+            <param name="directory">Der zu prüfende Verzeichnisname,</param>
+            <returns>"TRUE, wenn der Verzeichnisname gültig ist."</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.IsDirectoryNameValid(System.String,System.Nullable{System.Char}@)">
+            <summary>
+            Es wird geprüft, ob der übergebene Verzeichnisname nicht leer ist und keine ungültigen Zeichen enthält.
+            </summary>
+            <param name="directory">Der zu prüfende Verzeichnisname.</param>
+            <param name="invalidChar">Enthält das erste gefundene ungültige Zeichen.</param>
+            <returns>"TRUE, wenn der Verzeichnisname gültig ist."</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.CheckDirectory(System.String,System.Boolean,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Überprüft, ob ein Verzeichnis existiert und legt es bei Bedarf neu an.
+            </summary>
+            <param name="path">Das zu prüfende Verzeichnis</param>
+            <param name="createDirectory">Wenn TRUE, wird das Verzeichnis neu angelegt, falls es nicht existiert.</param>
+            <param name="errorInfo">Zusatzinfo, wenn es zu einem Fehler kommt.</param>
+            <param name="silentMode">Wenn TRUE, wird eine eventuelle Exception beim Neuanlegen des Verzeichnisses nach außen weitergereicht. Andernfalls wird eine Fehlermeldung ausgegeben.</param>
+            <param name="setAccessRightsForCommonUser">Wenn TRUE, werden für das neu angelegte Verzeichnis die Zugriffsrechte für alle Nutzer gesetzt.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.CheckDirectoryQuickIO(System.String,System.Boolean,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Überprüft, ob ein Verzeichnis existiert und legt es bei Bedarf neu an.
+            </summary>
+            <param name="path">Das zu prüfende Verzeichnis</param>
+            <param name="createDirectory">Wenn TRUE, wird das Verzeichnis neu angelegt, falls es nicht existiert.</param>
+            <param name="errorInfo">Zusatzinfo, wenn es zu einem Fehler kommt.</param>
+            <param name="silentMode">Wenn TRUE, wird eine eventuelle Exception beim Neuanlegen des Verzeichnisses nach außen weitergereicht. Andernfalls wird eine Fehlermeldung ausgegeben.</param>
+            <param name="setAccessRightsForCommonUser">Wenn TRUE, werden für das neu angelegte Verzeichnis die Zugriffsrechte für alle Nutzer gesetzt.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.GetDirectoryName(System.String)">
+            <summary>
+            Liefert den Verzeichnisnamen mit einem abschließenden 'DirectorySeparatorChar' zurück.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.ExistDirectory(System.String)">
+            <summary>
+            Determines whether the given directory refers to an existing directory on disk.
+            </summary>
+            <param name="directory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.ExistDirectoryQuickIO(System.String)">
+            <summary>
+            Determines whether the given directory refers to an existing directory on disk.
+            </summary>
+            <param name="directory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.IsDirectory(System.String)">
+            <summary>
+            Es wird geprüft, ob die übergebene Zeichenkette ein reales Verzeichnis ist.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.IsDirectoryEmpty(System.String,System.Boolean)">
+            <summary>
+            Es wird geprüft, ob das Verzeichnis leer ist.
+            </summary>
+            <param name="directory">Das zu prüfende Verzeichnis</param>
+            <param name="checkOnlyFiles">Wenn TRUE, werden Unterverzeichnisse als Ordnerinhalt ignoriert.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.ClearDirectory(System.String)">
+            <summary>
+            Entfernt alle Dateien/Unterverzeichnisse in einem Verzeichnis.
+            </summary>
+            <param name="directory">Das zu leerende Verzeichnis</param>
+            <returns>TRUE, wenn alle Daten gelöscht werden konnten.</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.DirSize(System.IO.DirectoryInfo)">
+            <summary>
+            Ermittelt die Größe des Verzeichnisses in Bytes
+            </summary>
+            <param name="dirInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.AddDirectorySecurity(System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AccessControlType,System.String,System.Boolean)">
+            <summary>
+            Adds an ACL entry on the specified directory for the specified account.
+            </summary>
+            <param name="directory"></param>
+            <param name="rights"></param>
+            <param name="controlType"></param>
+            <param name="userAccount"></param>
+            <param name="silentMode"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.RemoveDirectorySecurity(System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AccessControlType,System.String,System.Boolean)">
+            <summary>
+            Removes an ACL entry on the specified directory for the specified account.
+            </summary>
+            <param name="directory"></param>
+            <param name="rights"></param>
+            <param name="controlType"></param>
+            <param name="userAccount"></param>
+            <param name="silentMode"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectoryRoutinen.IsAccessAllowed(System.String)">
+            <summary>
+            Es wird versucht eine temp-Datei in dem Verzeichnis anzulegen, um zu prüfen, ob eine Schreiberlaubnis vorliegt.
+            </summary>
+            <param name="directory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen._CRC32.GetCRC32(System.String)">
+            <summary>
+            Berrechnet die CRC32 einer Datei. Die Datei muss vorhanden sein.
+            </summary>
+            <param name="path">Datei, für die die CRC32 berechnet werden soll</param>
+            <returns>CRC32 der übergebenen Datei.</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.GetIconFromFile(System.String,System.Int32)">
+            <summary>
+            Extrahiert ein Icon an der Position 'iconIndex' aus einer Datei.
+            </summary>
+            <param name="path"></param>
+            <param name="iconIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.IsFileNameValid(System.String)">
+            <summary>
+            Es wird geprüft, ob der übergebene Dateiname (incl. Pfad) nicht leer ist und keine ungültigen Zeichen enthält.
+            </summary>
+            <param name="path">Der zu prüfende Dateiname (incl. Pfad).</param>
+            <returns>"TRUE, wenn der Dateiname gültig ist."</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.IsFileNameValid(System.String,System.Nullable{System.Char}@)">
+            <summary>
+            Es wird geprüft, ob der übergebene Dateiname (incl. Pfad) nicht leer ist und keine ungültigen Zeichen enthält.
+            </summary>
+            <param name="path">Der zu prüfende Dateiname (incl. Pfad).</param>
+            <param name="invalidChar">Enthält das erste gefundene ungültige Zeichen.</param>
+            <returns>"TRUE, wenn der Dateiname  (incl. Pfad) gültig ist."</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.CreateFileNameCopy(System.String,System.Int32)">
+            <summary>
+            Erstellt eine Kopie des Dateinamens mit fortlaufendem Zähler (bis max. 10).
+            </summary>
+            <param name="path"></param>
+            <param name="maxLength">max. Anzahl Zeichen, die der neue Dateiname lang sein darf.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.TestCreateAndWrite(System.String)">
+            <summary>
+            Es wird geprüft, ob Schreibrechte für das übergebene Verzeichnis existieren.
+            Wenn keine Schreibrechte vorhanden sind, ist über der Property 'LastException' eine genauere Fehlermeldung abrufbar.
+            </summary>
+            <param name="directory">Das zu prüfende Verzeichnis.</param>
+            <returns>True, wenn Schreibrechte existieren</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.GetFiles(System.String,System.Boolean,System.Boolean,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Erstellt ein Stringarray mit allen Dateien, die gemäß dem Filter im Basisverzeichnis und wenn gewünscht in den Unterverzeichnissen, gefunden wurden.
+            </summary>
+            <param name="rootDirectory">Verzeichnis, in dem die Suche beginnt.</param>
+            <param name="checkSubDirectories">Wenn TRUE, werden auch Unterverzeichnisse mit durchsucht.</param>
+            <param name="addSubDirectories">Wenn TRUE, werden auch die Namen der Unterverzeichnisse mit zurückgeliefert.</param>
+            <param name="searchPattern">Der Filter für die Suche</param>
+            <param name="maxDeepToScan">Max. Tiefe, in der Unterverzeichnisse durchsucht werden. 
+            Wenn 0, werden alle (max. 255 Ebenen) Unterverzeichnisse durchsucht.</param>
+            <param name="getFullPath">Wenn TRUE, wird der Dateiname incl. Verzeichnis zurückgegeben.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.GetFilesQuickIO(System.String,System.Boolean,System.String,System.Int32)">
+            <summary>
+            Erstellt ein Stringarray mit allen Dateien, die gemäß dem Filter im Basisverzeichnis und wenn gewünscht in den Unterverzeichnissen, gefunden wurden.
+            </summary>
+            <param name="rootDirectory">Verzeichnis, in dem die Suche beginnt.</param>
+            <param name="checkSubDirectories">Wenn TRUE, werden auch Unterverzeichnisse mit durchsucht.</param>
+            <param name="searchPattern">Der Filter für die Suche</param>
+            <param name="maxDeepToScan">Max. Tiefe, in der Unterverzeichnisse durchsucht werden. 
+            Wenn 0, werden alle (max. 255 Ebenen) Unterverzeichnisse durchsucht.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.ExistFiles(System.String,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="rootDirectory">Das Verzeichnis, in dem die Suche beginnt.</param>
+            <param name="checkSubDirectories">Wenn TRUE, wird auch in Unterverzeichnissen nach Dateien gesucht.</param>
+            <param name="searchPattern">Suchfilter für Dateien</param>
+            <param name="checkOnlyFiles">Wenn TRUE, werden Unterverzeichnisse als Ordnerinhalt ignoriert.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.CheckFileName(System.String,System.String)">
+            <summary>
+            Es wird geprüft, ob der Dateiname eine Dateierweiterung besitzt. Wenn nicht die übergeben Standarderweiterung zugewiesen.
+            </summary>
+            <param name="fileName">Der zu prüfende Dateiname</param>
+            <param name="defaultExtension">Die Standarderweiterung.</param>
+            <returns>"Kompletter Dateinamen incl. Dateierweiterung."</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.IncludesFileName(System.String)">
+            <summary>
+            Prüft, ob der Pfad einen Dateinamen enthält.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.SetFileNormal(System.String,System.Boolean)">
+            <summary>
+            Entfernt alle Attribute der übergeben Datei und hebt dadurch auch einen Schreibschutz auf.
+            </summary>
+            <param name="path"></param>
+            <param name="silentMode"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.AddFileSecurity(System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AccessControlType,System.String,System.Boolean)">
+            <summary>
+            Adds an ACL entry on the specified file for the specified account.
+            </summary>
+            <param name="path"></param>
+            <param name="rights"></param>
+            <param name="controlType"></param>
+            <param name="userAccount"></param>
+            <param name="useSilentMode"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.RemoveFileSecurity(System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AccessControlType,System.String)">
+            <summary>
+            Removes an ACL entry on the specified file for the specified account.
+            </summary>
+            <param name="path"></param>
+            <param name="rights"></param>
+            <param name="controlType"></param>
+            <param name="userAccount"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.DeleteFile(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Löscht die übergebene Datei.
+            </summary>
+            <param name="path">Zu löschende Datei.</param>
+            <param name="showErrorMessage">Legt fest, ob im Fehlerfalle eine Mitteilung angezeigt wird.</param>
+            <param name="noProtocol">Legt fest, ob ein Protokolleintrag erzeugt wird, wenn showErrorMessage == false ist.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.DeleteFileQuickIO(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Löscht die übergebene Datei.
+            </summary>
+            <param name="path">Zu löschende Datei.</param>
+            <param name="showErrorMessage">Legt fest, ob im Fehlerfalle eine Mitteilung angezeigt wird.</param>
+            <param name="noProtocol">Legt fest, ob ein Protokolleintrag erzeugt wird, wenn showErrorMessage == false ist.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.DeleteFileToRecylceBin(System.String)">
+            <summary>
+            Löscht die angegeben Datei in den Papierkorb.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.Rename(System.IO.FileInfo,System.String,System.Boolean)">
+            <summary>
+            Renames a file.
+            </summary>
+            <param name="fileInfo">The file.</param>
+            <param name="newName">The new name.</param>
+            <param name="isSilentMode">The new name.</param>
+            <returns>The renamed file</returns>
+            <example>
+            <code>
+            var file = new FileInfo(@"c:\test.txt");
+            file.Rename("test2.txt");
+            </code></example>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.RenameFileWithoutExtension(System.IO.FileInfo,System.String,System.Boolean)">
+            <summary>
+            Renames a without changing its extension.
+            </summary>
+            <param name="fileInfo">The file.</param>
+            <param name="newName">The new name.</param>
+            <param name="isSilentMode">The new name.</param>
+            <returns>The renamed file</returns>
+            <example>
+            <code>
+            var file = new FileInfo(@"c:\test.txt");
+            file.RenameFileWithoutExtension("test3");
+            </code></example>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.ChangeExtension(System.IO.FileInfo,System.String,System.Boolean)">
+            <summary>
+            Changes the files extension.
+            </summary>
+            <param name="fileInfo">The file.</param>
+            <param name="newExtension">The new extension.</param>
+            <param name="isSilentMode"></param>
+            <returns>The renamed file</returns>
+            <example>
+            <code>
+            var file = new FileInfo(@"c:\test.txt");
+            file.ChangeExtension("xml");
+            </code></example>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.ChangeExtensions(System.String,System.Boolean,System.String[])">
+            <summary>
+            Changes the extensions of several files at once.
+            </summary>
+            <param name="newExtension">The new extension.</param>
+            <param name="isSilentMode"></param>
+            <param name="path"></param>
+            <returns>The renamed files</returns>
+            <example>
+            <code>
+            var files = directory.GetFiles("*.txt", "*.xml");
+            files.ChangeExtensions("tmp");
+            </code></example>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.OpenFileStreamForWriting(System.String,System.Boolean,System.Boolean,System.Int32,System.Text.Encoding)">
+            <summary>
+            Öffnet einen Textdatei zum Schreiben mit korrekter Encodierung für die deutschen Umlaute.
+            </summary>
+            <param name="path">Der vollständige Dateipfad, in den geschrieben werden soll.</param>
+            <param name="addData">Bestimmt, ob Daten an die Datei angefügt werden sollen.Wenn die Datei vorhanden
+                ist und append den Wert false hat, wird die Datei überschrieben.Wenn die
+                Datei vorhanden ist und append den Wert true hat, werden die Daten an die
+                Datei angefügt.Andernfalls wird eine neue Datei erstellt.</param>
+            <param name="isSilentMode"></param>
+            <param name="bufferSize"></param>
+            <param name="encoding">Gibt die bei der Ausgabe zu verwendende Zeichencodierung an [Standard: BaseProperties.EncodingGermany].</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.OpenFileStreamForWriting(System.String,System.Boolean,System.Exception@,System.Boolean,System.Int32,System.Text.Encoding)">
+            <summary>
+            Öffnet einen Textdatei zum Schreiben mit korrekter Encodierung für die deutschen Umlaute.
+            </summary>
+            <param name="path">Der vollständige Dateipfad, in den geschrieben werden soll.</param>
+            <param name="addData">Bestimmt, ob Daten an die Datei angefügt werden sollen.Wenn die Datei vorhanden
+                ist und append den Wert false hat, wird die Datei überschrieben.Wenn die
+                Datei vorhanden ist und append den Wert true hat, werden die Daten an die
+                Datei angefügt.Andernfalls wird eine neue Datei erstellt.</param>
+            <param name="exception"></param>
+            <param name="isSilentMode"></param>
+            <param name="bufferSize"></param>
+            <param name="encoding">Gibt die bei der Ausgabe zu verwendende Zeichencodierung an [Standard: BaseProperties.EncodingGermany].</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.OpenFileStreamForReading(System.String)">
+            <summary>
+            Öffnet einen Textdatei zum Lesen mit korrekter Encodierung für die deutschen Umlaute.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.LoadFromASCIIFile(System.String,IPS.Library.BaseClass.FileSystem.UnicodeCodecs)">
+            <summary>
+            Liest den Inhalt aus der Datei ein.
+            Wenn der FileSharingstatus für die Datei korrekt gesetzt ist, kann der Inhalt auch eingelesen werden, wenn die Datei von anderen Prozessen verwendet wird.
+            </summary>
+            <param name="path">Dateipfad der einzulesenden Datei</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.WriteASCIIFile(System.String,System.String,System.Boolean,IPS.Library.BaseClass.FileSystem.UnicodeCodecs)">
+            <summary>
+            Schreibt einen Inhalt in eine Datei uund öffnet diese so, dass ein anderer Prozess weiterhin lesend darauf zugreifen kann.
+            </summary>
+            <param name="path">Datei, in die geschrieben werden soll.</param>
+            <param name="content">Inhalt, der in die Datei geschrieben werden soll.</param>
+            <param name="replace">Wenn TRUE, wird eine eventuell vorhandene Datei überschrieben. Andernfalls wird der Inhalt nicht geschrieben.</param>
+            <param name="unicode"></param>
+            <returns>TRUE, wenn der Inhalt in die Datei geschrieben werden konnte.</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.IsLinkPath(System.String)">
+            <summary>
+            Prüft, ob es sich bei dem Pfad um eine Verknüpfung handelt.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileRoutinen.GetRealPath(System.String)">
+            <summary>
+            Liefert den realen Pfad von einer Verkpnüpfung zurück.
+            </summary>
+            <param name="linkPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DriveRoutinen.GetAvailableDrivesLocal(System.IO.DriveType[])">
+            <summary>
+            Liefert eine Liste mit allen am lokalen PC verfügbaren Laufwerken.
+            </summary>
+            <param name="driveTypes">Optionaler Filter für Laufwerkstypen.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DriveRoutinen.GetAvailabelDrivesAll(System.String,System.IO.DriveType[])">
+            <summary>
+            Liefert eine Liste mit allen auf einem bestimmten PC verfügbaren Laufwerken zurück.
+            </summary>
+            <param name="computer">Der Computername, von dem die Laufwerke ermittelt werden sollen. Default: lokaler PC</param>
+            <param name="driveTypes">Optionaler Filter für Laufwerkstypen.</param>
+        </member>
+        <member name="T:IPS.Library.BaseClass.FileSystem.VirtualDrive">
+             <summary>
+             Erstellung und Löschung nicht persistenter virtueller Laufwerke.
+             Das Laufwerk muss nach jedem Neustart des Systems wiederhergestellt werden.
+             Wird nicht unter dem Registryschlüssel angezeigt : HKLM\System\MountedDevices.
+             
+             VirtualDrive - © Konstantin Gross
+             
+             Example:
+            Laufwerk erstellen:
+            VirtualDrive.Create('Z', @"C:\Musiksammlung");
+            
+            Laufwerk löschen:
+            VirtualDrive.Delete('Z', @"C:\Musiksammlung");
+             </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.VirtualDrive.Create(System.Char,System.String)">
+            <summary>
+            Erstellung eines nicht persistenten Laufwerks.
+            </summary>
+            <param name="driveChar">Laufwerksbuchstabe.</param>
+            <param name="path">Pfad zu dem zu verknüpfenden Ordner.</param>
+            <returns>True/False beim Versuch das Laufwerk zu erstellen</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.VirtualDrive.Delete(System.Char,System.String)">
+            <summary>
+            Löschung eines nicht persistenten Laufwerks.
+            </summary>
+            <param name="driveChar">Laufwerksbuchstabe.</param>
+            <param name="path">Pfad zu dem zu verknüpfenden Ordner.</param>
+            <returns>True/False beim Versuch das Laufwerk zu löschen</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectorySecurityRotuinen.IsAccessAllowed(System.String)">
+            <summary>
+            Prüft, ob vom Programm aus auf das Directory zugegriffen werden kann. 
+            Zu Testzwecken wird eine temp. Datei 'Dumm.TMP' in dem Directory erzeugt und anschließend wieder gelöscht.
+            </summary>
+            <param name="directory">Das zu testende Directory.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectorySecurityRotuinen.AddDirectorySecurity(System.String,System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)">
+            <summary>
+            Adds an AccessControlList entry on the specified directory for the specified account.
+            </summary>
+            <param name="directoryPath"></param>
+            <param name="identity"></param>
+            <param name="fileSystemRights"></param>
+            <param name="inheritanceFlags"></param>
+            <param name="propogationFlags"></param>
+            <param name="accessControlType"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectorySecurityRotuinen.AddDirectorySecurity(System.String,System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AccessControlType)">
+            <summary>
+            Adds an AccessControlList entry on the specified directory for the specified account.
+            </summary>
+            <param name="directoryPath"></param>
+            <param name="identity"></param>
+            <param name="fileSystemRights"></param>
+            <param name="accessControlType"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectorySecurityRotuinen.RemoveDirectorySecurity(System.String,System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)">
+            <summary>
+            Removes an AccessControlList entry on the specified directory for the specified account.
+            </summary>
+            <param name="directoryPath"></param>
+            <param name="identity"></param>
+            <param name="fileSystemRights"></param>
+            <param name="inheritanceFlags"></param>
+            <param name="propogationFlags"></param>
+            <param name="accessControlType"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectorySecurityRotuinen.RemoveDirectorySecurity(System.String,System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AccessControlType)">
+            <summary>
+            Removes an AccessControlList entry on the specified directory for the specified account.
+            </summary>
+            <param name="directoryPath"></param>
+            <param name="identity"></param>
+            <param name="fileSystemRights"></param>
+            <param name="accessControlType"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectorySecurityRotuinen.RemoveInheritablePermissons(System.String)">
+            <summary>
+            Removes an AccessControlList entry on the specified directory for the specified account. 
+            </summary>
+            <param name="directoryPath"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectorySecurityRotuinen.SetAccessRightsToDirectory(System.Security.AccessControl.FileSystemRights,System.String,System.String)">
+            <summary>
+            Setzt die userspezifischen Zugriffsrechte für einen Ordner.
+            </summary>
+            <example>
+            <code>
+            SetAccessRightsToDirectory(FileSystemRights.FullControl, BaseProperties.CurrentUserWindowsIdentity.Name, @"C:\Temp");
+            </code>
+            </example>
+            <param name="rights"></param>
+            <param name="windowsAccountUserName"></param>
+            <param name="directoryName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.DirectorySecurityRotuinen.RemoveAccessRightsToDirectory(System.Security.AccessControl.FileSystemRights,System.String,System.String)">
+            <summary>
+            Entfernt die userspezifischen Zugriffsrechte für einen Ordner.
+            </summary>
+            <example>
+            <code>
+            RemoveAccessRightsToDirectory(FileSystemRights.FullControl, BaseProperties.CurrentUserWindowsIdentity.Name, @"C:\Temp");
+            </code>
+            </example>
+            <param name="rights"></param>
+            <param name="windowsAccountUserName"></param>
+            <param name="directoryName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileSecurityRoutinen.AddFileSecurity(System.String,System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)">
+            <summary>
+            Adds an AccessControlList entry on the specified file for the specified account.
+            </summary>
+            <param name="filePath"></param>
+            <param name="identity"></param>
+            <param name="fileSystemRights"></param>
+            <param name="inheritanceFlags"></param>
+            <param name="propogationFlags"></param>
+            <param name="accessControlType"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileSecurityRoutinen.AddFileSecurity(System.String,System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AccessControlType)">
+            <summary>
+            Adds an AccessControlList entry on the specified file for the specified account.
+            </summary>
+            <param name="filePath"></param>
+            <param name="identity"></param>
+            <param name="fileSystemRights"></param>
+            <param name="accessControlType"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileSecurityRoutinen.RemoveFileSecurity(System.String,System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)">
+            <summary>
+            Removes an AccessControlList entry on the specified file for the specified account.
+            </summary>
+            <param name="filePath"></param>
+            <param name="identity"></param>
+            <param name="fileSystemRights"></param>
+            <param name="inheritanceFlags"></param>
+            <param name="propogationFlags"></param>
+            <param name="accessControlType"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileSecurityRoutinen.RemoveFileSecurity(System.String,System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AccessControlType)">
+            <summary>
+            Removes an AccessControlList entry on the specified file for the specified account.
+            </summary>
+            <param name="filePath"></param>
+            <param name="identity"></param>
+            <param name="fileSystemRights"></param>
+            <param name="accessControlType"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileSecurityRoutinen.RemoveInheritablePermissons(System.String)">
+            <summary>
+            Removes an AccessControlList entry on the specified directory for the specified account. 
+            </summary>
+            <param name="fileName">Path to the folder</param> 
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileSecurityRoutinen.SetAccessRightsToFile(System.Security.AccessControl.FileSystemRights,System.String,System.String)">
+            <summary>
+            Setzt die userspezifischen Zugriffsrechte für eine Datei.
+            </summary>
+            <example>
+            <code>
+            SetAccessRightsToFile(FileSystemRights.FullControl, BaseProperties.CurrentUserWindowsIdentity.Name, @"C:\Temp\Test.TXT");
+            </code>
+            </example>
+            <param name="rights"></param>
+            <param name="windowsAccountUserName"></param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.FileSystem.FileSecurityRoutinen.RemoveAccessRightsToFile(System.Security.AccessControl.FileSystemRights,System.String,System.String)">
+            <summary>
+            Entfernt die userspezifischen Zugriffsrechte für eine Datei.
+            </summary>
+            <example>
+            <code>
+            RemoveAccessRightsToFile(FileSystemRights.FullControl, BaseProperties.CurrentUserWindowsIdentity.Name, @"C:\Temp\Test.TXT");
+            </code>
+            </example>
+            <param name="rights"></param>
+            <param name="windowsAccountUserName"></param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IPS.Library.BaseClass.ControlClasses.FPU">
+            <summary>
+            Function for turning off FPU exceptions.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseRoutines.CompressRoutinen.CompressString(System.String)">
+            <summary>
+            Komprimiert einen String mit Hilfe der .NET internen Compress-Algorithmen.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseRoutines.CompressRoutinen.DeCompressString(System.String)">
+            <summary>
+            Entkomprimiert einen String mit Hilfe der .NET internen Compress-Algorithmen.
+            </summary>
+            <param name="compressedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseRoutines.CompressRoutinen.CompressFile(System.String,System.String)">
+            <summary>
+            Erstellt ein ZIP-Archiv aus einer Datei.
+            </summary>
+            <param name="sourcePath"></param>
+            <param name="destinationPath"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.BaseRoutines.CompressRoutinen.CompressFile(System.IO.FileInfo,System.String)">
+            <summary>
+            Erstellt ein ZIP-Archiv aus einer Datei.
+            </summary>
+            <param name="fileInfo"></param>
+            <param name="destinationPath"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.SetSystemTime(System.DateTime)">
+            <summary>
+            Einstellen der Systemzeit (Datum/Uhrzeit) auf den übergebenen Wert.
+            </summary>
+            <param name="dateTime"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetSternzeichen(System.DateTime)">
+            <summary>
+            Ermittelt das Sternzeichen für das übergeben Datum.
+            </summary>
+            <param name="date">Das Datum.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.BerechneAlter(System.DateTime)">
+            <summary>
+            Berechnet das Alter in Jahren.
+            </summary>
+            <param name="birthDay">Geburtsdatum</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.HasBirthday(System.DateTime)">
+            <summary>
+            Es wird geprüft ob heute Geburtstag ist.
+            </summary>
+            <param name="birthDay">Geburtstagsdatum</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.StrToDate(System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Globalization.DateTimeFormatInfo,System.String,System.Globalization.DateTimeStyles)">
+            <summary>
+                Konvertiert die angegebene Zeichenfolge mit einer Datums- und Uhrzeitangabe
+                unter Verwendung der optional angegebenen kulturspezifischen Formatierungsinformationen
+                und des Formatierungsstils in die entsprechende System.DateTime
+            </summary>
+            <param name="dateString">Zeichenfolge mit einer Datums- und Uhrzeitangabe</param>
+            <param name="defaultDate">Standardwert, der verwendet wird, falls keine Konvertierung möglich ist. (Default == DateTime.Now)</param>
+            <param name="minDate">Mindestdatum, das als Ergebnis ermittelt wird. Ansonsten wird 'defaultDate' zurückgegeben..</param>
+            <param name="formatInfo">Kulturspezifischen Formatierungsinformationen. (Default == Germany)</param>
+            <param name="formatPattern">Formatmuster für einen kurzen Datumswert. (Default == 'dd/MM/yyyy')</param>
+            <param name="dateTimeStyles">Formatierungsstils</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.DateToString(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            Konvertiert ein Datum in einen String. Wenn das date = _emptyDate ist, wird ein Leerstring zurückgegeben.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetShortDateString(System.DateTime,System.Boolean)">
+            <summary>
+            Liefert das akt. Datum in Kurzform (TT.MM.JJJJ) zurück. 
+            Wenn _systemString == TRUE, wird die unter Windows eingestellte Kurzform verwendet.
+            </summary>
+            <param name="date"></param>
+            <param name="systemString">Wenn TRU, wird die Systemeinstellung für Datumsdarstellung verwendet, sonst TT.MM.JJJJ</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.CheckDatum(System.String,System.DateTime,System.String)">
+            <summary>
+            Kontrolliert, ob das Datum > minDatum ist. Wenn nicht, wird der Wert in fillValue zurückgegeben, sonst das Datum als ShortDateStr()
+            </summary>
+            <param name="dateString"></param>
+            <param name="minDate"></param>
+            <param name="fillValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.CheckDateString(System.String,System.Boolean,System.Nullable{System.DateTime})">
+            <summary>
+            Versucht den übergebenen String in ein Datum zu konvertieren.
+            </summary>
+            <param name="dateString"><summary>"Die zu prüfende Zeichenkette."</summary></param>
+            <param name="fillDate"><summary>"Bestimmt, ob ein zu kurzes Datum aufgefüllt werden darf."</summary></param>
+            <param name="defaultDate"><summary>"Der Standardwert, der zurückgegeben wird, wenn eine Konvertierung fehlgeschlagen ist."</summary></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetPathDate(System.DateTime)">
+            <summary>
+            Liefert das übergebene Datum in der Form JJJJMMTT zurück.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetExpressionString(System.String)">
+            <summary>
+            Liefert einen Expressionstring um das Datum aus einer Tabellenspalte herauszulesen.
+            </summary>
+            <param name="columnName"><summary>Die Bezeichnung der Datumsspalte.</summary></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetFirstDayOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the first day of the week using the specified culture.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="cultureInfo">The culture to determine the first weekday of a week.</param>
+            <returns>The first day of the week</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetLastDayOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the last day of the week using the specified culture.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="cultureInfo">The culture to determine the first weekday of a week.</param>
+            <returns>The first day of the week</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetWeeksWeekday(System.DateTime,System.DayOfWeek,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the next occurence of the specified weekday within the current week using the specified culture.
+            </summary>
+            <param name="date">The base date.</param>
+            <param name="weekday">The desired weekday.</param>
+            <param name="cultureInfo">The culture to determine the first weekday of a week.</param>
+            <returns>The calculated date.</returns>
+            <example><code>
+            var thisWeeksMonday = DateTime.Now.GetWeekday(DayOfWeek.Monday);
+            </code></example>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetNextWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Gets the next occurence of the specified weekday.
+            </summary>
+            <param name="date">The base date.</param>
+            <param name="weekday">The desired weekday.</param>
+            <returns>The calculated date.</returns>
+            <example><code>
+            var lastMonday = DateTime.Now.GetNextWeekday(DayOfWeek.Monday);
+            </code></example>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetPreviousWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Gets the previous occurence of the specified weekday.
+            </summary>
+            <param name="date">The base date.</param>
+            <param name="weekday">The desired weekday.</param>
+            <returns>The calculated date.</returns>
+            <example><code>
+            var lastMonday = DateTime.Now.GetPreviousWeekday(DayOfWeek.Monday);
+            </code></example>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetFullDayName(System.String)">
+            <summary>
+            Ermittelt an Hand des Tageskürzels den vollständigen Namen des Wochentags.
+            Beispiel: MO --> Montag
+            </summary>
+            <param name="dayShortCut">Das 2 Zeichen lange Tageskürzel (deutsch oder englisch). Alternativ kann auch die Tagesnummer innerhalb der Woche übergeben werden. (Bsp. 1 für Montag)</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetDayOfWeek(System.String)">
+            <summary>
+            Ermittelt den DayOfWeek an Hand der Tagesbezeichnung.
+            </summary>
+            <param name="dayLabel">Die Tagesbezeichnung. Kann ein 2 Zeichen langes Tageskürzel (deutsch/englisch) sein, die Tagesnummer innerhalb der Woche (1 für Montag), oder der volle Tagesname (deutsch/englisch)</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetDayShortCut(System.DayOfWeek,System.Boolean)">
+            <summary>
+            Ermittel das 2 Zeichen lange Tageskürzel für den DayOfWeek.
+            </summary>
+            <param name="dayOfWeek">Der Wert, von dem das Tageskürzel ermittelt werden soll.</param>
+            <param name="translateToGermanShortCut">Wenn TRUE, wird das deutech Tageskürzel ermittelt, ansonsten das englische.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetMonth(System.DateTime,System.DateTime)">
+            <summary>
+            Liefert eine Auflistung aller im Zeitraum enthaltenen Monate zurück.
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetMonthFromShortCut(System.String)">
+            <summary>
+            Ermittelt an Hand des Monatskürzels (1-3 Buchstabe) den Monat.
+            </summary>
+            <param name="monthNameShortCur">Monatskürzel (englisch/deutsch)</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.GetNextPrevMonth(System.DateTime,System.Int32)">
+            <summary>
+            Liefert 1. Tag des Monats der _count Monate nach, bzw. vor (wenn _count negative ist) dem akt. Monat kommt.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.IsSommerZeit(System.DateTime)">
+            <summary>
+            Bestimmt, ob das übergebene Datum innerhalb der Sommerzeit liegt.
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.ToDateTimeOffset(System.DateTime,System.TimeZoneInfo)">
+            <summary>
+            Converts a DateTime into a DateTimeOffset using the specified time zone.
+            </summary>
+            <param name="localDateTime">The local DateTime.</param>
+            <param name="localTimeZone">The local time zone.</param>
+            <returns>The converted DateTimeOffset</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.ConvertDateTimeToFileString(System.DateTime,System.String)">
+            <summary>
+            Es wird der übergebene DateTime-Wert in eine als Dateiname verwendbare Zeichenkette konvertiert.
+            Wenn der übergebene Formatstring Zeichen enthält, die für die Verwendung in Dateinamen unzulässig sind, wird automatisch der Standardformatstring verwendet. 
+            </summary>
+            <param name="dateTime">Der zu konvertierende DateTime-Wert.</param>
+            <param name="formatString">Die Formatzeichenfolge, die für die Konvertierung verwendet werden soll. </param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.ConvertDateTimeToString(System.DateTime,System.Boolean,System.Boolean,System.Boolean,System.String,System.Char,System.Char)">
+            <summary>
+            Konvertiert einen Datums+Zeitwert in eine vordefinierte Zeichenkette 'yyyy.mm.dd [hh:mm:ss[:tt]]'.
+            Beispiel:  2011.10.08 15:20:25:89
+            </summary>
+            <param name="dateTime">Der zu konvertierende Wert.</param>
+            <param name="convertTime">Wenn TRUE, wird auch die Uhrzeit mit konvertiert.</param>
+            <param name="addMilliSecond">Wenn TRUE, werden auch die Millisekunden mit ausgegeben.</param>
+            <param name="convertToFileFormat">Wenn TRUE, wird der Rückgabewert so fomatiert, dass er in einem Dateinamen verwendet werden kann.</param>
+            <param name="itemSplitChar">Das Trennzeichen zwischen Datum und Uhrzeit.</param>
+            <param name="dateSplitChar">Das Trennzeichen für einzelnen Datumswerte.</param>
+            <param name="timeSplitChar">Das Trennzeichen für einzelnen Uhrzeitwerte.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.DateRoutinen.ConvertStringToDateTime(System.String,System.Boolean,System.Boolean,System.Nullable{System.DateTime},System.Char,System.Char,System.Char)">
+            <summary>
+            Es wird versucht eine formatierte Zeichenkette mit Datum und Uhrzeit (Optional) in einen DateTime-Wert zu konvertieren.
+            Beispiel: '2011.12.24 [12:00:01]'
+            </summary>
+            <param name="value">Die zu konvertierende Zeichenkette.</param>
+            <param name="convertTime">Wenn TRUE, wird versucht eine in der Zeichenkette enthalte Zeit mit zu konvertieren.</param>
+            <param name="convertFromFileFormat">Wenn TRUE, wird die zu konvertierende Zeichenkette im FileFomrmat erwartet (yyyy-mm-dd [hh_mm_ss]).</param>
+            <param name="defaultValue">Der Defualtrückgabewert, wenn die Konvertierung fehlschlägt.(Standard: DateTime.MinValue)</param>
+            <param name="dateSplitChar">Das Trennzeichen für einzelnen Datumswerte.</param>
+            <param name="timeSplitChar">Das Trennzeichen für einzelnen Uhrzeitwerte.</param>
+            <param name="itemSplitChar">Das Trennzeichen zwischen Datum und Uhrzeit.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.TimeRoutinen.ToLocalDateTime(System.DateTimeOffset,System.TimeZoneInfo)">
+            <summary>
+            Converts a DateTimeOffset into a DateTime using the specified time zone.
+            </summary>
+            <param name="dateTimeUtc">The base DateTimeOffset.</param>
+            <param name="localTimeZone">The time zone to be used for conversion.</param>
+            <returns>The converted DateTime</returns>
+        </member>
+        <!-- Ungültiger XML-Kommentar wurde für den Member "M:IPS.Library.BaseClass.DateTimeMethods.Kalenderwoche.AnzahlKalenderwochen(System.Int32)" ignoriert -->
+        <!-- Ungültiger XML-Kommentar wurde für den Member "M:IPS.Library.BaseClass.DateTimeMethods.Kalenderwoche.IsLastKW(System.Int32,System.Int32)" ignoriert -->
+        <!-- Ungültiger XML-Kommentar wurde für den Member "M:IPS.Library.BaseClass.DateTimeMethods.Kalenderwoche.GetNextKW(System.Int32,System.Int32)" ignoriert -->
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.Kalenderwoche.GetKalenderwochen(System.DateTime,System.DateTime)">
+            <summary>
+            Liefert eine Auflistung der Kalenderwochen innerhalb des Zeitraums.
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.Kalenderwoche.GetDayOfWeek(System.DayOfWeek)">
+            <summary>
+            Liefert das Datum für einen bestimmten Wochentag der aktuellen Kalenderwoche zurück.
+            </summary>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IPS.Library.BaseClass.DateTimeMethods.Astronomie.MoonPhase">
+            <summary>
+            simplified moonphases
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.DateTimeMethods.Astronomie.MoonPhase.NewMoon">
+            <summary>
+            Newmoon phase.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.DateTimeMethods.Astronomie.MoonPhase.WaxingCrescent">
+            <summary>
+            Waxing crescent moon phase.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.DateTimeMethods.Astronomie.MoonPhase.FirstQuarter">
+            <summary>
+            First quarter phase.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.DateTimeMethods.Astronomie.MoonPhase.WaxingGibbous">
+            <summary>
+            Waxing gibbous moon phase.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.DateTimeMethods.Astronomie.MoonPhase.FullMoon">
+            <summary>
+            Fullmoon phase.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.DateTimeMethods.Astronomie.MoonPhase.WaningGibbous">
+            <summary>
+            Waning gibbous moon phase.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.DateTimeMethods.Astronomie.MoonPhase.LastQuarter">
+            <summary>
+            Last quarter phase.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.DateTimeMethods.Astronomie.MoonPhase.WaningCrescent">
+            <summary>
+            Waning crescent moon phase.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.DateTimeMethods.Astronomie.Sunrise">
+            <summary>
+            DateTime representation of the sunrise-timestamp of a given day on a given location.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.DateTimeMethods.Astronomie.Sunset">
+            <summary>
+            DateTime representation of the sunset-timestamp of a given day on a given location.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.Astronomie.GetMoonPhase(System.DateTime)">
+            <summary>
+            Ermittelt die Mondphase für das übergebene Datum.
+            </summary>
+            <param name="date">Das Ausgangsdatum</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.Astronomie.TranslateMoonPhase(IPS.Library.BaseClass.DateTimeMethods.Astronomie.MoonPhase)">
+            <summary>
+            Ermittelt die deutsche Beschreibung für die übergebene Mondphase.
+            </summary>
+            <param name="moonPhase">Zu übersetzende Mondphase</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.DateTimeMethods.Astronomie.Sun(System.Double,System.Double,System.DateTime)">
+            <summary>
+            Berechnet den Sonnenauf- und untergang für die angegebenen Geokoordinaten an dem angegebenen Tag
+            </summary>
+            <param name="latitude">The latitude.</param>
+            <param name="longtitude">The longtitude.</param>
+            <param name="date">The Date.</param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Graphic.GraphicRoutinenBase.GetDrawingSize(System.String,System.Drawing.Font)">
+            <summary>
+            Misst die angegebene Zeichenfolge, wenn diese in dem angegebenen Control-Objekt gezeichnet wird
+            </summary>
+            <param name="_string"></param>
+            <param name="_font"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IPS.Library.BaseClass.Keyboard.VirtualKeys">
+            <summary>
+            Enumeration for virtual keys.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Keyboard.CommonKeyboardRoutinen.CultureOfCurrentLayout">
+            <summary>
+            Ermittelt die akt. eingestellte Sprache für die Tastatur.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Mathematics.MathRoutinen.RundungsMethoden.AwayFromZero">
+            <summary>
+            Wenn eine Zahl genau zwischen zwei Ganzzahlen liegt, wird sie auf die nächste größere Ganzzahl aufgerundet. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Mathematics.MathRoutinen.RundungsMethoden.ToEven">
+            <summary>
+            Wenn eine Zahl genau zwischen zwei Ganzzahlen liegt, wird sie auf die nächste kleinere Ganzzahl abgerundet. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Mathematics.MathRoutinen.RundungsMethoden.Ceiling">
+            <summary>
+            Gibt die nächstgrößere Ganzzahl zurück.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.Mathematics.MathRoutinen.RundungsMethoden.Floor">
+            <summary>
+            Gibt die nächstkleinere Ganzzahl zurück
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.Streuung(System.Int32[])">
+            <summary>
+            Berechnet das Mittel der Abweichungsbeträge für die übergebenen Werte.
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.MittelWert(System.Int32[])">
+            <summary>
+            Berechnet den Mittelwert für die übergebenen Werte.
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.EqualsDouble(System.Double,System.Double,System.Double)">
+            <summary>
+            Überprüft, ob 2 Doublewerte identisch sind.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.EqualsDecimal(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Überprüft, ob 2 Decimalwerte identisch sind.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.CompareDouble(System.Double,System.Double,System.Double)">
+            <summary>
+            Vergleicht 2 Doublewerte miteinaner.
+            </summary>
+            <returns>
+            0: Werte sind gleich | grösser 0: Wert1 ist grösser | kleiner 0: Wert1 ist kleiner.
+            </returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.CompareDecimal(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Vergleicht 2 Decimalwerte miteinaner.
+            </summary>
+            <returns>
+            0: Werte sind gleich | grösser 0: Wert1 ist grösser | kleiner 0: Wert1 ist kleiner.
+            </returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.IntegerToString(System.Nullable{System.Int32},System.String)">
+            <summary>
+            Wandelt einen Integerwert in einen formatierten Zahlenstring mit tausender Trennzeichen um.
+            </summary>
+            <param name="value"></param>
+            <param name="nullString">"Der Wert, der zurückgegeben werden soll, wenn value == 0 ist"</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.LongToString(System.Nullable{System.Int64},System.String)">
+            <summary>
+            Wandelt einen Integerwert in einen formatierten Zahlenstring mit tausender Trennzeichen um.
+            </summary>
+            <param name="value"></param>
+            <param name="nullString">"Der Wert, der zurückgegeben werden soll, wenn value == 0 ist"</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.IsLong(System.String,System.IFormatProvider)">
+            <summary>
+            Methoden zur Überprüfung eines Strings auf einen long-Wert
+            </summary>
+            <param name="value"></param>
+            <param name="formatProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.ULongToString(System.Nullable{System.UInt64},System.String)">
+            <summary>
+            Wandelt einen Integerwert in einen formatierten Zahlenstring mit tausender Trennzeichen um.
+            </summary>
+            <param name="value"></param>
+            <param name="nullString">"Der Wert, der zurückgegeben werden soll, wenn value == 0 ist"</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.IsULong(System.String,System.IFormatProvider)">
+            <summary>
+            Methoden zur Überprüfung eines Strings auf einen long-Wert
+            </summary>
+            <param name="value"></param>
+            <param name="formatProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.IsNumber(System.String,System.IFormatProvider)">
+            <summary>
+            Methoden zur Überprüfung eines Strings auf einen allgemeinen Zahlwert
+            </summary>
+            <param name="value"></param>
+            <param name="formatProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.IsDouble(System.String,System.IFormatProvider)">
+            <summary>
+            Methoden zur Überprüfung eines Strings auf einen double-Wert
+            </summary>
+            <param name="value"></param>
+            <param name="formatProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.Quersumme(System.String)">
+            <summary>
+            Berechnet Quersumme anhand eines Zahlenstrings
+            </summary>
+            <param name="value">Zahlenstrings z.B. "12345"</param>
+            <returns>Quersumme z.B. 15</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.BerechnePruefZiffer(System.String,System.Int32)">
+            <summary>
+            Es wird für eine beliebige Nutzziffer die Prüfziffer mit Hilfe des Modulo 10 Verfahrens ermittelt.
+            </summary>
+            <param name="nutzZiffer">Die Nutzziffer, für die die Prüfziffer berechnet werden soll</param>
+            <param name="gewichtung">Die Gewichtung, die für die Berechnung verwendet werden soll.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.IsBetween``1(``0,``0,``0)">
+            <summary>
+            Prüft ob value zwischen den übergebenen Grenzen liegt oder einer dieser entspricht
+            </summary>
+            <typeparam name="T">Typ der Prüfung muss IComparable implementieren</typeparam>
+            <param name="value">Wert der geprüft werden soll</param>
+            <param name="lowest">Mindestwert der eine positive Prüfung ergibt</param>
+            <param name="highest">Maximalwert der eine positive Prüfung ergibt</param>
+            <returns></returns>
+        </member>
+        <member name="T:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitEventArgs">
+            <summary> 
+            Stellt Daten für das LimitExceeded-Event zur Verfügung. 
+            </summary> 
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitEventArgs.#ctor(System.IComparable,System.IComparable)">
+            <summary> 
+            Initialisiert eine neue Instanz der <see cref="T:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitEventArgs"/> Klasse. 
+            </summary> 
+            <param name="value">The value.</param> 
+            <param name="maximum">The maximum.</param> 
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitEventArgs.#ctor(System.IComparable,System.IComparable,System.IComparable)">
+            <summary> 
+            Initialisiert eine neue Instanz der <see cref="T:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitEventArgs"/> Klasse. 
+            </summary> 
+            <param name="value">The value.</param> 
+            <param name="minimum">The minimum.</param> 
+            <param name="maximum">The maximum.</param> 
+        </member>
+        <member name="F:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitEventArgs.InvokerMethod">
+            <summary> 
+            Gibt die Methode zurück, 
+            durch die das LimitExceeded-Event ausgelöst wurde. 
+            </summary> 
+        </member>
+        <member name="F:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitEventArgs.Maximum">
+            <summary> 
+            Ruft das an die Limit-Methode übergebene Maximum ab. 
+            </summary> 
+        </member>
+        <member name="F:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitEventArgs.Minimum">
+            <summary> 
+            Ruft das an die Limit-Methode übergebene Minimum ab. 
+            </summary> 
+        </member>
+        <member name="F:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitEventArgs.Value">
+            <summary> 
+            Ruft den an die Limit-Methode übergebenen Wert ab. 
+            </summary> 
+        </member>
+        <member name="E:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitExceeded">
+            <summary> 
+            Tritt ein, wenn ein an Limit oder LimitRange übergebener Wert 
+            eine Grenzwertverletzung hervorgerufen hat. 
+            </summary> 
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.Limit``1(``0,``0)">
+            <summary> 
+            Verhindert daß eine Zahl einen Maximalwert überschreitet. 
+            </summary> 
+            <typeparam name="T">IComparable</typeparam> 
+            <param name="value">Wert eines Typs 
+            der das IComparable-Interface implementiert.</param> 
+            <param name="maximum">Der Maximalwert, den eine Zahl annehmen darf.</param> 
+            <returns>Der gefilterte Wert.</returns>
+            <example>decimal result = testValue.Limit(100);</example> 
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.Limit``1(``0,``0,System.Object)">
+             <summary> 
+             Verhindert daß eine Zahl einen Maximalwert überschreitet. 
+             </summary> 
+             <typeparam name="T"><see cref="T:System.IComparable"/></typeparam> 
+             <param name="value">Zu prüfender Wert</param> 
+             <param name="maximum">Der Maximalwert, den eine Zahl annehmen darf.</param> 
+             <param name="invoker">Die Klasse, die Limit aufgerufen hat 
+             (sollte "this" sein).</param> 
+             <returns>Der gefilterte Wert.</returns> 
+            <example>decimal result = testValue.Limit(100, this);</example> 
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitRange``1(``0,``0,``0)">
+            <summary> 
+            Verhindert daß eine Zahl ein Minimum unterschreitet, 
+            oder ein Maximum überschreitet. 
+            </summary> 
+            <typeparam name="T"><see cref="T:System.IComparable"/></typeparam> 
+            <param name="value">Zu prüfender Wert</param> 
+            <param name="minimum">Das Minimum, 
+            welches eine Zahl nicht unterschreiten darf.</param> 
+            <param name="maximum">Das Maximum, 
+            welches eine Zahl nicht überschreiten darf.</param> 
+            <returns>Der gefilterte Wert.</returns> 
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.MathRoutinen.LimitRange``1(``0,``0,``0,System.Object)">
+            <summary> 
+            Verhindert daß eine Zahl ein Minimum unterschreitet, 
+            oder ein Maximum überschreitet.
+            /// </summary> 
+            <typeparam name="T"><see cref="T:System.IComparable"/></typeparam> 
+            <param name="value">Zu prüfender Wert</param> 
+            <param name="minimum">Das Minimum, 
+            welches eine Zahl nicht unterschreiten darf.</param> 
+            <param name="maximum">Das Maximum, 
+            welches eine Zahl nicht überschreiten darf.</param> 
+            <param name="invoker">Die Klasse, die LimitRange aufgerufen hat 
+            (sollte "this" sein).</param> 
+            <returns>Der gefilterte Wert.</returns> 
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.RomanNumeral.ConvertIntegerToRoman(System.Int32)">
+            <summary>
+            Wandelt eine lateinische Zahl in eine römische Zahl um.
+            </summary>
+            <param name="value">Die umzuwandelnde Zahl (max. 3899)</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mathematics.RomanNumeral.ConvertRomanToInteger(System.String)">
+            <summary>
+            Wandelt eine römische Zahl in eine lateinische Zahl um,
+            </summary>
+            <param name="value">Die umzuwandelnde römische Zahl.</param>
+            <returns></returns>
+        </member>
+        <member name="T:IPS.Library.BaseClass.Mouse.MouseRemoteControl">
+            <summary>
+            Diese Klasse ermöglicht per P / I die Maus zu kontrollieren.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mouse.MouseRemoteControl.Move(System.Int32,System.Int32)">
+            <summary>
+            Diese Funktion bewegt den Mauscursor an einen bestimmten Punkt.
+            </summary>
+            <param name="posX">X Koordinate der Position als absoluter Pixelwert</param>
+            <param name="posY">Y Koordinate der Position als absoluter Pixelwert</param>
+            <returns>Liefert 1 bei Erfolg und 0, wenn der Eingabestream schon blockiert war zurück.</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.Mouse.MouseRemoteControl.Click(IPS.Library.BaseClass.Enums.Positions)">
+            <summary>
+            Diese Funktion simuliert einen einfach Mausklick mit der Maustaste an der aktuellen Cursurposition.
+            </summary>
+            <param name="_taste">Gibt die zudrückende Maustaste an: Left,Right,Middle</param>
+            <returns>Liefert 2 zurück, wenn beide Aktionen (Maus down und Maus up) erfolgreich waren. Andernfalls 1 oder 0.</returns>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ProtocolRoutinen.CloseAfterWriting">
+            <summary>
+            Legt fest, ob die Protokolldatei nach jedem Schreiben autom. wieder geschlossen werden soll und davor geöffnet.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ProtocolRoutinen.SetTimeStamp">
+            <summary>
+            Wenn TRUE, wird zu jedem Protokolleintrag ein TimeStamp (Datum/Uhrzeit) hinzugefügt
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ProtocolRoutinen.ConvertResultValue(System.Boolean,System.String,System.String)">
+            <summary>
+            Wandelt einen boolschen Wert in eine Zeichenkette um.
+            </summary>
+            <param name="resultValue">Der zu konvertierende Wert</param>
+            <param name="trueLabel">Rückgabezeichenkette wenn resultValue == true</param>
+            <param name="falseLabel">Rückgabezeichenkette wenn resultValue == false</param>
+            <returns></returns>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsForHTML.SearchIPAdresses">
+            <summary>
+            Sucht alle gültigen IP-Adressen in einem String raus.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsForHTML.SearchBodyTag">
+            <summary>
+            Sucht den HTML-Code zwischen dem body-Tag.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsForHTML.SearchTag">
+            <summary>
+            Sucht den HTML-Code zwischen einem Tag.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsForHTML.SearchHREFExpression">
+            <summary>
+            Sucht Web-Verweise für mailto/news/http/ftp/https heraus.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsForHTML.SearchFontExpression">
+            <summary>
+            Sucht eine Fontdefinition heraus
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsForHTML.SearchImageLink">
+            <summary>
+            Sucht Bildverweise heraus
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsCommon.SearchDateSplitChars">
+            <summary>
+            Sucht alle erlaubten Trennzeichen innerhalb eines Datumstrings heraus.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsCommon.SearchMultipleSpaceChars">
+            <summary>
+            Sucht alle mehrfach hintereinander auftretenden Leerzeichen heraus.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsCommon.SearchInvalidFileNameChars">
+            <summary>
+            Sucht ungültigen Zeichen innerhalb eines Strings heraus, der als Dateiname verwendet werden soll.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsCommon.ValidateGUID">
+            <summary>
+            Validiert eine GUID-Adresse
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.RegExIPS.RegExPatternsCommon.ValidateIPAddress">
+            <summary>
+            Validiert eine IP-Adresse
+            </summary>
+        </member>
+        <member name="T:IPS.Library.BaseClass.ResourcenIPS.ResourceReader">
+            <summary>
+            Klasse zum Zugriff auf Resourcen innerhalb der DLL.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ResourcenIPS.ResourceReader.#cctor">
+            <summary>
+            Initialisieren der Liste mit den Resourcen
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ResourcenIPS.ResourceReader.GetResourceList(System.String)">
+             <summary>
+             Listet alle Resourcen mit dem angegebenen Filter zurück
+             </summary>
+             <param name="pattern">Muster, für das die Resourcen gefilter werden</param>
+             <remarks>
+             Unterstützte Filter:
+             Exakte: foo
+             EndsWith: *foo
+             Starts With: foo*
+            </remarks>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ResourcenIPS.ResourceReader.GetStringResource(System.String)">
+            <summary>
+            Liste eine String Resource aus der Assembly aus
+            </summary>
+            <param name="resourceName">Name der Resource</param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ResourcenIPS.ResourceReader.readStreamToEnd(System.IO.Stream)">
+            <summary>
+            Liest einen Stream bis ans Ende aus und gibt die enthaltenen Daten zurück.
+            </summary>
+            <param name="stream">Der Stream, der bis zum Ende gelesen werden soll</param>
+            <returns>Inhalt des Streams</returns>
+        </member>
+        <member name="T:IPS.Library.BaseClass.ShellLink.ShellShortcut">
+            <remarks>
+              .NET friendly wrapper for the ShellLink class
+            </remarks>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.Arguments">
+            <summary>
+            Gets or sets the argument list of the shortcut.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.Description">
+            <summary>
+            Gets or sets a description of the shortcut.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.WorkingDirectory">
+            <summary>
+            Gets or sets the working directory (aka start in directory) of the shortcut.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.Path">
+            <summary>
+            Gets or sets the target path of the shortcut.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.IconPath">
+            <summary>
+            Gets or sets the path of the <see cref="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.Icon"/> assigned to the shortcut.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.IconIndex">
+            <summary>
+              Gets or sets the index of the <see cref="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.Icon"/> assigned to the shortcut.
+              Set to zero when the <see cref="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.IconPath"/> property specifies a .ICO file.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.Icon">
+            <summary>
+              Retrieves the Icon of the shortcut as it will appear in Explorer.
+              Use the <see cref="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.IconPath"/> and <see cref="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.IconIndex"/>
+              properties to change it.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.WindowStyle">
+            <summary>
+              Gets or sets the System.Diagnostics.ProcessWindowStyle value
+              that decides the initial show state of the shortcut target. Note that
+              ProcessWindowStyle.Hidden is not a valid property value.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.Hotkey">
+            <summary>
+            Gets or sets the hotkey for the shortcut.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ShellLink.ShellShortcut.ShellLink">
+            <summary>
+              Returns a reference to the internal ShellLink object,
+              which can be used to perform more advanced operations
+              not supported by this wrapper class, by using the
+              IShellLink interface directly.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ShellLink.ShellShortcut.#ctor(System.String)">
+            
+             <param name='linkPath'>
+               Path to new or existing shortcut file (.lnk).
+             </param>
+            
+        </member>
+        <member name="M:IPS.Library.BaseClass.ShellLink.ShellShortcut.Save">
+            <summary>
+              Saves the shortcut to disk.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.BaseClass.StringsIPS.SplitLine">
+            <summary>
+            Über die Methode "SplitImportLine" wird ein String korrekt aufgesplittet, auch wenn sich das Trennzeichen innerhalb einer in "" eingeschlossenene Zeichenkette befindet.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.BuildRTF(System.String,System.Boolean)">
+            <summary>
+            Konvert die übergebene Zeichenkette in das RTF-Format unter Verwendung eines Standardfonts (Arial 10)
+            </summary>
+            <param name="asciiString">Die zu konvertierende Zeichenkette.</param>
+            <param name="buildEmptyRTFString">Wenn TRUE, wird ein leerer RTF-String erstellt, wenn der Ausgangswert 'asciiString' leer ist.</param>
+            <returns>Die Zeichenkette im RTF-Format.</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.BuildRTF(System.String,System.Drawing.Font)">
+            <summary>
+            Konvertiert die übergebenen Zeichenkett in das RTF-Format unter Verwendung des angegebenen Fonts.
+            </summary>
+            <param name="value">Die zu konvertierende Zeichenkette.</param>
+            <param name="font">Der zu verwendente Font.</param>
+            <returns>Die Zeichenkette im RTF-Format.</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.CombineRTFContent(System.String,System.String)">
+            <summary>
+            Verbindet 2 RTF-Texte zu einem.
+            </summary>
+            <param name="firstContent">Der 1. RTF-Text</param>
+            <param name="secondContent">Der 2. RTF-Text</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.CountChar(System.String,System.Char)">
+            <summary>
+            Ermittelt, wie oft ein Zeichen in mainString vorkommt.
+            </summary>
+            <param name="mainString"></param>
+            <param name="checkChar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.CountItems(System.String,System.String)">
+            <summary>
+            Ermittelt, wie oft _subString in mainString enthalten ist
+            </summary>
+            <param name="mainString"></param>
+            <param name="subString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.GetUpperLetterArray(System.String[],System.Boolean,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Gibt eine Liste der Grussbuchstaben eines jeden Eintrages zurück.
+            </summary>
+            <param name="itemsArray"></param>
+            <param name="resultAsUpperChars"></param>
+            <param name="getNumbers"></param>
+            <param name="startIndex"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.GetSubValue(System.String,System.Char,System.Int32,System.Int32)">
+            <summary>
+            Splittet eine Variable 'value' in einzelne Teile auf und liefert den X. Teil zurück.
+            </summary>
+            <param name="value">Wert der aufgesplittet werden soll.</param>
+            <param name="splitChar">Trennzeichen, das für die Aufsplittung verwendet wird</param>
+            <param name="position">Die Position des Teils, die zurückgeliefert werden soll.</param>
+            <param name="maxChars">Wenn > 0, die Anzahl Zeichen, die von dem Ergebniswert max. zurückgeliefert werden sollen.</param>
+            <example>
+            <code>        
+            GetSubValue(btn_versuch_test,'_',1,5)
+            Ergebnis: 'versu'
+            </code>
+            </example>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.GetToken(System.String,System.String,System.Boolean)">
+            <summary>
+            Liefert in Abhängigkeit von bedingung entweder den trueToken, oder den falseToken zurück.
+            </summary>
+            <param name="trueToken"></param>
+            <param name="falseToken"></param>
+            <param name="bedingung"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.RemoveEntry(System.String,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Entfernt einen Eintrag aus der übergebenen Zeichenkette.
+            </summary>
+            <param name="value">Zeichenkette</param>
+            <param name="index">Index, an der der Eintrag entfernt werden soll (Beginnt bei 0)</param>
+            <param name="splitValue">Trenner, mit dessen Hilfe die Zeichenkette in einzelne Eintäge zerlegt wird.</param>
+            <param name="removeEmptyEntries">Bestimmt, ob leere Einträge entfernt werden sollen, oder nicht.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.GetAllChars(System.String@)">
+            <summary>
+            Liefert ein CharArray mit allen in der Maske enthaltenen Zeichen sortiert zurück. 
+            Zeichenbereiche werden dabei aufgelöst (Bsp: G-J => GHIJ)
+            Jedes Zeichen ist in der Ergebnisliste nur einmal enthalten, auch wenn es in der Maske mehrfach vorhanden sein sollte.
+            </summary>
+            <param name="charMask"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.BuildCharMask(System.Char[])">
+            <summary>
+            Erstellt aus dem übergebenen CharArray eine Zeichenmaske.
+            Zusammenhängede Zeichenfolgen werden als Gruppe dargestellt (Bsp: GHIJ => G-J)
+            </summary>
+            <param name="chars"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.CompactCharArray(System.Char[])">
+            <summary>
+            Entfernt alle Zeichenduplicate und Zeichen die weder Buchstabe noch Ziffer sind aus dem übergebenen CharArray.
+            </summary>
+            <param name="chars"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.CutLongString(System.String,System.Int32)">
+            <summary>
+            Cuts the long string without cut the last word.
+            </summary>
+            <param name="value">The long string.</param>
+            <param name="maxLength">The length.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.Compress(System.String,System.Boolean)">
+            <summary>
+            Entfernt aus der Zeichenkette alle Zeichen außer a-z und 0-9 und wandelt das Ergebnis in Kleinbuchstaben um
+            </summary>
+            <param name="value"></param>
+            <param name="isSearchString">The new name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.SplitValueToContent(System.String,System.Action{System.String,System.String},System.Char,System.StringSplitOptions)">
+            <summary>
+            Splittet einen String mit Key-Value Paaren auf.
+            </summary>
+            <param name="value">Quellstring</param>
+            <param name="setContent">Delegate zum Verarbeiten des aktuellen Key-Value Paares</param>
+            <param name="splitChar">Trennzeichen zwischen den Key/Value-Paaren</param>
+            <param name="splitOption"></param>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringRoutinen.SplitValueToContentNew(System.String,System.Func{System.String,System.String,System.Boolean},System.Char,System.StringSplitOptions)">
+            <summary>
+            Splittet einen String mit Key-Value Paaren auf.
+            </summary>
+            <param name="value">Quellstring</param>
+            <param name="setContent">Delegate zum Verarbeiten des aktuellen Key-Value Paares</param>
+            <param name="splitChar">Trennzeichen zwischen den Key/Value-Paaren</param>
+            <param name="splitOption"></param>
+            <returns>"Value ohne die verarbeiteten Werte."</returns>
+        </member>
+        <member name="T:IPS.Library.BaseClass.StringsIPS.StringSearching">
+            <summary>
+            Stellt Methoden für String-Suchalgorithmen bereit.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringSearching.LevenshteinDistance(System.String,System.String)">
+            <summary>
+            Ermittelt die Levenshtein-Distanz von zwei Zeichenfolgen.
+            </summary>
+            <param name="source">
+            1. Zeichenfolge
+            </param>
+            <param name="dest">
+            2. Zeichenfolge
+            </param>
+            <returns>
+            Levenshstein-Distanz
+            </returns>
+            <remarks>
+            Siehe http://de.wikipedia.org/wiki/Levenshtein-Distanz
+            </remarks>
+        </member>
+        <member name="M:IPS.Library.BaseClass.StringsIPS.StringSearching.FuzzySearch(System.String,System.Collections.Generic.IEnumerable{System.String},System.Double)">
+            <summary>
+            Sucht strings nach dem Prinzip der Fuzzy-Suche.
+            </summary>
+            <param name="word">
+            Eingabe
+            </param>
+            <param name="wordList">
+            Liste mit den Wörtern in denen gesucht werden soll.
+            </param>
+            <param name="fuzzyness">
+            Paremeter für die Unschärfe. Ein Wert von 0.8 bedeutet zB
+            dass der Unterschied zwischen der Eingabe und den gefundenen
+            Wörtern nicht mehr als 20% betragen darf.
+            </param>
+            <returns>
+            Eine Liste mit den gefundenen Wörtern.
+            </returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.InitSystemEvents">
+            <summary>
+            Es werden die StandardSystemEvents initalisiert.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.SelectFileInExplorer(System.String)">
+            <summary>
+            Öffnet ein Explorer-Fenster und markiert eine Datei (oder einen Ordner).
+            </summary>
+            <param name="fileToSelect"></param>
+        </member>
+        <!-- Ungültiger XML-Kommentar wurde für den Member "M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.StartProgram(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Diagnostics.ProcessWindowStyle,System.Action{System.Diagnostics.ProcessStartInfo},System.Action{System.Diagnostics.Process})" ignoriert -->
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.RunWithAdminRights(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Startet eine Anwendung mit Administratorrechten.
+            </summary>
+            <param name="progarmmPath"></param>
+            <param name="arguments"></param>
+            <param name="createNoWindow"></param>
+            <param name="closeMainApplication">Wenn TRUE (Standard) wird die aufrufende Application geschlossen, wenn der Programmstart erfolgreich war.</param>
+            <param name="waitForExit"></param>
+            <param name="maxWaitTime">Die Zeitspanne in Millisekunden, die auf die Beendigung des zugeordneten Prozesses gewartet werden soll.</param>
+            <returns>Liefert eine Exception zurück, fals beim Programmstart eine aufgetreten ist.</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.GetPathFileExtention(System.String)">
+            <summary>
+            Gibt den Pfad des Programmes zurück mit der die Extension "verbunden" ist.
+            </summary>
+            <param name="extension">Dateierweiterung (pdf, mp3, ...)</param>        
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.Is64BitSystem">
+            <summary>
+            Prüft, ob das aktuelle Betriebssystem ein 64-bit System ist.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.Is64BitSystem_2">
+            <summary>
+            Prüft, ob das aktuelle Betriebssystem ein 64-bit System ist (Alternative Methode).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.GetCurrentOSLanguage">
+            <summary>
+            Liefert die ISO-Zertifizierte dreibuchstabige Abkürzung (alles Kleinbuchstaben) für die installierte Sprachversion von Windows zurück.
+            Bsp: deu für Deutsch  / eng für Englisch
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.ReadPCParameter">
+            <summary>
+            Setzt die globalen Systemparameter.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.GetVolumeSerialNumber(System.Char,System.Boolean)">
+            <summary>
+            Ermittelt die VolumnSerialNumber für das übergeben Laufwerk. 
+            ACHTUNG! Diese entspricht NICHT der Hardware-Serien-Nummer der Festplatte!
+            Die VSN wird nach dem Formatieren der Festplatte wieder neu erzeugt, sie ist also nur temporär.
+            </summary>
+            <param name="driveLetter">Laufwerksbuchstabe des Laufwerks, für das die VSN ermittelt werden soll.</param>
+            <param name="asVB6Value">Wenn TRUE wird eine VB6 kompatible VSN ermittelt (diese kann dann auch negativ sein)</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.SetAutoRun(System.String,System.String,System.Boolean)">
+            <summary>
+            Entfernt, bzw. trägt ein bestimmtes Programm/einen Dienst in der Windowsautostartfunktion ein.
+            </summary>
+            <param name="bezeichnung">Die Bezeichnung des zu startenden Programms/Dienstes</param>
+            <param name="path">Der physiche Pfad zum Programm/Dienst.</param>
+            <param name="removeEntry">Wenn TRUE, wird das Programm/der Dienst aus der Windowsautostartfunktion entfernt.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.ChangeScreenResolution(System.Int32,System.Int32,IPS.Library.BaseClass.Enums.ChangeResolutionResults@,System.String@)">
+            <summary>
+            Es wird die Monitorauflösung geändert.
+            </summary>
+            <param name="width">Die neue Breite</param>
+            <param name="height">Die neue Höhe</param>
+            <param name="resultValue">Enthält den </param>
+            <param name="resultMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.IsScreenResolutionOk(System.Drawing.Size,System.Boolean)">
+            <summary>
+            Es wird überprüft, ob die aktuelle Bildschirmauflösung mit der übergebenen übereinstimmt.
+            </summary>
+            <param name="screenResolution">Zu prüfende Bildschirmauflösung</param>
+            <param name="checkExact">Wenn TRUE, muss die reale Auflösung exakt mit der zu prüfenden übereinstimmen. Andernfalls kann sie auch größer sein.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.SystemRoutinen.GetSpecialUserFolder(IPS.Library.BaseClass.Enums.SpecialUserFolders,System.Boolean)">
+            <summary>
+            Liefert die Pfadangabe zu bestimmten Systemverzeichnissen für alle User zurück.
+            </summary>
+            <param name="folder">Die Angabe des gewünschten Systemverzeichnisses</param>
+            <param name="forAllUsers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.RegistryRoutinen.GetRegKeyValues(IPS.Library.BaseClass.SystemIPS.RegistryRoutinen.RegKeyTypes,System.String)">
+            <summary>
+            Liefert eine Auflistung aller Values (Name,Typ,Wert), die der übergebene RegistryKey enthält.
+            </summary>
+            <param name="regKeyType"></param>
+            <param name="regKeyLabel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.RegistryRoutinen.GetInstalledLanguages">
+            <summary>
+            Liefert eine Hastable mit allen auf dem System installierten Basissprachen in der Form "Kürzel/Name" zurück.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.ProcessRoutinen.ApplicationRuns(System.String,System.Boolean,System.Threading.Mutex@,System.String)">
+            <summary>
+            Überprüft, ob die akt. Anwendung bereits läuft. _appID ist eine eindeutige, anwendungsspezifische Kennung
+            </summary>
+            <param name="appID">Eine eindeutige Programm-ID</param>
+            <param name="showMessage">Wenn TRUE, wird eine Mitteilung ausgegeben, dass das Programm bereits läuft.</param>
+            <param name="mutexHandle">Das erzeugte Mutex-Handle</param>
+            <param name="infoMessage">Die auszugebden Infomessage, falls nicht die Standardmessage verwendet werden soll.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.ProcessRoutinen.ActivateProcess(System.Diagnostics.Process)">
+            <summary>
+            Aktiviert einen bereits laufenden Process, der den gleichen Namen wie der übergebene hat, aber eine andere Process-ID, durch Aufruf der Methode 'SystemRoutinen.SetWindowActive()'.
+            </summary>
+            <param name="process">Wenn keiner übergeben wurde, wird der aktuelle Process verwendet.</param>
+            <returns>TRUE, wenn ein gleichnamiger Process aktiviert werden konnte.</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.ProcessRoutinen.dumpUserInfo(System.IntPtr,System.IntPtr@)">
+            <summary>
+            Collect User Info
+            </summary>
+            <param name="processHandle"></param>
+            <param name="sID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.AssemblyRoutinen.GetVersion">
+            <summary>
+            Gibt die Versionsnummer der aufrufenden Assembly zurück.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.AssemblyRoutinen.CallMethodeFromExsterneDLL(System.String,System.String,System.String,System.Collections.ArrayList)">
+            <summary>
+            Ruft eine Methode einer Klasse einer externen DLL, die keinen Rückgabewert haben darf, auf und gibt, falls ein
+            Fehler auftritt, eine Fehlermeldung zurück..
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.ServiceRoutinen.StartService(System.String,System.Int32,System.Boolean)">
+            <summary>
+            The following method tries to start a service specified by a service name. Then it waits until the service is running or a timeout occurs.
+            </summary>
+            <param name="serviceName"></param>
+            <param name="timeoutMilliseconds"></param>
+            <param name="silentMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.ServiceRoutinen.StopService(System.String,System.Int32,System.Boolean)">
+            <summary>
+            The following method tries to stop the specified service and it waits until the service is stopped or a timeout occurs.
+            </summary>
+            <param name="serviceName"></param>
+            <param name="timeoutMilliseconds"></param>
+            <param name="silentMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.ServiceRoutinen.RestartService(System.String,System.Int32,System.Boolean)">
+            <summary>
+            This method tries to stop the service (and waits until it's stopped) then it begins to start the service (and waits until the service is running).
+            </summary>
+            <param name="serviceName"></param>
+            <param name="timeoutMilliseconds"></param>
+            <param name="silentMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.ServiceRoutinen.IsServiceInstalled(System.String)">
+            <summary>
+            The following code checks whether a service is installed on local computer. It gets list of windows services and tries to find a service with the specified name.
+            </summary>
+            <param name="serviceName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.ServiceRoutinen.InstallService(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            This method installs and runs the service in the service control manager.
+            </summary>
+            <param name="servicePath">The complete path of the service.</param>
+            <param name="serviceName">Name of the service.</param>
+            <param name="serviceDisplayName">Display name of the service.</param>
+            <returns>True if the process went thro successfully. False if there was any error.</returns>
+        </member>
+        <member name="M:IPS.Library.BaseClass.SystemIPS.ServiceRoutinen.UnInstallService(System.String)">
+            <summary>
+            This method uninstalls the service from the service conrol manager.
+            </summary>
+            <param name="svcName">Name of the service to uninstall.</param>
+        </member>
+        <member name="T:IPS.Library.BaseClass.ThreadingIPS.Parallel">
+            <summary>
+            Unterstützung für parallele Ausführung
+            </summary>
+            <remarks>
+            Diese Klasse erlaubt die Parallelisierung von Schleifen.
+            Diese werden in separaten Threads ausgeführt was 
+            wiederum die Möglichkeit gibt diese simultan auf
+            verschiedene CPUs/Kerne auszuführen
+            </remarks>
+        </member>
+        <member name="T:IPS.Library.BaseClass.ThreadingIPS.Parallel.SchleifenKörper">
+            <summary>
+            Delegate für den Schleifenkörper
+            </summary>
+            <param name="index">
+            Schleifenindex
+            </param>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ThreadingIPS.Parallel.ThreadAnzahl">
+            <summary>
+            <para>
+            Anzahl der Threads die für die parallele Ausführung verwendet
+            werden.
+            </para>
+            <para>
+            Standardmäßig wird die Anzahl auf die Anzahl der CPUs im
+            System gesetzt (siehe auch
+            <see cref="P:System.Environment.ProcessorCount"/>).
+            </para>
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ThreadingIPS.Parallel.#ctor">
+            <summary>
+            Privater Konstruktor um Instanziierung der Klasse zu vermeiden
+            (Singleton).
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ThreadingIPS.Parallel.For(System.Int32,System.Int32,IPS.Library.BaseClass.ThreadingIPS.Parallel.SchleifenKörper)">
+            <summary>
+            For-Schleife in der die Ausführung parallel stattfindet
+            </summary>
+            <param name="start">
+            Startindex
+            </param>
+            <param name="ende">
+            Obergrenze des Index (exklusiv)
+            </param>
+            <param name="schleifenKörper">
+            Schleifenkörper
+            </param>
+            <remarks>
+            <para>
+            Diese Methode wird benötigt um die For-Schleife parallet 
+            in verschiedenen Threads auszuführen.
+            </para>
+            <para>
+            Die Anzahl der Iterationen entspricht <paramref name="ende"/>
+            - <paramref name="start"/> - 1.
+            </para>
+            </remarks>
+            <example>
+            <code>
+            Parallel.For(0, 20, delegate(int i)
+            // Äquivalent zu:
+            // for (int i = 0; i &lt; 20; i++)
+            {
+            	Console.WriteLine(i);
+            });
+            </code>
+            </example>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ThreadingIPS.Parallel.initiieren">
+            <summary>
+            Initiiert die Instanz der Klasse (Singleton) die benötigt wird
+            um die Anzahl der Threads zu erstellen und diese zu 
+            synchronisieren
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ThreadingIPS.Parallel.terminieren">
+            <summary>
+            Terminiert alle Threads und schließt die Synchronisations-Objekte
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ThreadingIPS.Parallel.arbeiterThread(System.Object)">
+            <summary>
+            Führt die parallele Ausführung durch
+            </summary>
+            <param name="index">
+            Zählvariable
+            </param>
+            <remarks>
+            Die Zählvariable ist deshalb als object deklariert da diese
+            Methode über ParameterizedThreadStart aufgerufen wird. Hier sind
+            nur object-Argumente erlaubt
+            </remarks>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.ResultValue">
+            <summary>
+            Enthält den Rückgabewert des zuletzt beendeten BackgroundWorkers.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.IsCancelled">
+            <summary>
+            Zeigt an, ob der aktuelle BackgroundWorker durch den Benutzer abgebrochen wurde.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.IsErrorOccured">
+            <summary>
+            Zeigt an, ob beim Ausführen ein Fehler aufgetreten ist.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.IsFinshed">
+            <summary>
+            Zeigt an, ob der zuvor gestartet BackgroundWorker beendet wurde.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.IsRunning">
+            <summary>
+            Zeigt an, ob der BackgroundWorker arbeitet.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.CancledMessage">
+            <summary>
+            Anwenderspezifische Action zur Ausgabe des Abbruchhinweises.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.Finished">
+            <summary>
+            Anwenderspezifische Action die ausgeführt wird, wenn der Process beendet wurde.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.ProgressChanged">
+            <summary>
+            Anwenderspezifische Action die während des Processes ausgeführt wird.
+            Der 1 Parameter (int) enthält den Fortschrittsprozentsatz.
+            Der 2. Parameter (object) enthält einen eindeutigen Benutzerzustand.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.DoWork">
+            <summary>
+            Anwenderspezifische Action die den auszuführenden Code enthält.
+            Der Parameter enthält die beim Start übergebenen Argumente.
+            Der Rückbagewert enthält den Fortschritt des Prozesses.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.Cancel">
+            <summary>
+            Bricht den aktuellen BackgroundWorker ab.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.BaseClass.ThreadingIPS.BackgroundWorkerRoutinen.Start(System.String,System.Object)">
+            <summary>
+            Startet den Backgroundworker.
+            </summary>
+            <param name="bezeichnung">Name des Prozesses.</param>
+            <param name="userArgument">Argumente, die an den Prozess übergeben werden</param>
+        </member>
+    </members>
+</doc>

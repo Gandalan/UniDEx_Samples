@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.Lib.Lizenzierung</name>
+    </assembly>
+    <members>
+        <member name="T:Gandalan.Library.Lizenzierung.AktivierungsManager">
+            <summary>
+            Verwaltet aktivierungen auf dem Server und überträgt sie auf den lokalen Rechner
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.AktivierungsManager.AktivierungsDaten">
+            <summary>
+            Vom Server erhaltene Aktivierungsdaten
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.AktivierungsManager.Status">
+            <summary>
+            Aktivierungsstatus nach dem Aufruf von Abrufen()
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.AktivierungsManager.Proxy">
+            <summary>
+            Proxy-Informationen (optional)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.AktivierungsManager.#ctor(System.Func{System.String,Gandalan.Library.Lizenzierung.ILizenzBaseDataItem})">
+            <summary>
+            Initialisiert den Aktivierungsmanager, der eine Aktivierung holen und durchführen kann. 
+            Der Zugriff erfolgt auf die URI, die in Gandalan.Library.Web.WebPropertiesBase.DefaultBaseUrlServerNew 
+            definiert ist.
+            </summary>
+            <param name="fillLizenzItem">Function zum Konvertieren der Lizenzdaten aus einem String</param>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.AktivierungsManager.Abrufen(Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten)">
+            <summary>
+            Holt die Aktivierung für den aktuellen Rechner vom Server ab, bezogen auf das Produkt.
+            Wenn die Aktivierung noch nicht vorhanden ist, dann wird der übergebene Antrag an die 
+            Aktivierungsschnittstelle weitergeleitet. So oder so ist das Endergebnis in der Member-Variablen 
+            AktivierungsDaten zu finden, bzw. diese ist NULL, wenn der Vorgang fehlschlägt. Für den Fehlerfall 
+            ist im Status-Member der Fehlercode zu finden.
+            </summary>
+            <param name="antrag">AktivierungsDaten-Instanz mit dem Antrag, falls benötigt. Die HardwareID 
+            muss NICHT mitgeliefert werden.</param>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.AktivierungsManager.ZurueckGeben(Gandalan.Library.Lizenzierung.ILizenzBaseDataItem)">
+            <summary>
+            Deaktiviert die Aktivierung für den aktuellen Rechner. Die Lizenz wird damit stillgelegt und kann neu 
+            beantragt werden. Löscht nicht die dazugehörige lokale Lizenzdatei.
+            </summary>		
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.AktivierungsManager.Erneuern(Gandalan.Library.Lizenzierung.ILizenzBaseDataItem)">
+            <summary>
+            Es wird eine vorhandene Lizenz durch eine neue vom Server abgeholte ersetzt.
+            </summary>
+            <param name="lizenz"></param>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.AktivierungsManager.beantragen(Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten)">
+            <summary>
+            Beantragt eine neue Aktivierung anhand von HardwareId, Produkt und AnwenderId. 
+            Rückgabe siehe Abrufen().
+            </summary>
+            <param name="antrag">Aktivierungs-Anfrage</param>
+        </member>
+        <member name="F:Gandalan.Library.Lizenzierung.AktivierungsStatus.Unbekannt">
+            <summary>
+            Initialisierung, Status ist nicht bekannt
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.Lizenzierung.AktivierungsStatus.OK">
+            <summary>
+            Alles OK
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.Lizenzierung.AktivierungsStatus.KundeUnbekannt">
+            <summary>
+            Der angegebene Kunde ist nicht vorhanden
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.Lizenzierung.AktivierungsStatus.AnzahlUeberschritten">
+            <summary>
+            Max. Anzahl Aktivierungen ist erreicht, es können keine neuen Aktivierungen mehr durchgeführt werden.
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.Lizenzierung.AktivierungsStatus.Abgelaufen">
+            <summary>
+            Aktivierung ist abgelaufen
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.Lizenzierung.AktivierungsStatus.SonstigerFehler">
+            <summary>
+            Fehler bei der Übermittlung der Aktivierungsanfrage
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.Lizenzierung.AktivierungsStatus.NichtVorhanden">
+            <summary>
+            Aktivierung ist anhand der Anwender- und HardwareID nicht aufzufinden. Bitte neue Aktivierung beantragen.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.ComputerID.Get">
+            <summary>
+            Erzeugt eine eindeutige Computer-ID aus verschiedenen Parametern
+            </summary>
+            <returns>Computer-ID (Base64-Codiert)</returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzBaseItem.Speichern">
+            <summary>
+            Speichert die Lizenzinformationen an den produktbezogenen Speicherort
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzBaseItem.Loeschen">
+            <summary>
+            Löscht die Lizenzdatei am produktbezogenem Speicherort.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzBaseItem.FillBaseData(Gandalan.Library.Lizenzierung.ILizenzBaseDataItem)">
+            <summary>
+            Übernimmt die Basisdaten aus dem übergebenen Datenobject. 
+            </summary>
+            <param name="baseDataItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzBaseItem.InitMainData">
+            <summary>
+            Es werden die Lizenzhauptdaten (Anzallizenzen/GueltigBis/Dongl-Nr./Anwender-ID) initialisiert.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzIBOS.ConvertContentToString">
+            <summary>
+            Wandelt die aktuellen Lizenzdaten in einen verschlüsselten String um
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzIBOS.ConvertStringToContent(System.String)">
+            <summary>
+            Übernimmt die Lizenzdaten aus einem verschlüsseltemn String.
+            </summary>
+            <param name="encrypted">Verschlüsselte Lizenzdaten</param>
+            <returns>Lizenz, wenn erfolgreich Konvertiert, sonst null</returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzIBOS.Speichern">
+            <summary>
+            Speichert die Lizenzinformationen an den produktbezogenen Speicherort
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzIBOS.Loeschen">
+            <summary>
+            Löscht die Lizenzdatei am produktbezogenem Speicherort.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzIBOS.FillBaseData(Gandalan.Library.Lizenzierung.ILizenzBaseDataItem)">
+            <summary>
+            Übernimmt die Basisdaten aus dem übergebenen Datenobject. 
+            </summary>
+            <param name="baseDataItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.Lizenz.Laden(Gandalan.Library.BaseLibrary.ProjectNamen,System.String)">
+            <summary>
+            Lädt Lizenzinformationen aus einer verschlüsselten Datei anhand eines Produkts
+            </summary>
+            <param name="produkt">Produktcode (wird für Dateinamen verwendet)</param>
+            <param name="suchPfad">Alternatives Verzeichnis, in dem nach einer gültigen Lizenzdatei gesucht werden soll.</param>
+            <returns>Lizenz, wenn erfolreich, sonst Null</returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.Lizenz.Laden(System.String,System.String)">
+            <summary>
+            Lädt Lizenzinformationen aus einer verschlüsselten Datei anhand des Produktnamens
+            </summary>
+            <param name="produkt">Produktcode (wird für Dateinamen verwendet)</param>
+            <param name="suchPfad">Alternatives Verzeichnis, in dem nach einer gültigen Lizenzdatei gesucht werden soll.</param>
+            <returns>Lizenz, wenn erfolreich, sonst Null</returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.Lizenz.LadenAusDatei(System.String)">
+            <summary>
+            Lädt Lizenzinformationen aus der angegebenen verschlüsselten Datei
+            </summary>
+            <param name="datei">Dateiname der Lizenzdatei (voller Pfad)</param>
+            <returns>Lizenz, wenn erfolgreich geladen, sonst null</returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.Lizenz.Speichern">
+            <summary>
+            Speichert die Lizenzinformationen an den produktbezogenen Speicherort
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.Lizenz.Loeschen">
+            <summary>
+            Löscht die Lizenzdatei am produktbezogenem Speicherort.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.Lizenz.ConvertContentToString">
+            <summary>
+            Wandelt die aktuellen Lizenzdaten in einen verschlüsselten String um
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.Lizenz.ConvertStringToContent(System.String)">
+            <summary>
+            Übernimmt die Lizenzdaten aus einem verschlüsseltemn String.
+            </summary>
+            <param name="encrypted">Verschlüsselte Lizenzdaten</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.Lizenz.ToString">
+            <summary>
+            Wandelt die aktuellen Lizenzdaten in einen verschlüsselten String um
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.Lizenz.FillBaseData(Gandalan.Library.Lizenzierung.ILizenzDataItemIBOS{Gandalan.Library.Lizenzierung.Lizenz})">
+            <summary>
+            Übernimmt die Basisdaten aus dem übergebenen Datenobject. 
+            </summary>
+            <param name="baseDataItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.Lizenz.InitMainData">
+            <summary>
+            Es werden die Lizenzhauptdaten (Anzallizenzen/GueltigBis/Dongl-Nr./Anwender-ID) initialisiert.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzRoutinen`1.#ctor(`0)">
+            <summary>
+            
+            </summary>
+            <param name="dataItem">aktuelle Lizenzdaten</param>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzRoutinen`1.Laden(System.String@,System.String)">
+            <summary>
+            Lädt Lizenzinformationen aus einer verschlüsselten Datei anhand des Produktnamens
+            </summary>
+            <param name="licensePath">Liefert den vollständigen Dateinamen der eingelesen Lizenzdatei zurück, oder einen Leerstring</param>
+            <param name="suchPfad">Alternatives Verzeichnis, in dem nach einer gültigen Lizenzdatei gesucht werden soll.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzRoutinen`1.LadenAusDatei(System.String)">
+            <summary>
+            Lädt Lizenzinformationen aus der angegebenen verschlüsselten Datei
+            </summary>
+            <param name="path">Dateiname der Lizenzdatei (voller Pfad)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzRoutinen`1.Speichern(System.String)">
+            <summary>
+            Speichert die Lizenzinformationen an den produktbezogenen Speicherort
+            <param name="path">Alternativer Speicherort für die Lizenzdatei</param>
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzRoutinen`1.Loeschen(System.String)">
+            <summary>
+            Löscht die Lizenzdatei am produktbezogenem Speicherort.
+            </summary>
+            <param name="path">Alternativer Dateiname der Lizenzdatei (voller Pfad)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzRoutinen`1.ExistLizenzDirectory">
+            <summary>
+            Es wird geprüft, ob das Lizenzverzeichnis vorhanden ist.
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Gandalan.Library.Lizenzierung.LizenzRoutinen`1.CreateCommonKundenDatei(`0,System.String,System.Boolean,System.Boolean)" -->
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzRoutinen`1.ExistCommonKundenDatei(System.String)">
+            <summary>
+            Es wird geprüft, ob es für die aktuellen Lizenzdaten eine allgemeine Kundendatei gibt.
+            </summary>
+            <param name="path">Alternativer Speicherort für die Daten.</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Gandalan.Library.Lizenzierung.LizenzRoutinen`1.LoadCommonKundenDatei(System.String,System.Boolean,System.Boolean)" -->
+        <member name="M:Gandalan.Library.Lizenzierung.LizenzRoutinen`1.DeleteCommonKundenDatei(System.String)">
+            <summary>
+            Löscht die allg. Kundenlizenzdatei von der Festplatte.
+            </summary>
+            <param name="path">Alternativer Speicherort für die Datei.</param>
+            <returns></returns>
+        </member>
+        <member name="F:Gandalan.Library.Lizenzierung.LizenzProperties.KundenLizenzFileName">
+            <summary>
+            Der Dateiname der Datei, in der die öffentlichen Kundendaten (z.Bsp. Anwender-ID/Donglenummer/Name e.c.t.)  hinterlegt sind.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.KodeSchluesselRoutinen.RunWithAdminRights">
+            <summary>
+            Teste, ob die Anwendung volle Adminrechte besitzt.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.LizenzNehmer">
+            <summary>
+            Informativ: Firmenname des Lizenznehmers
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.Produkt">
+            <summary>
+            Produkt-Bezeichnung, z.B. "IBOS"
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.AnwenderId">
+            <summary>
+            Eindeutige Kennung des Lizenznehmers, i.d.R. Neher-Kundennummer
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.AlteDongleNummer">
+            <summary>
+            Bisherige IBOS-Donglenummer für die Zuordnung zum Kunden
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.HardwareId">
+            <summary>
+            HardwareID
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.AktivierungsDatum">
+            <summary>
+            Datum der ersten Aktivierung dieses Rechners
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.GueltigBis">
+            <summary>
+            Ablaufdatum der Aktivierung
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.EMail">
+            <summary>
+            Informativ: E-Mail-Adresse des Lizenznehmers
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.LizenzDatei">
+            <summary>
+            Enthält nach dem erfolgreichen Abruf die Lizenzdatei. Inhalt als Textdatei an 
+            den entsprechenden Orten speichern (z.B. IBOSDataRoot\Lizenzen\HardwareId.gdllic)
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.IsAntrag">
+            <summary>
+            Prüft, ob diese Instanz ein gültiger Antrag ist
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.IsAktiviert">
+            <summary>
+            Prüft, ob diese Instanz eine gültige Aktivierungsinformation ist
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Lizenzierung.TransferModels.AktivierungsDaten.IsValid">
+            <summary>
+            Validiert diese Instanz
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

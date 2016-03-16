@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.Lib.BaseLibrary</name>
+    </assembly>
+    <members>
+        <member name="M:Gandalan.Library.BaseLibrary.BaseRoutinenGDL.ConvertDateTimeToString(System.DateTime,System.Boolean,System.Boolean,System.Boolean,System.Char)">
+            <summary>
+            Konvertiert einen Datums+Zeitwert in eine vordefinierte Zeichenkette 'yyyy.mm.dd [hh:mm:ss[:tt]]'.
+            Beispiel:  2011.10.08 15:20:25:89
+            </summary>
+            <param name="dateTime">Der zu konvertierende Wert.</param>
+            <param name="convertTime">Wenn TRUE, wird auch die Uhrzeit mit konvertiert.</param>
+            <param name="addMilliSecond">Wenn TRUE, werden auch die Millisekunden mit ausgegeben.</param>
+            <param name="convertToFileFormat">Wenn TRUE, wird der Rückgabewert so fomatiert, dass er in einem Dateinamen verwendet werden kann.</param>
+            <param name="splitChar">Das Zeichen, welches zwischen Datum und Uhrzeit 2x als Trenner eingefügt wird.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.BaseLibrary.BaseRoutinenGDL.ConvertStringToDateTime(System.String,System.Boolean,System.Boolean,System.Nullable{System.DateTime},System.Char)">
+            <summary>
+            Es wird versucht eine formatierte Zeichenkette mit Datum und Uhrzeit (Optional) in einen DateTime-Wert zu konvertieren.
+            Beispiel: '2011.12.24 [12:00:01]'
+            </summary>
+            <param name="value">Die zu konvertierende Zeichenkette.</param>
+            <param name="convertTime">Wenn TRUE, wird versucht eine in der Zeichenkette enthalte Zeit mit zu konvertieren.</param>
+            <param name="convertFromFileFormat">Wenn TRUE, wird die zu konvertierende Zeichenkette im FileFomrmat erwartet (yyyy-mm-dd [hh_mm_ss]).</param>
+            <param name="defaultValue">Der Defualtrückgabewert, wenn die Konvertierung fehlschlägt.(Standard: DateTime.MinValue)</param>
+            <param name="splitChar">Das Zeichen, welches zwischen Datum und Uhrzeit als Trenner verwendet wird.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.BaseLibrary.BaseRoutinenGDL.ExistUpdater(System.String)">
+            <summary>
+            Es wird ermittelt, ob der Programmupdater zur Verfügung steht.
+            </summary>
+            <param name="applicationDirectory">Das Startverzeichnis des aufrufenden Programms.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.BaseLibrary.BaseRoutinenGDL.GetUpdaterPath(System.String)">
+            <summary>
+            Leifert den Aufrufpfad für den Programmupdater zurück.
+            </summary>
+            <param name="applicationDirectory">Das Startverzeichnis des aufrufenden Programms.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

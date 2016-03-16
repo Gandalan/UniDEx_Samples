@@ -1,0 +1,1162 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.Crypto</name>
+    </assembly>
+    <members>
+        <member name="T:IPS.Library.Crypto.CommonCryptoRoutinen">
+            <summary>
+            Enthält verschieden Methoden zum Ver- und Entschlüsseln von Zeichenketten.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Crypto.CommonCryptoRoutinen.EncryptString(System.String,System.String,System.String)">
+            <summary>
+            Verschlüsselt eine Zeichenkette mit Hilfe eines festen Passwortes.
+            </summary>
+            <param name="sourceString">Zu verschlüsselnde Zeichenkette</param>
+            <param name="salt">Alternativer Salt-Wert. [Standard: 'BaseProperties.ProjectTitle']</param>
+            <param name="password">Alternatives Paßwort, von dem gemäß RFC2898 32 Bytes als Schlüssel abgeleitet werden. [Standard: 'BaseProperties.AdminPassword']</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Crypto.CommonCryptoRoutinen.DecryptString(System.String,System.String,System.String)">
+            <summary>
+            Entschlüsselt einen Base64 codierten String mit Hilfe eines festen Passwortes.
+            </summary>
+            <param name="sourceString">Die verschlüsselte Zeichenkette.</param>
+            <param name="salt">Alternativer Salt-Wert. [Standard: 'BaseProperties.ProjectTitle']</param>
+            <param name="password">Alternatives Paßwort, von dem gemäß RFC2898 32 Bytes als Schlüssel abgeleitet werden. [Standard: 'BaseProperties.AdminPassword']</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Crypto.CommonCryptoRoutinen.CreateSecureString(System.String,System.Boolean)">
+            <summary>
+            Verschlüsselt eine Zeichenkette und markiert sie bei Bedarf als 'ReadOnly'.
+            </summary>
+            <param name="sourceString">Zeichenkette, die verschlüsselt werden soll.</param>
+            <param name="makeReadOnly">Wenn TRUE (Standard) wird die verschlüsselte Zeichenkette als 'ReadOnly' markiert.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Crypto.CommonCryptoRoutinen.ConvertSecureString(System.Security.SecureString)">
+            <summary>
+            Konvertiert einen verschlüsselten String in eine lesbare Zeichenkette.
+            </summary>
+            <param name="secureString">Der verschlüsselte String</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Crypto.CommonCryptoRoutinen.DeCodeFile(System.String,System.String,System.Boolean)">
+            <summary>
+            Codiert eine beliebige Datei in das base64-Format.
+            </summary>
+            <param name="sourcePath">Eine existierende Datei, die kodiert werden soll.</param>
+            <param name="destinationPath">Die kodierte Datei.</param>
+            <param name="silentMode"></param>
+        </member>
+        <member name="M:IPS.Library.Crypto.CommonCryptoRoutinen.EnCodeFile(System.String,System.String,System.Boolean)">
+            <summary>
+            Dekodiert eine im base64-Format kodierte Datei.
+            </summary>
+            <param name="sourcePath">Eine existierende Datei, die dekodiert werden soll.</param>
+            <param name="destinationPath">Die dekodierte Datei.</param>
+            <param name="silentMode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Pietsch.Crypto.MD5">
+            <summary>
+            Hilft beim Erstellen eines MD5-Hashes.
+            </summary>
+            <remarks>
+            MD5 (Message Digest Algorithm 5) ist eine weitverbreitete
+            kryptographische Hash-Funktion, die einen 128-Bit-Hashwert
+            erzeugt. MD5 wurde 1991 von Ronald L. Rivest entwickelt.
+            Die errechneten MD5-Summen (kurz md5sum) werden weitverbreitet
+            zur Integritätsprüfung von Dateien eingesetzt.
+            
+            Inzwischen gibt es ein Verfahren, das in der Lage ist, ein
+            Dokument zu erzeugen, das einen gegebenen MD5-Hash hat.
+            ("Hash-Kollision") Allerdings enthält das entsprechende
+            Dokument keine sinnvollen Daten.
+            
+            Grundsätzlich sollte MD5 daher nicht mehr in neuen
+            Entwicklungen als sicherer Hash-Algorithmus vorgesehen werden.
+            </remarks>
+            <remarks>
+            Sollen Hashes von Paßwörtern in einer Datenbank gespeichert
+            werden, so sollte ein "salted Hash" verwendet werden.
+            
+            Dazu sollte in den Hash neben dem Paßwort selbst auch
+            (a) der Name der Applikation und (b) der Benutzername
+            eingehen, damit es nicht offensichtlich wird, wenn ein
+            Benutzer (a) in zwei Applikationen das gleiche Paßwort
+            verwendet oder (b) zwei Benutzer in der gleichen
+            Applikation das gleiche Paßwort verwenden. Teilweise
+            wird auch empfohlen, einen Zufallswert zusammen mit dem 
+            Paßwort in der Datenbank abzulegen und als Salt zu
+            verwenden.
+            
+            Durch die Verwendung eines salted Hash-Wertes ist ein
+            unverschlüsselter Wert nicht mehr eindeutig einem
+            verschlüsselten Wert zuzuordnen. Dies erschwert
+            sog. Wörterbuch-Angriffe, denen vorausberechnete
+            Listen von Hashwerten für bekannte Wörter zugrunde
+            liegen.
+            </remarks>
+        </member>
+        <member name="M:Pietsch.Crypto.MD5.MD5Hash(System.String)">
+            <summary>
+            Erstellt einen MD5-Hash von einem übergebenen String
+            und gibt diesen als Base64-codierten String zurück.
+            </summary>
+            <param name="input">Eingabestring als Unicode.</param>
+            <returns>Base64-String</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.MD5.MD5Hash(System.Byte[])">
+            <summary>
+            Erstellt einen MD5-Hash von einem übergebenen Byte[]
+            und gibt diesen als Base64-codierten String zurück.
+            </summary>
+            <param name="input">Eingabe Byte[]</param>
+            <returns>Base64-String</returns>
+        </member>
+        <member name="T:Pietsch.Crypto.AESCrypto">
+            <summary>
+            Die Klasse AESCrypto bietet statische Methoden zur Verschlüsselung
+            mit dem symmetrischen Advanced Encryption Standard (AES)-
+            Verfahren. Die Verschlüsselung kann sowohl
+            auf Paßwörtern basieren, aus denen gemäß RFC2898 Schlüssel generiert
+            werden, oder direkt auf Schlüsseln, die Base64-codiert übergeben werden.
+            Beispielcode: <see cref="M:Pietsch.Crypto.AESCrypto.EncryptByPassword(System.String,System.String,System.String)"/>
+            </summary>
+            <remarks>
+            Das .NET Framework kennt AES übrigens nach den
+            Entwicklern des Verfahrens, Vincent Rijmen und Joan Daemen, als
+            Rijndael. Als das Framework in den späten 1990ern entwickelt wurde,
+            war das Verfahren nämlich noch nicht offiziell als AES anerkannt.
+            </remarks>
+        </member>
+        <member name="M:Pietsch.Crypto.AESCrypto.GenerateKey">
+            <summary>
+            Erstellt einen neuen AES-Schlüssel und gibt ihn als
+            Base64-codierten String zurück.
+            </summary>
+            <returns>Der neue AES-Schlüssel, Base64-codiert.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.AESCrypto.EncryptByPassword(System.String,System.String,System.String)">
+            <summary>
+            Verschlüsselt einen String unter Verwendung eines 
+            gemäß RFC2898 von einem Paßwort abgeleiteten Schlüssels
+            mit dem AES-Algorithmus.
+            </summary>
+            <remarks>
+            Die Funktion ist nicht kompatibel mit fremden 
+            Verschlüsselungsfunktionen und arbeitet nur mit der
+            Funktion <see cref="M:Pietsch.Crypto.AESCrypto.DecryptByPassword(System.String,System.String,System.String)">
+            AESCrypto.DecryptByPassword</see> zusammen.
+            </remarks>
+            <remarks>
+            Es existieren riesige Datenbanken, in denen die Hash-Werte
+            aller üblichen Paßworte hinterlegt sind. Deshalb sollte
+            immer ein salted Hash verwendet werden, in den neben dem
+            Paßwort zusätzliche Information einfließt. Diese zusätzliche
+            Information ist der "Salt-Wert".
+            </remarks>
+            <example>
+            <code>
+            String originalData = "Hello, World";
+            String salt = "DNP2006";
+            
+            String encryptedData = AESCrypto.EncryptByPassword(originalData, "Blume", salt);
+            Console.WriteLine("Encrypted :{0}", encryptedData);
+            
+            String decryptedData = AESCrypto.DecryptByPassword(encryptedData, "Blume", salt);
+            Console.WriteLine("Decrypted :{0}", decryptedData);
+            </code>
+            </example>
+            <param name="data">
+            Zu verschlüselnde Daten als String.
+            </param>
+            <param name="password">Das zu verwendende Paßwort, von dem gemäß RFC2898 32 Bytes als Schlüssel abgeleitet werden.</param>
+            <param name="salt">Salt-Wert.</param>
+            <returns>Die verschlüsselten Daten und der Initialization Vektor.
+            Base64-codiert, so wie sie von der Funktion 
+            <see cref="M:Pietsch.Crypto.AESCrypto.DecryptByPassword(System.String,System.String,System.String)">
+            AESCrypto.DecryptByPassword</see> entschlüsselt werden können.
+            </returns>
+        </member>
+        <member name="M:Pietsch.Crypto.AESCrypto.Encrypt(System.String,System.String)">
+            <summary>
+            Entschlüsselt einen Base64-codierten String unter Verwendung 
+            des angegebenen Schlüssels mit dem AES-Algorithmus.
+            </summary>
+            <remarks>
+            Die Funktion ist nicht kompatibel mit fremden 
+            Verschlüsselungsfunktionen und arbeitet nur mit den
+            entsprechenden Decrypt-Funktionen dieser Klasse zusammen.
+            </remarks>
+            <param name="data">String, der verschlüsselt werden soll um Unicode-Format.</param>
+            <param name="key">Der Schlüssel als Base64-codierter String.</param>
+            <returns>Die verschlüsselten Daten und der Initialization Vektor.
+            Base64-codiert, so wie sie von der Funktion 
+            <see cref="M:Pietsch.Crypto.AESCrypto.Decrypt(System.String,System.String)">
+            AESCrypto.Decrypt</see> entschlüsselt werden können.
+            </returns>
+            <example>
+            <code>
+            // Schlüssel erzeugen
+            String aesKey = AESCrypto.GenerateKey();
+            
+            String data = "Hallo, Welt!";
+            
+            // Daten verschlüsseln.
+            String encData = AESCrypto.Encrypt(data, aesKey);
+            Console.WriteLine(encData);
+            
+            // Daten entschlüsseln.
+            String decData = AESCrypto.Decrypt(encData, aesKey);
+            Console.WriteLine(decData);
+            </code>
+            </example>
+        </member>
+        <member name="M:Pietsch.Crypto.AESCrypto.EncryptToByteArray(System.String,System.Byte[])">
+            <summary>
+            Entschlüsselt einen Base64-codierten String unter Verwendung 
+            des angegebenen Schlüssels mit dem AES-Algorithmus.
+            </summary>
+            <remarks>
+            Die Funktion ist nicht kompatibel mit fremden 
+            Verschlüsselungsfunktionen und arbeitet nur mit den
+            entsprechenden Decrypt-Funktionen dieser Klasse zusammen.
+            </remarks>
+            <param name="data">Der zu verschlüsselnde String als Unicode.</param>
+            <param name="key">Der Schlüssel als Byte[].</param>
+            <returns>Die verschlüsselten Daten und der Initialization Vektor.
+            So wie sie von der Funktion 
+            <see cref="M:Pietsch.Crypto.AESCrypto.Decrypt(System.Byte[],System.Byte[])">
+            AESCrypto.Decrypt</see> entschlüsselt werden können.
+            </returns>
+        </member>
+        <member name="M:Pietsch.Crypto.AESCrypto.Encrypt(System.String,System.Byte[])">
+            <summary>
+            Entschlüsselt einen Base64-codierten String unter Verwendung 
+            des angegebenen Schlüssels mit dem AES-Algorithmus.
+            </summary>
+            <remarks>
+            Die Funktion ist nicht kompatibel mit fremden 
+            Verschlüsselungsfunktionen und arbeitet nur mit den
+            entsprechenden Decrypt-Funktionen dieser Klasse zusammen.
+            </remarks>
+            <param name="data">Der zu verschlüsselnde String als Unicode.</param>
+            <param name="key">Der Schlüssel als Byte[].</param>
+            <returns>Die verschlüsselten Daten und der Initialization Vektor.
+            Base64-codiert, so wie sie von der Funktion 
+            <see cref="M:Pietsch.Crypto.AESCrypto.Decrypt(System.String,System.Byte[])">
+            AESCrypto.Decrypt</see> entschlüsselt werden können.
+            </returns>
+        </member>
+        <member name="M:Pietsch.Crypto.AESCrypto.DecryptByPassword(System.String,System.String,System.String)">
+            <summary>
+            Entschlüsselt einen Base64-codierten String unter Verwendung eines 
+            gemäß RFC2898 von einem Paßwort abgeleiteten Schlüssels
+            mit dem AES-Algorithmus.
+            </summary>
+            <remarks>
+            Die Funktion ist nicht kompatibel mit fremden 
+            Verschlüsselungsfunktionen und arbeitet nur mit der
+            Funktion <see cref="M:Pietsch.Crypto.AESCrypto.EncryptByPassword(System.String,System.String,System.String)">
+            AESCrypto.EncryptByPassword</see> zusammen.
+            </remarks>
+            <remarks>
+            Es existieren riesige Datenbanken, in denen die Hash-Werte
+            aller üblichen Paßworte hinterlegt sind. Deshalb sollte
+            immer ein salted Hash verwendet werden, in den neben dem
+            Paßwort zusätzliche Information einfließt. Diese zusätzliche
+            Information ist der "Salt-Wert".
+            </remarks>
+            <example>
+            Siehe <see cref="M:Pietsch.Crypto.AESCrypto.EncryptByPassword(System.String,System.String,System.String)"/>.
+            </example>
+            <param name="cipherDataAndIV">
+            Zu entschlüselnde Daten Base64-codiert, so wie sie von der
+            Funktion 
+            <see cref="M:Pietsch.Crypto.AESCrypto.EncryptByPassword(System.String,System.String,System.String)">
+            AESCrypto.EncryptByPassword</see> ausgegeben wurden.
+            </param>
+            <param name="password">Das zu verwendende Paßwort, von dem gemäß RFC2898 32 Bytes als Schlüssel abgeleitet werden.</param>
+            <param name="salt">Salt-Wert.</param>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.AESCrypto.Decrypt(System.String,System.String)">
+            <summary>
+            Entschlüsselt einen Base64-codierten String unter Verwendung
+            des angegebenen Schlüssels mit dem AES-Algorithmus.
+            </summary>
+            <remarks>
+            Die Funktion ist nicht kompatibel mit fremden 
+            Verschlüsselungsfunktionen und arbeitet nur mit den
+            entsprechenden Encrypt-Funktionen dieser Klasse zusammen.
+            </remarks>
+            <example>
+            Siehe <see cref="M:Pietsch.Crypto.AESCrypto.Encrypt(System.String,System.String)"/>.
+            </example>
+            <param name="key">Der Schlüssel als Base64-Codierter String.</param>
+            <param name="cipherDataAndIV">
+            Zu entschlüselnde Daten Base64-codiert, so wie sie von der
+            entsperchenden Encrypt-Funktion dieser Klasse zurückgegeben
+            wurden.
+            </param>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.AESCrypto.Decrypt(System.String,System.Byte[])">
+            <summary>
+            Entschlüsselt einen Base64-codierten String unter Verwendung
+            des angegebenen Schlüssels mit dem AES-Algorithmus.
+            </summary>
+            <remarks>
+            Die Funktion ist nicht kompatibel mit fremden 
+            Verschlüsselungsfunktionen und arbeitet nur mit den
+            entsprechenden Encrypt-Funktionen dieser Klasse zusammen.
+            </remarks>
+            <param name="key">Der Schlüssel als Byte[].</param>
+            <param name="cipherDataAndIV">
+            Zu entschlüselnde Daten Base64-codiert, so wie sie von der
+            entsperchenden Encrypt-Funktion dieser Klasse zurückgegeben
+            wurden.
+            </param>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.AESCrypto.Decrypt(System.Byte[],System.Byte[])">
+            <summary>
+            Entschlüsselt einen Base64-codierten String unter Verwendung
+            des angegebenen Schlüssels mit dem AES-Algorithmus.
+            </summary>
+            <remarks>
+            Die Funktion ist nicht kompatibel mit fremden 
+            Verschlüsselungsfunktionen und arbeitet nur mit den
+            entsprechenden Encrypt-Funktionen dieser Klasse zusammen.
+            </remarks>
+            <param name="key">Der Schlüssel als Byte[].</param>
+            <param name="cipherDataAndIV">
+            Zu entschlüselnde Daten Base64-codiert, so wie sie von der
+            entsperchenden Encrypt-Funktion dieser Klasse zurückgegeben
+            wurden.
+            </param>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.AESCrypto.Decrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Entschlüsselt einen Base64-codierten String unter Verwendung
+            des angegebenen Schlüssels mit dem AES-Algorithmus.
+            </summary>
+            <remarks>
+            Die Funktion ist nicht kompatibel mit fremden 
+            Verschlüsselungsfunktionen und arbeitet nur mit den
+            entsprechenden Encrypt-Funktionen dieser Klasse zusammen.
+            </remarks>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+        </member>
+        <member name="T:Pietsch.Crypto.PasswordDeriveBytes">
+            <summary>
+            Stellt die öffentliche statische Funktion
+            <see cref="M:Pietsch.Crypto.PasswordDeriveBytes.DeriveBytes(System.Int32,System.String,System.String)">DeriveBytes</see>
+            zum Erstellen eines Schlüssels aus einem
+            Paßwort gemäß RFC2898 bereit.
+            </summary>
+        </member>
+        <member name="M:Pietsch.Crypto.PasswordDeriveBytes.DeriveBytes(System.Int32,System.String,System.String)">
+            <summary>
+            Leitet gemäß RFC2898 ein Byte[] von einem als 
+            Unicode-String übergebenen Paßwort ab.
+            Dieses Byte[] kann anschließend als Schlüssel
+            zur Verschlüsselung von Daten verwendet werden.
+            </summary>
+            <remarks>
+            Es existieren riesige Datenbanken, in denen die Hash-Werte aller
+            üblichen Paßworte hinterlegt sind. Deshalb sollte immer ein salted
+            Hash verwendet werden, in den neben dem Paßwort zusätzliche Information
+            einfließt. Diese zusätzliche Information ist der "Salt-Wert". 
+            </remarks>
+            <param name="byteCount">Anzahl der Bytes, die abgeleitet werden sollen.</param>
+            <param name="password">Das Paßwort als Unicode-String.</param>
+            <param name="salt">Ein Salt-Wert.</param>
+            <returns>Byte[] von der gewünschten Länge.</returns>
+        </member>
+        <member name="T:Pietsch.Crypto.RSABase">
+            <summary>
+            Die Klasse RSABase stellt grundlegende Funktionen
+            für den Umgang mit RSA-Schlüsseln zur Verfügung und
+            dient als Basis für die Klassen
+            <see cref="T:Pietsch.Crypto.RSACrypto">RSACrypto</see>,
+            <see cref="T:Pietsch.Crypto.RSAAESCrypto">RSAAESCrypto</see> und
+            <see cref="T:Pietsch.Crypto.RSASign">RSASign</see>.
+            </summary>
+        </member>
+        <member name="F:Pietsch.Crypto.RSABase.InstanceRSAcsp">
+            <summary>
+            Hier handelt es sich um den von dieser Instanz
+            verwendeten RSA Crypto Service Provider.
+            </summary>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.#ctor">
+            <summary>
+            Erstellt eine neue RSABase-Instanz. Diese 
+            verfügt über keinen Schlüssel, kann also
+            keine Ver- oder Entschlüsselung vornehmen.
+            </summary>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.#ctor(System.String)">
+            <summary>
+            Erstellt eine neue RSABase-Instanz. Diese wird mit
+            Hilfe des übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssels initialisiert.
+            Der übergebene Schlüssel darf nicht verschlüsselt sein.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.#ctor(System.String,System.String)">
+            <summary>
+            Erstellt eine neue RSABase-Instanz. Diese wird mit
+            Hilfe des übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssels initialisiert.
+            </summary>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+            <param name="privateKeyPassword">
+            Paßwort, mit dem der private Schlüssel geschützt ist.
+            </param>
+        </member>
+        <member name="P:Pietsch.Crypto.RSABase.HasValidKey">
+            <summary>
+            Gibt an, ob diese Instanz der Klasse über einen
+            gültigen privaten oder öffentlichen Schlüssel verfügt.
+            </summary>
+        </member>
+        <member name="P:Pietsch.Crypto.RSABase.HasValidPrivateKey">
+            <summary>
+            Gibt an, ob diese Instanz der Klasse über einen
+            gültigen privaten Schlüssel verfügt.
+            </summary>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.UnloadKey">
+            <summary>
+            Löscht den zur Zeit geladenen Schlüssel.
+            </summary>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.LoadKey(System.String)">
+            <summary>
+            Lädt den als XML übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssel.
+            Der übergebene Schlüssel darf nicht verschlüsselt sein.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel oder ein RSA-Schlüssel
+            in XML-Repräsentation.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+            <returns>true, wenn Ladevorgang erfolgreich, sonst false.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.LoadKey(System.String,System.String)">
+            <summary>
+            Lädt den als XML übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssel.
+            Der übergebene Schlüssel darf nicht verschlüsselt sein.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel oder ein RSA-Schlüssel
+            in XML-Repräsentation.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+            <param name="privateKeyPassword">
+            Paßwort, mit dem der private Schlüssel geschützt ist.
+            </param>
+            <returns>true, wenn Ladevorgang erfolgreich, sonst false.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.LoadPrivateKey(System.String)">
+            <summary>
+            Lädt den als XML übergebenen oder in der angegebenen
+            Datei befindlichen privaten RSA-Schlüssel.
+            Wird kein unverschlüsselter privater Schlüssel
+            gefunden, so wird kein Schlüssel geladen und
+            false zurückgegeben.
+            Der übergebene Schlüssel darf nicht verschlüsselt sein.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel oder ein RSA-Schlüssel
+            in XML-Repräsentation.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+            <returns>true, wenn Ladevorgang erfolgreich, sonst false.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.LoadPrivateKey(System.String,System.String)">
+            <summary>
+            Lädt den als XML übergebenen oder in der angegebenen
+            Datei befindlichen privaten RSA-Schlüssel.
+            Wird kein privater Schlüssel gefunden, so wird
+            kein Schlüssel geladen und false zurückgegeben.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel oder ein RSA-Schlüssel
+            in XML-Repräsentation.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+            <param name="privateKeyPassword">
+            Paßwort, mit dem der private Schlüssel geschützt ist.
+            </param>
+            <returns>true, wenn Ladevorgang erfolgreich, sonst false.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.ChangePrivateKeyPassword(System.String,System.String,System.String)">
+            <summary>
+            Ändert das Paßwort eines vorhandenen privaten Schlüssels.
+            </summary>
+            <param name="privateKeyFileName">Dateiname (und Pfad), in der der private Schlüssel gespeichert werden soll.</param>
+            <param name="oldPrivateKeyPassword">Altes Paßwort.</param>
+            <param name="newPrivateKeyPassword">Neues Paßwort.</param>
+            <returns>true, wenn Paßwortänderung erfolgreich, sonst false;</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.GenerateKeys(System.Int32,System.String,System.String)">
+            <summary>
+            Erzeugt ein RSA-Schlüsselpaar mit der angegebenen Länge und
+            speichert es in den beiden angegebenen Dateien. Die
+            Private Datei enthält Privaten und öffentlichen Schlüssel.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="keySize">Länge des Schlüssels, muß durch 8 teilbar sein. Mindestens 384 bit, höchstens 16.384 bit.</param>
+            <param name="privateKeyFileName">Dateiname (und Pfad), in der der private Schlüssel gespeichert werden soll.</param>
+            <param name="publicKeyFileName">Dateiname (und Pfad), in der der öffentliche Schlüssel gespeichert werden soll.</param>
+            <returns>true, wenn die Schlüssel erfolgreich erzeugt wurden.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.GenerateKeys(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Erzeugt ein RSA-Schlüsselpaar mit der angegebenen Länge und
+            speichert es in den beiden angegebenen Dateien. Die
+            Private Datei enthält Privaten und öffentlichen Schlüssel.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="keySize">Länge des Schlüssels, muß durch 8 teilbar sein. Mindestens 384 bit, höchstens 16.384 bit.</param>
+            <param name="privateKeyFileName">Dateiname (und Pfad), in der der private Schlüssel gespeichert werden soll.</param>
+            <param name="privateKeyPassword">Paßwort, mit dem der private Schlüssel verschlüsselt werden soll.</param>
+            <param name="publicKeyFileName">Dateiname (und Pfad), in der der öffentliche Schlüssel gespeichert werden soll.</param>
+            <returns>true, wenn die Schlüssel erfolgreich erzeugt wurden.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.isAValidKey(System.String)">
+            <summary>
+            Prüft den übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssel.
+            Wird kein Schlüssel gefunden, so wird
+            false zurückgegeben.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            </param>
+            <returns>true, es sich um einen gültigen Schlüssel handelt, sonst false.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.isAValidKey(System.String,System.Boolean)">
+            <summary>
+            Prüft den übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssel.
+            Wird kein Schlüssel gefunden, so wird
+            false zurückgegeben.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            </param>
+            <param name="isPrivateKey">Wenn true, so wird geprüft, ob es sich um einen privaten Schlüssel handelt.</param>
+            <returns>true, es sich um einen gültigen Schlüssel handelt, sonst false.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.isAValidKey(System.String,System.String)">
+            <summary>
+            Prüft den übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssel.
+            Wird kein Schlüssel gefunden, so wird
+            false zurückgegeben.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            </param>
+            <param name="privateKeyPassword">
+            Paßwort, mit dem der private Schlüssel geschützt ist.
+            </param>
+            <returns>true, es sich um einen gültigen Schlüssel handelt, sonst false.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSABase.isAValidKey(System.String,System.String,System.Boolean)">
+            <summary>
+            Prüft den übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssel.
+            Wird kein Schlüssel gefunden, so wird
+            false zurückgegeben.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            </param>
+            <param name="privateKeyPassword">
+            Paßwort, mit dem der private Schlüssel geschützt ist.
+            </param>
+            <param name="isPrivateKey">Wenn true, so wird geprüft, ob es sich um einen privaten Schlüssel handelt.</param>
+            <returns>true, es sich um einen gültigen Schlüssel handelt, sonst false.</returns>
+        </member>
+        <member name="T:Pietsch.Crypto.RSACrypto">
+            <summary>
+            Die RSACrypto-Klasse stellt Methoden bereit, um Daten
+            mit dem asymmetrischen RSA-Verfahren zu ver- und
+            entschlüsseln.
+            Der Einfachheit halber werden die meisten Funktionen
+            statisch zur Verfügung gestellt. Allerdings kann die
+            Klasse auch instantiiert werden, was bei mehrfachen
+            Ver- und Entschlüsselungen die Performanz steigert.
+            Beispielcode: <see cref="M:Pietsch.Crypto.RSACrypto.Encrypt(System.String)">Encrypt(String)</see>.
+            </summary>
+            <remarks>
+            Die verschlüsselten Daten werden Base64-repräsentiert,
+            die entschlüsselten Daten im Unicode-Format angenommen und
+            zurückgegeben.
+            </remarks>
+            <remarks>
+            Die Daten dürfen höchstens 1/16 - 6 der Länge
+            des Schlüssels lang sein!
+            (2048->122, 4096->250, 8192->506). Sollen
+            größere Datenmengen verschlüsselt werden, 
+            siehe <see cref="T:Pietsch.Crypto.RSAAESCrypto">RSAAESCrypto</see>.
+            </remarks>
+        </member>
+        <member name="M:Pietsch.Crypto.RSACrypto.#ctor">
+            <summary>
+            Erstellt eine neue RSACrypto-Instanz. Diese 
+            verfügt über keinen Schlüssel, kann also
+            keine Ver- oder Entschlüsselung vornehmen.
+            </summary>
+        </member>
+        <member name="M:Pietsch.Crypto.RSACrypto.#ctor(System.String)">
+            <summary>
+            Erstellt eine neue RSACrypto-Instanz. Diese wird mit
+            Hilfe des übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssels initialisiert.
+            Der übergebene Schlüssel darf nicht verschlüsselt sein.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+        </member>
+        <member name="M:Pietsch.Crypto.RSACrypto.#ctor(System.String,System.String)">
+            <summary>
+            Erstellt eine neue RSACrypto-Instanz. Diese wird mit
+            Hilfe des übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssels initialisiert.
+            </summary>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+            <param name="privateKeyPassword">
+            Paßwort, mit dem der private Schlüssel geschützt ist.
+            </param>
+        </member>
+        <member name="M:Pietsch.Crypto.RSACrypto.Encrypt(System.String,System.String)">
+            <summary>
+            Verschlüsselt einen übergebenen Unicode-String
+            mit Hilfe des übergebenen oder in der angegebenen Datei
+            befindlichen RSA-Schlüssels und gibt einen Base64-
+            codierten String zurück.
+            </summary>
+            <param name="data">Zu verschlüsselnde Daten (Unicode).</param>
+            <param name="rsaKeyOrFileName">RSA-Schlüssel im XML-Format oder Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.</param>
+            <returns>Base64-Kodierten String mit den verschlüsselten Daten.</returns>
+            <remarks>Nicht sonderlich performant, da der Schlüssel jedesmal geselen werden muß!</remarks>
+            <remarks>
+            Als Unterscheidungsmerkmal, ob ein Dateiname oder ein
+            Schlüssel im XML-Format übergeben wurde, dient das
+            &lt;-Zeichen.
+            </remarks>
+            <remarks>
+            Die Daten dürfen höchstens 1/16 - 6 der Länge
+            des Schlüssels lang sein!
+            (2048->122, 4096->250, 8192->506). Sollen
+            größere Datenmengen verschlüsselt werden, 
+            siehe <see cref="T:Pietsch.Crypto.RSAAESCrypto">RSAAESCrypto</see>.
+            </remarks>
+        </member>
+        <member name="M:Pietsch.Crypto.RSACrypto.Decrypt(System.String,System.String,System.String)">
+            <summary>
+            Entschlüsselt einen übergebenen Base64-codierten String
+            mit Hilfe des in der angegebenen Datei befindlichen
+            RSA-Schlüssels und gibt einen Unicode String
+            zurück.
+            </summary>
+            <remarks>
+            Nicht sonderlich performant, da der Schlüssel jedesmal gelesen werden muß!
+            </remarks>
+            <param name="cipherData">Verschlüsselte Daten (Base64).</param>
+            <param name="rsaKeyOrFileName">Dateiname (und Pfad) der Datei mit dem (privaten!) RSA-Schlüssel oder Schlüssel als String.</param>
+            <param name="privateKeyPassword">
+            Paßwort, mit dem der private Schlüssel geschützt ist.
+            </param>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSACrypto.Encrypt(System.String)">
+            <summary>
+            Verschlüsselt einen übergebenen Unicode-String
+            mit Hilfe des im Konstruktor übergebenen RSA-Schlüssels
+            und gibt einen Base64-codierten String zurück.
+            </summary>
+            <remarks>
+            Wesentlich performanter als die statische
+            <see cref="M:Pietsch.Crypto.RSACrypto.Encrypt(System.String,System.String)">Encrypt-Methode</see>,
+            da der Schlüssel nur einmal geselen werden muß!
+            </remarks>
+            <remarks>
+            Die Daten dürfen höchstens 1/16 - 6 der Länge
+            des Schlüssels lang sein!
+            (2048->122, 4096->250, 8192->506). Sollen
+            größere Datenmengen verschlüsselt werden, 
+            siehe <see cref="T:Pietsch.Crypto.RSAAESCrypto">RSAAESCrypto</see>.
+            </remarks>
+            <param name="data">Zu verschlüsselnde Daten (Unicode).</param>
+            <returns>Base64-Kodierten String mit den verschlüsselten Daten.</returns>
+            <example>
+            <code>
+            // Schlüssel erstellen
+            RSACrypto.GenerateKeys(2048, "keys\\private.key", "Blume", "keys\\public.key");
+            
+            String originalData = "Hello, World";
+            
+            // rsa-Objekt mit öffentl. Schlüssel zum Verschlüsseln:
+            RSACrypto rsaPublic = new RSACrypto("keys\\public.key");
+            String encryptedData = rsaPublic.Encrypt(originalData);
+            Console.WriteLine("Encrypted :{0}", encryptedData);
+            
+            // rsa-Objekt mit privatem Schlüssel zum Entschlüsseln:
+            RSACrypto rsaPrivate = new RSACrypto("keys\\private.key", "Blume");
+            String decryptedData = rsaPrivate.Decrypt(encryptedData);
+            Console.WriteLine("Decrypted :{0}", decryptedData);
+            </code>
+            </example>
+        </member>
+        <member name="M:Pietsch.Crypto.RSACrypto.Decrypt(System.String)">
+            <summary>
+            Entschlüsselt einen übergebenen Base64-codierten String
+            mit Hilfe des im Konstruktor übergebenen RSA-Schlüssels
+            und gibt einen Unicode-codierten String zurück.
+            </summary>
+            <param name="cipherData">Verschlüsselte Daten (Base64).</param>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+            <example>
+            <code>
+            // Schlüssel erstellen
+            RSACrypto.GenerateKeys(2048, "keys\\private.key", "Blume", "keys\\public.key");
+            
+            String originalData = "Hello, World";
+            
+            // rsa-Objekt mit öffentl. Schlüssel zum Verschlüsseln:
+            RSACrypto rsaPublic = new RSACrypto("keys\\public.key");
+            String encryptedData = rsaPublic.Encrypt(originalData);
+            Console.WriteLine("Encrypted :{0}", encryptedData);
+            
+            // rsa-Objekt mit privatem Schlüssel zum Entschlüsseln:
+            RSACrypto rsaPrivate = new RSACrypto("keys\\private.key", "Blume");
+            String decryptedData = rsaPrivate.Decrypt(encryptedData);
+            Console.WriteLine("Decrypted :{0}", decryptedData);
+            </code>
+            </example>
+        </member>
+        <member name="M:Pietsch.Crypto.RSACrypto.Decrypt(System.String,System.Security.Cryptography.RSACryptoServiceProvider)">
+            <summary>
+            Die Entschlüsselung findet hier statt,
+            alle anderen Decrypt-Funktionen rufen am Ende diese
+            auf.
+            </summary>
+            <param name="cipherData"></param>
+            <param name="rsaCsp"></param>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSAKeyManager.GetKey(System.String)">
+            <summary>
+            Prüft, ob ein Schlüssel oder ein Dateiname übergeben wurde,
+            gibt den Schlüssel zurück oder liest die Datei und gibt den
+            Inhalt zurück.
+            </summary>
+            <param name="rsaKeyOrFileName">Schlüssel oder Dateiname.</param>
+            <returns>Immer Schlüssel im XML-Format.</returns>
+        </member>
+        <member name="T:Pietsch.Crypto.RSASign">
+            <summary>
+            Die RSASign-Klasse stellt Methoden bereit, um Daten
+            mit dem asymmetrischen RSA-Verfahren zu signieren und
+            signierte Daten zu verifizieren.
+            Beispielcode: <see cref="M:Pietsch.Crypto.RSASign.Sign(System.String)">Sign(String)</see>.
+            </summary>
+            <remarks>
+            Die Signatur wird Base64-repräsentiert,
+            die zu signierenden Daten im Unicode-Format angenommen.
+            </remarks>
+        </member>
+        <member name="M:Pietsch.Crypto.RSASign.#ctor">
+            <summary>
+            Erstellt eine neue RSASign-Instanz. Diese 
+            verfügt über keinen Schlüssel, kann also
+            keine Ver- oder Entschlüsselung vornehmen.
+            </summary>
+        </member>
+        <member name="M:Pietsch.Crypto.RSASign.#ctor(System.String)">
+            <summary>
+            Erstellt eine neue RSASign-Instanz. Diese wird mit
+            Hilfe des übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssels initialisiert.
+            Der übergebene Schlüssel darf nicht verschlüsselt sein.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+        </member>
+        <member name="M:Pietsch.Crypto.RSASign.#ctor(System.String,System.String)">
+            <summary>
+            Erstellt eine neue RSASign-Instanz. Diese wird mit
+            Hilfe des übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssels initialisiert.
+            </summary>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+            <param name="privateKeyPassword">
+            Paßwort, mit dem der private Schlüssel geschützt ist.
+            </param>
+        </member>
+        <member name="M:Pietsch.Crypto.RSASign.Sign(System.String)">
+             <summary>
+             Signiert einen übergebenen Unicode-String
+             mit Hilfe des im Konstruktor übergebenen RSA-Schlüssels
+             und dem SHA1-Algorithmus 
+             und gibt die Signatur als Base64-codierten String zurück.
+             </summary>
+             <param name="message">Nachricht als String im Unicode-Format.</param>
+             <returns>Die Signatur als Base64-codierter String.</returns>
+             <example>
+             <code>
+             String originalData = "Hello, World";
+             
+             // rsa-Objekt mit privatem Schlüssel zum Signieren:
+             RSASign rsaPrivate = new RSASign("keys\\private.key", "Blume");
+             String signature = rsaPrivate.Sign(originalData);
+             Console.WriteLine("Signatur :{0}", signature);
+             
+             // rsa-Objekt mit öffentl. Schlüssel zum Prüfen:
+             RSASign rsaPublic = new RSASign("keys\\public.key");
+             if (rsaPublic.Verify(originalData, signature))
+                 Console.WriteLine("Signatur gültig.");
+             else
+                 Console.WriteLine("Signatur ungültig.");
+             </code>
+            </example>
+        </member>
+        <member name="M:Pietsch.Crypto.RSASign.Verify(System.String,System.String)">
+            <summary>
+            Verifiziert einen übergebenen Unicode-String
+            mit Hilfe des im Konstruktor übergebenen RSA-Schlüssels
+            und der Signatur als Base64-codierter String.
+            </summary>
+            <param name="message">Nachricht als String im Unicode-Format.</param>
+            <param name="signature">Signatur als Base64-codierter String.</param>
+            <returns>true, wenn die Unterschrift zur Nachricht paßt.</returns>
+        </member>
+        <member name="T:Pietsch.Crypto.SHA1">
+            <summary>
+            Hilft beim Erstellen eines SHA1-Hashes.
+            </summary>
+            <remarks>
+            SHA1 (Secure Hash Algorithm 1) ist eine weitverbreitete
+            kryptographische Hash-Funktion, die einen 160-Bit-Hashwert
+            erzeugt. 
+            
+            Im Sommer 2006 wurde eine wesentliche Schwäche dieses
+            Algorithmus entdeckt und publik gemacht.
+            Mit diesem Verfahren kann mit vertretbarem Aufwand ein
+            Dokument erzeugt werden, das einen gegebenen SHA1-Hash hat.
+            ("Hash-Kollision") Allerdings enthält das entsprechende
+            Dokument keine sinnvollen Daten.
+            
+            Grundsätzlich sollte SHA1 daher nicht mehr in neuen
+            Entwicklungen als sicherer Hash-Algorithmus vorgesehen werden.
+            </remarks>
+            <remarks>
+            Sollen Hashes von Paßwörtern in einer Datenbank gespeichert
+            werden, so sollte ein "salted Hash" verwendet werden.
+            
+            Dazu sollte in den Hash neben dem Paßwort selbst auch
+            (a) der Name der Applikation und (b) der Benutzername
+            eingehen, damit es nicht offensichtlich wird, wenn ein
+            Benutzer (a) in zwei Applikationen das gleiche Paßwort
+            verwendet oder (b) zwei Benutzer in der gleichen
+            Applikation das gleiche Paßwort verwenden. Teilweise
+            wird auch empfohlen, einen Zufallswert zusammen mit dem 
+            Paßwort in der Datenbank abzulegen und als Salt zu
+            verwenden.
+            
+            Durch die Verwendung eines salted Hash-Wertes ist ein
+            unverschlüsselter Wert nicht mehr eindeutig einem
+            verschlüsselten Wert zuzuordnen. Dies erschwert
+            sog. Wörterbuch-Angriffe, denen vorausberechnete
+            Listen von Hashwerten für bekannte Wörter zugrunde
+            liegen.
+            </remarks>
+        </member>
+        <member name="M:Pietsch.Crypto.SHA1.SHA1Hash(System.String)">
+            <summary>
+            Erstellt einen SHA1-Hash von einem übergebenen String
+            und gibt diesen als Base64-codierten String zurück.
+            </summary>
+            <param name="input">Eingabestring als Unicode.</param>
+            <returns>Base64-String</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.SHA1.SHA1Hash(System.Byte[])">
+            <summary>
+            Erstellt einen SHA1-Hash von einem übergebenen Byte[]
+            und gibt diesen als Base64-codierten String zurück.
+            </summary>
+            <param name="input">Eingabe Byte[]</param>
+            <returns>Base64-String</returns>
+        </member>
+        <member name="T:Pietsch.Crypto.RSAAESCrypto">
+            <summary>
+            Die RSAAESCrypto-Klasse stellt Methoden bereit, um
+            größere Datenmengen mit dem asymmetrischen
+            RSA-Verfahren zu ver- und entschlüsseln.
+            
+            Dazu werden die Daten zunächst mit einem neuen AES-
+            Schlüssel (Session Key) symmetrisch verschlüsselt.
+            Der Session Key wird anschließend mit RSA asymmetrisch
+            verschlüsselt und zusammen mit den Daten ausgegeben.
+            
+            Bei der Entschlüsselung wird zunächst der Session Key
+            mit RSA entschlüsselt und anschließend die Daten selbst
+            entschlüsselt zurückgegeben.
+            
+            Der Einfachheit halber wurden die meisten Funktionen
+            statisch zur Verfügung gestellt. Allerdings kann die
+            Klasse auch instantiiert werden, was bei mehrfachen
+            Ver- und Entschlüsselungen die Performanz steigert.
+            Beispielcode: <see cref="M:Pietsch.Crypto.RSAAESCrypto.Encrypt(System.String)">Encrypt(String)</see>.
+            </summary>
+            <remarks>
+            Die verschlüsselten Daten werden Base64-repräsentiert,
+            die entschlüsselten Daten im Unicode-Format angenommen und
+            zurückgegeben.
+            </remarks>
+            <remarks>
+            Sollen nur kurze Strings versclüsselt werden, so kann es
+            sinnvoll sein, diese ohne Umweg über AES direkt RSA zu
+            verschlüsseln. Siehe <see cref="T:Pietsch.Crypto.RSACrypto">RSACrypto</see>.
+            </remarks>
+        </member>
+        <member name="M:Pietsch.Crypto.RSAAESCrypto.#ctor">
+            <summary>
+            Erstellt eine neue RSAAESCrypto-Instanz. Diese 
+            verfügt über keinen Schlüssel, kann also
+            keine Ver- oder Entschlüsselung vornehmen.
+            </summary>
+        </member>
+        <member name="M:Pietsch.Crypto.RSAAESCrypto.#ctor(System.String)">
+            <summary>
+            Erstellt eine neue RSAAESCrypto-Instanz. Diese wird mit
+            Hilfe des übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssels initialisiert.
+            Der übergebene Schlüssel darf nicht verschlüsselt sein.
+            </summary>
+            <remarks>Es empfiehlt sich, den privaten Schlüssel mit einem Paßwort zu schützen, da der private Schlüssel auf der Festplatte gespeichert wird!</remarks>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+        </member>
+        <member name="M:Pietsch.Crypto.RSAAESCrypto.#ctor(System.String,System.String)">
+            <summary>
+            Erstellt eine neue RSAAESCrypto-Instanz. Diese wird mit
+            Hilfe des übergebenen oder in der angegebenen
+            Datei befindlichen RSA-Schlüssels initialisiert.
+            </summary>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+            <param name="privateKeyPassword">
+            Paßwort, mit dem der private Schlüssel geschützt ist.
+            </param>
+        </member>
+        <member name="M:Pietsch.Crypto.RSAAESCrypto.Encrypt(System.String,System.String)">
+            <summary>
+            Verschlüsselt einen (Unicode-)String unter Verwendung
+            des übergebenen Schlüssels und gibt einen
+            Base64-codierten String zurück.
+            </summary>
+            <remarks>
+            Diese Methode sollte nur für einmalige Verschlüsselung
+            verwendet werden, da der RSA-Schlüssel für jeden
+            Vorgang neu geladen werden muß. Für aufeinanderfolgende
+            Operationen empfiehlt sich eine Instanzmethode.
+            </remarks>
+            <remarks>
+            Die Daten zunächst mit einem neuen AES-
+            Schlüssel (Session Key) symmetrisch verschlüsselt.
+            Der Session Key wird anschließend mit RSA asymmetrisch
+            verschlüsselt und zusammen mit den Daten ausgegeben.
+            
+            Bei der Entschlüsselung wird zunächst der Session Key
+            mit RSA entschlüsselt und anschließend die Daten selbst
+            entschlüsselt zurückgegeben.
+            </remarks>
+            <param name="data">Daten als Unicode-String.</param>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+            <returns>
+            Die AES-verschlüsselten Daten und den RSA-verschlüsselten
+            Session Key in einem Base64-codierten String.
+            </returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSAAESCrypto.Decrypt(System.String,System.String,System.String)">
+            <summary>
+            Entschlüsselt Daten unter Verwendung des übergebenen
+            Schlüssels und gibt einen String zurück.
+            </summary>
+            <remarks>
+            Diese Methode sollte nur für einmalige Verschlüsselung
+            verwendet werden, da der RSA-Schlüssel für jeden
+            Vorgang neu geladen werden muß. Für aufeinanderfolgende
+            Operationen empfiehlt sich eine Instanzmethode.
+            </remarks>
+            <remarks>
+            Die Daten zunächst mit einem neuen AES-
+            Schlüssel (Session Key) symmetrisch verschlüsselt.
+            Der Session Key wird anschließend mit RSA asymmetrisch
+            verschlüsselt und zusammen mit den Daten ausgegeben.
+            
+            Bei der Entschlüsselung wird zunächst der Session Key
+            mit RSA entschlüsselt und anschließend die Daten selbst
+            entschlüsselt zurückgegeben.
+            </remarks>
+            <param name="cipherData">Die verschlüsselten Daten als Base64-String.</param>
+            <param name="rsaKeyOrFileName">
+            Dateiname (und Pfad) der Datei mit dem RSA-Schlüssel.
+            Soll nur verschlüsselt werden, so ist nur der öffentliche
+            Schlüssel nötig, andernfalls der private.
+            </param>
+            <param name="privateKeyPassword">
+            Paßwort, mit dem der private Schlüssel geschützt ist.
+            </param>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+        </member>
+        <member name="M:Pietsch.Crypto.RSAAESCrypto.Encrypt(System.String)">
+            <summary>
+            Verschlüsselt einen (Unicode-)String unter Verwendung
+            des aktuellen Schlüssels und gibt einen
+            Base64-codierten String zurück.
+            </summary>
+            <remarks>
+            Die Daten zunächst mit einem neuen AES-
+            Schlüssel (Session Key) symmetrisch verschlüsselt.
+            Der Session Key wird anschließend mit RSA asymmetrisch
+            verschlüsselt und zusammen mit den Daten ausgegeben.
+            
+            Bei der Entschlüsselung wird zunächst der Session Key
+            mit RSA entschlüsselt und anschließend die Daten selbst
+            entschlüsselt zurückgegeben.
+            </remarks>
+            <param name="data">Daten als Unicode-String.</param>
+            <returns>
+            Die AES-verschlüsselten Daten und den RSA-verschlüsselten
+            Session Key in einem Base64-codierten String.
+            </returns>
+            <example>
+            <code>
+            // Schlüssel erstellen
+            RSAAESCrypto.GenerateKeys(2048, "keys\\private.key", "Blume", "keys\\public.key");
+            
+            String originalData = "Hello, World";
+            
+            // rsaaes-Objekt mit öffentl. Schlüssel zum Verschlüsseln:
+            RSAAESCrypto rsaaesPublic = new RSAAESCrypto("keys\\public.key");
+            String encryptedData = rsaaesPublic.Encrypt(originalData);
+            Console.WriteLine("Encrypted :{0}", encryptedData);
+            
+            // rsaaes-Objekt mit privatem Schlüssel zum Entschlüsseln:
+            RSAAESCrypto rsaaesPrivate = new RSAAESCrypto("keys\\private.key", "Blume");
+            String decryptedData = rsaaesPrivate.Decrypt(encryptedData);
+            Console.WriteLine("Decrypted :{0}", decryptedData);
+            </code>
+            </example>
+        </member>
+        <member name="M:Pietsch.Crypto.RSAAESCrypto.Decrypt(System.String)">
+            <summary>
+            Entschlüsselt Daten unter Verwendung des aktuellen
+            Schlüssels und gibt einen String zurück.
+            </summary>
+            <remarks>
+            Die Daten zunächst mit einem neuen AES-
+            Schlüssel (Session Key) symmetrisch verschlüsselt.
+            Der Session Key wird anschließend mit RSA asymmetrisch
+            verschlüsselt und zusammen mit den Daten ausgegeben.
+            
+            Bei der Entschlüsselung wird zunächst der Session Key
+            mit RSA entschlüsselt und anschließend die Daten selbst
+            entschlüsselt zurückgegeben.
+            </remarks>
+            <param name="cipherData">Die verschlüsselten Daten als Base64-String.</param>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+            <example>
+            <code>
+            // Schlüssel erstellen
+            RSAAESCrypto.GenerateKeys(2048, "keys\\private.key", "Blume", "keys\\public.key");
+            
+            String originalData = "Hello, World";
+            
+            // rsaaes-Objekt mit öffentl. Schlüssel zum Verschlüsseln:
+            RSAAESCrypto rsaaesPublic = new RSAAESCrypto("keys\\public.key");
+            String encryptedData = rsaaesPublic.Encrypt(originalData);
+            Console.WriteLine("Encrypted :{0}", encryptedData);
+            
+            // rsaaes-Objekt mit privatem Schlüssel zum Entschlüsseln:
+            RSAAESCrypto rsaaesPrivate = new RSAAESCrypto("keys\\private.key", "Blume");
+            String decryptedData = rsaaesPrivate.Decrypt(encryptedData);
+            Console.WriteLine("Decrypted :{0}", decryptedData);
+            </code>
+            </example>
+        </member>
+        <member name="M:Pietsch.Crypto.RSAAESCrypto.Decrypt(System.String,System.Security.Cryptography.RSACryptoServiceProvider)">
+            <summary>
+            Dies ist die Entschlüsselungs-Arbeitsmethode, die sowohl von der
+            statischen, als auch von der nichtstatischen Decrypt-Methode
+            aufgerufen wird.
+            </summary>
+            <param name="cipherData"></param>
+            <param name="rsaCsp"></param>
+            <returns>Die entschlüsselten Daten als Unicode-String oder NULL, falls der Schlüssel ungültig war oder ein sonstiger Fehler auftrat.</returns>
+        </member>
+    </members>
+</doc>

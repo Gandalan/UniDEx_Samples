@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.Lib.Farben</name>
+    </assembly>
+    <members>
+        <member name="M:Gandalan.Library.Farben.FarbRoutinen.IsSonderFarbe(System.String)">
+            <summary>
+            Es wird geprüft, ob das Farbkürzel für einer Sonderfarbe steht.
+            (Ist TRUE, wenn es nicht Roh ist und auch für keine Standarfarbe steht)
+            </summary>
+            <param name="farbKuerzel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Farben.FarbRoutinen.IsRALStandardFarbe(System.String)">
+            <summary>
+            Prüft, ob der RAL-Code für eine Standardfrabe steht.
+            </summary>
+            <param name="farbCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Farben.FarbRoutinen.IsFarbeRoh(System.String,System.String)">
+            <summary>
+            Es wird geprüft, ob das Farbkürzel für die 'Farbe' roh steht.
+            </summary>
+            <param name="farbKuerzel"></param>
+            <param name="farbCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Farben.FarbRoutinen.IsRALFarbe(System.String)">
+            <summary>
+            Es wird geprüft, ob der Farbcode für eine RAL-Farbe steht.
+            (Ist TRUE, wenn er mit der Zeichenkette 'RAL' beginnt.)
+            </summary>
+            <param name="farbCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Farben.FarbRoutinen.GetRALCode(System.String)">
+            <summary>
+            Liefert die RAL-Nummer aus dem Farbcode zurück, sofern es sich um eine RAL-Farbe handelt.
+            </summary>
+            <param name="farbCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Farben.FarbRoutinen.GetRALSonderFarben(System.Boolean)">
+            <summary>
+            Liefert eine Liste mit allen RAL-Farbcodes, die keine Standardfarben sind.
+            </summary>
+            <param name="removeRALLabel">Wenn TRUE, wird nur die RAL-Farbnummer, ohne das führende Kürzel 'RAL' zurückgeliefert.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Farben.FarbRoutinen.SetDefaultFarben(System.Boolean,System.String,System.Boolean)">
+            <summary>
+            Lädt die Standardfarben in die öffentliche Liste 'Farben'.
+            </summary>
+            <param name="saveToDisk">Wenn TRUE, werden die Standardfarben in eine XML-Datei geschrieben.</param>
+            <param name="path">XML-Datei, in die die Standardfarben geschrieben werden sollen.</param>
+            <param name="silentMode">Wenn TRUE, werden keine Fehlermeldungen an den Benutzer ausgegeben.</param>
+        </member>
+        <member name="M:Gandalan.Library.Farben.FarbRoutinen.LoadFarben(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Lädt die in der XML-Datei stehenden Farben in die öffentlichte Liste 'Farben'.
+            </summary>
+            <param name="path">XML-Datei, die die zu ladenten Farben enthält.</param>
+            <param name="setDefaultFarben">Wenn TRUE, werden die Standardfarben geladen, falls keine Farben aus der Datei geladen werden konnten.</param>
+            <param name="silentMode">Wenn TRUE, werden keine Fehlermeldungen an den Benutzer ausgegeben.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Farben.FarbRoutinen.GetFarbeByKuerzel(System.String,System.Boolean)">
+            <summary>
+            Liefert den Farbitem, der zum Farbkürzel passt zurück.
+            </summary>
+            <param name="farbKuerzel">Das Farbkürzel, für das der passende Farbitem gesucht werden soll.</param>
+            <param name="returnEmptyItem">Wenn TRUE, wird ein leerer Farbitem zurückgegeben, falls kein zum Kürzel passender gefunden wird, anderfalls ist der Rückgabewert NULL.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

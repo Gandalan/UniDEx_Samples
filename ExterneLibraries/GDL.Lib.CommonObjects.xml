@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.Lib.CommonObjects</name>
+    </assembly>
+    <members>
+        <member name="M:Gandalan.Library.CommonObjects.NutzerBase.IsValid">
+            <summary>
+            Prüft, ob der Name vorhanden ist.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

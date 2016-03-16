@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.DataBase.Contracts</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.DataBase.Contracts.IIdentityDBColumn`1.GetCurrentValueOfIdentity(System.String)">
+            <summary>
+            Liefert den aktuellen Wert der Identitätsspalte zurück.
+            </summary>
+            <param name="tableName">Name der Tabelle, aus der der Wert geholt werden soll.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Contracts.IIdentityDBColumn`1.SetNewValueOfIdentity(`0)">
+            <summary>
+            Setzt den Wert der Identitätsspalte auf newValue.(wenn newValue == -1, dann wird der aktuelle Wert +1 gesetzt)
+            </summary>
+            <param name="newValue">Optional: neu zu setzender Wert</param>
+        </member>
+        <member name="P:IPS.Library.DataBase.Contracts.IDataEntityObjectBase.NeededColumnsForDisplayMember">
+            <summary>
+            Hier können alle Spaltennamen aufgelistet werden, die für die Darstellung der Spalte in "DisplayMemberName" benötigt werden.
+            Ist nur notwendig, wenn als "DisplayMemberName" eine berechnete Spalte verwendet wird.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Contracts.IDataEntityObjectBase.IsSingleInstanceTable">
+            <summary>
+            Über diese Eigenschaft wird festgelegt, ob es die DatenTabelle nur ein einziges mal zur Laufzeit gibt, oder ob es mehrere unabhängige Versionen geben kann.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Contracts.IDataEntityObjectBase.DBFormelFieldColumnsName">
+            <summary>
+            Enthält die Spaltennamen von den Spalten, die in der DB als Formelfelder definiert sind.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Contracts.IDataEntityObjectBase.SetMasterDataTable(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.Boolean)">
+            <summary>
+            Weist die MasterTable zu.
+            Erstellt  bei Bedarf die zugehörige MasterEntityID-Column und den Fremdschlüsselverweis und
+            fügt das akt. TableObject der MasterTable als ChildTable hinzu.
+            </summary>
+            <param name="masterEntityObject"></param>
+            <param name="createMasterEntityID">Wenn TRUE, wird die zugehörige MasterEntityID-Column und der Fremdschlüsselverweis erstellt und das akt. EntityObject der MasterEntity als ChildTable hinzugefügt.</param>
+        </member>
+        <member name="P:IPS.Library.DataBase.Contracts.IDataColumnObjectBase.HasCompressedColumn">
+            <summary>
+            Ist TRUE, wenn es zu der Spalte eine korrespondierende "Compressed"-Spalte gibt, damit der Wert für eine Ähnlichkeitssuche zur Verfügung steht.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Contracts.IDataColumnObjectBase.IsFormelPersisted">
+            <summary>
+            Legt fest, ob der berechnete Wert der Spalte dauerhaft (Persisted) gespeichert werden soll oder nicht.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Contracts.IDataColumnObjectBase.IsBlobField">
+            <summary>
+            Ist TRUE, wenn in der Tabellenspalte große Datenmengen (Text/Bilder, e.c.t.) abgelegt werden können.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Contracts.IDataColumnObjectBase.IsTempField">
+            <summary>
+            Wenn es TRUE ist, werden für diese Spalte keinerlei DB-Operationen durchgeführt.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Contracts.IDataColumnObjectBase.IsActiveField">
+            <summary>
+            TRUE, wenn die Spalte in der akt. Tabellenversion verwendet wird. FALSE, wenn die Spalte nur aus Kompatibilitätsgründen noch vorhanden ist.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Constanten.CommonDBProperties.ProjectDataBaseLabel">
+            <summary>
+            Die abstrakte Bezeichnung der Datenbank
+            </summary>
+        </member>
+        <member name="F:IPS.Library.DataBase.Constanten.CommonDBProperties.ProjectDataBaseName">
+            <summary>
+            Der physiche Name der Datenbank. 
+            </summary>
+        </member>
+    </members>
+</doc>

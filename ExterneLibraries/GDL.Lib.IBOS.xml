@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.Lib.IBOS</name>
+    </assembly>
+    <members>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.ExistIBOSData(System.String)">
+            <summary>
+            Es wird geprüft, ob die Datei 'IBOS_Sta.MDB' in dem Ordner ibosDataRootFolder+'\Daten\Stat\' vorhanden ist.
+            </summary>
+            <param name="ibosDataRootFolder">Basisordner, von dem aus die Suche durchgeführt wird.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.GetDriveLetterForIBOSData(System.Boolean)">
+            <summary>
+            Ermittelt den Laufwerksbuchstaben des Laufwerkes, in dem die IBOS-Daten liegen.
+            </summary>
+            <example>N:\ --> Wenn die IBOS_sta.MDB im Ordner N:\Neher\Daten\Stat\ liegt.</example>
+            <param name="getComplete">Wenn TRUE (Standard), wird ein vollständiger Laufwerksbezeichner zurückgegeben (N:\), ansonsten nur der Laufwerksbuchstabe alleine (N).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.GetRootFolderForIBOSData">
+            <summary>
+            Ermittelt das Wurzelverzeichnis für den IBOS-Datenbestand.
+            </summary>
+            <example>N:\Neher\ --> Wenn die IBOS_sta.MDB im Ordner N:\Neher\Daten\Stat\ liegt.</example>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.SetUserprofil(Gandalan.Library.CommonObjects.IUserProfil,System.Boolean)">
+            <summary>
+            Setzt das aktuelle Userprofil für die IBOS2-Configdaten
+            </summary>
+            <param name="userProfil"></param>
+            <param name="loadConfigData">Legt fst, ob nach dem Setzen des Userprofils auch gleich die Einstellungsdaten geladen werden sollen.</param>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.GetPrinterName(System.String)">
+            <summary>
+            Ermittelt den für das Formular definierten Standarddruckernamen.
+            </summary>
+            <param name="formularName">[Optional] Der Name des IBOS-Formulars, für den der Druckername ermittelt werden soll.</param>
+            <returns>Der dem Formular zugewiesene Druckername, bzw. der Name des im System als Standarddrucker definierten Druckers.</returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.SelectPrinterName(System.String,System.Func{System.String,System.String,System.String})">
+            <summary>
+            Öffnet einen Druckerauswahldialog.
+            An Hand des Formularnamens wird der ausgewählte Drucker in der IBOS2-Configdatei gespeichert, bzw. ausgelesen.
+            </summary>
+            <param name="formularName">[Optional] Der Name des IBOS-Formulars, für den der Drucker ausgewählt werden soll.</param>
+            <param name="openPrinterDialog">[Optional] Ein alternativ zu verwendenter Druckerauswahldialog. Parameter1: Formularname / Parameter2: Druckername / Returnvalue: ausgewählter Druckername</param>
+            <returns>Der ausgewählte Druckername, bzw. der Name des im System als Standarddrucker definierten Druckers.</returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.GetInstalledPrinterNames">
+            <summary>
+            Leifert ein alphabetisch sortiertes Stringarray mit allen aktuell installierten Druckernamen zurück.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.ExistIBOS2ConfigFile">
+            <summary>
+            Es wird überprüft, ob eine Config-Datei für IBOS2 im Einstellungsverzeichnis für IBOS2 vorhanden ist.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.ExistIBOS2ConfigFileNew">
+            <summary>
+            Es wird überprüft, ob eine Config-Datei für IBOS2 im neuen XML-Format im Einstellungsverzeichnis für IBOS2 vorhanden ist.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.ExistIBOS2ConfigFileOld">
+            <summary>
+            Es wird überprüft, ob eine Config-Datei für IBOS2 alten Textformat im Einstellungsverzeichnis für IBOS2 vorhanden ist.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.CreateIBOS2ConfigFile(System.Boolean)">
+            <summary>
+            Es wird eine neue IBOS2-Configdatei mit den Werten der Eigenschaft 'IBOS2ConfigData' im Verzeichnis 'IBOSPropertiesCommon.Instance.IBOS2ConfigFileDirectory' angelegt.
+            Wenn das 'IBOS2ConfigData'-Object keine gültigen Werte enthält, werden die Standardwerte verwendet.
+            </summary>
+            <param name="useXMLFileFormat">Legt fest, ob die Daten im neuen XML-Format gespeichert werden sollen, oder nicht.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.LoadIBOS2ConfigFile(System.Boolean,System.Boolean)">
+            <summary>
+            Lädt eine vorhandene Configdatei für IBOS2 aus dem Verzeichnis 'IBOSPropertiesCommon.Instance.IBOS2ConfigFileDirectory' und stellt die Daten in der Eigenschaft 'IBOS2ConfigData' zur Verfügung.
+            Ist keine Configdatei vorhanden, bzw. für Werte, die nicht in der Configdatei enthalten sind, werden Standartwerte gesetzt.
+            </summary>
+            <param name="convertOldFileVersion">Wenn TRUE, wird eine eventuell noch vorhanden alte Configdatei in das neue XML-Format konvertiert und gelöscht.</param>
+            <param name="createConfigFile">Wenn TRUE, wird eine Standardconfigdatei angelegt, falls noch keine exisitiert.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.SaveIBOS2ConfigFile(System.Boolean)">
+            <summary>
+            Speichert die Werte der Eignschaft 'IBOS2ConfigData' in die IBOS2-Configdatei im Verzeichnis 'IBOSPropertiesCommon.Instance.IBOS2ConfigFileDirectory'.
+            </summary>
+            <param name="saveAsXMLFile">Legt fest, ob die Daten im neuen XML-Format gespeichert werden sollen.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.GetAllAvailableUserProfilNames">
+            <summary>
+            Liefert eine Auflistung aller vorhandenen Userprofile für IBOS 2014 zurück (inkl. des Standardprofils).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.ExistIBOSIniFile(System.String,System.Boolean)">
+            <summary>
+            Es wird überprüft, ob die Ini-Datei für IBOS im Einstellungsverzeichnis für IBOS vorhanden ist.
+            </summary>
+            <param name="ibosApplicationDirectory">Das IBOS-Programmverzeichnis</param>
+            <param name="moveToConfigDirectory">Lwgt fest, ob eine eventuell im IBOS-Programmverzeichnis befindliche INI-Datei in das IBOS-Einstellungsverzeichnis verschoben werden soll, falls es dort noch keine gibt.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.CreateIBOSIniFile">
+            <summary>
+            Es wird eine neue IBOS-Inidatei im IBOS Einstellungsverzeichnis angelegt.
+            Wenn das 'IBOSIniData'-Object keine gültigen Werte enthält, werden die Standardwerte verwendet.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.LoadIBOSIniFile">
+            <summary>
+            Lädt die IBOS-Einstellungen aus einer vorhandenen IBOS-Ini-Datei
+            WICHTIG! Die Datei muss existieren. Andernfalls wird eine Exception geworfen.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.SaveIBOSIniFile">
+            <summary>
+            Speichert die Daten aus dem 'IBOSIniData'-Object in die IBOS-Ini-Datei im IBOS-Einstellungsverzeichnis.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.ClearErrors">
+            <summary>
+            Löscht das im Speicher befindliche Fehlerprotokoll.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.IBOS.IBOSRoutinenCommon.setIBOS2ConfigFileName">
+            <summary>
+            Erstellt den Dateinamen für die aktuelle IBOS2-Configdatei unter Einbeziehung eines eventuell gesetzten Userprofils.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.WinForm.Contracts</name>
+    </assembly>
+    <members>
+        <member name="P:IPS.Library.WinForm.Contracts.IAdminProgressBar.RunLoop">
+            <summary>
+            Wenn TRUE, fängt der Balken immer wieder von vorne an, wenn der MaxWert erreicht hat.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.WinForm.Contracts.IEmptyControl.CheckEmptyStateInForm">
+            <summary>
+            Legt fest, ob die Validierungskontrolle innerhalb des Formulares, oder im Datenobject stattfindet.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.WinForm.Contracts.IEmptyControl.EmptyText">
+            <summary>
+            Der Text, der angezeigt wird wenn kein Eintrag ausgewählt wurde.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.Contracts.IAdminToolStrip.CheckSeparatoren">
+            <summary>
+            Es wird geprüft, ob 2 Separatoren direkt nebeneinander stehen.
+            Dann wird der rechte Separator ausgeblendet.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.WinForm.FormStates">
+            <summary>
+            Enthält Werte, die den akt. Zustand eines WinForms darstellen.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.WinForm.WinFormsProperties.ControlPaddingVertical">
+            <summary>
+            Der vertikale Abstand zwischen zwei Winformobjecten
+            </summary>
+        </member>
+        <member name="F:IPS.Library.WinForm.WinFormsProperties.ControlPaddingHorizont">
+            <summary>
+            Der horizontale standardabstand zwischen zwei Winformobjecten
+            </summary>
+        </member>
+        <member name="F:IPS.Library.WinForm.WinFormsProperties.ControlPaddingLeftFrame">
+            <summary>
+            Der Abstand zwischen einem Control und dem linken Rand des Containercontrols.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.WinForm.WinFormsProperties.ControlPaddingRightFrame">
+            <summary>
+            Der Abstand zwischen einem Control und dem rechten Rand des Containercontrols.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.WinForm.WinFormsProperties.ControlPaddingBottomFrame">
+            <summary>
+            Der Abstand zwischen einem Control und dem unteren Rand des Containercontrols.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.WinForm.WinFormsProperties.LabelControlPaddingVertical">
+            <summary>
+            Der vertikale Abstand zwischen einem Label und dem zugehörigen InputControl in Pixel
+            </summary>
+        </member>
+        <member name="F:IPS.Library.WinForm.WinFormsProperties.ControlLabelPaddingVertical">
+            <summary>
+            Der vertikale Abstand zwischen einem InputControl und dem nachfolgendem Label in Pixel
+            </summary>
+        </member>
+    </members>
+</doc>

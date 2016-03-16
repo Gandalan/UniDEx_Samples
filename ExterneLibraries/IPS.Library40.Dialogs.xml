@@ -1,0 +1,1605 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.Dialogs</name>
+    </assembly>
+    <members>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialog">
+            <summary>
+            The abstract base class for the common file dialogs.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.Dialogs.CommonFileDialog.FileOk">
+            <summary>
+            Raised just before the dialog is about to return with a result.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.Dialogs.CommonFileDialog.FolderChanging">
+            <summary>
+            Raised just before the user navigates to a new folder.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.Dialogs.CommonFileDialog.FolderChanged">
+            <summary>
+            Raised when the user navigates to a new folder.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.Dialogs.CommonFileDialog.SelectionChanged">
+            <summary>
+            Raised when the user changes the selection in the dialog's view.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.Dialogs.CommonFileDialog.FileTypeChanged">
+            <summary>
+            Raised when the dialog is opened to notify the application of the initial chosen filetype.
+            </summary>
+        </member>
+        <member name="E:IPS.Library.Dialogs.CommonFileDialog.Opening">
+            <summary>
+            Raised when the dialog is opening.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.Controls">
+            <summary>
+            Gets the collection of controls for the dialog.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.Filters">
+            <summary>
+            Gets the filters used by the dialog.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.Title">
+            <summary>
+            Gets or sets the dialog title.
+            </summary>
+            <value>A <see cref="T:System.String"/> object.</value>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.AddExtension">
+            <summary>
+            Gets or sets a value that determines whether the file extension
+            set via the DefaultExtension property is appended to the file name.
+            </summary>
+            <value>A <see cref="T:System.Boolean"/> value.</value>
+            
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.CheckFileExists">
+            <summary>
+            Gets or sets a value to specify whether 
+            the file returned must exist.
+            </summary>
+            <value>A <see cref="T:System.Boolean"/> value. <b>True</b> if the file must exist.</value>
+            <exception cref="T:System.InvalidOperationException">This property cannot be set when the dialog is visible.</exception>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.CheckPathExists">
+            <summary>
+            Gets or sets a value to specify whether the file returned 
+            must be in an existing folder.
+            </summary>
+            <value>A <see cref="T:System.Boolean"/> value. <b>True</b> if the file must exist.</value>
+            <exception cref="T:System.InvalidOperationException">This property cannot be set when the dialog is visible.</exception>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.CheckValidNames">
+             <summary>Gets or sets a value that controls
+             validation of file names.
+             </summary>
+            <value>A <see cref="T:System.Boolean"/> value. See remarks.</value>
+             <exception cref="T:System.InvalidOperationException">This property cannot be set when the dialog is visible.</exception>
+             <remarks>Specify <b>True </b>to check for situations that would prevent an application from opening the selected file, such as sharing violations or access denied errors.</remarks>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.CheckReadOnly">
+            <summary>
+            Gets or sets a value that determines 
+            whether read-only items are returned.
+            </summary>
+            <value>A <see cref="T:System.Boolean"/> value. <b>True</b> includes read-only items.</value>
+            <exception cref="T:System.InvalidOperationException">This property cannot be set when the dialog is visible.</exception>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.RestoreDirectory">
+            <summary>
+            Corresponds to the FOS_NOCHANGEDIR 
+            file dialog option.
+            </summary>
+            <remarks>According to the win32 documentation,
+            this value is not used.d</remarks>
+            <exception cref="T:System.InvalidOperationException">This property cannot be set when the dialog is visible.</exception>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.ShowPlacesList">
+            <summary>
+            Gets or sets a value that controls whether 
+            to show or hide the list of pinned places that
+            the user can choose from.
+            </summary>
+            <value>A <see cref="T:System.Boolean"/> value.</value>
+            <exception cref="T:System.InvalidOperationException">This property cannot be set when the dialog is visible.</exception>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.AddToMruList">
+            <summary>
+            Gets or sets a value that controls whether 
+            to show or hide the list of places from which the 
+            user has recently opened or saved items.
+            </summary>
+            <value>A <see cref="T:System.Boolean"/> value.</value>
+            <exception cref="T:System.InvalidOperationException">This property cannot be set when the dialog is visible.</exception>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.ShowHiddenItems">
+            <summary>
+             Gets or sets a value that controls whether 
+             to show hidden items.
+             </summary>
+             <value>A <see cref="T:System.Boolean"/> value.</value>
+             <exception cref="T:System.InvalidOperationException">This property cannot be set when the dialog is visible.</exception>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.AllowPropertyEditing">
+            <summary>
+            Gets or sets a value that controls whether 
+            properties can be edited.
+            </summary>
+            <value>A <see cref="T:System.Boolean"/> value. </value>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.DereferenceLinks">
+            <summary>
+             Gets or sets a value that controls whether 
+             shortcuts should be treated as their target items,
+             allowing an application to open a .lnk file.
+             </summary>
+             <value>A <see cref="T:System.Boolean"/> value. <b>True</b> indicates that shortcuts should be treated as their targets. </value>
+             <exception cref="T:System.InvalidOperationException">This property cannot be set when the dialog is visible.</exception>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.DefaultExtension">
+            <summary>
+            Gets or sets the default file extension to be added to file names.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.FileName">
+            <summary>
+            Gets the selected filename.
+            </summary>
+            <value>A <see cref="T:System.String"/> object.</value>
+            <exception cref="T:System.InvalidOperationException">This property cannot be used when multiple files are selected.</exception>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.InitialDirectory">
+            <summary>
+            Gets or sets the initial directory displayed when the 
+            dialog is shown.
+            </summary>
+            <value>A <see cref="T:System.String"/> object.</value>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialog.UsageIdentifier">
+            <summary>
+            Gets or sets a value that enables a calling application 
+            to associate a GUID with a dialog's persisted state.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.CommonFileDialog.pIllegalPropertyChangeString">
+            <summary>
+            Contains a common error message string shared by classes that 
+            inherit from this class.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.CommonFileDialog.pFileNames">
+            <summary>
+            The collection of names selected by the user.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified title.
+            </summary>
+            <param name="title">The title to display in the dialog.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.StartVisualGroup(System.String)">
+            <summary>
+            Start the visual group on the dialog
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.EndVisualGroup">
+            <summary>
+            End the visual group on the dialog
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.ShowDialog">
+            <summary>
+            Displays the dialog.
+            </summary>
+            <returns>A <see cref="T:IPS.Library.Dialogs.CommonFileDialogResult"/> object.</returns>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.ResetUserSelections">
+            <summary>
+            Removes the current selection.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.CheckFileNamesAvailable">
+            <summary>
+            Ensures that the user has selected one or more files.
+            </summary>
+            <permission cref="T:System.InvalidOperationException">
+            The dialog has not been dismissed yet -or-
+            the dialog was canceled.</permission>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.ThrowIfDialogShowing(System.String)">
+            <summary>
+            Throws an exception when the dialog is showing preventing
+            a requested change to a property or the visible set of controls.
+            </summary>
+            <param name="message">The message to include in the exception.</param>
+            <permission cref="T:System.InvalidOperationException"> The dialog is in an
+            invalid state to perform the requested operation.</permission>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.GetCustomizedFileDialog">
+            <summary>
+            Get the IFileDialogCustomize interface, preparing to add controls.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.OnFileOk(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Called just before the dialog is about to return with a result.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.OnFolderChanging(IPS.Library.Dialogs.CommonFileDialogFolderChangeEventArgs)">
+            <summary>
+            Called before <see cref="M:IPS.Library.Dialogs.CommonFileDialog.OnFolderChanged(System.EventArgs)"/>. This allows the implementer to stop navigation to a particular location.
+            </summary>
+            <param name="e">Cancelable event arguments.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.OnFolderChanged(System.EventArgs)">
+            <summary>
+            Called when the user navigates to a new folder.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.OnSelectionChanged(System.EventArgs)">
+            <summary>
+            Called when the user changes the selection in the dialog's view.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.OnFileTypeChanged(System.EventArgs)">
+            <summary>
+            Called when the dialog is opened to notify the 
+            application of the initial chosen filetype.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.OnOpening(System.EventArgs)">
+            <summary>
+            Called when the dialog is opened.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialog.SyncFileTypeComboToDefaultExtension(IPS.Library.Dialogs.Interop.IFileDialog)">
+            <summary>
+            Tries to set the File(s) Type Combo to match the value in 
+            'defaultExtension'.  Only doing this if 'this' is a Save dialog 
+            as it makes no sense to do this if only Opening a file.
+            </summary>
+            
+            <param name="dialog">The native/IFileDialog instance.</param>
+            
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogButton">
+            <summary>
+            Common class for all PushButton controls on Common File Dialog
+            </summary>
+        </member>
+        <member name="E:IPS.Library.Dialogs.CommonFileDialogButton.Click">
+            <summary>
+            Occurs when the control is clicked. This event is routed from COM via the event sink.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogButton.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogButton.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the text only
+            </summary>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogButton.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name and text.
+            </summary>
+            <param name="name">The name of this control</param>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogButton.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+            Attach the PushButton control to the dialog object
+            </summary>
+            <param name="dialog">Target dialog</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogCheckBox">
+            <summary>
+            Common class for all CheckButton controls on Common File Dialog
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogCheckBox.IsChecked">
+            <summary>
+            Gets or sets the check state of CheckButton
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogCheckBox.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogCheckBox.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified text
+            </summary>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogCheckBox.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name and text
+            </summary>
+            <param name="name">The name of this control</param>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogCheckBox.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a new instance of this class with the specified text and check state.
+            </summary>
+            <param name="text">Text to display for this control</param>
+            <param name="isChecked">Check state of this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogCheckBox.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Creates a new instance of this class with the specified name, text and checked state.
+            </summary>
+            <param name="name">The name of this control</param>
+            <param name="text">Text to display for this control</param>
+            <param name="isChecked">Check state of this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogCheckBox.RaiseCheckedChangedEvent">
+            <summary>
+            Occurs when the check state is changed
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogCheckBox.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+            Attach the CheckButton control to the dialog object.
+            </summary>
+            <param name="dialog">the target dialog</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogComboBox">
+            <summary>
+            Common class for all ComboBox controls on Common File Dialog
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogComboBox.Items">
+            <summary>
+            Gets the collection of CommonFileDialogBoxBoxItem objects
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogComboBox.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogComboBox.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name
+            </summary>
+            <param name="name">Text to display for this control</param>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogComboBox.SelectedIndex">
+            <summary>
+            Gets the current index of the selected item
+            </summary>
+        </member>
+        <member name="E:IPS.Library.Dialogs.CommonFileDialogComboBox.SelectedIndexChanged">
+            <summary>
+            Raised when the SelectedIndex is changed.
+            </summary>
+            
+            <remarks>
+            Initializing the SelectedIndexChanged event with an empty
+            delegate allows us to skip the 
+            "if (SelectedIndexChanged != null) { /* fire the event */ }"
+            test.
+            </remarks>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogComboBox.RaiseSelectedIndexChangedEvent">
+            <summary>
+            Raises the SelectedIndexChanged event if 'this' control is 
+            enabled.
+            </summary>
+            
+            <remarks>
+            adding this method to the ICommonFileDialogIndexedControls 
+            interface means that we can't have it public, and in fact it 
+            now needs to be public.
+            </remarks>
+            
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogComboBox.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+            Attach the ComboBox control to the dialog object
+            </summary>
+            <param name="dialog">The target dialog</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogComboBoxItem">
+            <summary>
+            Class that represents a ComboBoxItem for the Common File Dialog
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogComboBoxItem.Text">
+            <summary>
+            String that will be displayed for this item
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogComboBoxItem.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogComboBoxItem.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified text
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogControl">
+            <summary>
+            Abstract class that supports shared functionality for 
+            common file dialog controls.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogControl.Text">
+            <summary>
+            The text string that shows on the control
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogControl.Enabled">
+            <summary>
+            Is this control enabled.  Disabled controls are grayed out.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogControl.Visible">
+            <summary>
+            Gets or sets a boolean value that indicates whether (true) or 
+            not (false) this control is visible.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogControl.IsAdded">
+            <summary>
+            Has this control been added to the dialog
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.CommonFileDialogControl.pTextValue">
+            <summary>
+            Holds the text that will be displayed for this control.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogControl.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogControl.#ctor(System.String)">
+            <summary>
+            Create a new instance of this class with text only.
+            </summary>
+            <param name="text">the text of common file dialog control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogControl.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class using the specified name and text.
+            </summary>
+            <param name="name">the name of common file dialog control</param>
+            <param name="text">the text of common file dialog control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogControl.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+            Attach the custom control itself to the specified dialog
+            </summary>
+            <param name="dialog">the target dialog</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogFilter">
+            <summary>
+            Stores file extenstions used to filter files that appear in 
+            File Open and File Save dialogs.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogFilter.DisplayName">
+            <summary>
+            Gets or sets the display name for this filter.
+            </summary>
+            <permission cref="T:System.ArgumentNullException">
+            The value for this property cannot be set to null or a 
+            zero-length string. 
+            </permission>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogFilter.Extensions">
+            <summary>
+            Gets a collection of the individual extensions 
+            described by this filter.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogFilter.ShowExtensions">
+            <summary>
+            Gets or sets a value that controls whether the extensions are displayed.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogFilter.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogFilter.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified display name and 
+            file extension list.
+            </summary>
+            <param name="rawDisplayName">The name for this filter.</param>
+            <param name="extensionList">The list of extensions in 
+            this filter. See remarks.</param>
+            <remarks>The <paramref name="extensionList"/> can use a semicolon(";") 
+            or comma (",") to separate extensions. Extensions can be prefaced 
+            with a period (".") or with the file wild card specifier "*.".</remarks>
+            <permission cref="T:System.ArgumentNullException">
+            The <paramref name="extensionList"/> cannot be null or a 
+            zero-length string. 
+            </permission>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogFilter.GetFilterSpec">
+            <summary>
+            Internal helper that generates a single filter 
+            specification for this filter, used by the COM API.
+            </summary>
+            <returns>Filter specification for this filter</returns>
+            
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogFilter.ToString">
+            <summary>
+            Returns a string representation for this filter that includes
+            the display name and the list of extensions.
+            </summary>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogFilterCollection">
+            <summary>
+            Strongly typed collection for file dialog filters.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogFolderChangeEventArgs">
+            <summary>
+            The event data associated with <see cref="E:IPS.Library.Dialogs.CommonFileDialog.FolderChanging"/> event.
+            </summary>
+            
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogFolderChangeEventArgs.Folder">
+            <summary>
+            Gets or sets the name of the folder.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogFolderChangeEventArgs.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+            <param name="folder">The name of the folder.</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogGroupBox">
+            <summary>
+            The abstract class a group box control for the Common File Dialog
+            </summary>note
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogGroupBox.Items">
+            <summary>
+            Gets the collection of controls for this group box
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogGroupBox.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogGroupBox.#ctor(System.String)">
+            <summary>
+            Create a new instance of this class with the specified text
+            </summary>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogGroupBox.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name and text.
+            </summary>
+            <param name="name">The name of this control</param>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogGroupBox.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+            Attach the GroupBox control to the dialog object
+            </summary>
+            <param name="dialog">Target dialog</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogGroupBox.initialize">
+            <summary>
+            Initializes the item collection for this class
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogLabel">
+            <summary>
+            Common class for label controls on Common File Dialog
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogLabel.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogLabel.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified text
+            </summary>
+            <param name="text">the text of text control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogLabel.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name and text.
+            </summary>
+            <param name="name">The name of this control</param>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogLabel.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+             Attach this control to the dialog object
+             </summary>
+             <param name="dialog">Target dialog</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogMenu">
+            <summary>
+            Common class for all Menu controls on Common File Dialog
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogMenu.Items">
+            <summary>
+            Gets the collection of CommonFileDialogMenuItem objects
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogMenu.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogMenu.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified text
+            </summary>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogMenu.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name and text
+            </summary>
+            <param name="name">The name of this control</param>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogMenu.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+            Attach the Menu control to the dialog object.
+            </summary>
+            <param name="dialog">the target dialog</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogMenu.initialize">
+            <summary>
+            Initializes the item collection for this class
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogMenuItem">
+            <summary>
+            Common class for the menu items for the Common File Dialog
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogMenuItem.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogMenuItem.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified text
+            </summary>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogMenuItem.RaiseClickEvent">
+            <summary>
+            Called when a menu item is clicked
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogMenuItem.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+            Attach this control to the dialog object
+            </summary>
+            <param name="dialog">Target dialog</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogProminentControl">
+            <summary>
+            Common class for all Prominent controls on Common File Dialog
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogProminentControl.IsProminent">
+            <summary>
+            Sets or gets the prominent value of this control. Note: Only one control
+            can be specified as prominent. If more than one control is specified 
+            prominent, then an 'E_UNEXPECTED' exception will be thrown when these
+            controls are added to the dialog.  A group box control can only be
+            specified as prominent if it contains one control and that control is
+            of the type 'CommonFileDialogProminentControl'.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogProminentControl.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogProminentControl.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified text
+            </summary>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogProminentControl.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name and text
+            </summary>
+            <param name="name">The name of this control</param>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogRadioButtonList">
+            <summary>
+            Represents a radio button list for the Common File Dialog
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogRadioButtonList.Items">
+            <summary>
+            Gets the collection of CommonFileDialogRadioButtonListItem objects
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogRadioButtonList.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogRadioButtonList.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name
+            </summary>
+            <param name="name">The name of this control</param>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogRadioButtonList.SelectedIndex">
+            <summary>
+            Gets the current index of the selected item
+            </summary>
+        </member>
+        <member name="E:IPS.Library.Dialogs.CommonFileDialogRadioButtonList.SelectedIndexChanged">
+            <summary>
+            Raised when the SelectedIndex is changed.
+            </summary>
+            
+            <remarks>
+            Initializing the SelectedIndexChanged event with an empty
+            delegate allows us to skip the 
+            "if (SelectedIndexChanged != null) { /* fire the event */ }"
+            test.
+            </remarks>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogRadioButtonList.RaiseSelectedIndexChangedEvent">
+            <summary>
+            Called when the SelectedIndex is changed.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogRadioButtonList.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+            Attach the RadioButtonList control to the dialog object
+            </summary>
+            <param name="dialog">The target dialog</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogRadioButtonList.initialize">
+            <summary>
+            Initializes the item collection for this class
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogRadioButtonListItem">
+            <summary>
+            List item for the CommonFileDialogRadioButtonList object
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogRadioButtonListItem.Text">
+            <summary>
+            String that will be displayed for this list item
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogRadioButtonListItem.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogRadioButtonListItem.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified text
+            </summary>
+            <param name="text">The string that you want to display for this list item</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogResult">
+            <summary>
+            Used to store the result of displaying a dialog.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogResult.Canceled">
+            <summary>
+            Gets a value that indicates whether the end user canceled the dialog.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogResult.#ctor(System.Boolean)">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+            <param name="canceled">Specifies the starting value for the <see cref="P:IPS.Library.Dialogs.CommonFileDialogResult.Canceled"/> property.</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogSeparator">
+            <summary>
+            Common class for the simplest seperator control
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogSeparator.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+            Attach the Separator control to the dialog object
+            </summary>
+            <param name="dialog">Target dialog</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogStandardFilters">
+            <summary>
+            Defines commonly used file filters.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogStandardFilters.TextFiles">
+            <summary>
+            Gets a filter for *.txt files.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogStandardFilters.OfficeFiles">
+            <summary>
+            Gets a filter for Microsoft Word and Excel files.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonFileDialogTextBox">
+            <summary>
+             Common class for all TextBox controls on Common File Dialog
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonFileDialogTextBox.Text">
+            <summary>
+            Gets or sets the Text contained in this CommonFileDialogTextBox.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.CommonFileDialogTextBox._CustomizedDialog">
+            <summary>
+            Holds an instance of the customized (/native) dialog and should
+            be null until after the Attach() call is made.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogTextBox.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogTextBox.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified text
+            </summary>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogTextBox.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name and text.
+            </summary>
+            <param name="name">The name of this control</param>
+            <param name="text">Text to display for this control</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonFileDialogTextBox.Attach(IPS.Library.Dialogs.Interop.IFileDialogCustomize)">
+            <summary>
+            Attach the TextBox control to the dialog object
+            </summary>
+            <param name="dialog">Target dialog</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonOpenFileDialog">
+            <summary>
+            Provides access to a Vista Common File Dialog, which allows the user
+            to select one or more files.
+            </summary>
+            
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonOpenFileDialog.FileNames">
+            <summary>
+            gets a collection of the selected file names.
+            </summary>
+            <remarks>This property should only be used when the
+            <see cref="P:IPS.Library.Dialogs.CommonOpenFileDialog.MultiSelect"/>
+            property is <b>true</b>.</remarks>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonOpenFileDialog.MultiSelect">
+            <summary>
+            Gets or sets a value that controls whether the user can
+            select more than one file.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonOpenFileDialog.FoldersOnly">
+            <summary>
+            Gets or sets a value that controls whether the user can select
+            folders or files.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonOpenFileDialog.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonOpenFileDialog.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name.
+            </summary>
+            <param name="name">The name for this dialog.</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.CommonSaveFileDialog">
+            <summary>
+            Provides access to a Vista Common File Dialog, which allows the user
+            to select the filename and location for a saved file.
+            </summary>
+            <permission cref="T:System.Security.Permissions.FileDialogPermission">
+            to save a file. Associated enumeration: <see cref="F:System.Security.Permissions.SecurityAction.LinkDemand"/>.
+            </permission>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonSaveFileDialog.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.CommonSaveFileDialog.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name.
+            </summary>
+            <param name="name">The name for this dialog.</param>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonSaveFileDialog.OverwritePrompt">
+            <summary>
+            Gets or sets a value that controls whether to prompt before 
+            overwriting an existing file of the same name. 
+            </summary>
+            <permission cref="T:System.InvalidOperationException">
+            This property cannot be changed when the dialog is showing.
+            </permission>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonSaveFileDialog.CreatePrompt">
+            <summary>
+            Gets or sets a value that controls whether to prompt for creation 
+            if the item returned in the save dialog does not exist. 
+            </summary>
+            <remarks>Note that this does not actually create the item.</remarks>
+            <permission cref="T:System.InvalidOperationException">
+            This property cannot be changed when the dialog is showing.
+            </permission>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonSaveFileDialog.EnableMiniMode">
+            <summary>
+            Gets or sets a value that controls whether to the save dialog 
+            displays in expanded mode. 
+            </summary>
+            <remarks>Expanded mode controls whether the dialog
+            shows folders for browsing or hides them.</remarks>
+            <permission cref="T:System.InvalidOperationException">
+            This property cannot be changed when the dialog is showing.
+            </permission>
+        </member>
+        <member name="P:IPS.Library.Dialogs.CommonSaveFileDialog.StrictExtensions">
+            <summary>
+            Gets or sets a value that controls whether to ensure that the 
+            returned file name has a file extension that matches the 
+            currently selected file type. The dialog appends the correct 
+            file extension if necessary.
+            </summary>
+            <permission cref="T:System.InvalidOperationException">
+            This property cannot be changed when the dialog is showing.
+            </permission>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Dialogs.DesktopWindowManager">
+            <summary>
+             DesktopWindowManager
+             Enables Blur/Translusency on the Client and Non Client Areas of Windows and WPF applications
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.Dialogs.DesktopWindowManager.ResetBlur(System.IntPtr)">
+            <summary>
+            ResetBlur
+            Resets the blur on the Window/form
+            </summary>
+            <param name="windowHandle">Handle to client window/form</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.Dialogs.DesktopWindowManager.FrameThickness(System.Int32,System.Int32,System.Int32,System.Int32,System.IntPtr)">
+            <summary>
+            FrameThickness
+            Extends the Frame(Non Client Area) of the Window/Form into client area
+            </summary>
+            <param name="left">Left margin to which extent the frame needs to be extended from left side</param>
+            <param name="right">Right margin to which extent the frame needs to be extended from right side</param>
+            <param name="top">Top margin to which extent the frame needs to be extended from top side</param>
+            <param name="bottom">Bottom margin to which extent the frame needs to be extended from bottom side</param>
+            <param name="windowHandle">Handle to client window/form</param>
+            <returns>0 for Success</returns>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Dialogs.GlassForm">
+            <summary>
+            Windows Glass Form
+            Inherit from this form to be able to enable glass on Windows Form
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.Dialogs.GlassForm.IsGlassEnabled">
+            <summary>
+            Enables glass of the entire client area
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.Dialogs.GlassForm.FormThickness">
+            <summary>
+            FrameThickness
+            Extends the Frame(Non Client Area) of the Window into client area
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.Dialogs.GlassForm.#ctor">
+            <summary>
+            Constructor for GlassForm
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.Dialogs.GlassForm.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overide OnPaint to paint the background as black.
+            </summary>
+            <param name="e">PaintEventArgs</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.DialogControl">
+            <summary>
+            Abstract base class for all dialog controls
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.DialogControl.HostingDialog">
+            <summary>
+            The native dialog that is hosting this control. This property is null is
+            there is not associated dialog
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.DialogControl.Name">
+            <summary>
+            Gets or sets the name for this control.
+            </summary>
+            <value>A <see cref="T:System.String"/> value.</value>
+            <remarks>
+            The name of the control should not be modified once set
+            </remarks>
+            <exception cref="T:System.ArgumentException">The name cannot be null or a zero-length string.</exception>
+            <exception cref="T:System.InvalidOperationException">The name has already been set.</exception>
+        </member>
+        <member name="P:IPS.Library.Dialogs.DialogControl.Id">
+            <summary>
+            Gets the identifier for this control.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> value.</value>
+        </member>
+        <member name="M:IPS.Library.Dialogs.DialogControl.#ctor">
+            <summary>
+            Creates a new instance of a dialog control
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.DialogControl.#ctor(System.String)">
+            <summary>
+            Creates a new instance of a dialog control with the specified name.
+            </summary>
+            <param name="name">The name for this dialog.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.DialogControl.Equals(System.Object)">
+            <summary>
+            Compares two objects to determine whether they are equal
+            </summary>
+            <param name="obj">The object to compare against.</param>
+            <returns>A <see cref="T:System.Boolean"/> value.</returns>
+        </member>
+        <member name="M:IPS.Library.Dialogs.DialogControl.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>An <see cref="T:System.Int32"/> hash code for this control.</returns>
+        </member>
+        <member name="M:IPS.Library.Dialogs.DialogControl.CheckPropertyChangeAllowed(System.String)">
+            <summary>
+             Calls the hosting dialog, if it exists, to check whether the 
+             property can be set in the dialog's current state. 
+             The host should throw an exception if the change is not supported.
+             Note that if the dialog isn't set yet, 
+             there are no restrictions on setting the property.
+             </summary>
+             <param name="propName">The name of the property that is changing</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.DialogControl.ApplyPropertyChange(System.String)">
+            <summary>
+             Calls the hosting dialog, if it exists, to
+             to indicate that a property has changed, and that 
+             the dialog should do whatever is necessary 
+             to propagate the change to the native control.
+             Note that if the dialog isn't set yet, 
+             there are no restrictions on setting the property.
+             </summary>
+             <param name="propName">The name of the property that is changing.</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.DialogControlCollection`1">
+            <summary>
+            Strongly typed collection for dialog controls.
+            </summary>
+            <typeparam name="T">DialogControl</typeparam>
+        </member>
+        <member name="P:IPS.Library.Dialogs.DialogControlCollection`1.Item(System.String)">
+             <summary>
+             Defines the indexer that supports accessing controls by name. 
+             </summary>
+             <remarks>
+             <para>Control names are case sensitive.</para>
+             <para>This indexer is useful when the dialog is created in XAML
+             rather than constructed in code.</para></remarks>
+            <exception cref="T:System.ArgumentException">
+             The name cannot be null or a zero-length string.</exception>
+        </member>
+        <member name="M:IPS.Library.Dialogs.DialogControlCollection`1.GetControlById(System.Int32)">
+            <summary>
+            Recursively searches for the control who's id matches the value
+            passed in the <paramref name="id"/> parameter.
+            </summary>
+            
+            <param name="id">An integer containing the identifier of the 
+            control being searched for.</param>
+            
+            <returns>A DialogControl who's id matches the value of the
+            <paramref name="id"/> parameter.</returns>
+            
+        </member>
+        <member name="M:IPS.Library.Dialogs.DialogControlCollection`1.GetSubControlById(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+            Recursively searches for a given control id in the 
+            collection passed via the <paramref name="ctrlColl"/> parameter.
+            </summary>
+            
+            <param name="ctrlColl">A Collection&lt;CommonFileDialogControl&gt;</param>
+            <param name="id">An int containing the identifier of the control 
+            being searched for.</param>
+            
+            <returns>A DialogControl who's Id matches the value of the
+            <paramref name="id"/> parameter.</returns>
+            
+        </member>
+        <member name="M:IPS.Library.Dialogs.DialogControlCollection`1.InsertItem(System.Int32,`0)">
+            <summary>
+            Inserts an dialog control at the specified index.
+            </summary>
+            <param name="index">The location to insert the control.</param>
+            <param name="control">The item to insert.</param>
+            <permission cref="T:System.InvalidOperationException">A control with 
+            the same name already exists in this collection -or- 
+            the control is being hosted by another dialog -or- the associated dialog is 
+            showing and cannot be modified.</permission>
+        </member>
+        <member name="M:IPS.Library.Dialogs.DialogControlCollection`1.RemoveItem(System.Int32)">
+            <summary>
+            Removes the control at the specified index.
+            </summary>
+            <param name="index">The location of the control to remove.</param>
+            <permission cref="T:System.InvalidOperationException">
+            The associated dialog is 
+            showing and cannot be modified.</permission>
+        </member>
+        <member name="T:IPS.Library.Dialogs.NativeTaskDialog">
+            <summary>
+            Encapsulates the native logic required to create, 
+            configure, and show a TaskDialog, 
+            via the TaskDialogIndirect() Win32 function.
+            </summary>
+            <remarks>A new instance of this class should 
+            be created for each messagebox show, as
+            the HWNDs for TaskDialogs do not remain constant 
+            across calls to TaskDialogIndirect.
+            </remarks>
+        </member>
+        <member name="T:IPS.Library.Dialogs.NativeTaskDialogSettings">
+            <summary>
+             Encapsulates additional configuration needed by NativeTaskDialog
+             that it can't get from the TASKDIALOGCONFIG struct.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialog">
+            <summary>
+            Encapsulates a new-to-Vista Win32 TaskDialog window 
+            - a powerful successor to the MessageBox available
+            in previous versions of Windows.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialog.applyTextConfiguration(IPS.Library.Dialogs.Interop.SafeNativeMethods.TASKDIALOGCONFIG)">
+            <summary>
+            Sets important text properties.
+            </summary>
+            <param name="dialogConfig">An instance of a <see cref="T:IPS.Library.Dialogs.Interop.SafeNativeMethods.TASKDIALOGCONFIG"/> object.</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogBar">
+            <summary>
+            Common class for all task dialog bar controls, such as the progress and marquee bars.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogBar.State">
+            <summary>
+            Gets or sets the state of the progress bar.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogBar.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogBar.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name.
+            </summary>
+            <param name="name">The name for this control.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogBar.Reset">
+            <summary>
+            Resets the state of the control to normal.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogButton">
+            <summary>
+            Implements a button that can be hosted in a task dialog.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogButton.ShowElevationIcon">
+            <summary>
+            Gets or sets a value that controls whether the elevation icon is displayed.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogButton.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogButton.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified property settings.
+            </summary>
+            <param name="name">The name of the button.</param>
+            <param name="text">The button label.</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogButtonBase">
+            <summary>
+            The abstract base class for task dialog buttons. 
+            Classes that inherit from this class will inherit 
+            the Text property defined in this class.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogButtonBase.Text">
+            <summary>
+            Gets or sets the button text.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogButtonBase.Enabled">
+            <summary>
+            Gets or sets a value that determines whether the
+            button is enabled.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogButtonBase.Default">
+            <summary>
+            Gets or sets a value that indicates whether
+            this button is the default button.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.TaskDialogButtonBase._DefaultControl">
+            <summary>
+            Returns the Text property value for this button.
+            </summary>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogButtonBase.#ctor">
+            <summary>
+            Creates a new instance on a task dialog button.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogButtonBase.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance on a task dialog button with
+            the specified name and text.
+            </summary>
+            <param name="name">The name for this button.</param>
+            <param name="text">The label for this button.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogButtonBase.RaiseClickEvent">
+            <summary>
+            Raised when the task dialog button is clicked.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogClosingEventArgs">
+            <summary>
+            Data associated with <see cref="E:IPS.Library.Dialogs.TaskDialog.Closing"/> event.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogClosingEventArgs.CustomButton">
+            <summary>
+            Gets or sets the text of the custom button that was clicked.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogClosingEventArgs.StandardButton">
+            <summary>
+            Gets or sets the standard button that was clicked.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogCommandLink">
+            <summary>
+            Represents a command-link. 
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogCommandLink.Instruction">
+            <summary>
+            Gets or sets the instruction associated with this command link button.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogCommandLink.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogCommandLink.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name and label.
+            </summary>
+            <param name="name">The name for this button.</param>
+            <param name="text">The label for this button.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogCommandLink.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name,label, and instruction.
+            </summary>
+            <param name="name">The name for this button.</param>
+            <param name="text">The label for this button.</param>
+            <param name="instruction">The instruction for this command link.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogCommandLink.ToString">
+            <summary>
+            Returns a string representation of this object.
+            </summary>
+            <returns>A <see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogControl">
+            <summary>
+            Abstract base class for all custom task dialog controls.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogControl.#ctor">
+            <summary>
+            Creates a new instance of a task dialog control.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogControl.#ctor(System.String)">
+            <summary>
+            Creates a new instance of a task dialog control with the specified name.
+            </summary>
+            <param name="name">The name for this control.</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogExpandedInformationLocation">
+            <summary>
+            Specifies the options for expand/collapse sections in dialogs.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.TaskDialogExpandedInformationLocation.Hide">
+            <summary>
+            Do not show the content.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.TaskDialogExpandedInformationLocation.ExpandContent">
+            <summary>
+            Show the content.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.TaskDialogExpandedInformationLocation.ExpandFooter">
+            <summary>
+            Expand the footer content.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogHyperlinkClickedEventArgs">
+            <summary>
+            Event data associated with a HyperlinkClick event.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogHyperlinkClickedEventArgs.LinkText">
+            <summary>
+            The text of the hyperlink that was clicked.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogHyperlinkClickedEventArgs.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified link text.
+            </summary>
+            <param name="link">The text of the hyperlink that was clicked.</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogMarquee">
+            <summary>
+            Creates a marquee style progress bar.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogMarquee.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogProgressBar">
+            <summary>
+            Provides a visual representation of the progress of a long running operation.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogProgressBar.Minimum">
+            <summary>
+            Gets or sets the minimum value for the control.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogProgressBar.Maximum">
+            <summary>
+            Gets or sets the maximum value for the control.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogProgressBar.Value">
+            <summary>
+            Gets or sets the current value for the control.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogProgressBar.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogProgressBar.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the specified name.
+            </summary>
+            <param name="name">The name of the control.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogProgressBar.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance of this class with the specified 
+            minimum, maximum and current values.
+            </summary>
+            <param name="minimum">The minimum value for this control.</param>
+            <param name="maximum">The maximum value for this control.</param>
+            <param name="value">The current value for this control.</param>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogProgressBar.Reset">
+            <summary>
+            Resets the control to its minimum value.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogProgressBarState">
+            <summary>
+            Sets the state of a task dialog progress bar.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.TaskDialogProgressBarState.Normal">
+            <summary>
+            Normal state.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.TaskDialogProgressBarState.Error">
+            <summary>
+            An error occurred.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.TaskDialogProgressBarState.Paused">
+            <summary>
+            The progress is paused.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogRadioButton">
+            <summary>
+            Defines a radio button that can be hosted in by a 
+            <see cref="T:IPS.Library.Dialogs.TaskDialog"/> object.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogRadioButton.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogRadioButton.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class with
+            the specified name and text.
+            </summary>
+            <param name="name">The name for this control.</param>
+            <param name="text">The value for this controls 
+            <see cref="P:IPS.Library.Dialogs.TaskDialogButtonBase.Text"/> property.</param>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogResult">
+            <summary>
+            Indicates the various buttons and options clicked by the user on the task dialog.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogResult.StandardButtonClicked">
+            <summary>
+            Indicates which standard button was selected by the user, 
+            if they selected a custom button.
+            </summary>
+            <remarks>
+            TaskDialogStandardButton.None will be returned 
+            if some other option was selected, or the
+            dialog was cancelled.
+            </remarks>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogResult.CustomButtonClicked">
+            <summary>
+            Indicates which named custom button was 
+            selected by the user. It will be null
+            if user cancelled the dialog or selected a standard button.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogResult.RadioButtonClicked">
+            <summary>
+            Indicates which radio button was selected when 
+            the user closed the dialog. It will be null
+            if the user cancelled the dialog.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogResult.CheckBoxChecked">
+            <summary>
+            Indicates whether the checkbox was 
+            checked or unchecked when the dialog was closed by the user.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogResult.ToString">
+            <summary>
+            Returns a string representation of this object.
+            </summary>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogStartupLocation">
+            <summary>
+            Specifies the initial display location for a task dialog. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.TaskDialogStartupLocation.CenterScreen">
+            <summary>
+            Place the window in the center of the screen.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.TaskDialogStartupLocation.CenterOwner">
+            <summary>
+            Center the window based on the window that launched the dialog.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.TaskDialogTickEventArgs">
+            <summary>
+            The event data for the <see cref="E:IPS.Library.Dialogs.TaskDialog.Tick"/> event.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.Dialogs.TaskDialogTickEventArgs.Ticks">
+            <summary>
+            Gets the current number of ticks.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Dialogs.TaskDialogTickEventArgs.#ctor(System.Int32)">
+            <summary>
+            The data associated with the <see cref="E:IPS.Library.Dialogs.TaskDialog.Tick"/> event.
+            </summary>
+            <param name="totalTicks">The total number of ticks since the control was activated.</param>
+        </member>
+    </members>
+</doc>

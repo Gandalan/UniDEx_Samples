@@ -1,0 +1,370 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.WinForm</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.WinForm.DataGridViewLogic.DataGridViewRoutinen.SetNotEditable(System.Windows.Forms.DataGridView)">
+            <summary>
+            Verhindert, dass die einzelnen Zellen des DataGrides aktiviert werden können.
+            </summary>
+            <param name="dataGridView"></param>
+        </member>
+        <member name="M:IPS.Library.WinForm.DataGridViewLogic.DataGridViewRoutinen.GetSortedColumnsName(IPS.Library.WinForm.Contracts.Controls.IDataGridViewIPS)">
+            <summary>
+            Liefert eine Auflistung alle Spaltennamen als Key mit der jeweiligen SortOrder als Value zurück.
+            </summary>
+            <param name="dataGridView"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.DataGridViewLogic.DataGridViewRoutinen.GetSortedColumnsCaption(IPS.Library.WinForm.Contracts.Controls.IDataGridViewIPS,System.Boolean)">
+            <summary>
+            Liefert eine Auflistung der Spaltenüberschriften aller sortierten Spalten zurück.
+            </summary>
+            <param name="dataGridView"></param>
+            <param name="getSortOrder">Wenn TRUE, wird hinter der Spaltenüberschrift die Sortierrichtung (sofern definiert) in eckigen Klammen [] mit ausgegeben</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.DataGridViewLogic.DataGridViewRoutinen.GetVisibleColumnsCaption(System.Windows.Forms.DataGridView)">
+            <summary>
+            Liefert eine Auflistung aller aktuell sichtbaren Spalten des DataGridView, in der Reihenfolge, wie sie angezeigt werden..
+            </summary>
+            <param name="dataGridView"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.DataGridViewLogic.DataGridViewRoutinen.AddColumn(System.Windows.Forms.DataGridView,System.Windows.Forms.DataGridViewColumn)">
+            <summary>
+            Fügt der ColumnsCollection des DataGridView die übergebene DataGridViewColumn hinzu und liefert einen Verweis auf selbige zurück..
+            </summary>
+            <param name="dataGridView"></param>
+            <param name="dataGridViewColumn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.FormPanel.FormPanelRoutinen.CanConvertToFormEvent(IPS.Library.BaseClass.Keyboard.PressedKeyArgs)">
+            <summary>
+            Prüft, ob eine Konvertierung der übergebenen Taste in eine Formularevent möglich ist.
+            </summary>
+            <param name="pressedKeyArgs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.FormPanel.FormPanelRoutinen.ConvertToFormEvent(IPS.Library.BaseClass.Keyboard.PressedKeyArgs)">
+            <summary>
+            Konvertiert die übergebene Taste in eine Formularevent, sofern es möglich ist.
+            </summary>
+            <param name="pressedKeyArgs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.FormPanel.FormPanelRoutinen.ConvertToIPSButton(IPS.Library.WinForm.FormEvents)">
+            <summary>
+            Versucht ein FormEvent in einen passenden IPSButtonTyp zu konvertieren. Wenn es keinen gibt wir der Typ 'Unbekannt' zurückgeliefert.
+            </summary>
+            <param name="formEvent"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IPS.Library.WinForm.EventFilter`1">
+            <summary>
+            Filter für Ereignisse, die sehr häufig hintereinander erzeugt werden,
+            von denen jedoch nur das jeweils letzte einer Serie interessant ist.
+            </summary>
+            <remarks>
+            <para>
+            Verwendung: Die generische Klasse für einen konkreten Argumenttypen
+            instantiieren und die Methode <see cref="M:IPS.Library.WinForm.EventFilter`1.HandleOriginalEvent(System.Object,`0)"/> als
+            Ereignismethode für das zu behandelnde Ereignis verwenden.
+            </para><para>
+            Das Ereignis <see cref="E:IPS.Library.WinForm.EventFilter`1.FilteredEventRaised"/> wird nun erst dann
+            ausgelöst, wenn nach dem Empfang eines Ereignisses eine bestimmte
+            Zeit lang (Voreinstellung: 150msek) kein weiteres Ereignis empfangen
+            wird.
+            </para><para>
+            Copyright 2007 by Roland Weigelt.
+            </para><para>
+            Die Verwendung dieses Quelltextes ist sowohl für nicht-kommerzielle
+            als auch kommerzielle Zwecke gestattet, die Nutzung geschieht dabei
+            auf eigene Gefahr.
+            </para>
+            </remarks>
+            <typeparam name="TEventArgs">Typ der Ereignisargumente.</typeparam>
+        </member>
+        <member name="E:IPS.Library.WinForm.EventFilter`1.FilteredEventRaised">
+            <summary>
+            Dieses Ereignis wird ausgelöst, wenn ein "Original"-Ereignis
+            erfolgreich den Filter passiert hat, d.h. wenn innerhalb eines
+            bestimmten Zeitfensters kein weiteres Ereignis eingetroffen ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.EventFilter`1.#ctor(System.Int32)">
+            <summary>
+            Initialisiert eine neue Instanz der
+            <see cref="T:IPS.Library.WinForm.EventFilter`1"/> Klasse.
+            </summary>
+            <param name="timeWindow">
+            Das Zeitfenster in Millisekunden (Standard: 150msek).
+            </param>
+        </member>
+        <member name="M:IPS.Library.WinForm.EventFilter`1.#ctor">
+            <summary>
+            Initialisiert eine neue Instanz der
+            <see cref="T:IPS.Library.WinForm.EventFilter`1"/> Klasse.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.EventFilter`1.HandleOriginalEvent(System.Object,`0)">
+            <summary>
+            Empfänger für das zu filternde Ereignis.
+            </summary>
+            <param name="sender">Die Quelle des Ereignisses.</param>
+            <param name="e">Die Ereignisargumente.</param>
+            <remarks>
+            Diese Methode kann direkt als Ereignismethode verwendet werden,
+            man kann sie aber natürlich auch von einer bereits vorhandenen
+            Ereignismethode aus aufrufen.
+            </remarks>
+        </member>
+        <member name="M:IPS.Library.WinForm.TabControlLogic.TabControlRoutinen.GetTabPageFromPoint(System.Windows.Forms.TabControl,System.Drawing.Point)">
+            <summary>
+            Ermittelt die TabPage, die sich an dem übergebene Pun kt befindet.
+            </summary>
+            <param name="tabControl"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.TextBoxLogic.TextBoxRoutinen.SetTabStopWidth(System.Windows.Forms.TextBox,System.Int32)">
+            <summary>
+            Setzt den standardtabulatorabstend einer Textbox in Pixel.
+            </summary>
+            <param name="_textBox"></param>
+            <param name="_width"></param>
+        </member>
+        <member name="M:IPS.Library.WinForm.ToolStripLogic.AdminToolStrip.CheckSeparatoren">
+            <summary>
+            Es wird geprüft, ob 2 Separatoren direkt nebeneinander stehen.
+            Dann wird der rechte Separator ausgeblendet.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.TreeViewLogic.TreeViewRoutinen.SwapNodes(System.Windows.Forms.TreeNodeCollection,System.Int32,System.Int32)">
+            <summary>
+            Vertauscht 2 hintereinanderstehende Knoten aus einer Ebene.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.TreeViewLogic.TreeViewRoutinen.SortTreeViewNodes(System.Windows.Forms.TreeNodeCollection)">
+            <summary>
+            Einzelne Knoten eines TreeView-Steuerelements	sortieren
+            </summary>
+        </member>
+        <member name="T:IPS.Library.WinForm.CommonWinFormRoutinen._SetPropertyValueCallback`2">
+            <summary>
+            Wenn aus einem anderen Thread eine Eigenschaft in einem Form-Control geändert werden soll, so muss man mit Callbacks und Invoke arbeiten.
+            Mit diesem generischen Delegate und der dazugehörigen Funktion, kann man eine Menge Code sparen.
+            </summary>
+            <typeparam name="ControlType"></typeparam>
+            <typeparam name="PropertyType"></typeparam>
+            <param name="control"></param>
+            <param name="propertyName"></param>
+            <param name="_value"></param>
+        </member>
+        <member name="M:IPS.Library.WinForm.CommonWinFormRoutinen.MoveToForeground(System.Windows.Forms.Form)">
+            <summary>
+            Diese Funktion bringt ein Fenster in den Vordergrund des Desktops, auch wenn sich andere Programme zur Zeit im Vordergrund befinden.		
+            </summary>
+            <param name="_form">Das Form, das in den Vordergrund gebracht werden soll.</param>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminWinForm.GetEditableControls(System.Windows.Forms.Control)">
+            <summary>
+            Gibt alle vom Nutzer bearbeitbare Controls zurück.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminWinForm.GetListOfControlsForInit(System.Windows.Forms.Control)">
+            <summary>
+            Liefert eine Liste mit allen initialiserbaren Controls zurück.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminWinForm.CheckInitFields(System.Collections.Generic.List{System.Windows.Forms.Control},System.Collections.Generic.List{System.Windows.Forms.Control})">
+             <summary>
+            alle Felder mit Datenbindung an eine Tabelle werden aus der Liste '_initControlsList' entfernt und in die Liste '_dataBindingObjectsList' aufgenommen
+             </summary>
+             <param name="initControlsList"></param>
+             <param name="dataBindingObjectsList"></param>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminWinForm.GetFocusedWindowControl">
+            <summary>
+            Liefert das Control zurück, welches den Focus besitzt (Abfrage über Win32-DLL Methode "GetFocus()"))
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminWinForm.GetActiveControl(System.Windows.Forms.Control,System.Func{System.Windows.Forms.Control,System.Windows.Forms.Control})">
+            <summary>
+            Liefert das Control zurück, welches den Focus besitzt (Abfrage der Form-Property "ActiveControl")
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminWinForm.GetActiveControlName(System.Windows.Forms.IContainerControl)">
+            <summary>
+            Liefert den Namen des Controls zurück, welches den Focus besitzt (Abfrage der Form-Property "ActiveControl")
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminWinForm.SetActiveControl(System.Windows.Forms.IContainerControl,System.Windows.Forms.Control)">
+            <summary>
+            Setzt den Focus auf das übergeben Control, sofern es Aktive (Enabled) ist und nicht bereits den Focus hatte.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminWinForm.UpdateActiveControl(System.Windows.Forms.IContainerControl)">
+            <summary>
+            Entzieht dem aktuellen Control den Focus und gibt ihm ihn dann wieder, damit die Validat-Events ausgelöst werden.
+            </summary>
+            <param name="containerControl"></param>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminWinForm.UpdateActiveControl(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            Entzieht dem aktuellen Control den Focus und gibt ihm ihn dann wieder, damit die Validat-Events ausgelöst werden.
+            </summary>
+            <param name="control"></param>
+            <param name="focusedCurrentControl"></param>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminWinForm.IsLeaveControlForward(System.Windows.Forms.Control,System.Windows.Forms.Control)">
+            <summary>
+            Kontrolliert anhand des TabIndex, ob das zu prüfende Control vorwärts verlassen wurde.
+            </summary>
+            <param name="activeControl">Das derzeit aktive Control im Formular</param>
+            <param name="checkControl">Das zu prüfende Control</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminMenuStrip.GetClickedItem(System.Windows.Forms.ToolStripItem)">
+            <summary>
+            Liefert den Wert der Tag-Property in Kleinbuchstaben zurück.
+            </summary>
+            <param name="_item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.AdminMenuStrip.CheckToolStripSeparators(System.Windows.Forms.ToolStripMenuItem)">
+            <summary>
+            Prüft, ob bei den DropDownItems von MenuItem 2 Separatoren direkt hintereinander stehen und entfernt in diesem Fall einen von beiden.
+            </summary>
+            <param name="_menuItem"></param>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.GetMaxCountCharsForDrawing(System.Char,System.Windows.Forms.Control)">
+            <summary>
+            Ermittelt die max. Anzahl Zeichen, die in eine Zeile passen.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.GetDrawingSize(System.String,System.Drawing.Font)">
+            <summary>
+            Misst die angegebene Zeichenfolge, wenn diese in dem angegebenen Control-Objekt gezeichnet wird
+            </summary>
+            <param name="value"></param>
+            <param name="font"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.GetAbsoluteLocation(System.Windows.Forms.Control)">
+            <summary>
+            Ermittelt die Absolute Position des Controls auf dem Formular in Bezug auf den Formularrand
+            </summary>
+            <summary>
+            Ermittelt die Absolute Position des Controls auf dem Formular in Bezug auf den Formularrand
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.GetNextControl(System.Windows.Forms.Control,System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            Liefert das vorherige (_forward = FALSE) oder das nachfolgende (_forward = TRUE) Control in Bezug auch _checkControl, bei dem TabStop==TRUE ist
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.IsControlNecessary(System.Windows.Forms.Control)">
+            <summary>
+            Prüft, ob das bei dem übergebenen Control die NecessaryProperty TRUE ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.SetNecessaryControlBackColor(IPS.Library.WinForm.Contracts.IEmptyControl,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Setzt die Hintergrundfarbe des übergebenen NecessaryControls in Abhängigkeit vom Inhalt.
+            Wenn != Leer auf "WinFormsProperties.CommonEditableControlBackColor"
+            Wenn == Leer auf "WinFormsProperties.NecessaryControlBackColor"
+            Wenn es ReadOnly ist auf "WinFormsProperties.ReadOnlyControlBackColor"
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.SetCommonControlBackColor(System.Windows.Forms.Control)">
+            <summary>
+            Setzt die Hintergrundfarbe des übergebenen Controls in Abhängigkeit von der Bearbeitbarkeit.
+            Wenn es nicht Bearbeitbar (ReadOnly,!Enabled,!Visisble) ist auf "WinFormsProperties.ReadOnlyControlBackColor"
+            sonst auf "WinFormsProperties.CommonEditableControlBackColor"
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.SetInitValue(System.Windows.Forms.Control,System.Object)">
+            <summary>
+            Weist dem Tag-Property des Controls eine Initialisierungsstring zu.
+            </summary>
+            <param name="control"></param>
+            <param name="initValue"></param>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.SetControlOnTop(System.Windows.Forms.Control)">
+            <summary>
+            Bringt das übergebene Control in den Vordergrund
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.SetControlToBackground(System.Windows.Forms.Control)">
+            <summary>
+            Bringt das übergebene Control in den Hintergrund (an die hinterste Position in der Auflistung)
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.IsValuePropertyBinding(System.Windows.Forms.Control)">
+            <summary>
+            Kontrolliert, ob die Valueproperty des Controls an ein anderes Object gebunden ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.IsPropertyBinding(System.Windows.Forms.Control,System.String)">
+            <summary>
+            Kontrolliert, ob die Property des Controls an ein anderes Object gebunden ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.IsEditableControl(System.Windows.Forms.Control)">
+            <summary>
+            Prüft, ob das Control vom Nutzer bearbeitet werden kann (TextBox,ComBox,ListBox,...)
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.IsIPSControl(System.Windows.Forms.Control)">
+            <summary>
+            Prüft, ob das übergebene Control ein von einem Standartcontrol abgeleitetes, selbsterstelltes Control ist.
+            Liefert TRUE zurück, wenn das Control aus dem NameSpace "IPS.IPS.Library.WinForm.Controls" kommt.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.IsControlEditable(System.Windows.Forms.Control)">
+            <summary>
+            Prüft, ob das Control Benutzereingaben erhalten kann. 
+            Es muss ein bearbeitbares Control sein und ReadOnly + ,Enabled müssen "TRUE" sein.
+            </summary>
+            <param name="control"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.IsControlsEmpty(System.Windows.Forms.Control[])">
+            <summary>
+            Kontrolliert, ob der Wert jedes des Controls != string.Empty ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.IsControlMemberOfControlGroup(System.Windows.Forms.Control,System.Windows.Forms.Control,System.Int16)">
+            <summary>
+            Es wird geprüft, ob das control in der controlGroup enthalten ist.
+            </summary>
+            <param name="control"></param>
+            <param name="controlGroup"></param>
+            <param name="maxDepth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.WinForm.ControlRoutinen.CenteringContainedControls(System.Windows.Forms.Control,System.Boolean,System.Boolean)">
+            <summary>
+            Zentriert alle im MainControl enthaltene Controls.
+            </summary>
+            <param name="mainControl"></param>
+            <param name="centerX">Legt fest, ob die X-Position zentriert wird.</param>
+            <param name="centerY">Legt fest, ob die Y-Position zentriert wird.</param>
+        </member>
+        <member name="M:IPS.Library.WinForm.ReadOnlyRoutinen.InitReadOnlyControl">
+            <summary>
+            Initializes the embedded Label with the default values from the BaseControl
+            </summary>
+        </member>
+        <member name="M:TextBoxExtensionMethods.FillAutoCompleteCustomSource(System.Windows.Forms.TextBox,System.String[],System.Boolean)">
+            <summary>
+            Füllt die CustomeSource einer Textbox mit Werten.
+            </summary>
+            <param name="textBox"></param>
+            <param name="values"></param>
+            <param name="setValue">Wenn TRUE, wird der Wert angezeigt, falls es nur einen in der Auflistung gibt.</param>
+        </member>
+    </members>
+</doc>

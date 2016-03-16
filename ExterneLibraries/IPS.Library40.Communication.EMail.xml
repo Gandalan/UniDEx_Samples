@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.Communication.EMail</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.Communication.EMail.EMailData.IsValid">
+            <summary>
+            Es wird geprüft, ob ein Absender und ein Empfänger angegeben wurden.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Communication.EMail.EMailData.SendCopyToMySelf">
+            <summary>
+            Trägt den Absender als BCC Empfänger ein.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Communication.EMail.EMailRoutinen.IsEMailAdressValid(System.String)">
+            <summary>
+            Makes sure email address is in the proper format.
+            </summary>
+            CodeSource: http://www.c-sharpcorner.com/UploadFile/afenster/3907/Default.aspx
+        </member>
+        <member name="M:IPS.Library.Communication.EMail.EMailRoutinen.SendEMail(IPS.Library.Communication.Contracts.EMail.IEMailData,System.Boolean,System.Boolean,System.Boolean,System.Net.Mail.DeliveryNotificationOptions)">
+            <summary>
+            Versendet eine Mail via SMTP-MailClient unter Verwendung der übergebenen Zugangsdaten für den SMTP-Server.
+            </summary>
+            <param name="eMail"></param>
+            <param name="useSilentMode">Wenn TRUE, werden keine Fehlermeldung angezeigt. Die Excpetion ist aber in der Property 'LastException' abrufbar.</param>
+            <param name="isBodyHTML"></param>
+            <param name="writeErrorToProtocol"></param>
+            <param name="deliveryOption">Legt die Übertragungsbenachrichtigungen für die E-Mail-Nachricht fest.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Communication.EMail.EMailRoutinen.SendMailWithDefaultProgram(IPS.Library.Communication.Contracts.EMail.IEMailData,System.String@)">
+            <summary>
+            Ein Mail über das lokale StandardMailprogramm versenden.
+            </summary>
+            <param name="mailData">Die Maildaten, die versendet werden sollen.</param>
+            <param name="resultMessage">Textliche Rückmeldung zum Sendestatus.</param>
+            <returns></returns>
+        </member>
+        <member name="T:IPS.Library.Communication.EMail.MAPI.MAPI">
+            <summary>
+            Stellt Funktionen zum Versenden einer Mail inkl. Anhang mit Hilfe des Standardmailclients bereit.
+            Anwendungsbeispiel:
+             MAPI mapi = new MAPI();
+             mapi.AddAttachment(attachmentPath);
+             mapi.SendMailPopup(betreff, bodyText);
+            </summary>
+        </member>
+    </members>
+</doc>

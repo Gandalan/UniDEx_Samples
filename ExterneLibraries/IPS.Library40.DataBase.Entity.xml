@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.DataBase.Entity</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.DataBase.Entity.BaseEntityObjectRoutinen.InitHistoryData``1(``0)">
+            <summary>
+            Initialisiert die Historywerte für den ersten Gebrauch.
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.BaseEntityObjectRoutinen.UpdateHistoryData``1(``0,IPS.Library.DataBase.Contracts.IHistoryData,System.Boolean)">
+            <summary>
+            Aktualisiert die lokalen Historydaten.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entity"></param>
+            <param name="sourceData">Die für die Aktualisierung zu verwendenden Daten.</param>
+            <param name="updateCreateData">Legt fest, ob auch die Create-Angaben aktualisiert werden sollen.</param>
+            <returns></returns>
+        </member>
+        <member name="P:IPS.Library.DataBase.Entity.DataColumnObjectBase.HasCompressedColumn">
+            <summary>
+            Ist TRUE, wenn es zu der Spalte eine korrespondierende "Compressed"-Spalte gibt, damit der Wert für eine Ähnlichkeitssuche zur Verfügung steht.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Entity.DataColumnObjectBase.IsBlobField">
+            <summary>
+            Ist TRUE, wenn in der Tabellenspalte große Datenmengen (Text/Bilder, e.c.t.) abgelegt werden können.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Entity.DataColumnObjectBase.IsTempField">
+            <summary>
+            Wenn es TRUE ist, werden für diese Spalte keinerlei DB-Operationen durchgeführt.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Entity.DataColumnObjectBase.IsActiveField">
+            <summary>
+            TRUE, wenn die Spalte in der akt. Tabellenversion verwendet wird. FALSE, wenn die Spalte nur aus Kompatibilitätsgründen noch vorhanden ist.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Entity.DataEntityObjectBase.NeededColumnsForDisplayMember">
+            <summary>
+            Hier können alle Spaltennamen aufgelistet werden, die für die Darstellung der Spalte in "DisplayMemberName" benötigt werden.
+            Ist nur notwendig, wenn als "DisplayMemberName" eine berechnete Spalte verwendet wird.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Entity.DataEntityObjectBase.IsSingleInstanceTable">
+            <summary>
+            Über diese Eigenschaft wird festgelegt, ob es die DatenTabelle nur ein einziges mal zur Laufzeit gibt, oder ob es mehrere unabhängige Versionen geben kann.
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Entity.DataEntityObjectBase.DBFormelFieldColumnsName">
+            <summary>
+            Enthält die Spaltennamen von den Spalten, die in der DB als Formelfelder definiert sind.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectBase.Clone">
+            <summary>
+            Es wird ein DataTableObjectBase aus der übergebenen DataTable generiert.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectBase.SetMasterDataTable(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.Boolean)">
+            <summary>
+            Weist die MasterTable zu.
+            Erstellt  bei Bedarf die zugehörige MasterRecID-Column und den Fremdschlüsselverweis und
+            fügt das akt. TableObject der MasterTable als ChildTable hinzu.
+            </summary>
+            <param name="masterEntityObject"></param>
+            <param name="createMasterObjectID">Wenn TRUE, wird die zugehörige MasterRecID-Column und der Fremdschlüsselverweis erstellt und das akt. TableObject der MasterTable als ChildTable hinzugefügt.</param>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.CreateForeignKey(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Erstellt einen Fremdschlüssel mit Replication = TRUE, Check = TRUE, DeleteCascate = TRUE, UpdateCascade = FALSE
+            </summary>
+            <param name="dataEntityObject"></param>
+            <param name="primaryEntityObject"></param>
+            <param name="replication"></param>
+            <param name="check"></param>
+            <param name="deleteCascate"></param>
+            <param name="updateCascade"></param>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.GetPrimaryKeys(IPS.Library.DataBase.Contracts.IDataEntityObjectBase)">
+            <summary>
+            Liefer alle Spaltennamen durch Komma getrenntzurück aus denen sich der Primärschlüssel zusammensetzt.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.GetColumnName(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.String)">
+            <summary>
+            Liefert den Original-DB-Spaltennemen zurück.
+            Bei Formelspalten z.Bsp. incl. des FormelFieldIdentifiers
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.SetDisplayColumnsList(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.Collections.IList)">
+            <summary>
+            Erwartet eine Liste mir den Spaltennamen, die in einem DataGrid standardmässig angezeigt werden sollen
+            </summary>
+            <param name="dataEntityObject"></param>
+            <param name="list"></param>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.GetLookUpDataColumns(IPS.Library.DataBase.Contracts.IDataEntityObjectBase)">
+            <summary>
+            Gibt ein Array mit allen LookUp Spalten zurück.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.GetStatisticColumns(IPS.Library.DataBase.Contracts.IDataEntityObjectBase)">
+            <summary>
+            Gibt ein Array mit allen Aktiven Spalten zurück, bei denen das Kennzeichen "IsStatisticField" gesetzt ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.GetActiveDataColumns(IPS.Library.DataBase.Contracts.IDataEntityObjectBase)">
+            <summary>
+            Gibt ein Array mit allen Aktiven Spalten zurück.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.GetActiveColumnsList(IPS.Library.DataBase.Contracts.IDataEntityObjectBase)">
+            <summary>
+            Gibt eine Liste mit allen Aktiven Spalten und den Spaltenname als Schlüsselwert zurück.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.GetDataColumnFromCaption(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.String,System.Boolean)">
+            <summary>
+            Ermittelt die aktive DataColumn anhand der Spaltenüberschrift.
+            </summary>
+            <param name="dataEntityObject"></param>
+            <param name="caption">Die Spaltenüberschrift der zu ermittelnden Spalte.</param>
+            <param name="clone">Wenn TRUE, wird ein geclontes Object zurückgelifert.</param>
+            <returns>Liefert NULL zurück, wenn keine passende Spalte gefunden wurde.</returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.SetColumnCaption(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.String,System.String)">
+            <summary>
+            Setzt die Caption für die angegebene Column im DataTableObjectBase und in der DataTable selbst.
+            </summary>
+            <param name="dataEntityObject"></param>
+            <param name="columnName">Name der Spalte, für die die Caption gesetzt werden soll.</param>
+            <param name="caption">Zu setztende Caption.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.GetColumnCaption(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.String)">
+            <summary>
+            Liefert die Caption für die angegebene Column aus dem DataTableObjectBase zurück.
+            </summary>
+            <param name="dataEntityObject"></param>
+            <param name="columnName">Name der Spalte, für die die Caption ermittelt werden soll.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.CreateEntityIDColumn(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,IPS.Library.DataBase.Enums.DBDataTypes,System.String)">
+            <summary>
+            Erstellt eine RecID-Column mit dem Spaltennamen "ID".
+            Der Spaltentitel setzt sich zusammen aus Tabellennamen + "-ID".
+            </summary>
+            <param name="dataEntityObject"></param>
+            <param name="dataType"></param>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.DataEntityObjectRoutinenBase.CreateLookUpIDColumn(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,IPS.Library.DataBase.Contracts.IDataEntityObjectBase,IPS.Library.DataBase.Enums.FieldNullableStates,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Erstellt eine LookUp-Spalte mit dem übergebenen Namen und Titel.
+            </summary>
+            <param name="dataEntityObject"></param>
+            <param name="lookUpEntityObject"></param>
+            <param name="nullableState"></param>
+            <param name="columnNameSource"></param>
+            <param name="caption"></param>
+            <param name="lookUpIDColumnNamePrefix"></param>
+            <param name="createDeleteChildTrigger"></param>
+            <param name="checkForeignKey">Fremdschlüsseleinschränkung erzwingen: Gibt an, ob Änderungen der Daten in den Spalten der Beziehung zulässig sind, wenn die Integrität der Fremdschlüsselbeziehung durch diese Änderungen aufgehoben werden. Wählen Sie Ja aus, um solche Änderungen nicht zuzulassen, und wählen Sie Nein aus, um sie zuzulassen.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Entity.LookUpDataGroupRoutinen.GetValidNumber(System.String)">
+            <summary>
+            Füllt die übergebene Nummer mit Vornullen bis zur max. Anzahl Zeichen auf.
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

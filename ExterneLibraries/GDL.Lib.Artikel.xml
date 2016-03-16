@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.Lib.Artikel</name>
+    </assembly>
+    <members>
+        <member name="P:Gandalan.Library.Artikel.Artikel.ArtikelSchluessel">
+            <summary>
+            Die reine Artikelnummer ohne Merkmale
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Artikel.Artikel.ArtikelSchluesselKomplett">
+            <summary>
+            Die komplette Artikelnummer mit allen Merkmalen
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Artikel.Artikel.KatalogNummer">
+            <summary>
+            Die komplette Artikelnummer mit allen Merkmalen
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Artikel.Artikel.ExistFarbPreise">
+            <summary>
+            Ist TRUE, wenn mind. eine Farbe einen Marktpreis hat.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.Artikel.IsSonderFarbe(System.String)">
+            <summary>
+            Es wird geprüft, ob die Farbe für diesen Artikel als Sonderfarbe gilt.
+            </summary>
+            <param name="farbKuerzel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.Artikel.GetFarbPreisStandardFarbe(System.String,System.Decimal)">
+            <summary>
+            Ermittelt den farbabhänigen Marktpreis.
+            </summary>
+            <param name="farbKuerzel">Farbekürzel der Farbe, für die der Marktpreis ermittelt wird.</param>
+            <param name="menge">Optional, dient der Feststelltung, ob ein eventuell vorhandener StaffelPreis2 verwendet werden soll.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.Artikel.GetZubehoerPreis(System.String,System.Decimal,System.Boolean)">
+            <summary>
+            Ermittelt den farbneutralen Marktpreis.
+            </summary>
+            <param name="farbKuerzel">Farbekürzel der Farbe, für die der Marktpreis ermittelt wird.</param>
+            <param name="menge">Optional, dient der Feststelltung, ob ein eventuell vorhandener StaffelPreis2 verwendet werden soll.</param>
+            <param name="isSonderFarbe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.GetProfilLaenge(System.Decimal,System.Decimal)">
+            <summary>
+            Rundet die übergebene Länge so auf, dass sie einem Vielfachen der Standardprofillänge entspricht.
+            </summary>
+            <param name="profilLaenge">Standardprofillänge</param>
+            <param name="laenge">Zu prüfende Länge</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.GetVeMenge(System.Decimal,System.Decimal)">
+            <summary>
+            Rundet die übergebene Menge so auf, dass sie einem Vielfachen der VE-Menge entspricht.
+            </summary>
+            <param name="veMenge"></param>
+            <param name="menge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.IsVeMenge(System.Decimal,System.Decimal)">
+            <summary>
+            Prüft, ob die übergebene Menge einem Vielfachen der VE-Menge entspricht
+            </summary>
+            <param name="veMenge"></param>
+            <param name="menge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.SonderFarbPreisZuschlag_berechnen(Gandalan.Library.Farben.IFarbItem,System.Decimal,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Es wird der Preisaufschlag für Sonderfarben gemäß der Sonderfarbpreisliste ab 04/2012 berechnet.
+            </summary>
+            <param name="farbe">Die Sonderfarbe für die der Preis berechnet werden soll.</param>
+            <param name="profilMenge">Die Gesamtprofilmenge in lfm, die in der Farbe bestellt wird.</param>
+            <param name="anzahlKleinteile">Die Gesamtanzahl Kleinteile, die in der Farbe bestellt werden.</param>
+            <param name="isFarbeMatt">TRUE, wenn die aktuelle Farbe in MATT bestellt wird. Diese Angabe wird für die Prüfung, ob es für die Farbe eine Sondervereinbarung gibt, benötigt.</param>
+            <param name="isFarbeFeinstruktur"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.GetVerfuegbareArtikelTypen(System.Collections.Generic.IEnumerable{Gandalan.Library.Artikel.IKatalogArtikelBase})">
+            <summary>
+            Liefert eine eindeutige Auflistung der Artikeltypen, die in der Artikelliste vorkommen.
+            </summary>
+            <param name="artikel">Artikelliste</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.GetVerfuegbareArtikelDetails(System.String,System.Collections.Generic.IEnumerable{Gandalan.Library.Artikel.IKatalogArtikelBase})">
+            <summary>
+            Liefert eine eindeutige Auflistung der zu einem Artikeltype gehörenden Detailtypen (Zeichen 2..4), die in der Artikelliste vorkommen.
+            </summary>
+            <param name="artikelTyp">Artikeltyp</param>
+            <param name="artikel">Artikelliste</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.IsGewebeArtikel(System.String,System.String)">
+            <summary>
+            Prüft, ob der Artikel zur Gruppe der Gewebe gehört.
+            Dies ist dann der Fall, wenn der AS mit '142' beginnt und die Bezeichnung das Wort 'Gewebe' enthält.
+            Bei der Prüfung wird die Groß-/Kleinschreibweise ignoriert.
+            </summary>
+            <param name="artikelSchluessel">Der AS des Artikels.</param>
+            <param name="artikelBezeichnung">Die Artikelbezeichnung.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.VerarbeiteArtikelNummer(System.String,Gandalan.Library.Artikel.IKatalogArtikelBase,System.Boolean)">
+            <summary>
+            Splitet die Artikelnummer in ihre Bestandteile auf (Artikelschlüssel, Farbe, Merkmale)
+            </summary>
+            <param name="artikelNummer"></param>
+            <param name="artikel"></param>
+            <param name="returnEmptyItem"></param>
+            <returns>Ein Tuple: Wert1 == Farbkürzel, Wert2 == Farbe</returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.SplitArtikelNummer(System.String)">
+            <summary>
+            Splittet die Artikelnummer in Artikelschluessel/Farbkürzel und Farbe auf.
+            Wenn es ein Farbkürzel gibt, aber keine Farbe, dann ist es eine Sonderfarbe.
+            </summary>
+            <param name="artikelNummer">Die zu splittende ArtikelNummer</param>
+            <returns>Ein Tuple: Wert1 == Artikelschlüssel, Wert2 == Farbkürzel, Wert3 == Farbe, Wer4 == TRUE, wenn Sonderfarbe, Wer5 == TRUE, wenn Zuschnitt</returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.GetFarbe(System.String,System.Boolean)">
+            <summary>
+            Ermittelt die Farbe aus der Artikelnummer.
+            </summary>
+            <param name="artikelNummer"></param>
+            <param name="returnEmptyItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.Library.Artikel.ArtikelRoutinen.GetRohArtikelNummer(System.String)">
+            <summary>
+            Ermittelt die Artikelnummer für die Rohvariante (*.R1) des übergebenen Artikels zurück.
+            </summary>
+            <param name="artikelSchluessel"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

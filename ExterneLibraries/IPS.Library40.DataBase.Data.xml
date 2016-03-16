@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.DataBase.Data</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.DataBase.Data.DataRowExt.AddRecord(System.Boolean)">
+            <summary>
+            Hängt die akt. DataRow an die zugehörige Tabelle an, wenn sie neu ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataRowExt.ImportDataRow(System.Data.DataRow,System.Boolean,System.Boolean)">
+             <summary>
+            Importiert die Daten aus dem übergebene Datensatz.
+             </summary>
+             <param name="_dataRowSource"></param>
+             <param name="_exact">Wenn TRUE ist, wird das ItemArray 1:1 kopiert, andernfalls werden nur die Spalten übernommen, die es auch inm Zieldatensatz gibt</param>
+             <param name="_copyRecID"></param>
+             <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataRowExt.GetRecordID">
+            <summary>
+            Liefert die RecordID des Datensatzes zurück
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataRowExt.GetRowVersion">
+            <summary>
+            Liefert die RowVersion des Datensatzes zurück
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataRowRoutinen.CheckDBFieldValue(System.Object)">
+            <summary>
+            wenn _fieldValue == DBNull dann wird Null zurückgegeben, sonst der Originalwert
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataRowRoutinen.CheckPropertyValue(System.Object)">
+            <summary>
+            wenn _fieldValue == null dann wird DBNull zurückgegeben, sonst der Originalwert
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataRowRoutinen.CheckPropertyValueDate(System.DateTime)">
+            <summary>
+            wenn _fieldValue == DateTime.MinValue/"01.01.1753"/"01.01.1900" dann wird DBNull zurückgegeben, sonst der Originalwert
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Data.DataTableExt.CountRecords">
+            <summary>
+            Liefert die Anzahl aller Datensätze in der Tabelle zurück. (Es werden auch gelöschte DS mit gezählt)
+            </summary>
+        </member>
+        <member name="P:IPS.Library.DataBase.Data.DataTableExt.CountValidRecords">
+            <summary>
+            Liefert die Anzahl der gültigen Datensätze in der Tabelle zurück. (ohne gelöschte DS)
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataTableExt.#ctor(System.String)">
+            <summary>
+            Erzeugt eine neue DataTable.
+            </summary>
+            <param name="tableName"><summary>"Name der Tabelle"</summary></param>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataTableExt.SetColumnValue(System.String,System.Object)">
+            <summary>
+            Setzt in der gesamten Tabelle den Wert der Spalte "_columnName" auf "_value".
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataTableExt.ClearTable">
+            <summary>
+            Es werden alle Daten,Zeilen,Spalten,PrimaryKeys und Constraints entfernt.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataTableExt.ExistValidRecords">
+            <summary>
+            Prüft, ob gültige (also nicht zum Löschen gekennzeichnete) Datensätze vorhanden sind.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataTableExt.ExistRecords">
+            <summary>
+            Prüft, ob Datensätze (auch wenn sie zum Löschen gekennzeichnet sind) vorhanden sind.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataTableExt.DeleteAllRecords">
+            <summary>
+            Markiert alle Datensätze der Tabelle zum Löschen.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataTableRoutinen.SelectRecords(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            Sucht einen Datensatz innerhalb der DataTable.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataTableRoutinen.GetTableName(System.String)">
+            <summary>
+            Liefert den Tabellennamen ohne event. Datenbanknamen zurück.
+            </summary>
+            <param name="_tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataTableRoutinen.GetTableName(System.String,System.String@)">
+            <summary>
+            Liefert den Tabellennamen und einen event. vorhandene Datenbanknamen zurück.
+            </summary>
+            <param name="_tableName">Zu prüfender Tabellenname incl. Datenbanknamen</param>
+            <param name="_dataBaseName">Datenbankname, sofern vorhanden</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataSetExt.Copy">
+            <summary>
+            Copiert das DataSet mit der Systemmethode Copy()
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataSetExt.CopyExt">
+            <summary>
+            Ruft für jede enthaltene DataTable die Methode CopyDataTable() auf.
+            Aussgenommen Tabellen mit den im Übergabeparameter enthaltenen Tabellennamen.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataSetExt.ClearDataSet">
+            <summary>
+            Entfernt alle Tabellen aus dem DataSet
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataSetExt.ClearData">
+            <summary>
+            Entfernt alle Daten (Rows) aus den im DataSet enthaltenen Tabellen
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.Data.DataEntityObject.#ctor(IPS.Library.DataBase.Data.DataTableExt)">
+            <summary>
+            Es wird ein DataTableObjectBase aus der übergebenen DataTable generiert.
+            </summary>
+        </member>
+    </members>
+</doc>

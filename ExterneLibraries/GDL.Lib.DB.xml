@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.Lib.DB</name>
+    </assembly>
+    <members>
+        <member name="F:Gandalan.Library.DB.BaseObject.pIsDirtyFlag">
+            <summary>
+            Erzwingt das Dirty-Flag
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.DB.BaseObject._lock">
+            <summary>
+            Wird für Thread-Absicherung in getProperties() benötigt
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.DB.BaseObject.pGetProperties(System.Type)">
+            <summary>
+            Ermittelt die Properties für einen Typ. Die Ermittlung erfolgt gecacht, 
+            was einen Gewinn vom 90% gegenüber der direkten Ermittlung über Type.GetType()
+            bringt.
+            </summary>
+            <param name="type">Der Typ, dessen Properties ermittelt werden sollen</param>
+            <returns>Array mit den Properties des Typs</returns>
+        </member>
+    </members>
+</doc>

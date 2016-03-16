@@ -1,0 +1,523 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.Dialogs.Interop</name>
+    </assembly>
+    <members>
+        <member name="T:IPS.Library.Dialogs.Interop.NativeMethods">
+            <summary>
+            Internal class containing most native interop declarations used
+            throughout the library.
+            Functions that are not performance intensive belong in this class.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Interop.ZeroInvalidHandle">
+            <summary>
+            Base class for Safe handlers with Null IntPtr as invalid
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Interop.SafeWindowHandle">
+            <summary>
+            Safe Window Handle
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Interop.SafeRegionHandle">
+            <summary>
+            Safe Region Handle
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Interop.SafeIconHandle">
+            <summary>
+            Safe Icon Handle
+            </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Interop.SafeNativeMethods">
+            <summary>
+            Internal class that contains interop declarations for 
+            functions that are considered benign but that
+            are performance critical. 
+            </summary>
+            <remarks>
+            Functions that are benign but not performance critical 
+            should be located in the NativeMethods class.
+            </remarks>
+        </member>
+        <member name="T:IPS.Library.Dialogs.Interop.UnsafeNativeMethods">
+            <summary>
+            Internal class that contains interop declarations for 
+            performance critical native functions. 
+            Note that NO security checking is done by the CLR, 
+            because the unmanaged code security checks are disabled; 
+            ANY usage of these methods must be properly 
+            protected with the appropriate security demands.
+            </summary>
+            
+        </member>
+        <member name="T:IPS.Library.Dialogs.StockIcons.StockIconOptions">
+            <summary>
+            Specifies options for the appearance of the 
+            stock icon.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconOptions.Small">
+            <summary>
+             Retrieve the small version of the icon, as specified by  
+            SM_CXSMICON and SM_CYSMICON system metrics.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconOptions.ShellSize">
+            <summary>
+            Retrieve the shell-sized icons (instead of the 
+            size specified by the system metrics). 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconOptions.Handle">
+            <summary>
+            Specified that the hIcon member of the SHSTOCKICONINFO 
+            structure receives a handle to the specified icon.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconOptions.SystemIndex">
+            <summary>
+            Specifies that the iSysImageImage member of the SHSTOCKICONINFO 
+            structure receives the index of the specified 
+            icon in the system imagelist.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconOptions.LinkOverlay">
+            <summary>
+            Adds the link overlay to the icon.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconOptions.Selected">
+            <summary>
+             Adds the system highlight color to the icon.
+             </summary>
+        </member>
+        <member name="T:IPS.Library.Dialogs.StockIcons.StockIconIdentifier">
+            <summary>
+            Provides values used to specify which standard icon to retrieve. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DocumentNotAssociated">
+            <summary>
+            Icon for a document (blank page), no associated program.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DocumentAssociated">
+            <summary>
+            Icon for a document with an associated program.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Application">
+            <summary>
+             Icon for a generic application with no custom icon.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Folder">
+            <summary>
+             Icon for a closed folder.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.FolderOpen">
+            <summary>
+            Icon for an open folder. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Drive525">
+            <summary>
+            Icon for a 5.25" floppy disk drive.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Drive35">
+            <summary>
+             Icon for a 3.5" floppy disk drive. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DriveRemove">
+            <summary>
+             Icon for a removable drive.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DriveFixed">
+            <summary>
+             Icon for a fixed (hard disk) drive.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DriveNetwork">
+            <summary>
+             Icon for a network drive.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DriveNetworkDisabled">
+            <summary>
+             Icon for a disconnected network drive.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DriveCD">
+            <summary>
+             Icon for a CD drive.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DriveRam">
+            <summary>
+             Icon for a RAM disk drive. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.World">
+            <summary>
+             Icon for an entire network. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Server">
+            <summary>
+             Icon for a computer on the network.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Printer">
+            <summary>
+             Icon for a printer. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MyNetwork">
+            <summary>
+            Icon for My Network places.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Find">
+            <summary>
+            Icon for search (magnifying glass).
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Help">
+            <summary>
+             Icon for help.     
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Share">
+            <summary>
+             Icon for an overlay indicating shared items.        
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Link">
+            <summary>
+             Icon for an overlay indicating shortcuts to items.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.SlowFile">
+            <summary>
+            Icon for an overlay for slow items.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Recycler">
+            <summary>
+             Icon for a empty recycle bin.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.RecyclerFull">
+            <summary>
+             Icon for a full recycle bin.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaCDAudio">
+            <summary>
+             Icon for audio CD media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Lock">
+            <summary>
+             Icon for a security lock.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.AutoList">
+            <summary>
+             Icon for a auto list.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.PrinterNet">
+            <summary>
+            Icon for a network printer.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.ServerShare">
+            <summary>
+             Icon for a server share.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.PrinterFax">
+            <summary>
+             Icon for a Fax printer.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.PrinterFaxNet">
+            <summary>
+            Icon for a networked Fax printer.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.PrinterFile">
+            <summary>
+             Icon for print to file.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Stack">
+            <summary>
+            Icon for a stack.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaSvcd">
+            <summary>
+             Icon for a SVCD media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.StuffedFolder">
+            <summary>
+             Icon for a folder containing other items.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DriveUnknown">
+            <summary>
+             Icon for an unknown drive.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DriveDvd">
+            <summary>
+             Icon for a DVD drive. 
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaDvd">
+            <summary>
+            Icon for DVD media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaDvdRam">
+            <summary>
+             Icon for DVD-RAM media.   
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaDvdRW">
+            <summary>
+            Icon for DVD-RW media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaDvdR">
+            <summary>
+             Icon for DVD-R media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaDvdRom">
+            <summary>
+             Icon for a DVD-ROM media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaCDAudioPlus">
+            <summary>
+             Icon for CD+ (Enhanced CD) media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaCDRW">
+            <summary>
+             Icon for CD-RW media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaCDR">
+            <summary>
+             Icon for a CD-R media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaCDBurn">
+            <summary>
+             Icon burning a CD.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaBlankCD">
+            <summary>
+             Icon for blank CD media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaCDRom">
+            <summary>
+             Icon for CD-ROM media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.AudioFiles">
+            <summary>
+             Icon for audio files.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.ImageFiles">
+            <summary>
+             Icon for image files.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.VideoFiles">
+            <summary>
+             Icon for video files.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MixedFiles">
+            <summary>
+             Icon for mixed Files.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.FolderBack">
+            <summary>
+            Icon for a folder back.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.FolderFront">
+            <summary>
+             Icon for a folder front.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Shield">
+            <summary>
+             Icon for a security shield. Use for UAC prompts only.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Warning">
+            <summary>
+             Icon for a warning.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Info">
+            <summary>
+             Icon for an informational message.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Error">
+            <summary>
+             Icon for an error message.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Key">
+            <summary>
+             Icon for a key.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Software">
+            <summary>
+             Icon for software.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Rename">
+            <summary>
+             Icon for a rename.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Delete">
+            <summary>
+             Icon for delete.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaAudioDvd">
+            <summary>
+             Icon for audio DVD media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaMovieDvd">
+            <summary>
+             Icon for movie DVD media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaEnhancedCD">
+            <summary>
+             Icon for enhanced CD media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaEnhancedDvd">
+            <summary>
+             Icon for enhanced DVD media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaHDDvd">
+            <summary>
+             Icon for HD-DVD media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaBluRay">
+            <summary>
+             Icon for BluRay media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaVcd">
+            <summary>
+             Icon for VCD media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaDvdPlusR">
+            <summary>
+             Icon for DVD+R media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaDvdPlusRW">
+            <summary>
+             Icon for DVD+RW media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DesktopPC">
+            <summary>
+             Icon for desktop computer.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MobilePC">
+            <summary>
+             Icon for mobile computer (laptop/notebook).
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Users">
+            <summary>
+             Icon for users.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaSmartMedia">
+            <summary>
+             Icon for smart media.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.MediaCompactFlash">
+            <summary>
+             Icon for compact flash.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DeviceCellPhone">
+            <summary>
+             Icon for a cell phone.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DeviceCamera">
+            <summary>
+             Icon for a camera.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DeviceVideoCamera">
+            <summary>
+             Icon for video camera.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.DeviceAudioPlayer">
+            <summary>
+             Icon for audio player.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.NetworkConnect">
+            <summary>
+             Icon for connecting to network.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Internet">
+            <summary>
+             Icon for the Internet.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.ZipFile">
+            <summary>
+             Icon for a ZIP file.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Dialogs.StockIcons.StockIconIdentifier.Settings">
+            <summary>
+            Icon for settings.
+            </summary>
+        </member>
+    </members>
+</doc>

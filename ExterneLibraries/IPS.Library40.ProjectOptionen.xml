@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.ProjectOptionen</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.ProjectOptionen.CommonOptionRoutinen.LoadProjectOptionsApplication(System.String)">
+            <summary>
+            Lädt die allgemeine Configdatei für das Programm.
+            </summary>
+            <param name="sourceDirectory"></param>
+        </member>
+        <member name="M:IPS.Library.ProjectOptionen.CommonOptionRoutinen.LoadProjectOptionsUser(System.String,System.String)">
+            <summary>
+            Lädt eine benutzerbezogene Configdatei.
+            </summary>
+            <param name="userName">[Optional] Standard ist der Wert aus 'BaseProperties.UserNameProgram' </param>
+            <param name="sourceDirectory">[Optional] Standard ist der Wert aus 'BaseProperties.ConfigFilesDirectory'</param>
+        </member>
+        <member name="M:IPS.Library.ProjectOptionen.CommonOptionRoutinen.DeleteProjectOption(IPS.Library.ProjectOptionen.ProjectOptionEventArgs,System.Boolean)">
+            <summary>
+            Löscht eine Projecteinstellung aus der Configuration.
+            </summary>
+            <param name="parameter"></param>
+            <param name="saveConfig">Wenn TRUE, wird die geänderte Configuration gespeichert.</param>
+        </member>
+        <member name="M:IPS.Library.ProjectOptionen.CommonOptionRoutinen.DeleteProjectOption(IPS.Library.BaseClass.Enums.ProgramOptionTypes,System.Boolean,System.String,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="optionType"></param>
+            <param name="saveConfig"></param>
+            <param name="sectionName">Name der Section, in der die Option enthalten ist. Standard: AppSettings</param>
+            <param name="optionsName"></param>
+        </member>
+    </members>
+</doc>

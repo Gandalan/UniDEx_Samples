@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.IDAS.UniDEx</name>
+    </assembly>
+    <members>
+        <member name="M:Gandalan.IDAS.UniDEx.UniDExContext.StartPuls(System.Int32)">
+            <summary>
+            Startet den Timer, der in Intervallen den Heartbeat in die Datenbank schreibt
+            </summary>
+            <param name="interval">Intervall in Sekunden, Standard: 30 Sekunden</param>
+        </member>
+        <member name="M:Gandalan.IDAS.UniDEx.UniDExContext.StopPuls">
+            <summary>
+            Beendet den Timer, z.B. vor dem Programm-Ende
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.UniDEx.Provider.Jobs.Client.AktiveClients">
+            <summary>
+            Liefert eine Liste der aktiven Clients zurück, d.h. alle, die im Herzschlag-Intervall * 2 aktiv waren
+            </summary>
+            <returns>Liste der Clients</returns>
+        </member>
+        <member name="P:Gandalan.IDAS.UniDEx.Provider.Jobs.JobParameter.Richtung">
+            <summary>
+            E=Eingabe, A=Ausgabe
+            </summary>
+        </member>
+    </members>
+</doc>

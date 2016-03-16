@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.IDAS.Data.IBOS1</name>
+    </assembly>
+    <members>
+        <member name="M:Gandalan.IDAS.Data.IBOS1.Belege.IBOS1BelegBase`1.GetSumme">
+            <summary>
+            Diese Methode ermittelt aus dem Feld Inhalt1 die Endsumme des Belegs
+            </summary>
+        </member>
+        <member name="T:Gandalan.IDAS.Data.IBOS1.ODBCRoutinen">
+            <summary>
+            ACHTUNG - Zugriff auf Access-DBs geht über OleDB nur, wenn das Hauptprojekt für x86 
+            compiliert wird, AnyCPU geht nicht!
+            </summary>
+        </member>
+    </members>
+</doc>

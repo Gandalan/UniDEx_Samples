@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.UI.Dynamic.Core</name>
+    </assembly>
+    <members>
+        <member name="F:Gandalan.UI.Dynamic.Core.LogModule.LogModule.components">
+            <summary> 
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Dynamic.Core.LogModule.LogModule.Dispose(System.Boolean)">
+            <summary> 
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Gandalan.UI.Dynamic.Core.LogModule.LogModule.InitializeComponent">
+            <summary> 
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="T:Gandalan.UI.Dynamic.Core.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Dynamic.Core.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Dynamic.Core.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Dynamic.Core.Properties.Resources.DefaultIcon">
+            <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Dynamic.Core.UIModuleManager.SendMessage(Gandalan.UI.Dynamic.Core.Contracts.IMessage)">
+            <summary>
+            Stellt eine Nachricht an einen Empfänger zu
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Gandalan.UI.Dynamic.Core.UIModuleManager.SendReply(Gandalan.UI.Dynamic.Core.Contracts.IMessage,System.Object)">
+            <summary>
+            Direkte Antwort auf eine Nachricht an den Absender schicken
+            </summary>
+            <param name="originalMessage"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Gandalan.UI.Dynamic.Core.UIModuleManager.SendBroadcast(System.String,System.String,System.String)">
+            <summary>
+            Rundum-Nachricht an alle schicken
+            </summary>
+            <param name="subject"></param>
+            <param name="content"></param>
+            <param name="from"></param>
+        </member>
+        <member name="M:Gandalan.UI.Dynamic.Core.UIModuleManager.SendMessage(System.String,System.String,System.String,System.String)">
+            <summary>
+            Nachricht an genau einen Empfänger schicken
+            </summary>
+            <param name="to"></param>
+            <param name="subject"></param>
+            <param name="content"></param>
+            <param name="from"></param>
+        </member>
+    </members>
+</doc>

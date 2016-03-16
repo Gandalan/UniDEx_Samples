@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.DataBase.SQL</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDB.IsDataBaseServerAvailable(IPS.Library.DataBase.Contracts.IDBServerData,System.Boolean)">
+            <summary>
+            Prüft, ob eine Serverinstance verfügbar ist.
+            </summary>
+            <param name="serverInstanceName">Name der zu prüfenden Serverinstance. [Standard: CommonDBProperties.DBServerInstanceName]</param>
+            <param name="useSilentMode">Wenn TRUE, wird keine Mitteilung ausgegeben, falls die Serverinstance nicht zur Verfügung steht.</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDB.IsDataBaseAvailable(System.String,System.Boolean,System.Boolean@,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Es wird geprüft, ob die Datenbank verfügbar ist.
+            </summary>
+            <param name="dbName">DB-Name der zu prüfenden Datenbank.</param>
+            <param name="useIntegratedSecurity"></param>
+            <param name="isDataBaseOnline"></param>
+            <param name="serverInstanceName">Name der Serverinstance, bei der die Datenbank angemeldet sein sollte. [Standard: CommonDBProperties.DBServerInstanceName]</param>
+            <param name="checkDBServer">Wenn TRUE, wird vor dem Überprüfen der Datenbank, die Verfügbarkeit der SQL-Serverinstance kontrolliert.</param>
+            <param name="registredDB">Wenn TRUE, wird versucht die Datenbank im Server zu registrieren,falls sie es nicht ist.</param>
+            <param name="useSilentMode">Wenn TRUE, werden keine Mitteilung/Abfragen während des Prüfvorgangs ausgegeben.</param>
+            <param name="dbDirectory">Verzeichnis, aus Sicht des SQL-Servers, in dem sich die Datenbank befinden soll, falls sie noch registriert werden muss.</param>
+            <param name="dbDataFileName">Name der Datendatei.</param>
+            <param name="dbLogFileName">Name des Logdatei</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDB.IsSqlServerLocalInstalled(System.String)">
+            <summary>
+            Es wird geprüft, ob ein SQL-Server auf dem lokalen PC läuft.
+            </summary>
+            <param name="processName">Der Name des Prozesses, unter dem der Sql-Server läuft</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDB.IsSetDBStatusOK(System.String,IPS.Library.DataBase.Enums.DBStatus,System.Boolean,System.String,System.String)">
+            <summary>
+            Es wird versucht den Status einer Datenbank zu setzen.
+            </summary>
+            <param name="dbName">Name der Datenbank, für die der Status gesetzt werden soll.</param>
+            <param name="dbStatus">Status, auf den die Datenbank gesetzt werden soll.</param>
+            <param name="useSilentMode">Wenn TRUE, wird keine Mitteilung über das Ausführungsergebnis der Aktion ausgegeben.</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.ChangeServerInstanceName(System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connectionString"></param>
+            <param name="newServerInstanceName"></param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.BuildConnectionString(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="workstationID">[Standard: BaseProperties.ComputerName]</param>
+            <param name="serverInstanceName">[Standard: CommonDBProperties.DBServerInstanceName]</param>
+            <param name="dbName">[Standard: CommonDBProperties.ProjectDataBase]</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.BuildConnectionStringNew(System.Boolean,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="useIntegratedSecurity"></param>
+            <param name="workstationID">[Standard: BaseProperties.ComputerName]</param>
+            <param name="serverInstanceName">[Standard: CommonDBProperties.DBServerInstanceName]</param>
+            <param name="dbName">[Standard: CommonDBProperties.ProjectDataBase]</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.IsConnectionOpen(System.Data.SqlClient.SqlConnection@,System.String,System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            Es wird geprüft, ob eine DB-Connection offen ist. Falls nicht, wird eine neue angelegt (sofern gewünscht).
+            </summary>
+            <param name="connection">Die zu prüfende Connection (kann auch NULL sein)</param>
+            <param name="connectionString">Connectionstring zum Öffnen der DB-Connection. [Standard: Aufruf von BuildConnectionString(...)]</param>
+            <param name="openConnection">Wenn TRUE, wird versucht eine Connection zur Datenbank zu öffnen.</param>
+            <param name="dbName"></param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.IsConnectionOpen(System.Data.SqlClient.SqlConnection@,System.Boolean@,System.String,System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            Es wird geprüft, ob eine DB-Connection offen ist. Falls nicht, wird eine neue angelegt (sofern gewünscht).
+            </summary>
+            <param name="connection">Die zu prüfende Connection (kann auch NULL sein)</param>
+            <param name="localConnection">Liefert TRUE zurück, falls die Connection innerhalb der Methode neu erstellt wurde.</param>
+            <param name="connectionString">Connectionstring zum Öffnen der DB-Connection. [Standard: Aufruf von BuildConnectionString(...)]</param>
+            <param name="openConnection">Wenn TRUE, wird versucht eine Connection zur Datenbank zu öffnen.</param>
+            <param name="dbName">Name der Datenbank die bei der optionalen Erstellung des Connectionstrings verwendet werden soll.</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.IsDataBaseAttached(System.String,System.String[],System.String,System.String)">
+            <summary>
+            Versucht die Datenbank beim akt. SQL-Server [CommonDBProperties.DBServerInstanceName] anzumelden
+            </summary>
+            <param name="dbName">Name der Datenbank, für die am Server angemeldet werden soll.</param>
+            <param name="fileNames">Weiter vollständige DB-Dateinamen (inkl. Verzeichnis), die zur Datenbank gehören. (Bsp.: Logdatei)</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.IsDataBaseDetached(System.String,System.String,System.String)">
+            <summary>
+            Versucht die Datenbank beim akt. SQL-Server [CommonDBProperties.DBServerInstanceName] abzumelden
+            </summary>
+            <param name="dbName">Name der Datenbank, für die am Server abgemeldet werden soll.</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.IsDataBaseRegistered(System.String,System.String,System.String)">
+            <summary>
+            Kontrolliert, ob eine Datenbank am akt. DB-Server [CommonDBProperties.DBServerInstanceName] angemeldet ist.
+            </summary>
+            <param name="dbName">Name der Datenbank, für die am Server abgemeldet werden soll.</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.IsDataBaseRemoved(System.String,System.String,System.String)">
+            <summary>
+            Es wird versucht eine angemeldete Datenbank aus dem akt. Server [CommonDBProperties.DBServerInstanceName] zu entfernen.
+            </summary>
+            <param name="dbName">Name der Datenbank, für die am Server abgemeldet werden soll.</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.GetPhysicalPath(System.String,System.String,System.String)">
+            <summary>
+            Gibt den physischen Dateipfad der Datenbank zurück.
+            </summary>
+            <param name="dbName"></param>
+            <param name="userID"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.IsSetDBStatusOK(IPS.Library.DataBase.Enums.DBStatus,System.Boolean,System.Data.SqlClient.SqlConnection,System.String,System.String)">
+            <summary>
+            Es wird versucht den aktuellen Status eine Datenbank zu setzen.
+            </summary>
+            <param name="dbStatus"></param>
+            <param name="useSilentMode">Wenn TRUE, wird einje eventuell auftretende Exeption protokolliert, aber nur angezeigt, wenn das Programm im Adminmodus läuft.</param>
+            <param name="connection">DB-Connection, die für den Zugriff auf den DB-Server verwendet werden soll. Kann auch null sein.</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.GetDBStatus(System.Boolean,System.Data.SqlClient.SqlConnection,System.String,System.String)">
+            <summary>
+            Es wid der aktuelle Status einr Datenbank abgefragt.
+            </summary>
+            <param name="useSilentMode">Wenn TRUE, wird einje eventuell auftretende Exeption protokolliert, aber nur angezeigt, wenn das Programm im Adminmodus läuft.</param>
+            <param name="connection">DB-Connection, die für den Zugriff auf den DB-Server verwendet werden soll.</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataBase.IsDBOnline(System.Boolean,System.Data.SqlClient.SqlConnection,System.String,System.String)">
+            <summary>
+            Es wid überprüft, ob eine .
+            </summary>
+            <param name="useSilentMode">Wenn TRUE, wird einje eventuell auftretende Exeption protokolliert, aber nur angezeigt, wenn das Programm im Adminmodus läuft.</param>
+            <param name="connection">DB-Connection, die für den Zugriff auf den DB-Server verwendet werden soll.</param>
+            <param name="userID">Benutzername, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.UserID]</param>
+            <param name="password">Passwort, wenn keine Windowsauthentifizierung verwendet werden soll. [Standard: CommonDBProperties.Password]</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.CommonSqlDBRoutinen.ExecuteSQLScript(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Führt ein in einer Datei gespeichertes SQL-Scrip auf dem Server aus.
+            </summary>
+            <param name="sqlScriptPath">Dateiname des SQL-Scriptes</param>
+            <param name="sqlConnection">Zu verwendende SQL-Connection. Falls NULL, wird eine lokale Connection zum akt. Server verwendet.</param>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.CommonSqlDBRoutinen.GetAllDataBases(System.Boolean,System.String,System.String)">
+            <summary>
+            Ermittelt alle Datenbanken für alle im System gefunden Server.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.CommonSqlDBRoutinen.GetSqlServerInstanceDataBasesName(System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            Liefert eine Liste mit den Namen aller Datenbanken innerhalb der Serverinstanz. 
+            </summary>
+            <param name="serverInstanceName">Serverinstanz</param>
+            <param name="onlyUserDBs">Wenn TRUE, werden nur die Namen von Benutzerdatenbanken zurückgeliefert.</param>
+            <param name="userID">Benutzername</param>
+            <param name="password">Passwort</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.CommonSqlDBRoutinen.GetSqlServerInstanceDataBases(System.String,System.String,System.String)">
+            <summary>
+            Gibt alle Datenbanken einer MS Sql Server Instanz zurück
+            </summary>
+            <param name="serverInstanceName">Serverinstanz</param>
+            <param name="userID">Benutzername</param>
+            <param name="password">Passwort</param>
+            <returns>Gibt eine Liste der Datenbanken zurück</returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.CommonSqlDBRoutinen.ConvertDBFieldTypes(System.Object,System.Object)">
+            <summary>
+            Konvertiert einen SqlDbType in einen DataType
+            </summary>
+            <param name="fieldType"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.CommonSqlDBRoutinen.GetAllDBTableNames(System.Data.SqlClient.SqlConnection,System.String)">
+            <summary>
+            liefert von allen nutzerdefinierten Tabellen einer Datenbank die Namen zurück
+            </summary>
+            <param name="connection"></param>
+            <param name="dbName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.CommonSqlDBRoutinen.ConvertToSqlDBType(System.Type,IPS.Library.DataBase.Enums.DBDataTypes)">
+            <summary>
+            Konvertiert einen System-DatenType in einen SqlDbType
+            </summary>
+            <param name="type"></param>
+            <param name="valueType">SubTyp für Decimal/DateTime/Byte[]/String</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.CommonSqlDBRoutinen.ClearDBTable(System.Data.SqlClient.SqlConnection,System.String,System.String)">
+            <summary>
+            Löscht alle Daten aus einer DB-Tabelle.
+            </summary>
+            <param name="connection"></param>
+            <param name="dbName"></param>
+            <param name="dataTableName"></param>
+            <returns></returns>
+        </member>
+        <member name="E:IPS.Library.DataBase.SQL.SqlServerBackup.PercentComplete">
+            <summary>
+            Wird beim Fortschritt des Backup oder Restore aufgerufen
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.SqlServerBackup.BackupToFile(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Erzeugt ein Backup einer Datenbank 
+            </summary>
+            <param name="serverInstanceName">Der Name des SQL Servers</param>
+            <param name="databaseName">Der Name der zu sichernden Datenbank</param>
+            <param name="backupFileNameServerSide">Der Name der Datei, in die das Backup geschrieben werden soll</param>
+            <param name="userID">Login-Name für den Login falls keine vertraute Verbindung verwendet werden soll</param>
+            <param name="password">Passwort für den Login falls keine vertraute Verbindung verwendet werden soll</param>
+        </member>
+        <member name="F:IPS.Library.DataBase.SQL.AdminDataClass.SelectCommandForReadUpdatedData">
+            <summary>
+            Select Anweisung für den das Neueinlesen der gespeicherten Daten
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataClass.DeleteRecord(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.Int32)">
+            <summary>
+            Löschte den Datensatz mit der übergebene RecID in der Datenbank.
+            </summary>
+            <param name="dataEntityObject"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataClass.DeleteRecords(IPS.Library.DataBase.Contracts.IDataEntityObjectBase,System.String)">
+            <summary>
+            Löschte alle Datensätze in der Datenbank, die der WhereClause entsprechen.
+            </summary>
+            <param name="dataEntityObject"></param>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataClass.CreateDeleteUpdateInsertCommand(IPS.Library.DataBase.Data.DataSetExt,IPS.Library.BaseClass.Collections.ListExtString,System.Boolean)">
+            <summary>
+            Erzeugt einen SQL-DataAdpater für eine Tabelle/DataSet mit vordeffinierten Update,Insert und Delete Commandos
+            </summary>
+            <param name="dataSet"></param>
+            <param name="exclusionColumnNames"></param>
+            <param name="ignoreAutoincrementColumns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataClass.FillDataSet(IPS.Library.DataBase.Data.DataSetExt,System.String)">
+            <summary>
+            Füllt eine Tabelle in einem DataSet mit Daten
+            </summary>
+            <param name="dataSet"></param>
+            <param name="tableName"></param>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataClass.GetMaxValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            Liefert den grössten Wert der in der Tabellenspalte vorhanden ist.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.AdminDataClass.GetMinValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            Liefert den kleinsten Wert der in der Tabellenspalte vorhanden ist.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.DataBase.SQL.SqlAccessForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.SqlAccessForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IPS.Library.DataBase.SQL.SqlAccessForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

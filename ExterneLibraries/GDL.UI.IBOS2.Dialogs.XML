@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.UI.IBOS2.Dialogs</name>
+    </assembly>
+    <members>
+        <member name="F:Gandalan.UI.Dialogs.IBOS2.Belegblatt.BesonderheitenDetailDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Belegblatt.BesonderheitenDetailDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Belegblatt.BesonderheitenDetailDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.UI.Dialogs.IBOS2.Belegblatt.FarbAnzeigeControl.components">
+            <summary> 
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Belegblatt.FarbAnzeigeControl.Dispose(System.Boolean)">
+            <summary> 
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Belegblatt.FarbAnzeigeControl.InitializeComponent">
+            <summary> 
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="F:Gandalan.UI.Dialogs.IBOS2.Belegblatt.FarbeDetailDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Belegblatt.FarbeDetailDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Belegblatt.FarbeDetailDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.UI.Dialogs.IBOS2.Belegblatt.FarbListeControl.components">
+            <summary> 
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Belegblatt.FarbListeControl.Dispose(System.Boolean)">
+            <summary> 
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Belegblatt.FarbListeControl.InitializeComponent">
+            <summary> 
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="F:Gandalan.UI.Dialogs.IBOS2.ObjektEditoren.BearbeitungEditorDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.ObjektEditoren.BearbeitungEditorDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.ObjektEditoren.BearbeitungEditorDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.UI.Dialogs.IBOS2.Optionen.OptionenDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Optionen.OptionenDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param suchWort="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Optionen.OptionenDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.UI.Dialogs.IBOS2.Optionen.RuntimeKonfigDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Optionen.RuntimeKonfigDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.UI.Dialogs.IBOS2.Optionen.RuntimeKonfigDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Gandalan.UI.Dialogs.IBOS2.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Dialogs.IBOS2.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:Gandalan.UI.Dialogs.IBOS2.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="F:Gandalan.IDAS.IBOSHost.DetailDialoge.EinbauortDetailDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.IBOSHost.DetailDialoge.EinbauortDetailDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.IDAS.IBOSHost.DetailDialoge.EinbauortDetailDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.IDAS.IBOSHost.DetailDialoge.RabattDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.IBOSHost.DetailDialoge.RabattDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.IDAS.IBOSHost.DetailDialoge.RabattDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.Windows.Controls.ModellAnzeige.PreisAnpassenDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.ModellAnzeige.PreisAnpassenDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.Windows.Controls.ModellAnzeige.PreisAnpassenDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.AdminTool.DbUpdater.Dialogs.SqlFolderBrowseDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.AdminTool.DbUpdater.Dialogs.SqlFolderBrowseDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.AdminTool.DbUpdater.Dialogs.SqlFolderBrowseDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

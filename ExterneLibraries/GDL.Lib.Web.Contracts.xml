@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.Lib.Web.Contracts</name>
+    </assembly>
+    <members>
+        <member name="M:Gandalan.Library.Web.ITrackingItem.CollectValues">
+            <summary>
+            Erstellt eine Key/Value-Pair-Auflistung der Eigenschaften für die Übertragung nach VS-Gandalan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Gandalan.Library.Web.WebPropertiesBase.PHPScriptOrdner">
+            <summary>
+            Das Verzeichnis, in dem die PHP-Scripte auf dem neuen Server liegen.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.Web.WebPropertiesBase.IsUsingServerOld">
+            <summary>
+            Ist TRUE, wenn die Eigenschaft 'DefaultBaseURLServer' auf den alten VS-Gandalan Server verweist.
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.Web.WebPropertiesBase.WebFileMaskingExtension">
+            <summary>
+            Mit Hilfe dieser Dateierweiterung können Datein mit beliebiger Originalerweiterung auf dem Gandalanfileserver zum Download bereitgestellt werden.
+            Dazu wird die Endung einfach am Ende des vollständigen Namens angehängt:
+            <example>Original: Test.exe ==> Maskiert: Test.exe.gdl</example>
+            Nach dem Erfolgreichen Download wird sie vor der Weiterverarbeitung einfach wieder entfernt.
+            </summary>
+        </member>
+    </members>
+</doc>

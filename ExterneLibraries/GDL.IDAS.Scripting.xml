@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.IDAS.Scripting</name>
+    </assembly>
+    <members>
+        <member name="T:Gandalan.IDAS.Scripting.CSharp.ScriptCompiler">
+            <summary>
+            Kompiliert Code-Schnipsel in .NET Klassen
+            </summary>
+        </member>
+        <member name="M:Gandalan.IDAS.Scripting.CSharp.ScriptCompiler.CompileScript(System.String,System.String[],System.CodeDom.Compiler.CodeDomProvider)">
+            <summary>
+            Kompiliert den src-Ausdruck in eine In-Memory-Assembly
+            </summary>
+            <param name="src">Code (vollständige C#-Klasse)</param>
+            <param name="refs">benötigte Referenzen</param>
+            <param name="provider">provider für Compiler-Dienste</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gandalan.IDAS.Scripting.CSharp.ScriptCompiler.FindInterface(System.Reflection.Assembly,System.String)">
+            <summary>
+            Alle Typen einer Assembly durchsehen auf implementierte Interfaces
+            </summary>
+            <param name="asm">zu prüfende Assembly</param>
+            <param name="interfaceName">Name des Interfaces (full qualified)</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

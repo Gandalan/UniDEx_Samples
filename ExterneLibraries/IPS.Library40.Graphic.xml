@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.Graphic</name>
+    </assembly>
+    <members>
+        <member name="M:IPS.Library.Graphic.GraphicRoutinen.ConvertStringToSize(System.String)">
+            <summary>
+            Convertiert eine Zeichenkette vom Format '{Width=nnn, Height=nnn}' in ein Sizeobject.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.GraphicRoutinen.ConvertStringToPoint(System.String)">
+            <summary>
+            Convertiert eine Zeichenkette vom Format '{X=nnn, Y=nnn}' in ein Pointobject.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.GraphicRoutinen.GetRandomColor">
+            <summary>
+            Liefert eine Farbe aus der Aufzählung "KnownColor" per Zufallsauswahl zurück.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.CreateScreenShot0(System.IntPtr)">
+            <summary>
+            Erstellt ein Screenshot von dem übergebene Window
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.CreateScreenShot(System.Windows.Forms.Form)">
+            <summary>
+            Erstellt ein Screenshot von dem übergebene Formular
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.Text2Bitmap(System.String,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Wandelt einen String in ein Bitmap (Image) um.
+            </summary>
+            <param name="value">Beliebiger Text (auch mehrzeilig mit \n)</param>
+            <param name="font">Font als Objekt</param>
+            <param name="foreColor">Schriftfarbe</param>
+            <param name="backColor">Hintergrundfarbe</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.TextSize(System.String,System.Drawing.Font)">
+            <summary>
+            Ermittelt die Größe eines Textes in Pixel
+            </summary>
+            <param name="value">Text dessen Größe ermittelt werden soll (auch mehrzeilig mit \n)</param>
+            <param name="font">Font</param>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.Text2Bitmap(System.String,System.String,System.Single,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Wandelt einen String in ein Bitmap (Image) um.
+            </summary>
+            <param name="value">Beliebiger Text (auch mehrzeilig mit \n)</param>
+            <param name="fontName">Name des Font z.B. Arial</param>
+            <param name="fontSize">Fontgröße</param>
+            <param name="foreColor">Schriftfarbe</param>
+            <param name="backColor">Hintergrundfarbe</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.Text2Bitmap(System.String,System.String,System.Single)">
+            <summary>
+            Wandelt einen String in ein Bitmap (Image) um. Schriftfarbe ist schwarz, Hintergrund ist weiss
+            </summary>
+            <param name="value">Beliebiger Text (auch mehrzeilig mit \n)</param>
+            <param name="fontName">Name des Font z.B. Arial</param>
+            <param name="fontSize">Fontgröße</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.ScaleImage(System.Drawing.Image,System.Double)">
+            <summary>
+            Einfache Skalierung das übergebenen Images um den Wert "factor".
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.ScaleImage(System.Drawing.Image,System.Drawing.Size,System.Boolean)">
+            <summary>
+            Skaliert das übergeben Bitmap auf die neue Größe.
+            </summary>
+            <param name="image">Das zu skalierende Bitmap.</param>
+            <param name="newSize">Die Größe des neuen Bildes.</param>
+            <param name="checkSeitenverhaeltnis">Wenn TRUE, werden die Seitenverhältnisse des neuen Bildes an die des Originalbildes angepasst.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.ScaleImageHighQuality(System.Drawing.Image,System.Double,System.Drawing.Drawing2D.InterpolationMode,System.Drawing.Drawing2D.PixelOffsetMode,System.Drawing.Drawing2D.SmoothingMode)">
+            <summary>
+            Skaliert das übergeben Bitmap um den Factor in hoher Qualität.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.ScaleImageHighQuality(System.Drawing.Image,System.Drawing.Size,System.Drawing.Drawing2D.InterpolationMode,System.Drawing.Drawing2D.PixelOffsetMode,System.Drawing.Drawing2D.SmoothingMode,System.Boolean)">
+            <summary>
+            Skaliert das übergeben Bitmap auf die neue Größe.
+            </summary>
+            <param name="image">Das zu skalierende Bitmap.</param>
+            <param name="newSize">Die Größe des neuen Bildes.</param>
+            <param name="interpolationMode"></param>
+            <param name="pixelOffsetMode"></param>
+            <param name="smothingMode"></param>
+            <param name="checkSeitenverhaeltnis">Wenn TRUE, werden die Seitenverhältnisse des neuen Bildes an die des Originalbildes angepasst.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.RotateImageByAngle(System.Drawing.Image,System.Single)">
+            <summary>
+            Rotates the image by angle.
+            </summary>
+            <param name="sourceBitmap">The old bitmap.</param>
+            <param name="angle">The angle.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.CreateBitmap(System.Drawing.SizeF,System.Nullable{System.Drawing.Color},System.Boolean,System.Drawing.Graphics)">
+            <summary>
+            Es wird ein Bitmap von der übergebenen Größe erzeugt.
+            </summary>
+            <param name="size">Größe der Bitmap</param>
+            <param name="color">Füllfarbe</param>
+            <param name="setColor">TRUE, wenn das Bitmap mit Farbe gefüllt werden soll</param>
+            <param name="graphics"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.CreateBitmap(System.Drawing.Size,System.Nullable{System.Drawing.Color},System.Boolean,System.Drawing.Graphics)">
+            <summary>
+            Es wird ein Bitmap von der übergebenen Größe erzeugt.
+            </summary>
+            <param name="size">Größe der Bitmap</param>
+            <param name="color">Füllfarbe</param>
+            <param name="setColor">TRUE, wenn das Bitmap mit Farbe gefüllt werden soll</param>
+            <param name="graphics"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.GetIconFromImageList(System.Windows.Forms.ImageList,System.String)">
+            <summary>
+            Macht aus einem Bild in einer Imagelist ein Icon.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.GetIconFromImageList(System.Windows.Forms.ImageList,System.Int32)">
+            <summary>
+            Macht aus einem Bild in einer Imagelist ein Icon.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.GetIconFromImage(System.Drawing.Bitmap)">
+            <summary>
+            Erzeugt aus einem Bild ein Icon.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.GetScaledSize(System.Drawing.Size,System.Int32,System.Int32,System.Int32,IPS.Library.BaseClass.Enums.ObjectPropertyTypes)">
+            <summary>
+            Es werden die Ausgangsmaße im korrekten Seitenverhältnis an die Zielmaße angepasst.
+            </summary>
+            <param name="_sourceSize">Ausgangsmaße</param>
+            <param name="_staticValue"></param>
+            <param name="_maxValue"></param>
+            <param name="_minValue"></param>
+            <param name="_staticProperty">Bestimmt, welches Maß das Basismaß ist (Höhe/Breite).</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.ConvertImageToString(System.Drawing.Image)">
+            <summary>
+            Konvertiert ein Bild in einen Base64-String
+            </summary>
+            <param name="image">
+            Zu konvertierendes Bild
+            </param>
+            <returns>
+            Base64 Repräsentation des Bildes
+            </returns>
+        </member>
+        <member name="M:IPS.Library.Graphic.ImageRoutinen.ConvertStringToImage(System.String)">
+            <summary>
+            Konvertiert einen Base64-String zu einem Bild
+            </summary>
+            <param name="base64String">
+            Zu konvertierender String
+            </param>
+            <returns>
+            Bild das aus dem String erzeugt wird
+            </returns>
+        </member>
+    </members>
+</doc>

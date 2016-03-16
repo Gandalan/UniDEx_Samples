@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.WinForm.MessageBoxIPS</name>
+    </assembly>
+    <members>
+        <member name="F:IPS.Library.WinForm.MessageBoxIPS.MessageData.WindowTitle">
+            <summary>
+            Daten/Einstellungen zur Nachrichtsausgabe Titel des Meldungsdialoges
+            </summary>
+        </member>
+        <member name="F:IPS.Library.WinForm.MessageBoxIPS.MessageData.MainInstruction">
+            <summary>
+            Kurznachricht und beschreibender Inhalt
+            </summary>
+        </member>
+        <member name="F:IPS.Library.WinForm.MessageBoxIPS.MessageData.MessageContent">
+            <summary>
+            Inhalt, ggfs. mit darin enthaltenen Verknüpfungen
+            </summary>
+        </member>
+    </members>
+</doc>

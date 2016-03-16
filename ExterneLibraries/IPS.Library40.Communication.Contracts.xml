@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.Communication.Contracts</name>
+    </assembly>
+    <members>
+        <member name="F:IPS.Library.Communication.Contracts.VCard.AddressTypsVCard.POSTAL">
+            <summary>
+            Postalisch
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Communication.Contracts.VCard.AddressTypsVCard.PARCEL">
+            <summary>
+            Postfach
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Communication.Contracts.VCard.AddressTypsVCard.HOME">
+            <summary>
+            Privatadresse
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Communication.Contracts.VCard.AddressTypsVCard.WORK">
+            <summary>
+            Arbeitsdaress
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Communication.Contracts.VCard.CommunicationTypesVCard.VOICE">
+            <summary>
+            Telefon
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Communication.Contracts.VCard.CommunicationTypesVCard.FAX">
+            <summary>
+            Fax
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Communication.Contracts.VCard.CommunicationTypesVCard.CELL">
+            <summary>
+            Funk
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Communication.Contracts.VCard.CommunicationPlacesVCard.WORK">
+            <summary>
+            Arbeit
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Communication.Contracts.VCard.CommunicationPlacesVCard.HOME">
+            <summary>
+            Privat
+            </summary>
+        </member>
+        <member name="F:IPS.Library.Communication.Contracts.VCard.CommunicationPlacesVCard.CAR">
+            <summary>
+            Auto
+            </summary>
+        </member>
+    </members>
+</doc>

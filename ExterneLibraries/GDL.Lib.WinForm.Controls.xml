@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GDL.Lib.WinForm.Controls</name>
+    </assembly>
+    <members>
+        <member name="P:Gandalan.Library.WinForm.Controls.CheckBoxGDL.CheckBoxGDL.ReadOnly">
+            <summary>
+            Gets or sets a value indicating whether the control is read-only.
+            </summary>
+            <value>
+            <b>true</b> if the combo box is read-only; otherwise, <b>false</b>. The default is <b>false</b>.
+            </value>
+            <remarks>
+            When this property is set to <b>true</b>, the contents of the control cannot be changed 
+            by the user at runtime. With this property set to <b>true</b>, you can still set the value
+            in code. You can use this feature instead of disabling the control with the Enabled
+            property to allow the contents to be copied.
+            </remarks>
+        </member>
+        <member name="T:Gandalan.Library.WinForm.Controls.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.WinForm.Controls.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.WinForm.Controls.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.WinForm.Controls.Properties.Resources.Gandalan_Logo_2014_RGB_96_2gruen_300x100px">
+            <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.WinForm.Controls.RadioButtonGDL.RadioButtonGDL.ReadOnly">
+            <summary>
+            Gets or sets a value indicating whether the control is read-only.
+            </summary>
+            <value>
+            <b>true</b> if the combo box is read-only; otherwise, <b>false</b>. The default is <b>false</b>.
+            </value>
+            <remarks>
+            When this property is set to <b>true</b>, the contents of the control cannot be changed 
+            by the user at runtime. With this property set to <b>true</b>, you can still set the value
+            in code. You can use this feature instead of disabling the control with the Enabled
+            property to allow the contents to be copied.
+            </remarks>
+        </member>
+        <member name="P:Gandalan.Library.WinForm.Controls.TextBoxGDL.TextBoxGDL.BorderStyle">
+            <summary>
+            Gets or sets the border style of the control.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.WinForm.Controls.TextBoxGDL.TextBoxGDL.Visible">
+            <summary>
+            Gets or sets a value indicating wether the control is displayed.
+            </summary>
+            <value><b>true</b> if the control is displayed; otherwise, <b>false</b>. 
+            The default is <b>true</b>.</value>
+        </member>
+        <member name="P:Gandalan.Library.WinForm.Controls.TextBoxGDL.TextBoxGDL.IsNewItem">
+            <summary>
+            Liefert TRUE zurück, wenn der akt. Eintrag in der AutoCompleteCustomSource-Auflistung nicht enthalten ist.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.WinForm.Controls.TextBoxGDL.TextBoxGDL.showControl">
+            <summary>
+            Shows either the ComboBox or the TextBox or nothing, depending on the state
+            of the ReadOnly, Enable and Visible flags.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.WinForm.UserForms.KundendienstForm.StarteFernwartung">
+            <summary>
+            Alternative Aktion zum Starten des Teamviewers, wenn der modulinterne Aufruf nicht verwendet werden soll.
+            </summary>
+        </member>
+        <member name="P:Gandalan.Library.WinForm.UserForms.KundendienstForm.OpenMailClient">
+            <summary>
+            Alternative Aktion zum Öffnen des lokalen Mailclintes für das Versenden einer Supportmail, wenn der modulinterne Aktion nicht verwendet werden soll.
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.WinForm.UserForms.KundendienstForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.WinForm.UserForms.KundendienstForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.Library.WinForm.UserForms.KundendienstForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.WinForm.UserForms.MailBetreffForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.WinForm.UserForms.MailBetreffForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gandalan.Library.WinForm.UserForms.MailBetreffForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Gandalan.Library.WinForm.UserForms.KundenDienstUC.components">
+            <summary> 
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Gandalan.Library.WinForm.UserForms.KundenDienstUC.Dispose(System.Boolean)">
+            <summary> 
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Gandalan.Library.WinForm.UserForms.KundenDienstUC.InitializeComponent">
+            <summary> 
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+    </members>
+</doc>

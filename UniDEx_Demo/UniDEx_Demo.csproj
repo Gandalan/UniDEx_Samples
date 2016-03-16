@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9A1079F-87B5-4F01-8DA7-FC4F8C0F4DE4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniDEx_Demo</RootNamespace>
+    <AssemblyName>UniDEx_Demo</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GDL.IDAS.Data, Version=14.11.5457.25731, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExterneLibraries\GDL.IDAS.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="GDL.IDAS.UniDEx">
+      <HintPath>..\ExterneLibraries\GDL.IDAS.UniDEx.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Jobs\JobParameterViewModel.cs" />
+    <Compile Include="Jobs\JobsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Jobs\JobsControl.Designer.cs">
+      <DependentUpon>JobsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jobs\JobStatusViewModel.cs" />
+    <Compile Include="Jobs\JobViewModel.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiketten\EtikettenAnzeigeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Etiketten\EtikettenAnzeigeControl.Designer.cs">
+      <DependentUpon>EtikettenAnzeigeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiketten\EtikettenItem.cs" />
+    <Compile Include="Etiketten\EtikettenRoutinen.cs" />
+    <Compile Include="Preise\PreisAnzeigeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Preise\PreisAnzeigeControl.Designer.cs">
+      <DependentUpon>PreisAnzeigeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Preise\PreisInfoItem.cs" />
+    <Compile Include="Preise\PreisRoutinen.cs" />
+    <Compile Include="Produktion\ProduktionAnzeigeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Produktion\ProduktionAnzeigeControl.Designer.cs">
+      <DependentUpon>ProduktionAnzeigeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produktion\ProduktionItem.cs" />
+    <Compile Include="Produktion\ProduktionRoutinen.cs" />
+    <Compile Include="Texte\TextAnzeigeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Texte\TextAnzeigeControl.Designer.cs">
+      <DependentUpon>TextAnzeigeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Texte\TextItem.cs" />
+    <Compile Include="Texte\TextRoutinen.cs" />
+    <Compile Include="Materialbedarf\MaterialBedarfAnzeigeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Materialbedarf\MaterialBedarfAnzeigeControl.Designer.cs">
+      <DependentUpon>MaterialBedarfAnzeigeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materialbedarf\MaterialbedarfItem.cs" />
+    <Compile Include="Materialbedarf\MaterialbedarfRoutinen.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Jobs\JobsControl.resx">
+      <DependentUpon>JobsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiketten\EtikettenAnzeigeControl.resx">
+      <DependentUpon>EtikettenAnzeigeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preise\PreisAnzeigeControl.resx">
+      <DependentUpon>PreisAnzeigeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produktion\ProduktionAnzeigeControl.resx">
+      <DependentUpon>ProduktionAnzeigeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Texte\TextAnzeigeControl.resx">
+      <DependentUpon>TextAnzeigeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materialbedarf\MaterialBedarfAnzeigeControl.resx">
+      <DependentUpon>MaterialBedarfAnzeigeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Gandalan.IDAS.UniDEx.Models.ObjectProperty.datasource" />
+    <None Include="Properties\DataSources\Gandalan.IDAS.UniDEx.Provider.Materialbedarf.MaterialBedarfContainer.datasource" />
+    <None Include="Properties\DataSources\UniDEx_Demo.Jobs.JobParameterViewModel.datasource" />
+    <None Include="Properties\DataSources\UniDEx_Demo.Jobs.JobStatusViewModel.datasource" />
+    <None Include="Properties\DataSources\UniDEx_Demo.Jobs.JobViewModel.datasource" />
+    <None Include="Properties\DataSources\UniDEx_Demo.Materialbedarf.MaterialbedarfItem.datasource" />
+    <None Include="Properties\DataSources\UniDEx_Demo.Preise.PreisInfoItem.datasource" />
+    <None Include="Properties\DataSources\UniDEx_Demo.Texte.TextItem.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

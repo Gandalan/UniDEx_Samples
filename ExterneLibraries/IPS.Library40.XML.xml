@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IPS.Library40.XML</name>
+    </assembly>
+    <members>
+        <member name="T:IPS.Library.XML.SerializedFormat">
+            <summary>
+            Serialization format types.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.XML.SerializedFormat.Binary">
+            <summary>
+            Binary serialization format.
+            </summary>
+        </member>
+        <member name="F:IPS.Library.XML.SerializedFormat.Document">
+            <summary>
+            Document serialization format.
+            </summary>
+        </member>
+        <member name="T:IPS.Library.XML.ObjectXMLSerializer`1">
+            <summary>
+            Facade to XML serialization and deserialization of strongly typed objects to/from an XML file.
+            
+            References: XML Serialization at http://samples.gotdotnet.com/:
+            http://samples.gotdotnet.com/QuickStart/howto/default.aspx?url=/quickstart/howto/doc/xmlserialization/rwobjfromxml.aspx
+            </summary>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Load(System.String)">
+            <summary>
+            Loads an object from an XML file in Document format.
+            </summary>
+            <example>
+            <code>
+            serializableObject = ObjectXMLSerializer&lt;SerializableObject&gt;.Load(@"C:\XMLObjects.xml");
+            </code>
+            </example>
+            <param name="path">Path of the file to load the object from.</param>
+            <returns>Object loaded from an XML file in Document format.</returns>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Load(System.String,IPS.Library.XML.SerializedFormat)">
+            <summary>
+            Loads an object from an XML file using a specified serialized format.
+            </summary>
+            <example>
+            <code>
+            serializableObject = ObjectXMLSerializer&lt;SerializableObject&gt;.Load(@"C:\XMLObjects.xml", SerializedFormat.Binary);
+            </code>
+            </example>		
+            <param name="path">Path of the file to load the object from.</param>
+            <param name="serializedFormat">XML serialized format used to load the object.</param>
+            <returns>Object loaded from an XML file using the specified serialized format.</returns>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Load(System.String,System.Type[])">
+            <summary>
+            Loads an object from an XML file in Document format, supplying extra data types to enable deserialization of custom types within the object.
+            </summary>
+            <example>
+            <code>
+            serializableObject = ObjectXMLSerializer&lt;SerializableObject&gt;.Load(@"C:\XMLObjects.xml", new Type[] { typeof(MyCustomType) });
+            </code>
+            </example>
+            <param name="path">Path of the file to load the object from.</param>
+            <param name="extraTypes">Extra data types to enable deserialization of custom types within the object.</param>
+            <returns>Object loaded from an XML file in Document format.</returns>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Load(System.String,System.IO.IsolatedStorage.IsolatedStorageFile)">
+            <summary>
+            Loads an object from an XML file in Document format, located in a specified isolated storage area.
+            </summary>
+            <example>
+            <code>
+            serializableObject = ObjectXMLSerializer&lt;SerializableObject&gt;.Load("XMLObjects.xml", IsolatedStorageFile.GetUserStoreForAssembly());
+            </code>
+            </example>
+            <param name="fileName">Name of the file in the isolated storage area to load the object from.</param>
+            <param name="isolatedStorageDirectory">Isolated storage area directory containing the XML file to load the object from.</param>
+            <returns>Object loaded from an XML file in Document format located in a specified isolated storage area.</returns>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Load(System.String,System.IO.IsolatedStorage.IsolatedStorageFile,IPS.Library.XML.SerializedFormat)">
+            <summary>
+            Loads an object from an XML file located in a specified isolated storage area, using a specified serialized format.
+            </summary>
+            <example>
+            <code>
+            serializableObject = ObjectXMLSerializer&lt;SerializableObject&gt;.Load("XMLObjects.xml", IsolatedStorageFile.GetUserStoreForAssembly(), SerializedFormat.Binary);
+            </code>
+            </example>		
+            <param name="fileName">Name of the file in the isolated storage area to load the object from.</param>
+            <param name="isolatedStorageDirectory">Isolated storage area directory containing the XML file to load the object from.</param>
+            <param name="serializedFormat">XML serialized format used to load the object.</param>        
+            <returns>Object loaded from an XML file located in a specified isolated storage area, using a specified serialized format.</returns>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Load(System.String,System.IO.IsolatedStorage.IsolatedStorageFile,System.Type[])">
+            <summary>
+            Loads an object from an XML file in Document format, located in a specified isolated storage area, and supplying extra data types to enable deserialization of custom types within the object.
+            </summary>
+            <example>
+            <code>
+            serializableObject = ObjectXMLSerializer&lt;SerializableObject&gt;.Load("XMLObjects.xml", IsolatedStorageFile.GetUserStoreForAssembly(), new Type[] { typeof(MyCustomType) });
+            </code>
+            </example>		
+            <param name="fileName">Name of the file in the isolated storage area to load the object from.</param>
+            <param name="isolatedStorageDirectory">Isolated storage area directory containing the XML file to load the object from.</param>
+            <param name="extraTypes">Extra data types to enable deserialization of custom types within the object.</param>
+            <returns>Object loaded from an XML file located in a specified isolated storage area, using a specified serialized format.</returns>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Save(`0,System.String)">
+            <summary>
+            Saves an object to an XML file in Document format.
+            </summary>
+            <example>
+            <code>        
+            SerializableObject serializableObject = new SerializableObject();
+            
+            ObjectXMLSerializer&lt;SerializableObject&gt;.Save(serializableObject, @"C:\XMLObjects.xml");
+            </code>
+            </example>
+            <param name="serializableObject">Serializable object to be saved to file.</param>
+            <param name="path">Path of the file to save the object to.</param>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Save(`0,System.String,IPS.Library.XML.SerializedFormat)">
+            <summary>
+            Saves an object to an XML file using a specified serialized format.
+            </summary>
+            <example>
+            <code>
+            SerializableObject serializableObject = new SerializableObject();
+            
+            ObjectXMLSerializer&lt;SerializableObject&gt;.Save(serializableObject, @"C:\XMLObjects.xml", SerializedFormat.Binary);
+            </code>
+            </example>
+            <param name="serializableObject">Serializable object to be saved to file.</param>
+            <param name="path">Path of the file to save the object to.</param>
+            <param name="serializedFormat">XML serialized format used to save the object.</param>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Save(`0,System.String,System.Type[])">
+            <summary>
+            Saves an object to an XML file in Document format, supplying extra data types to enable serialization of custom types within the object.
+            </summary>
+            <example>
+            <code>        
+            SerializableObject serializableObject = new SerializableObject();
+            
+            ObjectXMLSerializer&lt;SerializableObject&gt;.Save(serializableObject, @"C:\XMLObjects.xml", new Type[] { typeof(MyCustomType) });
+            </code>
+            </example>
+            <param name="serializableObject">Serializable object to be saved to file.</param>
+            <param name="path">Path of the file to save the object to.</param>
+            <param name="extraTypes">Extra data types to enable serialization of custom types within the object.</param>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Save(`0,System.String,System.IO.IsolatedStorage.IsolatedStorageFile)">
+            <summary>
+            Saves an object to an XML file in Document format, located in a specified isolated storage area.
+            </summary>
+            <example>
+            <code>        
+            SerializableObject serializableObject = new SerializableObject();
+            
+            ObjectXMLSerializer&lt;SerializableObject&gt;.Save(serializableObject, "XMLObjects.xml", IsolatedStorageFile.GetUserStoreForAssembly());
+            </code>
+            </example>
+            <param name="serializableObject">Serializable object to be saved to file.</param>
+            <param name="fileName">Name of the file in the isolated storage area to save the object to.</param>
+            <param name="isolatedStorageDirectory">Isolated storage area directory containing the XML file to save the object to.</param>
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Save(`0,System.String,System.IO.IsolatedStorage.IsolatedStorageFile,IPS.Library.XML.SerializedFormat)">
+            <summary>
+            Saves an object to an XML file located in a specified isolated storage area, using a specified serialized format.
+            </summary>
+            <example>
+            <code>        
+            SerializableObject serializableObject = new SerializableObject();
+            
+            ObjectXMLSerializer&lt;SerializableObject&gt;.Save(serializableObject, "XMLObjects.xml", IsolatedStorageFile.GetUserStoreForAssembly(), SerializedFormat.Binary);
+            </code>
+            </example>
+            <param name="serializableObject">Serializable object to be saved to file.</param>
+            <param name="fileName">Name of the file in the isolated storage area to save the object to.</param>
+            <param name="isolatedStorageDirectory">Isolated storage area directory containing the XML file to save the object to.</param>
+            <param name="serializedFormat">XML serialized format used to save the object.</param>        
+        </member>
+        <member name="M:IPS.Library.XML.ObjectXMLSerializer`1.Save(`0,System.String,System.IO.IsolatedStorage.IsolatedStorageFile,System.Type[])">
+            <summary>
+            Saves an object to an XML file in Document format, located in a specified isolated storage area, and supplying extra data types to enable serialization of custom types within the object.
+            </summary>
+            <example>
+            <code>
+            SerializableObject serializableObject = new SerializableObject();
+            
+            ObjectXMLSerializer&lt;SerializableObject&gt;.Save(serializableObject, "XMLObjects.xml", IsolatedStorageFile.GetUserStoreForAssembly(), new Type[] { typeof(MyCustomType) });
+            </code>
+            </example>		
+            <param name="serializableObject">Serializable object to be saved to file.</param>
+            <param name="fileName">Name of the file in the isolated storage area to save the object to.</param>
+            <param name="isolatedStorageDirectory">Isolated storage area directory containing the XML file to save the object to.</param>
+            <param name="extraTypes">Extra data types to enable serialization of custom types within the object.</param>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.CodeXML(System.String,System.String@,System.Boolean,System.Boolean)">
+            <summary>
+            Verschlüsseln eines XmlDocumentes
+            </summary>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.DeCodeXML(System.String,System.Data.DataSet@,System.String@,System.Boolean,System.Boolean)">
+            <summary>
+            Entschlüsseln eines XML-Dokumentes und Rückgabe der Daten in einem DataSet.
+            </summary>
+            <param name="sourcePath">Das XML-Dokumnet.</param>
+            <param name="resultDataSet">Das DataSet, welches die entschlüsselten Daten enthält</param>
+            <param name="errorMessage"></param>
+            <param name="checkFileExist"></param>
+            <param name="silentMode"></param>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.DeCodeXML(System.String,System.String@,System.Boolean,System.Boolean)">
+            <summary>
+            Entschlüsseln eines XmlDocumentes.
+            </summary>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.ReadXML(System.Data.DataSet,System.Xml.XmlDocument,System.String@,System.Boolean)">
+            <summary>
+            Daten aus einem XmlDocument in ein Dataset schreiben 
+            </summary>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.ReadXML(System.Data.DataSet,System.String,System.String@,System.Boolean,System.Boolean)">
+            <summary>
+            Daten aus einem XmlDocument in ein Dataset  schreiben
+            </summary>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.SignXml(System.String,System.String@,System.Boolean,System.Boolean)">
+            <summary>
+            Erstellen der Signatur eines XmlDocumentes
+            </summary>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.VerifyXml(System.String,System.String@,System.Boolean,System.Boolean)">
+            <summary>
+            Überprüfen der Signatur eines XmlDocumentes
+            </summary>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.WriteXML(System.Data.DataSet,System.String,System.String@,System.Boolean)">
+            <summary>
+            Daten aus einem Dataset in ein XmlDocument schreiben
+            </summary>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.WriteXmlData(System.String,System.Object,System.Xml.XmlNode,System.Xml.XmlDocument,System.Boolean)">
+            <summary>
+            Erzeugt ein neues 'ChildNote()' und speichert den Content unter dem Elemntnamen ab.
+            </summary>
+            <param name="elementName"></param>
+            <param name="content"></param>
+            <param name="xmlNode"></param>
+            <param name="xDocElement"></param>
+            <param name="valueIsCDATA"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.CreateEmptyXMLFile(System.String,System.String,System.String@,System.Boolean)">
+            <summary>
+            Es wird eine leere XML-Datei erzeugt.
+            </summary>
+            <param name="destinationPath">Kompletter Dateiname.</param>
+            <param name="baseName">Bezeichnung des Wurzelelementes.</param>
+            <param name="errorMessage"></param>
+            <param name="silentMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.ConvertXMLDocumentToXDocument(System.Xml.XmlDocument)">
+            <summary>
+            Converts the XML document to X document.
+            </summary>
+            <param name="xmlDocument">The XML document.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.loadXMLDocument(System.String)">
+            <summary>
+            Öffnen eines XmlDocumentes
+            </summary>
+        </member>
+        <member name="M:IPS.Library.XML.XMLRoutinen.readCodeKey(System.Xml.XmlDocument,System.Boolean)">
+            <summary>
+            Auslesen des Verschlüsselungskeys aus einem XmlDocument
+            </summary>
+        </member>
+    </members>
+</doc>
